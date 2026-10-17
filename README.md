@@ -55,6 +55,25 @@ to install:
 Builds go to a short path outside `%TEMP%` on purpose: the C++ toolchain breaks on paths
 over 260 characters. Pass `-BuildRoot <folder>` to use another short folder.
 
+### NVIDIA CUDA
+
+The default build runs AI on any GPU through DirectML, NVIDIA cards included. For the CUDA
+backend (often faster on NVIDIA):
+
+```powershell
+.\build.ps1 -Cuda
+```
+
+This produces `%LOCALAPPDATA%\AiUpscalerBuild\gui-cuda\bin\AiUpscaler.exe`, which includes
+both CUDA and DirectML. The PC that runs it needs:
+
+- a current NVIDIA driver,
+- the [CUDA Toolkit 13.x](https://developer.nvidia.com/cuda-downloads) (or just its runtime),
+- [cuDNN 9 for CUDA 13](https://developer.nvidia.com/cudnn-downloads),
+
+with the `bin` folders of both on `PATH`. If something is missing, the app greys out
+**GPU – CUDA** and its tooltip and the log say what failed; DirectML keeps working.
+
 ## Using the app
 
 1. Drop a video on the **Source** pane (or press Ctrl+O, or run `AiUpscaler.exe <video>`).

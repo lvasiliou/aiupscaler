@@ -3,7 +3,7 @@ name = "ai-upscaler"
 version = "0.1.0"
 edition = "2024"
 description = "AI video upscaler: ONNX Runtime super-resolution + ffmpeg video/audio pipeline"
-license = "Apache-2.0"
+license = "MIT"
 
 [dependencies]
 anyhow = "1.0.104"

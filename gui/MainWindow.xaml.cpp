@@ -1066,7 +1066,20 @@ namespace winrt::AiUpscaler::implementation
         bool cuda = devices.GetNamedBoolean(L"cuda", false);
         SetItemAvailable(DeviceCombo(), L"auto", true, T(cuda ? L"Device_AutoCuda" : directml ? L"Device_AutoDml" : L"Device_AutoCpu"), L"");
         SetItemAvailable(DeviceCombo(), L"directml", directml, T(L"Device_DirectML"), T(L"Device_NoDml"));
-        SetItemAvailable(DeviceCombo(), L"cuda", cuda, T(L"Device_Cuda"), T(L"Device_NoCuda"));
+        // Say exactly why CUDA is missing: an engine built without it, or a CUDA/cuDNN runtime problem.
+        auto errors = devices.GetNamedObject(L"errors", nullptr);
+        std::wstring cudaError = errors ? std::wstring(errors.GetNamedString(L"cuda", L"")) : L"";
+        std::wstring cudaReason = T(L"Device_NoCuda");
+        if (cudaError == L"not_built")
+        {
+            cudaReason = T(L"Device_CudaNotBuilt");
+        }
+        else if (!cudaError.empty())
+        {
+            cudaReason = F(L"Device_CudaRuntime", { cudaError });
+            AppendLog(L"CUDA unavailable: " + cudaError);
+        }
+        SetItemAvailable(DeviceCombo(), L"cuda", cuda, T(L"Device_Cuda"), cudaReason);
 
         struct Family { wchar_t const* Tag; wchar_t const* Name; };
         std::wstring gpuEncoders;

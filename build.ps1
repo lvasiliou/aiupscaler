@@ -1,5 +1,6 @@
 # Builds the Rust engine and the C++ WinUI 3 app, then bundles them together.
-# Output: <BuildRoot>\gui\bin\AiUpscaler.exe (with the engine in engine\).
+# Output: <BuildRoot>\gui\bin\AiUpscaler.exe (with the engine in engine\);
+# with -Cuda: <BuildRoot>\gui-cuda\bin\AiUpscaler.exe.
 #
 # Build output goes to a short path because MIDL and the MSVC linker are not
 # long-path aware; deep project folders otherwise fail with LNK1104 / MIDL5157.
@@ -7,20 +8,35 @@ param(
     # Not under %TEMP%: MSBuild's incremental C++ builds misbehave there (MSB8029).
     [string]$BuildRoot = (Join-Path $env:LOCALAPPDATA 'AiUpscalerBuild'),
     [ValidateSet('Release', 'Debug')]
-    [string]$Configuration = 'Release'
+    [string]$Configuration = 'Release',
+    # Also include the NVIDIA CUDA backend. The PC running the app then needs the CUDA 13.x
+    # runtime and cuDNN 9 (for CUDA 13) installed and on PATH. Built into separate folders
+    # (engine-cuda, gui-cuda) so the default build stays small.
+    [switch]$Cuda
 )
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
 
-$cargoTarget = Join-Path $BuildRoot 'engine'
+$flavor = if ($Cuda) { '-cuda' } else { '' }
+$cargoTarget = Join-Path $BuildRoot "engine$flavor"
+$guiRoot = Join-Path $BuildRoot "gui$flavor"
 $packages = Join-Path $BuildRoot 'packages'
 
-Write-Host '== Building Rust engine' -ForegroundColor Cyan
+Write-Host "== Building Rust engine$(if ($Cuda) { ' (with CUDA)' })" -ForegroundColor Cyan
 Push-Location (Join-Path $root 'upscaler')
 try
 {
     $env:CARGO_TARGET_DIR = $cargoTarget
-    cargo build --release
+    if ($Cuda)
+    {
+        # Prebuilt ONNX Runtime for Windows ships CUDA 13 only.
+        $env:ORT_CUDA_VERSION = '13'
+        cargo build --release --features cuda
+    }
+    else
+    {
+        cargo build --release
+    }
     if ($LASTEXITCODE -ne 0) { throw 'cargo build failed' }
 }
 finally
@@ -40,8 +56,8 @@ $msbuildArgs = @(
     (Join-Path $root 'gui\AiUpscaler.vcxproj'), '-m', '-nologo', '-v:minimal',
     "-p:Configuration=$Configuration", '-p:Platform=x64',
     "-p:PackagesDir=$packages\",
-    "-p:OutDir=$BuildRoot\gui\bin\",
-    "-p:IntDir=$BuildRoot\gui\obj\",
+    "-p:OutDir=$guiRoot\bin\",
+    "-p:IntDir=$guiRoot\obj\",
     "-p:EngineDir=$cargoTarget\release"
 )
 & $msbuild @msbuildArgs
@@ -53,4 +69,4 @@ if ($LASTEXITCODE -ne 0) {
     if ($LASTEXITCODE -ne 0) { throw 'MSBuild failed' }
 }
 
-Write-Host "`nDone: $BuildRoot\gui\bin\AiUpscaler.exe" -ForegroundColor Green
+Write-Host "`nDone: $guiRoot\bin\AiUpscaler.exe" -ForegroundColor Green

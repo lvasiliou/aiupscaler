@@ -51,24 +51,44 @@ impl Device {
 
 /// Which inference devices really work on this PC (for `--capabilities`): each GPU backend
 /// built into this binary must load a tiny test model, which fails without a usable GPU.
+///
+/// Also reports, under "errors", why a backend is unavailable: "not_built" when this binary
+/// was compiled without it, otherwise the ONNX Runtime error (e.g. a missing CUDA/cuDNN DLL).
 pub fn available_devices() -> serde_json::Value {
     let mut result = serde_json::Map::new();
+    let mut errors = serde_json::Map::new();
     result.insert("cpu".into(), true.into());
     result.insert("directml".into(), false.into());
     result.insert("cuda".into(), false.into());
-
-    let Ok(environment) = ort::init().with_name("ai-upscaler-probe").build() else {
-        return serde_json::Value::Object(result);
-    };
-    let probe_path = std::env::temp_dir().join(format!("ai-upscaler-probe-{}.onnx", std::process::id()));
-    if std::fs::write(&probe_path, crate::testmodel::resize_x2_model()).is_ok() {
-        for device in Device::gpu_candidates() {
-            let works = create_session(&environment, &probe_path, device, 0).is_ok();
-            let key = format!("{device:?}").to_lowercase();
-            result.insert(key, works.into());
+    for device in [Device::Directml, Device::Cuda] {
+        if !Device::gpu_candidates().contains(&device) {
+            errors.insert(format!("{device:?}").to_lowercase(), "not_built".into());
         }
-        let _ = std::fs::remove_file(&probe_path);
     }
+
+    match ort::init().with_name("ai-upscaler-probe").build() {
+        Ok(environment) => {
+            let probe_path = std::env::temp_dir().join(format!("ai-upscaler-probe-{}.onnx", std::process::id()));
+            if std::fs::write(&probe_path, crate::testmodel::resize_x2_model()).is_ok() {
+                for device in Device::gpu_candidates() {
+                    let key = format!("{device:?}").to_lowercase();
+                    match create_session(&environment, &probe_path, device, 0) {
+                        Ok(_) => {
+                            result.insert(key, true.into());
+                        }
+                        Err(e) => {
+                            errors.insert(key, format!("{e:#}").into());
+                        }
+                    }
+                }
+                let _ = std::fs::remove_file(&probe_path);
+            }
+        }
+        Err(e) => {
+            errors.insert("runtime".into(), format!("{e:#}").into());
+        }
+    }
+    result.insert("errors".into(), serde_json::Value::Object(errors));
     serde_json::Value::Object(result)
 }
 

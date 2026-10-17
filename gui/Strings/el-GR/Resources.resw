@@ -126,6 +126,8 @@
   <data name="Device_NoDml" xml:space="preserve"><value>Δεν βρέθηκε GPU DirectX 12 σε αυτόν τον υπολογιστή.</value></data>
   <data name="Device_Cuda" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
   <data name="Device_NoCuda" xml:space="preserve"><value>Απαιτεί GPU NVIDIA και μηχανή με υποστήριξη CUDA.</value></data>
+  <data name="Device_CudaNotBuilt" xml:space="preserve"><value>Αυτή η έκδοση δεν υποστηρίζει CUDA. Δημιουργήστε την με build.ps1 -Cuda ή χρησιμοποιήστε DirectML, που λειτουργεί και σε GPU NVIDIA.</value></data>
+  <data name="Device_CudaRuntime" xml:space="preserve"><value>Το CUDA δεν μπόρεσε να ξεκινήσει. Εγκαταστήστε οδηγό NVIDIA, το CUDA 13 και το cuDNN 9 για CUDA 13, με τους φακέλους bin τους στο PATH. Λεπτομέρειες: {0}</value></data>
   <data name="Codec_Gpu" xml:space="preserve"><value>{0} – GPU ({1})</value></data>
   <data name="Codec_GpuPlain" xml:space="preserve"><value>{0} – GPU</value></data>
   <data name="Codec_NoGpu" xml:space="preserve"><value>Η GPU αυτού του υπολογιστή δεν μπορεί να κωδικοποιήσει {0}.</value></data>

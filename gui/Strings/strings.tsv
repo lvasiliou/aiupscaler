@@ -121,6 +121,8 @@ Device_DirectML	GPU – DirectML	GPU – DirectML
 Device_NoDml	No DirectX 12 GPU was found on this PC.	Δεν βρέθηκε GPU DirectX 12 σε αυτόν τον υπολογιστή.
 Device_Cuda	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)
 Device_NoCuda	Needs an NVIDIA GPU and an engine built with CUDA support.	Απαιτεί GPU NVIDIA και μηχανή με υποστήριξη CUDA.
+Device_CudaNotBuilt	This build has no CUDA support. Build it with build.ps1 -Cuda, or use DirectML, which also runs on NVIDIA GPUs.	Αυτή η έκδοση δεν υποστηρίζει CUDA. Δημιουργήστε την με build.ps1 -Cuda ή χρησιμοποιήστε DirectML, που λειτουργεί και σε GPU NVIDIA.
+Device_CudaRuntime	CUDA could not start. Install an NVIDIA driver, the CUDA 13 runtime and cuDNN 9 for CUDA 13, with their bin folders on PATH. Details: {0}	Το CUDA δεν μπόρεσε να ξεκινήσει. Εγκαταστήστε οδηγό NVIDIA, το CUDA 13 και το cuDNN 9 για CUDA 13, με τους φακέλους bin τους στο PATH. Λεπτομέρειες: {0}
 Codec_Gpu	{0} – GPU ({1})	{0} – GPU ({1})
 Codec_GpuPlain	{0} – GPU	{0} – GPU
 Codec_NoGpu	This PC's GPU can't encode {0}.	Η GPU αυτού του υπολογιστή δεν μπορεί να κωδικοποιήσει {0}.

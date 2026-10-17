@@ -88,6 +88,9 @@ Builds go to `%LOCALAPPDATA%\AiUpscalerBuild` by default: a short path, because 
 and the linker break on paths over 260 characters, and outside `%TEMP%`, where MSBuild's
 incremental C++ builds are unreliable. Use `-BuildRoot` to choose another short folder.
 
+`.\build.ps1 -Cuda` builds a variant with the NVIDIA CUDA backend into `gui-cuda\bin`
+(it needs CUDA 13.x and cuDNN 9 on the running PC; see the main README).
+
 ## Files
 
 | File | Purpose |

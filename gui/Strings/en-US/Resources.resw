@@ -126,6 +126,8 @@
   <data name="Device_NoDml" xml:space="preserve"><value>No DirectX 12 GPU was found on this PC.</value></data>
   <data name="Device_Cuda" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
   <data name="Device_NoCuda" xml:space="preserve"><value>Needs an NVIDIA GPU and an engine built with CUDA support.</value></data>
+  <data name="Device_CudaNotBuilt" xml:space="preserve"><value>This build has no CUDA support. Build it with build.ps1 -Cuda, or use DirectML, which also runs on NVIDIA GPUs.</value></data>
+  <data name="Device_CudaRuntime" xml:space="preserve"><value>CUDA could not start. Install an NVIDIA driver, the CUDA 13 runtime and cuDNN 9 for CUDA 13, with their bin folders on PATH. Details: {0}</value></data>
   <data name="Codec_Gpu" xml:space="preserve"><value>{0} – GPU ({1})</value></data>
   <data name="Codec_GpuPlain" xml:space="preserve"><value>{0} – GPU</value></data>
   <data name="Codec_NoGpu" xml:space="preserve"><value>This PC&apos;s GPU can&apos;t encode {0}.</value></data>
