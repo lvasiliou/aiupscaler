@@ -179,6 +179,8 @@ pub struct OnnxUpscaler {
     tile: u32,
     pad: u32,
     batch: usize,
+    /// The model's output has no batch dimension ([3, H, W]), so it runs one window per call.
+    unbatched_output: bool,
     scale: u32,
     input_buf: Vec<f32>,
     /// Largest window (in pixels) one call may use in auto-tile mode; set by `calibrate`.
@@ -251,12 +253,22 @@ impl OnnxUpscaler {
             tile,
             pad,
             batch: fixed_batch.unwrap_or(batch.max(1)),
+            unbatched_output: false,
             scale: 1,
             input_buf: Vec::new(),
             input_buf_f16: Vec::new(),
             auto_max_pixels: AUTO_TILE_MAX_PIXELS,
         };
         upscaler.scale = upscaler.detect_scale()?;
+        if upscaler.unbatched_output {
+            if upscaler.fixed_batch.is_some_and(|b| b != 1) {
+                bail!("model has a fixed batch of {} but its output has no batch dimension", upscaler.fixed_batch.unwrap());
+            }
+            if upscaler.batch > 1 {
+                eprintln!("Model output has no batch dimension; running one window per call");
+            }
+            upscaler.batch = 1;
+        }
         if upscaler.fixed_input.is_none() && tile == 0 {
             upscaler.auto_max_pixels = upscaler.calibrate()?;
             let side = (upscaler.auto_max_pixels as f64).sqrt() as usize;
@@ -392,6 +404,16 @@ impl OnnxUpscaler {
                 (s.iter().map(|&v| v as usize).collect::<Vec<_>>(), OutputData::F16(d))
             }
         };
+        // Some exports squeeze the batch dimension away ([3, H, W]); with one window the data
+        // layout is identical, so treat it as [1, 3, H, W]. Such models then run unbatched.
+        let mut out_shape = out_shape;
+        if out_shape.len() == 3 && out_shape[0] == 3 {
+            if n != 1 {
+                bail!("model output {out_shape:?} has no batch dimension; run it with --batch 1");
+            }
+            out_shape.insert(0, 1);
+            self.unbatched_output = true;
+        }
         if out_shape.len() != 4 || out_shape[0] != n || out_shape[1] != 3 {
             bail!("unexpected model output shape {out_shape:?}; expected [{n}, 3, H, W]");
         }
@@ -479,5 +501,41 @@ impl Upscaler for LanczosUpscaler {
         let (w, h) = (frame.width * self.scale, frame.height * self.scale);
         let resized = imageops::resize(&img, w, h, imageops::FilterType::Lanczos3);
         Ok(Frame { width: w, height: h, data: resized.into_raw() })
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// Upscales a flat-colour frame with a generated x2 model on the CPU.
+    fn run_x2(name: &str, model: Vec<u8>, batch: usize) -> (OnnxUpscaler, Frame) {
+        let path = std::env::temp_dir().join(format!("ai-upscaler-test-{name}-{}.onnx", std::process::id()));
+        std::fs::write(&path, model).unwrap();
+        let mut upscaler = OnnxUpscaler::new(&path, Device::Cpu, 8, 2, batch, 1).unwrap();
+        let _ = std::fs::remove_file(&path);
+        let mut frame = Frame::new(20, 12);
+        frame.data.chunks_exact_mut(3).for_each(|px| px.copy_from_slice(&[200, 100, 50]));
+        let out = upscaler.upscale(&frame).unwrap();
+        (upscaler, out)
+    }
+
+    fn assert_flat_x2(out: &Frame) {
+        assert_eq!((out.width, out.height), (40, 24));
+        assert!(out.data.chunks_exact(3).all(|px| px == [200, 100, 50]));
+    }
+
+    #[test]
+    fn batched_output_model() {
+        let (upscaler, out) = run_x2("batched", crate::testmodel::resize_x2_model(), 4);
+        assert_eq!((upscaler.scale, upscaler.unbatched_output), (2, false));
+        assert_flat_x2(&out);
+    }
+
+    #[test]
+    fn output_without_batch_dimension() {
+        let (upscaler, out) = run_x2("squeezed", crate::testmodel::resize_x2_squeezed_model(), 4);
+        assert_eq!((upscaler.scale, upscaler.unbatched_output, upscaler.batch), (2, true, 1));
+        assert_flat_x2(&out);
     }
 }
