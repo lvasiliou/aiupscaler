@@ -1,0 +1,184 @@
+AppTitleText.Text	AI Upscaler Studio	AI Upscaler Studio
+PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Try settings on a short clip first; previews are saved as *_preview.mp4	Δοκιμάστε τις ρυθμίσεις σε σύντομο απόσπασμα πρώτα· οι δοκιμές αποθηκεύονται ως *_preview.mp4
+PreviewWhole.Content	Whole video	Ολόκληρο το βίντεο
+Preview10.Content	Preview: first 10 s	Δοκιμή: πρώτα 10 δευτ.
+Preview30.Content	Preview: first 30 s	Δοκιμή: πρώτα 30 δευτ.
+Preview60.Content	Preview: first 60 s	Δοκιμή: πρώτα 60 δευτ.
+CancelButton.Content	Cancel	Ακύρωση
+StartButtonText.Text	Upscale	Αναβάθμιση
+AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Settings	Ρυθμίσεις
+SourceHeader.Text	Source	Πηγή
+OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Open a different video (Ctrl+O)	Άνοιγμα άλλου βίντεο (Ctrl+O)
+DropZoneTitle.Text	Drop a video here	Αφήστε ένα βίντεο εδώ
+DropZoneOr.Text	or	ή
+DropZoneBrowse.Content	Browse…	Αναζήτηση…
+UpscaledHeader.Text	Upscaled	Αναβαθμισμένο
+AutoPreviewCheck.Content	Generate AI previews	Δημιουργία προεπισκοπήσεων AI
+AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Upscale the selected frame 3 seconds after you stop moving the timeline. Ctrl+P previews right away.	Αναβαθμίζει το επιλεγμένο καρέ 3 δευτερόλεπτα αφού σταματήσετε να μετακινείτε τη γραμμή χρόνου. Το Ctrl+P κάνει προεπισκόπηση αμέσως.
+ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Switch between fitting the frame and 100% pixels (1:1)	Εναλλαγή μεταξύ προσαρμογής καρέ και πραγματικού μεγέθους (1:1)
+UpscaleSettingsTab.Text	Upscale settings	Ρυθμίσεις αναβάθμισης
+ProgressTab.Text	Progress	Πρόοδος
+ModelCombo.Header	AI model	Μοντέλο AI
+ManageModelsButton.Content	Manage…	Διαχείριση…
+OutputBox.Header	Output video	Βίντεο εξόδου
+OutputBox.PlaceholderText	Where to save the upscaled video	Πού θα αποθηκευτεί το αναβαθμισμένο βίντεο
+OutputButton.Content	Browse…	Αναζήτηση…
+DeviceCombo.Header	AI device	Συσκευή AI
+DeviceAuto.Content	Automatic (best available)	Αυτόματα (η καλύτερη διαθέσιμη)
+DeviceDirectML.Content	GPU – DirectML	GPU – DirectML
+DeviceCuda.Content	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)
+DeviceCpu.Content	CPU	CPU
+HeightCombo.Header	Output size	Μέγεθος εξόδου
+SizeModel.Content	Model scale (e.g. ×4)	Κλίμακα μοντέλου (π.χ. ×4)
+FitCombo.Header	Picture shape	Σχήμα εικόνας
+FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	How a 4:3 (or other) picture fills a 16:9 frame	Πώς μια εικόνα 4:3 (ή άλλη) γεμίζει ένα καρέ 16:9
+FitPad.Content	Black bars (keep shape)	Μαύρες λωρίδες (διατήρηση σχήματος)
+FitCrop.Content	Crop to fill	Περικοπή για γέμισμα
+FitStretch.Content	Stretch to fill	Τέντωμα για γέμισμα
+CodecCombo.Header	Video encoder	Κωδικοποιητής βίντεο
+QualitySlider.Header	Quality	Ποιότητα
+TileBox.Header	Tile size (0 = auto)	Μέγεθος πλακιδίου (0 = αυτόματα)
+AudioToggle.Header	Audio	Ήχος
+AudioToggle.OnContent	Keep original audio	Διατήρηση αρχικού ήχου
+AudioToggle.OffContent	No audio	Χωρίς ήχο
+OutputFileLabel.Text	Output file	Αρχείο εξόδου
+OpenOutputButton.Content	Open	Άνοιγμα
+LogExpander.Header	Log	Αρχείο καταγραφής
+ThemeTitle.Text	Theme	Θέμα
+ThemeDescription.Text	Choose light or dark, or follow Windows.	Επιλέξτε φωτεινό ή σκοτεινό, ή ακολουθήστε τα Windows.
+ThemeSystem.Content	Use Windows setting	Ρύθμιση των Windows
+ThemeLight.Content	Light	Φωτεινό
+ThemeDark.Content	Dark	Σκοτεινό
+LanguageTitle.Text	Language	Γλώσσα
+LanguageDescription.Text	The language of the app's text.	Η γλώσσα των κειμένων της εφαρμογής.
+LanguageRestartBar.Message	Restart the app to use the new language.	Επανεκκινήστε την εφαρμογή για να χρησιμοποιηθεί η νέα γλώσσα.
+RestartButton.Content	Restart now	Επανεκκίνηση τώρα
+OutputFolderTitle.Text	Default output folder	Προεπιλεγμένος φάκελος εξόδου
+OutputFolderDescription.Text	Where upscaled videos are saved unless you choose another file.	Πού αποθηκεύονται τα αναβαθμισμένα βίντεο, εκτός αν επιλέξετε άλλο αρχείο.
+OutputNextToSourceRadio.Content	Same folder as the source video	Ίδιος φάκελος με το βίντεο πηγής
+OutputFolderRadio.Content	This folder:	Αυτός ο φάκελος:
+ChooseOutputFolderButton.Content	Choose…	Επιλογή…
+ModelsDescription.Text	AI models (.onnx) in the library appear in the AI model list of the upscale settings. Importing moves the file, and any weights file next to it, into the library folder.	Τα μοντέλα AI (.onnx) της βιβλιοθήκης εμφανίζονται στη λίστα μοντέλων των ρυθμίσεων αναβάθμισης. Η εισαγωγή μετακινεί το αρχείο, και όποιο αρχείο βαρών βρίσκεται δίπλα του, στον φάκελο της βιβλιοθήκης.
+ImportModelText.Text	Import model…	Εισαγωγή μοντέλου…
+OpenModelsFolderText.Text	Open folder	Άνοιγμα φακέλου
+ModelsEmptyText.Text	No models yet. Import an .onnx model to get started.	Δεν υπάρχουν ακόμα μοντέλα. Εισαγάγετε ένα μοντέλο .onnx για να ξεκινήσετε.
+Status_Ready	Ready.	Έτοιμο.
+Placeholder_Open	Open a video. The AI result of the selected frame appears here.	Ανοίξτε ένα βίντεο. Το αποτέλεσμα AI του επιλεγμένου καρέ εμφανίζεται εδώ.
+Placeholder_PickFrame	Pick a frame on the film strip or timeline. Its AI preview appears here.	Επιλέξτε ένα καρέ στο φιλμ ή στη γραμμή χρόνου. Η προεπισκόπηση AI του εμφανίζεται εδώ.
+Placeholder_Upscaling	Upscaling this frame…	Αναβάθμιση αυτού του καρέ…
+Placeholder_Coming	The AI preview of {0} appears when you stop on this frame.	Η προεπισκόπηση AI του {0} εμφανίζεται όταν σταθείτε σε αυτό το καρέ.
+Placeholder_Off	AI previews are off. Press Ctrl+P to upscale the frame at {0}.	Οι προεπισκοπήσεις AI είναι απενεργοποιημένες. Πατήστε Ctrl+P για να αναβαθμίσετε το καρέ στο {0}.
+Placeholder_PreviewFailed	The preview failed. See the log in the Progress tab.	Η προεπισκόπηση απέτυχε. Δείτε το αρχείο καταγραφής στην καρτέλα Πρόοδος.
+Placeholder_Live	Live previews of the upscaled video appear here every few seconds.	Ζωντανές προεπισκοπήσεις του αναβαθμισμένου βίντεο εμφανίζονται εδώ κάθε λίγα δευτερόλεπτα.
+Dur_Days	{0} d {1} h	{0} ημ. {1} ώρ.
+Dur_Hours	{0} h {1} min	{0} ώρ. {1} λεπ.
+Dur_Minutes	{0} min {1} s	{0} λεπ. {1} δευτ.
+Dur_Seconds	{0} s	{0} δευτ.
+Time_Today	today {0}	σήμερα {0}
+Size_MB	{0} MB	{0} MB
+Err_EngineMissing_Title	Engine missing	Λείπει η μηχανή
+Err_EngineMissing	ai-upscaler.exe was not found next to the app (engine folder).	Το ai-upscaler.exe δεν βρέθηκε δίπλα στην εφαρμογή (φάκελος engine).
+Err_FfmpegMissing_Title	FFmpeg not found	Δεν βρέθηκε το FFmpeg
+Err_FfmpegMissing	Install it with: winget install Gyan.FFmpeg	Εγκαταστήστε το με: winget install Gyan.FFmpeg
+Err_FileNotFound_Title	File not found	Το αρχείο δεν βρέθηκε
+Err_ModelMissing_Title	Model not found	Το μοντέλο δεν βρέθηκε
+Err_ModelMissing	The selected model file doesn't exist.	Το επιλεγμένο αρχείο μοντέλου δεν υπάρχει.
+Err_EngineStart	Couldn't start the engine	Δεν ήταν δυνατή η εκκίνηση της μηχανής
+Err_ReadVideo_Title	Couldn't read the video	Δεν ήταν δυνατή η ανάγνωση του βίντεο
+Err_SeeLog	See the log in the Progress tab for details.	Δείτε το αρχείο καταγραφής στην καρτέλα Πρόοδος για λεπτομέρειες.
+Err_NoVideo_Title	Open a video first	Ανοίξτε πρώτα ένα βίντεο
+Err_NoVideo	Drop a video on the Source pane, or use its Browse button.	Αφήστε ένα βίντεο στο πλαίσιο Πηγή ή χρησιμοποιήστε το κουμπί Αναζήτηση.
+Err_UpscaleFailed_Title	Upscale failed	Η αναβάθμιση απέτυχε
+Source_Reading	Reading…	Ανάγνωση…
+Source_Unreadable	Couldn't read this file	Δεν ήταν δυνατή η ανάγνωση αυτού του αρχείου
+Source_Info	{0}×{1} · {2} · {3} fps · {4}	{0}×{1} · {2} · {3} fps · {4}
+Source_WithAudio	{0} · audio	{0} · ήχος
+Picker_Mp4	MP4 video	Βίντεο MP4
+Picker_Mkv	Matroska video	Βίντεο Matroska
+Picker_Mov	QuickTime video	Βίντεο QuickTime
+Picker_DefaultName	upscaled	αναβαθμισμένο
+Quality_1	Smallest file	Μικρότερο αρχείο
+Quality_2	Small file	Μικρό αρχείο
+Quality_3	Balanced	Ισορροπημένο
+Quality_4	High quality	Υψηλή ποιότητα
+Quality_5	Best quality (largest file)	Βέλτιστη ποιότητα (μεγαλύτερο αρχείο)
+Quality_Format	{0} of 5 · {1}	{0} από 5 · {1}
+Drag_OpenAsSource	Open as source	Άνοιγμα ως πηγή
+Auto_Off	Off · Ctrl+P previews the current frame	Ανενεργό · Ctrl+P για προεπισκόπηση του καρέ
+Auto_Countdown	AI preview in 3 s…	Προεπισκόπηση AI σε 3 δευτ.…
+Auto_Working	Upscaling frame at {0}…	Αναβάθμιση καρέ στο {0}…
+Auto_Live	Live previews while upscaling	Ζωντανές προεπισκοπήσεις κατά την αναβάθμιση
+OutputInfo	AI ×{0} → file {1} · frame at {2}	AI ×{0} → αρχείο {1} · καρέ στο {2}
+Log_ImageFailed	Couldn't load preview image {0}: {1}	Δεν ήταν δυνατή η φόρτωση της εικόνας {0}: {1}
+Log_ThumbsFailed	Couldn't start the thumbnail job: {0}	Δεν ήταν δυνατή η δημιουργία μικρογραφιών: {0}
+Film_GoTo	Go to {0}	Μετάβαση στο {0}
+Hw_Checking	Checking this PC's GPU…	Έλεγχος της GPU του υπολογιστή…
+NotAvailable	{0} – not available	{0} – μη διαθέσιμο
+Device_AutoCuda	Automatic (CUDA GPU)	Αυτόματα (GPU CUDA)
+Device_AutoDml	Automatic (DirectML GPU)	Αυτόματα (GPU DirectML)
+Device_AutoCpu	Automatic (CPU only)	Αυτόματα (μόνο CPU)
+Device_DirectML	GPU – DirectML	GPU – DirectML
+Device_NoDml	No DirectX 12 GPU was found on this PC.	Δεν βρέθηκε GPU DirectX 12 σε αυτόν τον υπολογιστή.
+Device_Cuda	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)
+Device_NoCuda	Needs an NVIDIA GPU and an engine built with CUDA support.	Απαιτεί GPU NVIDIA και μηχανή με υποστήριξη CUDA.
+Codec_Gpu	{0} – GPU ({1})	{0} – GPU ({1})
+Codec_GpuPlain	{0} – GPU	{0} – GPU
+Codec_NoGpu	This PC's GPU can't encode {0}.	Η GPU αυτού του υπολογιστή δεν μπορεί να κωδικοποιήσει {0}.
+Codec_NotInFfmpeg	Not included in this FFmpeg build.	Δεν περιλαμβάνεται σε αυτή την έκδοση του FFmpeg.
+Hw_Summary	AI on {0} · {1}	AI σε {0} · {1}
+Hw_AiCuda	CUDA GPU	GPU CUDA
+Hw_AiDml	DirectML GPU	GPU DirectML
+Hw_AiCpu	CPU only	μόνο CPU
+Hw_NoGpuEncode	no GPU video encoding	χωρίς κωδικοποίηση βίντεο στη GPU
+Hw_GpuEncodes	{0} GPU encodes {1}	η GPU {0} κωδικοποιεί {1}
+Size_Fills	{0} (fills the frame)	{0} (γεμίζει το καρέ)
+Size_Crop	{0} ({1} picture, edges cropped)	{0} (εικόνα {1}, περικομμένες άκρες)
+Size_Stretch	{0} ({1} picture stretched to 16:9)	{0} (εικόνα {1} τεντωμένη σε 16:9)
+Size_PadSides	{0} ({1} picture, black side bars)	{0} (εικόνα {1}, μαύρες πλαϊνές λωρίδες)
+Size_PadTopBottom	{0} ({1} picture, black bars above and below)	{0} (εικόνα {1}, μαύρες λωρίδες πάνω και κάτω)
+Size_Model	{0} (model ×{1})	{0} (μοντέλο ×{1})
+Size_ModelUnknown	Model scale: known after the first AI preview	Κλίμακα μοντέλου: γνωστή μετά την πρώτη προεπισκόπηση AI
+Size_ModelShort	model scale	κλίμακα μοντέλου
+Size_OpenVideo	Open a video to see the output size	Ανοίξτε ένα βίντεο για να δείτε το μέγεθος εξόδου
+Summary_Begin	Drop a video on the Source pane to begin	Αφήστε ένα βίντεο στο πλαίσιο Πηγή για να ξεκινήσετε
+Summary	Output: {0} · {1} · quality {2}/5	Έξοδος: {0} · {1} · ποιότητα {2}/5
+Summary_NoModel	{0} · no AI model	{0} · χωρίς μοντέλο AI
+Zoom_Fit	Fit	Προσαρμογή
+Lang_System	Windows default	Προεπιλογή Windows
+Lang_RestartBusy	Finish or cancel the upscale before restarting.	Ολοκληρώστε ή ακυρώστε την αναβάθμιση πριν την επανεκκίνηση.
+OutputFolder_None	No folder chosen	Δεν έχει επιλεγεί φάκελος
+Model_None	None (Lanczos, no AI)	Κανένα (Lanczos, χωρίς AI)
+Model_External	{0} (not in library)	{0} (εκτός βιβλιοθήκης)
+Models_Folder	Library folder: {0}	Φάκελος βιβλιοθήκης: {0}
+Models_InUse	{0} (in use)	{0} (σε χρήση)
+Models_Details	{0} · {1}	{0} · {1}
+Models_RemoveTip	Move to Recycle Bin	Μετακίνηση στον Κάδο Ανακύκλωσης
+Models_Removed	Moved {0} to the Recycle Bin.	Το {0} μετακινήθηκε στον Κάδο Ανακύκλωσης.
+Models_RemoveFailed	Couldn't remove {0}.	Δεν ήταν δυνατή η κατάργηση του {0}.
+Models_Imported	Imported {0}. The file was moved into the library.	Έγινε εισαγωγή του {0}. Το αρχείο μετακινήθηκε στη βιβλιοθήκη.
+Models_Exists	A model named {0} is already in the library.	Υπάρχει ήδη μοντέλο με το όνομα {0} στη βιβλιοθήκη.
+Models_ImportFailed	Couldn't import {0}. {1}	Δεν ήταν δυνατή η εισαγωγή του {0}. {1}
+Status_Loading	Loading model…	Φόρτωση μοντέλου…
+Status_Cancelling	Cancelling…	Ακύρωση…
+Status_Cancelled	Cancelled.	Ακυρώθηκε.
+Status_Upscaling	Upscaling…	Αναβάθμιση…
+Status_UpscalingPreview	Upscaling preview…	Αναβάθμιση δοκιμής…
+Status_Finished	Finished in {0}.	Ολοκληρώθηκε σε {0}.
+Status_Failed	Failed (exit code {0}).	Απέτυχε (κωδικός εξόδου {0}).
+JobInfo	{0}×{1} → AI {2}×{3} → file {4}×{5} · {6} fps · {7} · {8}	{0}×{1} → AI {2}×{3} → αρχείο {4}×{5} · {6} fps · {7} · {8}
+Audio_Kept	audio kept	με ήχο
+Audio_None	no audio	χωρίς ήχο
+Estimate_Left	About {0} left · done around {1}	Απομένουν περίπου {0} · τέλος γύρω στις {1}
+Estimate_Whole	The whole video would take about {0} at this speed.	Ολόκληρο το βίντεο θα χρειαζόταν περίπου {0} με αυτή την ταχύτητα.
+Progress_FramesEta	Frame {0} of {1} · {2} fps · {3} elapsed · {4} left	Καρέ {0} από {1} · {2} fps · {3} πέρασαν · απομένουν {4}
+Progress_Frames	Frame {0} of {1} · {2} fps · {3} elapsed	Καρέ {0} από {1} · {2} fps · {3} πέρασαν
+Progress_FramesOnly	Frame {0} · {1} fps · {2} elapsed	Καρέ {0} · {1} fps · {2} πέρασαν
+Result_PreviewReady	Preview ready	Η δοκιμή είναι έτοιμη
+Result_Complete	Upscale complete	Η αναβάθμιση ολοκληρώθηκε
+AppearanceNavText.Text	Appearance	Εμφάνιση
+OutputNavText.Text	Output	Έξοδος
+ModelsNavText.Text	Models	Μοντέλα
+SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Back (Esc)	Πίσω (Esc)
+Section_Appearance	Appearance	Εμφάνιση
+Section_Output	Output	Έξοδος
+Section_Models	Models	Μοντέλα

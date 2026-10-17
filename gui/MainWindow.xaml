@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="AiUpscaler.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="AI Upscaler">
+
+    <Grid x:Name="RootGrid">
+        <Grid.KeyboardAccelerators>
+            <KeyboardAccelerator Modifiers="Control" Key="O" Invoked="OnOpenAccelerator" />
+            <KeyboardAccelerator Modifiers="Control" Key="P" Invoked="OnPreviewAccelerator" />
+        </Grid.KeyboardAccelerators>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" MinHeight="220" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title bar -->
+        <Grid x:Name="AppTitleBar" Height="48" Background="Transparent">
+            <StackPanel Orientation="Horizontal" Spacing="12" Margin="16,0,0,0" VerticalAlignment="Center">
+                <FontIcon Glyph="&#xE714;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                <TextBlock x:Uid="AppTitleText" Text="AI Upscaler Studio" Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" />
+            </StackPanel>
+        </Grid>
+
+        <!-- Toolbar: what will be produced, the run controls, and app settings -->
+        <Grid Grid.Row="1" Margin="16,0,16,8" ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                <FontIcon Glyph="&#xE7F4;" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                <TextBlock x:Name="OutputSummaryText" Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
+            </StackPanel>
+
+            <ComboBox x:Name="PreviewCombo" x:Uid="PreviewCombo" Grid.Column="1" SelectedIndex="0" MinWidth="190" VerticalAlignment="Center"
+                      ToolTipService.ToolTip="Try settings on a short clip first; previews are saved as *_preview.mp4">
+                <ComboBoxItem x:Uid="PreviewWhole" Content="Whole video" Tag="0" />
+                <ComboBoxItem x:Uid="Preview10" Content="Preview: first 10 s" Tag="10" />
+                <ComboBoxItem x:Uid="Preview30" Content="Preview: first 30 s" Tag="30" />
+                <ComboBoxItem x:Uid="Preview60" Content="Preview: first 60 s" Tag="60" />
+            </ComboBox>
+            <Button x:Name="CancelButton" x:Uid="CancelButton" Grid.Column="2" Content="Cancel" IsEnabled="False" Click="OnCancel" />
+            <Button x:Name="StartButton" Grid.Column="3" Style="{StaticResource AccentButtonStyle}" Click="OnStart">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <FontIcon Glyph="&#xE768;" FontSize="14" />
+                    <TextBlock x:Uid="StartButtonText" Text="Upscale" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="AppSettingsButton" x:Uid="AppSettingsButton" Grid.Column="4" Click="OnOpenAppSettings"
+                    Style="{StaticResource SubtleButtonStyle}" ToolTipService.ToolTip="Settings">
+                <FontIcon Glyph="&#xE713;" FontSize="16" />
+            </Button>
+        </Grid>
+
+        <!-- Studio: source left, output right -->
+        <Grid Grid.Row="2" Margin="16,0,16,0" ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Source pane (also the drop target) -->
+            <Grid
+                x:Name="SourcePane"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="8"
+                AllowDrop="True"
+                DragEnter="OnSourceDragEnter"
+                DragOver="OnSourceDragOver"
+                DragLeave="OnSourceDragLeave"
+                Drop="OnSourceDrop">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Padding="14,6,8,6" ColumnSpacing="8" MinHeight="44">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Uid="SourceHeader" Text="Source" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center" />
+                    <TextBlock x:Name="SourceNameText" Grid.Column="1" TextTrimming="CharacterEllipsis" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center" />
+                    <TextBlock x:Name="SourceInfoText" Grid.Column="2" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" />
+                    <Button
+                        x:Name="OpenSourceButton"
+                        x:Uid="OpenSourceButton"
+                        Grid.Column="3"
+                        Visibility="Collapsed"
+                        Click="OnBrowseInput"
+                        Style="{StaticResource SubtleButtonStyle}"
+                        ToolTipService.ToolTip="Open a different video (Ctrl+O)">
+                        <FontIcon Glyph="&#xE8E5;" FontSize="14" />
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1" Margin="8,0,8,8">
+                    <ScrollViewer
+                        x:Name="SourceScroller"
+                        ZoomMode="Enabled"
+                        MinZoomFactor="1"
+                        MaxZoomFactor="16"
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollBarVisibility="Auto"
+                        HorizontalScrollMode="Auto"
+                        VerticalScrollMode="Auto"
+                        SizeChanged="OnScrollerSizeChanged"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        ViewChanged="OnSourceViewChanged">
+                        <Grid x:Name="SourceFrame">
+                            <Image x:Name="SourceImage" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ScrollViewer>
+
+                    <Grid x:Name="SourceDropZone">
+                        <Rectangle RadiusX="8" RadiusY="8" StrokeThickness="2" StrokeDashArray="4,3" Stroke="{ThemeResource ControlStrongStrokeColorDefaultBrush}" />
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+                            <FontIcon Glyph="&#xE898;" FontSize="40" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                            <TextBlock x:Uid="DropZoneTitle" Text="Drop a video here" HorizontalAlignment="Center" Style="{StaticResource SubtitleTextBlockStyle}" />
+                            <TextBlock x:Uid="DropZoneOr" Text="or" HorizontalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                            <Button x:Uid="DropZoneBrowse" Content="Browse…" HorizontalAlignment="Center" Click="OnBrowseInput" />
+                        </StackPanel>
+                    </Grid>
+
+                    <!-- Accent outline while a file is dragged over the pane -->
+                    <Border
+                        x:Name="SourceDropHighlight"
+                        Visibility="Collapsed"
+                        CornerRadius="8"
+                        BorderThickness="3"
+                        BorderBrush="{ThemeResource AccentFillColorDefaultBrush}"
+                        IsHitTestVisible="False" />
+                    <ProgressRing x:Name="SourceBusy" IsActive="False" Width="28" Height="28" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="8" />
+                </Grid>
+            </Grid>
+
+            <!-- Output pane -->
+            <Grid
+                Grid.Column="1"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Padding="14,6,14,6" ColumnSpacing="8" MinHeight="44">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Uid="UpscaledHeader" Text="Upscaled" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center" />
+                    <TextBlock x:Name="OutputInfoText" Grid.Column="1" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" />
+                </Grid>
+                <Grid Grid.Row="1" Margin="8,0,8,8">
+                    <ScrollViewer
+                        x:Name="OutputScroller"
+                        ZoomMode="Enabled"
+                        MinZoomFactor="1"
+                        MaxZoomFactor="16"
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollBarVisibility="Auto"
+                        HorizontalScrollMode="Auto"
+                        VerticalScrollMode="Auto"
+                        SizeChanged="OnScrollerSizeChanged"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        ViewChanged="OnOutputViewChanged">
+                        <Grid x:Name="OutputFrame">
+                            <Image x:Name="OutputImage" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ScrollViewer>
+                    <StackPanel x:Name="OutputPlaceholder" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8" MaxWidth="320">
+                        <FontIcon Glyph="&#xE91B;" FontSize="40" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                        <TextBlock
+                            x:Name="OutputPlaceholderText"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                    </StackPanel>
+                    <ProgressRing x:Name="OutputBusy" IsActive="False" Width="48" Height="48" />
+                </Grid>
+                <!-- Under the preview: turn automatic AI previews on or off -->
+                <Grid Grid.Row="2" Padding="14,0,14,6" ColumnSpacing="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox
+                        x:Name="AutoPreviewCheck"
+                        x:Uid="AutoPreviewCheck"
+                        Content="Generate AI previews"
+                        IsChecked="True"
+                        Click="OnAutoPreviewChanged"
+                        ToolTipService.ToolTip="Upscale the selected frame 3 seconds after you stop moving the timeline. Ctrl+P previews right away." />
+                    <TextBlock x:Name="AutoPreviewStatus" Grid.Column="1" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{StaticResource CaptionTextBlockStyle}" />
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <!-- Film strip: thumbnails across the whole video, framed like film stock -->
+        <Grid
+            x:Name="FilmStrip"
+            Grid.Row="3"
+            Margin="16,10,16,0"
+            Height="92"
+            CornerRadius="6"
+            Background="#FF141414"
+            Visibility="Collapsed"
+            SizeChanged="OnFilmStripSizeChanged">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="14" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="14" />
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="SprocketsTop" Orientation="Horizontal" VerticalAlignment="Center" Spacing="8" Margin="6,0" />
+            <StackPanel x:Name="SprocketsBottom" Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" Spacing="8" Margin="6,0" />
+            <Grid x:Name="FilmFrames" Grid.Row="1" ColumnSpacing="3" Margin="3,0" />
+            <Canvas x:Name="FilmPlayheadCanvas" Grid.RowSpan="3" IsHitTestVisible="False">
+                <Rectangle x:Name="FilmPlayhead" Width="3" Height="92" Fill="{ThemeResource AccentFillColorDefaultBrush}" RadiusX="1.5" RadiusY="1.5" />
+            </Canvas>
+        </Grid>
+
+        <!-- Timeline -->
+        <Grid Grid.Row="4" Margin="16,6,16,0" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TimeText" Text="0:00" VerticalAlignment="Center" MinWidth="56" FontFamily="Cascadia Mono, Consolas" />
+            <Slider
+                x:Name="TimelineSlider"
+                Grid.Column="1"
+                Minimum="0"
+                Maximum="1"
+                StepFrequency="0.1"
+                IsEnabled="False"
+                IsThumbToolTipEnabled="False"
+                VerticalAlignment="Center"
+                ValueChanged="OnTimelineChanged" />
+            <TextBlock x:Name="DurationText" Grid.Column="2" Text="0:00" VerticalAlignment="Center" MinWidth="56" FontFamily="Cascadia Mono, Consolas" />
+            <!-- One toggle: off = both views fit their panes, on = 100% pixels -->
+            <ToggleButton x:Name="ZoomToggle" x:Uid="ZoomToggle" Grid.Column="3" Click="OnZoomToggle" MinWidth="76"
+                          ToolTipService.ToolTip="Switch between fitting the frame and 100% pixels (1:1)">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <FontIcon x:Name="ZoomToggleIcon" Glyph="&#xE9A6;" FontSize="14" />
+                    <TextBlock x:Name="ZoomToggleText" Text="Fit" />
+                </StackPanel>
+            </ToggleButton>
+        </Grid>
+
+        <!-- Bottom panel: upscale settings / progress (with log) -->
+        <Grid
+            Grid.Row="5"
+            Margin="16,8,16,16"
+            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="8"
+            Height="256">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <SelectorBar x:Name="BottomTabs" Margin="8,4,8,0" SelectionChanged="OnBottomTabChanged">
+                <SelectorBarItem x:Name="UpscaleSettingsTab" x:Uid="UpscaleSettingsTab" Text="Upscale settings" IsSelected="True" />
+                <SelectorBarItem x:Name="ProgressTab" x:Uid="ProgressTab" Text="Progress" />
+            </SelectorBar>
+
+            <!-- Upscale settings -->
+            <ScrollViewer x:Name="UpscaleSettingsPanel" Grid.Row="1">
+                <Grid Padding="16,8,16,12" ColumnSpacing="16" RowSpacing="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Row 0: model and output file -->
+                    <Grid Grid.ColumnSpan="2" ColumnSpacing="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ComboBox x:Name="ModelCombo" x:Uid="ModelCombo" Header="AI model" HorizontalAlignment="Stretch" SelectionChanged="OnSettingChanged" />
+                        <Button x:Name="ManageModelsButton" x:Uid="ManageModelsButton" Grid.Column="1" Content="Manage…" VerticalAlignment="Bottom" Click="OnManageModels" />
+                    </Grid>
+                    <Grid Grid.Column="2" Grid.ColumnSpan="2" ColumnSpacing="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="OutputBox" x:Uid="OutputBox" Header="Output video" PlaceholderText="Where to save the upscaled video" />
+                        <Button x:Name="OutputButton" x:Uid="OutputButton" Grid.Column="1" Content="Browse…" VerticalAlignment="Bottom" Click="OnBrowseOutput" />
+                    </Grid>
+
+                    <!-- Row 1: picture -->
+                    <ComboBox x:Name="DeviceCombo" x:Uid="DeviceCombo" Grid.Row="1" Header="AI device" HorizontalAlignment="Stretch" SelectionChanged="OnSettingChanged">
+                        <ComboBoxItem x:Uid="DeviceAuto" Content="Automatic (best available)" Tag="auto" />
+                        <ComboBoxItem x:Uid="DeviceDirectML" Content="GPU – DirectML" Tag="directml" />
+                        <ComboBoxItem x:Uid="DeviceCuda" Content="GPU – CUDA (NVIDIA)" Tag="cuda" />
+                        <ComboBoxItem x:Uid="DeviceCpu" Content="CPU" Tag="cpu" />
+                    </ComboBox>
+
+                    <ComboBox x:Name="HeightCombo" x:Uid="HeightCombo" Grid.Row="1" Grid.Column="1" Header="Output size" HorizontalAlignment="Stretch" SelectionChanged="OnSettingChanged">
+                        <ComboBoxItem x:Uid="SizeModel" Content="Model scale (e.g. ×4)" Tag="0" />
+                        <ComboBoxItem Content="720p · 1280×720" Tag="720" />
+                        <ComboBoxItem Content="1080p · 1920×1080" Tag="1080" />
+                        <ComboBoxItem Content="1440p · 2560×1440" Tag="1440" />
+                        <ComboBoxItem Content="4K · 3840×2160" Tag="2160" />
+                    </ComboBox>
+
+                    <ComboBox x:Name="FitCombo" x:Uid="FitCombo" Grid.Row="1" Grid.Column="2" Header="Picture shape" HorizontalAlignment="Stretch" SelectionChanged="OnSettingChanged"
+                              ToolTipService.ToolTip="How a 4:3 (or other) picture fills a 16:9 frame">
+                        <ComboBoxItem x:Uid="FitPad" Content="Black bars (keep shape)" Tag="pad" />
+                        <ComboBoxItem x:Uid="FitCrop" Content="Crop to fill" Tag="crop" />
+                        <ComboBoxItem x:Uid="FitStretch" Content="Stretch to fill" Tag="stretch" />
+                    </ComboBox>
+
+                    <ComboBox x:Name="CodecCombo" x:Uid="CodecCombo" Grid.Row="1" Grid.Column="3" Header="Video encoder" HorizontalAlignment="Stretch" SelectionChanged="OnSettingChanged">
+                        <ComboBoxItem Content="H.264 – GPU" Tag="auto" />
+                        <ComboBoxItem Content="HEVC – GPU" Tag="auto-hevc" />
+                        <ComboBoxItem Content="AV1 – GPU" Tag="auto-av1" />
+                        <ComboBoxItem Content="H.264 – CPU (x264)" Tag="libx264" />
+                        <ComboBoxItem Content="HEVC – CPU (x265)" Tag="libx265" />
+                        <ComboBoxItem Content="AV1 – CPU (SVT-AV1)" Tag="libsvtav1" />
+                    </ComboBox>
+
+                    <!-- Row 2: quality and performance -->
+                    <StackPanel Grid.Row="2">
+                        <Slider
+                            x:Name="QualitySlider"
+                            x:Uid="QualitySlider"
+                            Header="Quality"
+                            Minimum="1"
+                            Maximum="5"
+                            StepFrequency="1"
+                            TickFrequency="1"
+                            TickPlacement="Outside"
+                            SnapsTo="Ticks"
+                            ValueChanged="OnQualityChanged" />
+                        <TextBlock x:Name="QualityText" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+
+                    <NumberBox
+                        x:Name="TileBox"
+                        x:Uid="TileBox"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Header="Tile size (0 = auto)"
+                        Minimum="0"
+                        Maximum="2048"
+                        SmallChange="32"
+                        LargeChange="128"
+                        SpinButtonPlacementMode="Compact" />
+
+                    <ToggleSwitch x:Name="AudioToggle" x:Uid="AudioToggle" Grid.Row="2" Grid.Column="2" Header="Audio" OnContent="Keep original audio" OffContent="No audio" />
+
+                    <StackPanel Grid.Row="2" Grid.Column="3" Spacing="4">
+                        <TextBlock x:Uid="OutputFileLabel" Text="Output file" Style="{StaticResource BodyTextBlockStyle}" />
+                        <TextBlock x:Name="FinalSizeText" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" />
+                        <TextBlock x:Name="HardwareText" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+
+            <!-- Progress, with the engine log as a collapsible section -->
+            <ScrollViewer x:Name="ProgressPanel" Grid.Row="1" Visibility="Collapsed">
+                <StackPanel Padding="16,8,16,12" Spacing="8">
+                    <Grid>
+                        <TextBlock x:Name="StatusText" Text="Ready." TextWrapping="Wrap" />
+                        <TextBlock x:Name="JobInfoText" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{StaticResource CaptionTextBlockStyle}" />
+                    </Grid>
+                    <ProgressBar x:Name="JobProgress" Maximum="100" Value="0" />
+                    <TextBlock x:Name="EstimateText" Style="{StaticResource BodyStrongTextBlockStyle}" TextWrapping="Wrap" Visibility="Collapsed" />
+                    <InfoBar x:Name="ResultBar" IsOpen="False" IsClosable="True">
+                        <InfoBar.ActionButton>
+                            <Button x:Name="OpenOutputButton" x:Uid="OpenOutputButton" Content="Open" Click="OnOpenOutput" />
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <Expander x:Name="LogExpander" x:Uid="LogExpander" Header="Log" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                        <TextBox
+                            x:Name="LogBox"
+                            IsReadOnly="True"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap"
+                            FontFamily="Cascadia Mono, Consolas"
+                            FontSize="12"
+                            Height="160"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+        <!-- App settings page: covers the studio while open -->
+        <Grid
+            x:Name="AppSettingsView"
+            Grid.Row="1"
+            Grid.RowSpan="5"
+            Visibility="Collapsed"
+            Background="{ThemeResource SolidBackgroundFillColorBaseBrush}">
+            <Grid.KeyboardAccelerators>
+                <KeyboardAccelerator Key="Escape" Invoked="OnSettingsEscape" />
+            </Grid.KeyboardAccelerators>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="260" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Section list -->
+            <StackPanel Padding="8,4,8,8" Spacing="4">
+                <Button x:Name="SettingsBackButton" x:Uid="SettingsBackButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        Click="OnSettingsBack" ToolTipService.ToolTip="Back" />
+                <ListView x:Name="SettingsNavList" SelectionMode="Single" SelectionChanged="OnSettingsNavChanged">
+                    <ListViewItem x:Name="AppearanceNavItem" Tag="appearance">
+                        <StackPanel Orientation="Horizontal" Spacing="14">
+                            <FontIcon Glyph="&#xE790;" FontSize="16" />
+                            <TextBlock x:Uid="AppearanceNavText" Text="Appearance" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="OutputNavItem" Tag="output">
+                        <StackPanel Orientation="Horizontal" Spacing="14">
+                            <FontIcon Glyph="&#xE838;" FontSize="16" />
+                            <TextBlock x:Uid="OutputNavText" Text="Output" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ModelsNavItem" Tag="models">
+                        <StackPanel Orientation="Horizontal" Spacing="14">
+                            <FontIcon Glyph="&#xE8F1;" FontSize="16" />
+                            <TextBlock x:Uid="ModelsNavText" Text="Models" />
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+
+            <!-- Section content -->
+            <ScrollViewer Grid.Column="1" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled">
+                <Grid Padding="24,16,32,32">
+                    <Grid.ColumnDefinitions>
+                        <!-- Cards stretch up to 900 px, left-aligned like Windows Settings -->
+                        <ColumnDefinition Width="*" MaxWidth="900" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Spacing="16">
+                        <TextBlock x:Name="SettingsSectionTitle" Style="{StaticResource TitleTextBlockStyle}" />
+
+                        <!-- Appearance -->
+                        <StackPanel x:Name="AppearanceSection" Spacing="8">
+                            <Border Style="{StaticResource CardStyle}">
+                                <Grid ColumnSpacing="16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock x:Uid="ThemeTitle" Text="Theme" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                        <TextBlock x:Uid="ThemeDescription" Text="Choose light or dark, or follow Windows." Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                    <ComboBox x:Name="ThemeCombo" Grid.Column="1" MinWidth="220" VerticalAlignment="Center" SelectionChanged="OnThemeChanged">
+                                        <ComboBoxItem x:Uid="ThemeSystem" Content="Use Windows setting" Tag="system" />
+                                        <ComboBoxItem x:Uid="ThemeLight" Content="Light" Tag="light" />
+                                        <ComboBoxItem x:Uid="ThemeDark" Content="Dark" Tag="dark" />
+                                    </ComboBox>
+                                </Grid>
+                            </Border>
+                            <Border Style="{StaticResource CardStyle}">
+                                <StackPanel Spacing="12">
+                                    <Grid ColumnSpacing="16">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock x:Uid="LanguageTitle" Text="Language" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                            <TextBlock x:Uid="LanguageDescription" Text="The language of the app's text." Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+                                        </StackPanel>
+                                        <ComboBox x:Name="LanguageCombo" Grid.Column="1" MinWidth="220" VerticalAlignment="Center" SelectionChanged="OnLanguageChanged" />
+                                    </Grid>
+                                    <InfoBar x:Name="LanguageRestartBar" x:Uid="LanguageRestartBar" IsOpen="False" IsClosable="False" Severity="Informational"
+                                             Message="Restart the app to use the new language.">
+                                        <InfoBar.ActionButton>
+                                            <Button x:Name="RestartButton" x:Uid="RestartButton" Content="Restart now" Click="OnRestart" />
+                                        </InfoBar.ActionButton>
+                                    </InfoBar>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <!-- Output -->
+                        <StackPanel x:Name="OutputSection" Spacing="8" Visibility="Collapsed">
+                            <Border Style="{StaticResource CardStyle}">
+                                <StackPanel Spacing="8">
+                                    <TextBlock x:Uid="OutputFolderTitle" Text="Default output folder" Style="{StaticResource BodyStrongTextBlockStyle}" />
+                                    <TextBlock x:Uid="OutputFolderDescription" Text="Where upscaled videos are saved unless you choose another file." Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+                                    <RadioButton x:Name="OutputNextToSourceRadio" x:Uid="OutputNextToSourceRadio" GroupName="OutputLocation" Content="Same folder as the source video" Click="OnOutputLocationChanged" />
+                                    <RadioButton x:Name="OutputFolderRadio" x:Uid="OutputFolderRadio" GroupName="OutputLocation" Content="This folder:" Click="OnOutputLocationChanged" />
+                                    <Grid Margin="28,0,0,0" ColumnSpacing="8">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock x:Name="OutputFolderText" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+                                        <Button x:Name="ChooseOutputFolderButton" x:Uid="ChooseOutputFolderButton" Grid.Column="1" Content="Choose…" Click="OnChooseOutputFolder" />
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <!-- Models -->
+                        <StackPanel x:Name="ModelsSection" Spacing="8" Visibility="Collapsed">
+                            <TextBlock x:Uid="ModelsDescription" TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                       Text="AI models (.onnx) in the library appear in the AI model list of the upscale settings. Importing moves the file, and any weights file next to it, into the library folder." />
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <Button x:Name="ImportModelButton" Style="{StaticResource AccentButtonStyle}" Click="OnImportModel">
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <FontIcon Glyph="&#xE8B5;" FontSize="14" />
+                                        <TextBlock x:Uid="ImportModelText" Text="Import model…" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="OpenModelsFolderButton" Click="OnOpenModelsFolder">
+                                    <StackPanel Orientation="Horizontal" Spacing="8">
+                                        <FontIcon Glyph="&#xE838;" FontSize="14" />
+                                        <TextBlock x:Uid="OpenModelsFolderText" Text="Open folder" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                            <TextBlock x:Name="ModelsFolderText" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{StaticResource CaptionTextBlockStyle}" TextTrimming="CharacterEllipsis" />
+                            <InfoBar x:Name="ModelsResultBar" IsOpen="False" IsClosable="True" />
+                            <ListView x:Name="ModelsList" SelectionMode="None" />
+                            <TextBlock x:Name="ModelsEmptyText" x:Uid="ModelsEmptyText" Visibility="Collapsed" TextWrapping="Wrap"
+                                       Text="No models yet. Import an .onnx model to get started." Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

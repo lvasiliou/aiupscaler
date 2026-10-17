@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>  <data name="AppTitleText.Text" xml:space="preserve"><value>AI Upscaler Studio</value></data>
+  <data name="PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Try settings on a short clip first; previews are saved as *_preview.mp4</value></data>
+  <data name="PreviewWhole.Content" xml:space="preserve"><value>Whole video</value></data>
+  <data name="Preview10.Content" xml:space="preserve"><value>Preview: first 10 s</value></data>
+  <data name="Preview30.Content" xml:space="preserve"><value>Preview: first 30 s</value></data>
+  <data name="Preview60.Content" xml:space="preserve"><value>Preview: first 60 s</value></data>
+  <data name="CancelButton.Content" xml:space="preserve"><value>Cancel</value></data>
+  <data name="StartButtonText.Text" xml:space="preserve"><value>Upscale</value></data>
+  <data name="AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Settings</value></data>
+  <data name="SourceHeader.Text" xml:space="preserve"><value>Source</value></data>
+  <data name="OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Open a different video (Ctrl+O)</value></data>
+  <data name="DropZoneTitle.Text" xml:space="preserve"><value>Drop a video here</value></data>
+  <data name="DropZoneOr.Text" xml:space="preserve"><value>or</value></data>
+  <data name="DropZoneBrowse.Content" xml:space="preserve"><value>Browse…</value></data>
+  <data name="UpscaledHeader.Text" xml:space="preserve"><value>Upscaled</value></data>
+  <data name="AutoPreviewCheck.Content" xml:space="preserve"><value>Generate AI previews</value></data>
+  <data name="AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Upscale the selected frame 3 seconds after you stop moving the timeline. Ctrl+P previews right away.</value></data>
+  <data name="ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Switch between fitting the frame and 100% pixels (1:1)</value></data>
+  <data name="UpscaleSettingsTab.Text" xml:space="preserve"><value>Upscale settings</value></data>
+  <data name="ProgressTab.Text" xml:space="preserve"><value>Progress</value></data>
+  <data name="ModelCombo.Header" xml:space="preserve"><value>AI model</value></data>
+  <data name="ManageModelsButton.Content" xml:space="preserve"><value>Manage…</value></data>
+  <data name="OutputBox.Header" xml:space="preserve"><value>Output video</value></data>
+  <data name="OutputBox.PlaceholderText" xml:space="preserve"><value>Where to save the upscaled video</value></data>
+  <data name="OutputButton.Content" xml:space="preserve"><value>Browse…</value></data>
+  <data name="DeviceCombo.Header" xml:space="preserve"><value>AI device</value></data>
+  <data name="DeviceAuto.Content" xml:space="preserve"><value>Automatic (best available)</value></data>
+  <data name="DeviceDirectML.Content" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="DeviceCuda.Content" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="DeviceCpu.Content" xml:space="preserve"><value>CPU</value></data>
+  <data name="HeightCombo.Header" xml:space="preserve"><value>Output size</value></data>
+  <data name="SizeModel.Content" xml:space="preserve"><value>Model scale (e.g. ×4)</value></data>
+  <data name="FitCombo.Header" xml:space="preserve"><value>Picture shape</value></data>
+  <data name="FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>How a 4:3 (or other) picture fills a 16:9 frame</value></data>
+  <data name="FitPad.Content" xml:space="preserve"><value>Black bars (keep shape)</value></data>
+  <data name="FitCrop.Content" xml:space="preserve"><value>Crop to fill</value></data>
+  <data name="FitStretch.Content" xml:space="preserve"><value>Stretch to fill</value></data>
+  <data name="CodecCombo.Header" xml:space="preserve"><value>Video encoder</value></data>
+  <data name="QualitySlider.Header" xml:space="preserve"><value>Quality</value></data>
+  <data name="TileBox.Header" xml:space="preserve"><value>Tile size (0 = auto)</value></data>
+  <data name="AudioToggle.Header" xml:space="preserve"><value>Audio</value></data>
+  <data name="AudioToggle.OnContent" xml:space="preserve"><value>Keep original audio</value></data>
+  <data name="AudioToggle.OffContent" xml:space="preserve"><value>No audio</value></data>
+  <data name="OutputFileLabel.Text" xml:space="preserve"><value>Output file</value></data>
+  <data name="OpenOutputButton.Content" xml:space="preserve"><value>Open</value></data>
+  <data name="LogExpander.Header" xml:space="preserve"><value>Log</value></data>
+  <data name="ThemeTitle.Text" xml:space="preserve"><value>Theme</value></data>
+  <data name="ThemeDescription.Text" xml:space="preserve"><value>Choose light or dark, or follow Windows.</value></data>
+  <data name="ThemeSystem.Content" xml:space="preserve"><value>Use Windows setting</value></data>
+  <data name="ThemeLight.Content" xml:space="preserve"><value>Light</value></data>
+  <data name="ThemeDark.Content" xml:space="preserve"><value>Dark</value></data>
+  <data name="LanguageTitle.Text" xml:space="preserve"><value>Language</value></data>
+  <data name="LanguageDescription.Text" xml:space="preserve"><value>The language of the app&apos;s text.</value></data>
+  <data name="LanguageRestartBar.Message" xml:space="preserve"><value>Restart the app to use the new language.</value></data>
+  <data name="RestartButton.Content" xml:space="preserve"><value>Restart now</value></data>
+  <data name="OutputFolderTitle.Text" xml:space="preserve"><value>Default output folder</value></data>
+  <data name="OutputFolderDescription.Text" xml:space="preserve"><value>Where upscaled videos are saved unless you choose another file.</value></data>
+  <data name="OutputNextToSourceRadio.Content" xml:space="preserve"><value>Same folder as the source video</value></data>
+  <data name="OutputFolderRadio.Content" xml:space="preserve"><value>This folder:</value></data>
+  <data name="ChooseOutputFolderButton.Content" xml:space="preserve"><value>Choose…</value></data>
+  <data name="ModelsDescription.Text" xml:space="preserve"><value>AI models (.onnx) in the library appear in the AI model list of the upscale settings. Importing moves the file, and any weights file next to it, into the library folder.</value></data>
+  <data name="ImportModelText.Text" xml:space="preserve"><value>Import model…</value></data>
+  <data name="OpenModelsFolderText.Text" xml:space="preserve"><value>Open folder</value></data>
+  <data name="ModelsEmptyText.Text" xml:space="preserve"><value>No models yet. Import an .onnx model to get started.</value></data>
+  <data name="Status_Ready" xml:space="preserve"><value>Ready.</value></data>
+  <data name="Placeholder_Open" xml:space="preserve"><value>Open a video. The AI result of the selected frame appears here.</value></data>
+  <data name="Placeholder_PickFrame" xml:space="preserve"><value>Pick a frame on the film strip or timeline. Its AI preview appears here.</value></data>
+  <data name="Placeholder_Upscaling" xml:space="preserve"><value>Upscaling this frame…</value></data>
+  <data name="Placeholder_Coming" xml:space="preserve"><value>The AI preview of {0} appears when you stop on this frame.</value></data>
+  <data name="Placeholder_Off" xml:space="preserve"><value>AI previews are off. Press Ctrl+P to upscale the frame at {0}.</value></data>
+  <data name="Placeholder_PreviewFailed" xml:space="preserve"><value>The preview failed. See the log in the Progress tab.</value></data>
+  <data name="Placeholder_Live" xml:space="preserve"><value>Live previews of the upscaled video appear here every few seconds.</value></data>
+  <data name="Dur_Days" xml:space="preserve"><value>{0} d {1} h</value></data>
+  <data name="Dur_Hours" xml:space="preserve"><value>{0} h {1} min</value></data>
+  <data name="Dur_Minutes" xml:space="preserve"><value>{0} min {1} s</value></data>
+  <data name="Dur_Seconds" xml:space="preserve"><value>{0} s</value></data>
+  <data name="Time_Today" xml:space="preserve"><value>today {0}</value></data>
+  <data name="Size_MB" xml:space="preserve"><value>{0} MB</value></data>
+  <data name="Err_EngineMissing_Title" xml:space="preserve"><value>Engine missing</value></data>
+  <data name="Err_EngineMissing" xml:space="preserve"><value>ai-upscaler.exe was not found next to the app (engine folder).</value></data>
+  <data name="Err_FfmpegMissing_Title" xml:space="preserve"><value>FFmpeg not found</value></data>
+  <data name="Err_FfmpegMissing" xml:space="preserve"><value>Install it with: winget install Gyan.FFmpeg</value></data>
+  <data name="Err_FileNotFound_Title" xml:space="preserve"><value>File not found</value></data>
+  <data name="Err_ModelMissing_Title" xml:space="preserve"><value>Model not found</value></data>
+  <data name="Err_ModelMissing" xml:space="preserve"><value>The selected model file doesn&apos;t exist.</value></data>
+  <data name="Err_EngineStart" xml:space="preserve"><value>Couldn&apos;t start the engine</value></data>
+  <data name="Err_ReadVideo_Title" xml:space="preserve"><value>Couldn&apos;t read the video</value></data>
+  <data name="Err_SeeLog" xml:space="preserve"><value>See the log in the Progress tab for details.</value></data>
+  <data name="Err_NoVideo_Title" xml:space="preserve"><value>Open a video first</value></data>
+  <data name="Err_NoVideo" xml:space="preserve"><value>Drop a video on the Source pane, or use its Browse button.</value></data>
+  <data name="Err_UpscaleFailed_Title" xml:space="preserve"><value>Upscale failed</value></data>
+  <data name="Source_Reading" xml:space="preserve"><value>Reading…</value></data>
+  <data name="Source_Unreadable" xml:space="preserve"><value>Couldn&apos;t read this file</value></data>
+  <data name="Source_Info" xml:space="preserve"><value>{0}×{1} · {2} · {3} fps · {4}</value></data>
+  <data name="Source_WithAudio" xml:space="preserve"><value>{0} · audio</value></data>
+  <data name="Picker_Mp4" xml:space="preserve"><value>MP4 video</value></data>
+  <data name="Picker_Mkv" xml:space="preserve"><value>Matroska video</value></data>
+  <data name="Picker_Mov" xml:space="preserve"><value>QuickTime video</value></data>
+  <data name="Picker_DefaultName" xml:space="preserve"><value>upscaled</value></data>
+  <data name="Quality_1" xml:space="preserve"><value>Smallest file</value></data>
+  <data name="Quality_2" xml:space="preserve"><value>Small file</value></data>
+  <data name="Quality_3" xml:space="preserve"><value>Balanced</value></data>
+  <data name="Quality_4" xml:space="preserve"><value>High quality</value></data>
+  <data name="Quality_5" xml:space="preserve"><value>Best quality (largest file)</value></data>
+  <data name="Quality_Format" xml:space="preserve"><value>{0} of 5 · {1}</value></data>
+  <data name="Drag_OpenAsSource" xml:space="preserve"><value>Open as source</value></data>
+  <data name="Auto_Off" xml:space="preserve"><value>Off · Ctrl+P previews the current frame</value></data>
+  <data name="Auto_Countdown" xml:space="preserve"><value>AI preview in 3 s…</value></data>
+  <data name="Auto_Working" xml:space="preserve"><value>Upscaling frame at {0}…</value></data>
+  <data name="Auto_Live" xml:space="preserve"><value>Live previews while upscaling</value></data>
+  <data name="OutputInfo" xml:space="preserve"><value>AI ×{0} → file {1} · frame at {2}</value></data>
+  <data name="Log_ImageFailed" xml:space="preserve"><value>Couldn&apos;t load preview image {0}: {1}</value></data>
+  <data name="Log_ThumbsFailed" xml:space="preserve"><value>Couldn&apos;t start the thumbnail job: {0}</value></data>
+  <data name="Film_GoTo" xml:space="preserve"><value>Go to {0}</value></data>
+  <data name="Hw_Checking" xml:space="preserve"><value>Checking this PC&apos;s GPU…</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>{0} – not available</value></data>
+  <data name="Device_AutoCuda" xml:space="preserve"><value>Automatic (CUDA GPU)</value></data>
+  <data name="Device_AutoDml" xml:space="preserve"><value>Automatic (DirectML GPU)</value></data>
+  <data name="Device_AutoCpu" xml:space="preserve"><value>Automatic (CPU only)</value></data>
+  <data name="Device_DirectML" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="Device_NoDml" xml:space="preserve"><value>No DirectX 12 GPU was found on this PC.</value></data>
+  <data name="Device_Cuda" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="Device_NoCuda" xml:space="preserve"><value>Needs an NVIDIA GPU and an engine built with CUDA support.</value></data>
+  <data name="Codec_Gpu" xml:space="preserve"><value>{0} – GPU ({1})</value></data>
+  <data name="Codec_GpuPlain" xml:space="preserve"><value>{0} – GPU</value></data>
+  <data name="Codec_NoGpu" xml:space="preserve"><value>This PC&apos;s GPU can&apos;t encode {0}.</value></data>
+  <data name="Codec_NotInFfmpeg" xml:space="preserve"><value>Not included in this FFmpeg build.</value></data>
+  <data name="Hw_Summary" xml:space="preserve"><value>AI on {0} · {1}</value></data>
+  <data name="Hw_AiCuda" xml:space="preserve"><value>CUDA GPU</value></data>
+  <data name="Hw_AiDml" xml:space="preserve"><value>DirectML GPU</value></data>
+  <data name="Hw_AiCpu" xml:space="preserve"><value>CPU only</value></data>
+  <data name="Hw_NoGpuEncode" xml:space="preserve"><value>no GPU video encoding</value></data>
+  <data name="Hw_GpuEncodes" xml:space="preserve"><value>{0} GPU encodes {1}</value></data>
+  <data name="Size_Fills" xml:space="preserve"><value>{0} (fills the frame)</value></data>
+  <data name="Size_Crop" xml:space="preserve"><value>{0} ({1} picture, edges cropped)</value></data>
+  <data name="Size_Stretch" xml:space="preserve"><value>{0} ({1} picture stretched to 16:9)</value></data>
+  <data name="Size_PadSides" xml:space="preserve"><value>{0} ({1} picture, black side bars)</value></data>
+  <data name="Size_PadTopBottom" xml:space="preserve"><value>{0} ({1} picture, black bars above and below)</value></data>
+  <data name="Size_Model" xml:space="preserve"><value>{0} (model ×{1})</value></data>
+  <data name="Size_ModelUnknown" xml:space="preserve"><value>Model scale: known after the first AI preview</value></data>
+  <data name="Size_ModelShort" xml:space="preserve"><value>model scale</value></data>
+  <data name="Size_OpenVideo" xml:space="preserve"><value>Open a video to see the output size</value></data>
+  <data name="Summary_Begin" xml:space="preserve"><value>Drop a video on the Source pane to begin</value></data>
+  <data name="Summary" xml:space="preserve"><value>Output: {0} · {1} · quality {2}/5</value></data>
+  <data name="Summary_NoModel" xml:space="preserve"><value>{0} · no AI model</value></data>
+  <data name="Zoom_Fit" xml:space="preserve"><value>Fit</value></data>
+  <data name="Lang_System" xml:space="preserve"><value>Windows default</value></data>
+  <data name="Lang_RestartBusy" xml:space="preserve"><value>Finish or cancel the upscale before restarting.</value></data>
+  <data name="OutputFolder_None" xml:space="preserve"><value>No folder chosen</value></data>
+  <data name="Model_None" xml:space="preserve"><value>None (Lanczos, no AI)</value></data>
+  <data name="Model_External" xml:space="preserve"><value>{0} (not in library)</value></data>
+  <data name="Models_Folder" xml:space="preserve"><value>Library folder: {0}</value></data>
+  <data name="Models_InUse" xml:space="preserve"><value>{0} (in use)</value></data>
+  <data name="Models_Details" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="Models_RemoveTip" xml:space="preserve"><value>Move to Recycle Bin</value></data>
+  <data name="Models_Removed" xml:space="preserve"><value>Moved {0} to the Recycle Bin.</value></data>
+  <data name="Models_RemoveFailed" xml:space="preserve"><value>Couldn&apos;t remove {0}.</value></data>
+  <data name="Models_Imported" xml:space="preserve"><value>Imported {0}. The file was moved into the library.</value></data>
+  <data name="Models_Exists" xml:space="preserve"><value>A model named {0} is already in the library.</value></data>
+  <data name="Models_ImportFailed" xml:space="preserve"><value>Couldn&apos;t import {0}. {1}</value></data>
+  <data name="Status_Loading" xml:space="preserve"><value>Loading model…</value></data>
+  <data name="Status_Cancelling" xml:space="preserve"><value>Cancelling…</value></data>
+  <data name="Status_Cancelled" xml:space="preserve"><value>Cancelled.</value></data>
+  <data name="Status_Upscaling" xml:space="preserve"><value>Upscaling…</value></data>
+  <data name="Status_UpscalingPreview" xml:space="preserve"><value>Upscaling preview…</value></data>
+  <data name="Status_Finished" xml:space="preserve"><value>Finished in {0}.</value></data>
+  <data name="Status_Failed" xml:space="preserve"><value>Failed (exit code {0}).</value></data>
+  <data name="JobInfo" xml:space="preserve"><value>{0}×{1} → AI {2}×{3} → file {4}×{5} · {6} fps · {7} · {8}</value></data>
+  <data name="Audio_Kept" xml:space="preserve"><value>audio kept</value></data>
+  <data name="Audio_None" xml:space="preserve"><value>no audio</value></data>
+  <data name="Estimate_Left" xml:space="preserve"><value>About {0} left · done around {1}</value></data>
+  <data name="Estimate_Whole" xml:space="preserve"><value>The whole video would take about {0} at this speed.</value></data>
+  <data name="Progress_FramesEta" xml:space="preserve"><value>Frame {0} of {1} · {2} fps · {3} elapsed · {4} left</value></data>
+  <data name="Progress_Frames" xml:space="preserve"><value>Frame {0} of {1} · {2} fps · {3} elapsed</value></data>
+  <data name="Progress_FramesOnly" xml:space="preserve"><value>Frame {0} · {1} fps · {2} elapsed</value></data>
+  <data name="Result_PreviewReady" xml:space="preserve"><value>Preview ready</value></data>
+  <data name="Result_Complete" xml:space="preserve"><value>Upscale complete</value></data>
+  <data name="AppearanceNavText.Text" xml:space="preserve"><value>Appearance</value></data>
+  <data name="OutputNavText.Text" xml:space="preserve"><value>Output</value></data>
+  <data name="ModelsNavText.Text" xml:space="preserve"><value>Models</value></data>
+  <data name="SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Back (Esc)</value></data>
+  <data name="Section_Appearance" xml:space="preserve"><value>Appearance</value></data>
+  <data name="Section_Output" xml:space="preserve"><value>Output</value></data>
+  <data name="Section_Models" xml:space="preserve"><value>Models</value></data>
+</root>

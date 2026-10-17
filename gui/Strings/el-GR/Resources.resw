@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>  <data name="AppTitleText.Text" xml:space="preserve"><value>AI Upscaler Studio</value></data>
+  <data name="PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Δοκιμάστε τις ρυθμίσεις σε σύντομο απόσπασμα πρώτα· οι δοκιμές αποθηκεύονται ως *_preview.mp4</value></data>
+  <data name="PreviewWhole.Content" xml:space="preserve"><value>Ολόκληρο το βίντεο</value></data>
+  <data name="Preview10.Content" xml:space="preserve"><value>Δοκιμή: πρώτα 10 δευτ.</value></data>
+  <data name="Preview30.Content" xml:space="preserve"><value>Δοκιμή: πρώτα 30 δευτ.</value></data>
+  <data name="Preview60.Content" xml:space="preserve"><value>Δοκιμή: πρώτα 60 δευτ.</value></data>
+  <data name="CancelButton.Content" xml:space="preserve"><value>Ακύρωση</value></data>
+  <data name="StartButtonText.Text" xml:space="preserve"><value>Αναβάθμιση</value></data>
+  <data name="AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Ρυθμίσεις</value></data>
+  <data name="SourceHeader.Text" xml:space="preserve"><value>Πηγή</value></data>
+  <data name="OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Άνοιγμα άλλου βίντεο (Ctrl+O)</value></data>
+  <data name="DropZoneTitle.Text" xml:space="preserve"><value>Αφήστε ένα βίντεο εδώ</value></data>
+  <data name="DropZoneOr.Text" xml:space="preserve"><value>ή</value></data>
+  <data name="DropZoneBrowse.Content" xml:space="preserve"><value>Αναζήτηση…</value></data>
+  <data name="UpscaledHeader.Text" xml:space="preserve"><value>Αναβαθμισμένο</value></data>
+  <data name="AutoPreviewCheck.Content" xml:space="preserve"><value>Δημιουργία προεπισκοπήσεων AI</value></data>
+  <data name="AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Αναβαθμίζει το επιλεγμένο καρέ 3 δευτερόλεπτα αφού σταματήσετε να μετακινείτε τη γραμμή χρόνου. Το Ctrl+P κάνει προεπισκόπηση αμέσως.</value></data>
+  <data name="ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Εναλλαγή μεταξύ προσαρμογής καρέ και πραγματικού μεγέθους (1:1)</value></data>
+  <data name="UpscaleSettingsTab.Text" xml:space="preserve"><value>Ρυθμίσεις αναβάθμισης</value></data>
+  <data name="ProgressTab.Text" xml:space="preserve"><value>Πρόοδος</value></data>
+  <data name="ModelCombo.Header" xml:space="preserve"><value>Μοντέλο AI</value></data>
+  <data name="ManageModelsButton.Content" xml:space="preserve"><value>Διαχείριση…</value></data>
+  <data name="OutputBox.Header" xml:space="preserve"><value>Βίντεο εξόδου</value></data>
+  <data name="OutputBox.PlaceholderText" xml:space="preserve"><value>Πού θα αποθηκευτεί το αναβαθμισμένο βίντεο</value></data>
+  <data name="OutputButton.Content" xml:space="preserve"><value>Αναζήτηση…</value></data>
+  <data name="DeviceCombo.Header" xml:space="preserve"><value>Συσκευή AI</value></data>
+  <data name="DeviceAuto.Content" xml:space="preserve"><value>Αυτόματα (η καλύτερη διαθέσιμη)</value></data>
+  <data name="DeviceDirectML.Content" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="DeviceCuda.Content" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="DeviceCpu.Content" xml:space="preserve"><value>CPU</value></data>
+  <data name="HeightCombo.Header" xml:space="preserve"><value>Μέγεθος εξόδου</value></data>
+  <data name="SizeModel.Content" xml:space="preserve"><value>Κλίμακα μοντέλου (π.χ. ×4)</value></data>
+  <data name="FitCombo.Header" xml:space="preserve"><value>Σχήμα εικόνας</value></data>
+  <data name="FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Πώς μια εικόνα 4:3 (ή άλλη) γεμίζει ένα καρέ 16:9</value></data>
+  <data name="FitPad.Content" xml:space="preserve"><value>Μαύρες λωρίδες (διατήρηση σχήματος)</value></data>
+  <data name="FitCrop.Content" xml:space="preserve"><value>Περικοπή για γέμισμα</value></data>
+  <data name="FitStretch.Content" xml:space="preserve"><value>Τέντωμα για γέμισμα</value></data>
+  <data name="CodecCombo.Header" xml:space="preserve"><value>Κωδικοποιητής βίντεο</value></data>
+  <data name="QualitySlider.Header" xml:space="preserve"><value>Ποιότητα</value></data>
+  <data name="TileBox.Header" xml:space="preserve"><value>Μέγεθος πλακιδίου (0 = αυτόματα)</value></data>
+  <data name="AudioToggle.Header" xml:space="preserve"><value>Ήχος</value></data>
+  <data name="AudioToggle.OnContent" xml:space="preserve"><value>Διατήρηση αρχικού ήχου</value></data>
+  <data name="AudioToggle.OffContent" xml:space="preserve"><value>Χωρίς ήχο</value></data>
+  <data name="OutputFileLabel.Text" xml:space="preserve"><value>Αρχείο εξόδου</value></data>
+  <data name="OpenOutputButton.Content" xml:space="preserve"><value>Άνοιγμα</value></data>
+  <data name="LogExpander.Header" xml:space="preserve"><value>Αρχείο καταγραφής</value></data>
+  <data name="ThemeTitle.Text" xml:space="preserve"><value>Θέμα</value></data>
+  <data name="ThemeDescription.Text" xml:space="preserve"><value>Επιλέξτε φωτεινό ή σκοτεινό, ή ακολουθήστε τα Windows.</value></data>
+  <data name="ThemeSystem.Content" xml:space="preserve"><value>Ρύθμιση των Windows</value></data>
+  <data name="ThemeLight.Content" xml:space="preserve"><value>Φωτεινό</value></data>
+  <data name="ThemeDark.Content" xml:space="preserve"><value>Σκοτεινό</value></data>
+  <data name="LanguageTitle.Text" xml:space="preserve"><value>Γλώσσα</value></data>
+  <data name="LanguageDescription.Text" xml:space="preserve"><value>Η γλώσσα των κειμένων της εφαρμογής.</value></data>
+  <data name="LanguageRestartBar.Message" xml:space="preserve"><value>Επανεκκινήστε την εφαρμογή για να χρησιμοποιηθεί η νέα γλώσσα.</value></data>
+  <data name="RestartButton.Content" xml:space="preserve"><value>Επανεκκίνηση τώρα</value></data>
+  <data name="OutputFolderTitle.Text" xml:space="preserve"><value>Προεπιλεγμένος φάκελος εξόδου</value></data>
+  <data name="OutputFolderDescription.Text" xml:space="preserve"><value>Πού αποθηκεύονται τα αναβαθμισμένα βίντεο, εκτός αν επιλέξετε άλλο αρχείο.</value></data>
+  <data name="OutputNextToSourceRadio.Content" xml:space="preserve"><value>Ίδιος φάκελος με το βίντεο πηγής</value></data>
+  <data name="OutputFolderRadio.Content" xml:space="preserve"><value>Αυτός ο φάκελος:</value></data>
+  <data name="ChooseOutputFolderButton.Content" xml:space="preserve"><value>Επιλογή…</value></data>
+  <data name="ModelsDescription.Text" xml:space="preserve"><value>Τα μοντέλα AI (.onnx) της βιβλιοθήκης εμφανίζονται στη λίστα μοντέλων των ρυθμίσεων αναβάθμισης. Η εισαγωγή μετακινεί το αρχείο, και όποιο αρχείο βαρών βρίσκεται δίπλα του, στον φάκελο της βιβλιοθήκης.</value></data>
+  <data name="ImportModelText.Text" xml:space="preserve"><value>Εισαγωγή μοντέλου…</value></data>
+  <data name="OpenModelsFolderText.Text" xml:space="preserve"><value>Άνοιγμα φακέλου</value></data>
+  <data name="ModelsEmptyText.Text" xml:space="preserve"><value>Δεν υπάρχουν ακόμα μοντέλα. Εισαγάγετε ένα μοντέλο .onnx για να ξεκινήσετε.</value></data>
+  <data name="Status_Ready" xml:space="preserve"><value>Έτοιμο.</value></data>
+  <data name="Placeholder_Open" xml:space="preserve"><value>Ανοίξτε ένα βίντεο. Το αποτέλεσμα AI του επιλεγμένου καρέ εμφανίζεται εδώ.</value></data>
+  <data name="Placeholder_PickFrame" xml:space="preserve"><value>Επιλέξτε ένα καρέ στο φιλμ ή στη γραμμή χρόνου. Η προεπισκόπηση AI του εμφανίζεται εδώ.</value></data>
+  <data name="Placeholder_Upscaling" xml:space="preserve"><value>Αναβάθμιση αυτού του καρέ…</value></data>
+  <data name="Placeholder_Coming" xml:space="preserve"><value>Η προεπισκόπηση AI του {0} εμφανίζεται όταν σταθείτε σε αυτό το καρέ.</value></data>
+  <data name="Placeholder_Off" xml:space="preserve"><value>Οι προεπισκοπήσεις AI είναι απενεργοποιημένες. Πατήστε Ctrl+P για να αναβαθμίσετε το καρέ στο {0}.</value></data>
+  <data name="Placeholder_PreviewFailed" xml:space="preserve"><value>Η προεπισκόπηση απέτυχε. Δείτε το αρχείο καταγραφής στην καρτέλα Πρόοδος.</value></data>
+  <data name="Placeholder_Live" xml:space="preserve"><value>Ζωντανές προεπισκοπήσεις του αναβαθμισμένου βίντεο εμφανίζονται εδώ κάθε λίγα δευτερόλεπτα.</value></data>
+  <data name="Dur_Days" xml:space="preserve"><value>{0} ημ. {1} ώρ.</value></data>
+  <data name="Dur_Hours" xml:space="preserve"><value>{0} ώρ. {1} λεπ.</value></data>
+  <data name="Dur_Minutes" xml:space="preserve"><value>{0} λεπ. {1} δευτ.</value></data>
+  <data name="Dur_Seconds" xml:space="preserve"><value>{0} δευτ.</value></data>
+  <data name="Time_Today" xml:space="preserve"><value>σήμερα {0}</value></data>
+  <data name="Size_MB" xml:space="preserve"><value>{0} MB</value></data>
+  <data name="Err_EngineMissing_Title" xml:space="preserve"><value>Λείπει η μηχανή</value></data>
+  <data name="Err_EngineMissing" xml:space="preserve"><value>Το ai-upscaler.exe δεν βρέθηκε δίπλα στην εφαρμογή (φάκελος engine).</value></data>
+  <data name="Err_FfmpegMissing_Title" xml:space="preserve"><value>Δεν βρέθηκε το FFmpeg</value></data>
+  <data name="Err_FfmpegMissing" xml:space="preserve"><value>Εγκαταστήστε το με: winget install Gyan.FFmpeg</value></data>
+  <data name="Err_FileNotFound_Title" xml:space="preserve"><value>Το αρχείο δεν βρέθηκε</value></data>
+  <data name="Err_ModelMissing_Title" xml:space="preserve"><value>Το μοντέλο δεν βρέθηκε</value></data>
+  <data name="Err_ModelMissing" xml:space="preserve"><value>Το επιλεγμένο αρχείο μοντέλου δεν υπάρχει.</value></data>
+  <data name="Err_EngineStart" xml:space="preserve"><value>Δεν ήταν δυνατή η εκκίνηση της μηχανής</value></data>
+  <data name="Err_ReadVideo_Title" xml:space="preserve"><value>Δεν ήταν δυνατή η ανάγνωση του βίντεο</value></data>
+  <data name="Err_SeeLog" xml:space="preserve"><value>Δείτε το αρχείο καταγραφής στην καρτέλα Πρόοδος για λεπτομέρειες.</value></data>
+  <data name="Err_NoVideo_Title" xml:space="preserve"><value>Ανοίξτε πρώτα ένα βίντεο</value></data>
+  <data name="Err_NoVideo" xml:space="preserve"><value>Αφήστε ένα βίντεο στο πλαίσιο Πηγή ή χρησιμοποιήστε το κουμπί Αναζήτηση.</value></data>
+  <data name="Err_UpscaleFailed_Title" xml:space="preserve"><value>Η αναβάθμιση απέτυχε</value></data>
+  <data name="Source_Reading" xml:space="preserve"><value>Ανάγνωση…</value></data>
+  <data name="Source_Unreadable" xml:space="preserve"><value>Δεν ήταν δυνατή η ανάγνωση αυτού του αρχείου</value></data>
+  <data name="Source_Info" xml:space="preserve"><value>{0}×{1} · {2} · {3} fps · {4}</value></data>
+  <data name="Source_WithAudio" xml:space="preserve"><value>{0} · ήχος</value></data>
+  <data name="Picker_Mp4" xml:space="preserve"><value>Βίντεο MP4</value></data>
+  <data name="Picker_Mkv" xml:space="preserve"><value>Βίντεο Matroska</value></data>
+  <data name="Picker_Mov" xml:space="preserve"><value>Βίντεο QuickTime</value></data>
+  <data name="Picker_DefaultName" xml:space="preserve"><value>αναβαθμισμένο</value></data>
+  <data name="Quality_1" xml:space="preserve"><value>Μικρότερο αρχείο</value></data>
+  <data name="Quality_2" xml:space="preserve"><value>Μικρό αρχείο</value></data>
+  <data name="Quality_3" xml:space="preserve"><value>Ισορροπημένο</value></data>
+  <data name="Quality_4" xml:space="preserve"><value>Υψηλή ποιότητα</value></data>
+  <data name="Quality_5" xml:space="preserve"><value>Βέλτιστη ποιότητα (μεγαλύτερο αρχείο)</value></data>
+  <data name="Quality_Format" xml:space="preserve"><value>{0} από 5 · {1}</value></data>
+  <data name="Drag_OpenAsSource" xml:space="preserve"><value>Άνοιγμα ως πηγή</value></data>
+  <data name="Auto_Off" xml:space="preserve"><value>Ανενεργό · Ctrl+P για προεπισκόπηση του καρέ</value></data>
+  <data name="Auto_Countdown" xml:space="preserve"><value>Προεπισκόπηση AI σε 3 δευτ.…</value></data>
+  <data name="Auto_Working" xml:space="preserve"><value>Αναβάθμιση καρέ στο {0}…</value></data>
+  <data name="Auto_Live" xml:space="preserve"><value>Ζωντανές προεπισκοπήσεις κατά την αναβάθμιση</value></data>
+  <data name="OutputInfo" xml:space="preserve"><value>AI ×{0} → αρχείο {1} · καρέ στο {2}</value></data>
+  <data name="Log_ImageFailed" xml:space="preserve"><value>Δεν ήταν δυνατή η φόρτωση της εικόνας {0}: {1}</value></data>
+  <data name="Log_ThumbsFailed" xml:space="preserve"><value>Δεν ήταν δυνατή η δημιουργία μικρογραφιών: {0}</value></data>
+  <data name="Film_GoTo" xml:space="preserve"><value>Μετάβαση στο {0}</value></data>
+  <data name="Hw_Checking" xml:space="preserve"><value>Έλεγχος της GPU του υπολογιστή…</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>{0} – μη διαθέσιμο</value></data>
+  <data name="Device_AutoCuda" xml:space="preserve"><value>Αυτόματα (GPU CUDA)</value></data>
+  <data name="Device_AutoDml" xml:space="preserve"><value>Αυτόματα (GPU DirectML)</value></data>
+  <data name="Device_AutoCpu" xml:space="preserve"><value>Αυτόματα (μόνο CPU)</value></data>
+  <data name="Device_DirectML" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="Device_NoDml" xml:space="preserve"><value>Δεν βρέθηκε GPU DirectX 12 σε αυτόν τον υπολογιστή.</value></data>
+  <data name="Device_Cuda" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="Device_NoCuda" xml:space="preserve"><value>Απαιτεί GPU NVIDIA και μηχανή με υποστήριξη CUDA.</value></data>
+  <data name="Codec_Gpu" xml:space="preserve"><value>{0} – GPU ({1})</value></data>
+  <data name="Codec_GpuPlain" xml:space="preserve"><value>{0} – GPU</value></data>
+  <data name="Codec_NoGpu" xml:space="preserve"><value>Η GPU αυτού του υπολογιστή δεν μπορεί να κωδικοποιήσει {0}.</value></data>
+  <data name="Codec_NotInFfmpeg" xml:space="preserve"><value>Δεν περιλαμβάνεται σε αυτή την έκδοση του FFmpeg.</value></data>
+  <data name="Hw_Summary" xml:space="preserve"><value>AI σε {0} · {1}</value></data>
+  <data name="Hw_AiCuda" xml:space="preserve"><value>GPU CUDA</value></data>
+  <data name="Hw_AiDml" xml:space="preserve"><value>GPU DirectML</value></data>
+  <data name="Hw_AiCpu" xml:space="preserve"><value>μόνο CPU</value></data>
+  <data name="Hw_NoGpuEncode" xml:space="preserve"><value>χωρίς κωδικοποίηση βίντεο στη GPU</value></data>
+  <data name="Hw_GpuEncodes" xml:space="preserve"><value>η GPU {0} κωδικοποιεί {1}</value></data>
+  <data name="Size_Fills" xml:space="preserve"><value>{0} (γεμίζει το καρέ)</value></data>
+  <data name="Size_Crop" xml:space="preserve"><value>{0} (εικόνα {1}, περικομμένες άκρες)</value></data>
+  <data name="Size_Stretch" xml:space="preserve"><value>{0} (εικόνα {1} τεντωμένη σε 16:9)</value></data>
+  <data name="Size_PadSides" xml:space="preserve"><value>{0} (εικόνα {1}, μαύρες πλαϊνές λωρίδες)</value></data>
+  <data name="Size_PadTopBottom" xml:space="preserve"><value>{0} (εικόνα {1}, μαύρες λωρίδες πάνω και κάτω)</value></data>
+  <data name="Size_Model" xml:space="preserve"><value>{0} (μοντέλο ×{1})</value></data>
+  <data name="Size_ModelUnknown" xml:space="preserve"><value>Κλίμακα μοντέλου: γνωστή μετά την πρώτη προεπισκόπηση AI</value></data>
+  <data name="Size_ModelShort" xml:space="preserve"><value>κλίμακα μοντέλου</value></data>
+  <data name="Size_OpenVideo" xml:space="preserve"><value>Ανοίξτε ένα βίντεο για να δείτε το μέγεθος εξόδου</value></data>
+  <data name="Summary_Begin" xml:space="preserve"><value>Αφήστε ένα βίντεο στο πλαίσιο Πηγή για να ξεκινήσετε</value></data>
+  <data name="Summary" xml:space="preserve"><value>Έξοδος: {0} · {1} · ποιότητα {2}/5</value></data>
+  <data name="Summary_NoModel" xml:space="preserve"><value>{0} · χωρίς μοντέλο AI</value></data>
+  <data name="Zoom_Fit" xml:space="preserve"><value>Προσαρμογή</value></data>
+  <data name="Lang_System" xml:space="preserve"><value>Προεπιλογή Windows</value></data>
+  <data name="Lang_RestartBusy" xml:space="preserve"><value>Ολοκληρώστε ή ακυρώστε την αναβάθμιση πριν την επανεκκίνηση.</value></data>
+  <data name="OutputFolder_None" xml:space="preserve"><value>Δεν έχει επιλεγεί φάκελος</value></data>
+  <data name="Model_None" xml:space="preserve"><value>Κανένα (Lanczos, χωρίς AI)</value></data>
+  <data name="Model_External" xml:space="preserve"><value>{0} (εκτός βιβλιοθήκης)</value></data>
+  <data name="Models_Folder" xml:space="preserve"><value>Φάκελος βιβλιοθήκης: {0}</value></data>
+  <data name="Models_InUse" xml:space="preserve"><value>{0} (σε χρήση)</value></data>
+  <data name="Models_Details" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="Models_RemoveTip" xml:space="preserve"><value>Μετακίνηση στον Κάδο Ανακύκλωσης</value></data>
+  <data name="Models_Removed" xml:space="preserve"><value>Το {0} μετακινήθηκε στον Κάδο Ανακύκλωσης.</value></data>
+  <data name="Models_RemoveFailed" xml:space="preserve"><value>Δεν ήταν δυνατή η κατάργηση του {0}.</value></data>
+  <data name="Models_Imported" xml:space="preserve"><value>Έγινε εισαγωγή του {0}. Το αρχείο μετακινήθηκε στη βιβλιοθήκη.</value></data>
+  <data name="Models_Exists" xml:space="preserve"><value>Υπάρχει ήδη μοντέλο με το όνομα {0} στη βιβλιοθήκη.</value></data>
+  <data name="Models_ImportFailed" xml:space="preserve"><value>Δεν ήταν δυνατή η εισαγωγή του {0}. {1}</value></data>
+  <data name="Status_Loading" xml:space="preserve"><value>Φόρτωση μοντέλου…</value></data>
+  <data name="Status_Cancelling" xml:space="preserve"><value>Ακύρωση…</value></data>
+  <data name="Status_Cancelled" xml:space="preserve"><value>Ακυρώθηκε.</value></data>
+  <data name="Status_Upscaling" xml:space="preserve"><value>Αναβάθμιση…</value></data>
+  <data name="Status_UpscalingPreview" xml:space="preserve"><value>Αναβάθμιση δοκιμής…</value></data>
+  <data name="Status_Finished" xml:space="preserve"><value>Ολοκληρώθηκε σε {0}.</value></data>
+  <data name="Status_Failed" xml:space="preserve"><value>Απέτυχε (κωδικός εξόδου {0}).</value></data>
+  <data name="JobInfo" xml:space="preserve"><value>{0}×{1} → AI {2}×{3} → αρχείο {4}×{5} · {6} fps · {7} · {8}</value></data>
+  <data name="Audio_Kept" xml:space="preserve"><value>με ήχο</value></data>
+  <data name="Audio_None" xml:space="preserve"><value>χωρίς ήχο</value></data>
+  <data name="Estimate_Left" xml:space="preserve"><value>Απομένουν περίπου {0} · τέλος γύρω στις {1}</value></data>
+  <data name="Estimate_Whole" xml:space="preserve"><value>Ολόκληρο το βίντεο θα χρειαζόταν περίπου {0} με αυτή την ταχύτητα.</value></data>
+  <data name="Progress_FramesEta" xml:space="preserve"><value>Καρέ {0} από {1} · {2} fps · {3} πέρασαν · απομένουν {4}</value></data>
+  <data name="Progress_Frames" xml:space="preserve"><value>Καρέ {0} από {1} · {2} fps · {3} πέρασαν</value></data>
+  <data name="Progress_FramesOnly" xml:space="preserve"><value>Καρέ {0} · {1} fps · {2} πέρασαν</value></data>
+  <data name="Result_PreviewReady" xml:space="preserve"><value>Η δοκιμή είναι έτοιμη</value></data>
+  <data name="Result_Complete" xml:space="preserve"><value>Η αναβάθμιση ολοκληρώθηκε</value></data>
+  <data name="AppearanceNavText.Text" xml:space="preserve"><value>Εμφάνιση</value></data>
+  <data name="OutputNavText.Text" xml:space="preserve"><value>Έξοδος</value></data>
+  <data name="ModelsNavText.Text" xml:space="preserve"><value>Μοντέλα</value></data>
+  <data name="SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Πίσω (Esc)</value></data>
+  <data name="Section_Appearance" xml:space="preserve"><value>Εμφάνιση</value></data>
+  <data name="Section_Output" xml:space="preserve"><value>Έξοδος</value></data>
+  <data name="Section_Models" xml:space="preserve"><value>Μοντέλα</value></data>
+</root>

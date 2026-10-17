@@ -1,0 +1,18 @@
+# Rust
+upscaler/target/
+
+# WinUI app: NuGet packages, generated sources and build output
+gui/packages/
+gui/Generated Files/
+gui/AiUpscaler/
+gui/x64/
+gui/ARM64/
+gui/Debug/
+gui/Release/
+*.vcxproj.user
+.vs/
+
+# Local models (large binaries)
+models/
+*.onnx
+*.onnx.data
