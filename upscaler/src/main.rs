@@ -446,11 +446,21 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
     let mut processed = 0u64;
     let mut infer_result = Ok(());
     let mut last_report = Instant::now() - Duration::from_secs(1);
-    for frame in decoded_rx {
+    // Where the time goes: waiting for decoded frames, running the model, or waiting for the
+    // encoder to take frames. Whichever dominates is the bottleneck.
+    let (mut decode_wait, mut ai_time, mut encode_wait) = (Duration::ZERO, Duration::ZERO, Duration::ZERO);
+    let mut last_stage_log = Instant::now();
+    loop {
+        let t = Instant::now();
+        let Ok(frame) = decoded_rx.recv() else { break };
+        decode_wait += t.elapsed();
         if CANCELLED.load(Ordering::Relaxed) {
             break;
         }
-        match upscaler.upscale(&frame) {
+        let t = Instant::now();
+        let result = upscaler.upscale(&frame);
+        ai_time += t.elapsed();
+        match result {
             Ok(up) => {
                 if let Some(tx) = &preview_tx
                     && last_preview.is_none_or(|t| t.elapsed() >= preview_interval)
@@ -458,9 +468,11 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
                 {
                     last_preview = Some(Instant::now());
                 }
+                let t = Instant::now();
                 if upscaled_tx.send(up).is_err() {
                     break; // encoder died; its error is reported below
                 }
+                encode_wait += t.elapsed();
             }
             Err(e) => {
                 infer_result = Err(e);
@@ -469,6 +481,10 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
         }
         processed += 1;
         progress.inc(1);
+        if processed == 1 || last_stage_log.elapsed() >= Duration::from_secs(10) {
+            last_stage_log = Instant::now();
+            eprintln!("{}", stage_summary(processed, decode_wait, ai_time, encode_wait));
+        }
         if args.json && (last_report.elapsed() >= Duration::from_millis(250) || processed == total) {
             last_report = Instant::now();
             let fps = processed as f64 / start.elapsed().as_secs_f64();
@@ -499,6 +515,7 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
         bail!("no frames were decoded");
     }
     let secs = start.elapsed().as_secs_f64();
+    eprintln!("{}", stage_summary(processed, decode_wait, ai_time, encode_wait));
     eprintln!(
         "Done: {processed} frames in {:.1}s ({:.2} fps) -> {}",
         secs,
@@ -507,6 +524,18 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
     );
     emit(args, json!({ "event": "done", "frames": processed, "secs": secs, "output": output.display().to_string() }));
     Ok(())
+}
+
+/// Average per-frame time in each pipeline stage, e.g. "Per frame after 120: AI 310 ms,
+/// waiting for decoder 2 ms, waiting for encoder 45 ms".
+fn stage_summary(frames: u64, decode_wait: Duration, ai: Duration, encode_wait: Duration) -> String {
+    let ms = |d: Duration| d.as_secs_f64() * 1000.0 / frames.max(1) as f64;
+    format!(
+        "Per frame after {frames}: AI {:.0} ms, waiting for decoder {:.0} ms, waiting for encoder {:.0} ms",
+        ms(ai),
+        ms(decode_wait),
+        ms(encode_wait)
+    )
 }
 
 /// `--capabilities`: which AI devices and video encoders actually work on this PC, so front

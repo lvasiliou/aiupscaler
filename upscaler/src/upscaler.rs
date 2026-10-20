@@ -314,6 +314,13 @@ impl OnnxUpscaler {
         let per_pixel = ((times[1] - times[0]) / (pixels[1] - pixels[0])).max(1e-12);
         let overhead = (times[0] - per_pixel * pixels[0]).max(0.0);
         let budget = ((AUTO_TILE_BUDGET_SECS - overhead).max(0.0) / per_pixel) as usize / n;
+        eprintln!(
+            "Calibration: {0}x{0} in {2:.1} ms, {1}x{1} in {3:.1} ms",
+            SIDES[0],
+            SIDES[1],
+            times[0] * 1000.0,
+            times[1] * 1000.0
+        );
         Ok(budget.clamp(AUTO_TILE_MIN_SIDE * AUTO_TILE_MIN_SIDE, AUTO_TILE_MAX_PIXELS))
     }
 
