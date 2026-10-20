@@ -1831,8 +1831,26 @@ namespace winrt::AiUpscaler::implementation
         if (m_job && m_job->IsRunning())
         {
             m_job->Cancel();
+            m_cancelRequested = true;
             CancelButton().IsEnabled(false);
             StatusText().Text(T(L"Status_Cancelling"));
+
+            // The engine stops after the frame it is on; give a slow model time to finish it.
+            if (!m_cancelTimer)
+            {
+                m_cancelTimer = DispatcherQueue().CreateTimer();
+                m_cancelTimer.Interval(std::chrono::seconds(15));
+                m_cancelTimer.IsRepeating(false);
+                m_cancelTimer.Tick([this](auto&&, auto&&)
+                {
+                    if (m_job && m_job->IsRunning())
+                    {
+                        AppendLog(L"The engine did not stop after Cancel; ending it.");
+                        m_job->Terminate();
+                    }
+                });
+            }
+            m_cancelTimer.Start();
         }
     }
 
@@ -1921,6 +1939,17 @@ namespace winrt::AiUpscaler::implementation
     void MainWindow::OnJobExited(::AiUpscaler::JobOutcome outcome, DWORD exitCode)
     {
         m_job.reset();
+        if (m_cancelTimer)
+        {
+            m_cancelTimer.Stop();
+        }
+        // An engine ended by the cancel timer exits with an error code; it was still a cancel,
+        // and its partial file is left behind.
+        if (std::exchange(m_cancelRequested, false) && outcome == ::AiUpscaler::JobOutcome::Failed)
+        {
+            outcome = ::AiUpscaler::JobOutcome::Cancelled;
+            DeleteFileW(m_runningOutput.c_str());
+        }
         SetRunning(false);
         EstimateText().Visibility(Visibility::Collapsed);
         JobProgress().IsIndeterminate(false);

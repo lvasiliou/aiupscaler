@@ -155,6 +155,10 @@ namespace winrt::AiUpscaler::implementation
         // Fires 3 s after the frame last changed, so dragging the timeline doesn't start an
         // AI preview for every position passed on the way.
         Microsoft::UI::Dispatching::DispatcherQueueTimer m_aiPreviewTimer{ nullptr };
+        // Kills the engine if it hasn't stopped some time after Cancel, so the app never
+        // stays stuck on "Cancelling".
+        Microsoft::UI::Dispatching::DispatcherQueueTimer m_cancelTimer{ nullptr };
+        bool m_cancelRequested{ false };
 
         // Film strip thumbnails and hardware probe run alongside frame previews.
         std::unique_ptr<::AiUpscaler::EngineJob> m_thumbJob;

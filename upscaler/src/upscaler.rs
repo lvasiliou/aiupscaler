@@ -93,6 +93,23 @@ pub fn available_devices() -> serde_json::Value {
 }
 
 fn create_session(environment: &Environment, model: &Path, device: Device, threads: usize) -> Result<Session> {
+    #[cfg(feature = "cuda")]
+    if device == Device::Cuda {
+        // The tuned CUDA options need a recent GPU and ONNX Runtime build; fall back to the
+        // defaults rather than losing CUDA altogether.
+        match build_session(environment, model, device, threads, true) {
+            Ok(session) => {
+                eprintln!("CUDA settings: NHWC convolutions, TF32");
+                return Ok(session);
+            }
+            Err(e) => eprintln!("CUDA with NHWC/TF32 failed ({e:#}); using default CUDA settings"),
+        }
+    }
+    build_session(environment, model, device, threads, false)
+}
+
+fn build_session(environment: &Environment, model: &Path, device: Device, threads: usize, tuned: bool) -> Result<Session> {
+    let _ = tuned;
     let mut builder = Session::builder(environment)
         .map_err(ort_err)?
         .with_optimization_level(GraphOptimizationLevel::Level3)
@@ -112,9 +129,16 @@ fn create_session(environment: &Environment, model: &Path, device: Device, threa
             .with_execution_providers([ort::ep::DirectML::default().build().error_on_failure()])
             .map_err(ort_err)?,
         #[cfg(feature = "cuda")]
-        Device::Cuda => builder
-            .with_execution_providers([ort::ep::CUDA::default().build().error_on_failure()])
-            .map_err(ort_err)?,
+        Device::Cuda => {
+            let mut cuda = ort::ep::CUDA::default();
+            if tuned {
+                // Tensor cores want channels-last (NHWC) convolutions, especially in fp16; with
+                // the default NCHW layout cuDNN often picks much slower kernels. TF32 lets fp32
+                // models use tensor cores too, at a precision loss invisible in 8-bit video.
+                cuda = cuda.with_prefer_nhwc(true).with_tf32(true).with_conv_max_workspace(true);
+            }
+            builder.with_execution_providers([cuda.build().error_on_failure()]).map_err(ort_err)?
+        }
         #[cfg(not(windows))]
         Device::Directml => bail!("DirectML is only available on Windows"),
         #[cfg(not(feature = "cuda"))]

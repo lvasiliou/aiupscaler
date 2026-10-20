@@ -492,6 +492,9 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
             emit(args, json!({ "event": "progress", "frame": processed, "total": total, "fps": fps, "eta_secs": eta }));
         }
     }
+    // Closing the decoded queue unblocks the decode thread if we stopped early (cancel or
+    // error); otherwise it waits forever to hand over its next frame and join() never returns.
+    drop(decoded_rx);
     drop(upscaled_tx);
     drop(preview_tx);
     progress.finish_and_clear();
