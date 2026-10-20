@@ -417,6 +417,104 @@ namespace winrt::AiUpscaler::implementation
         }
     }
 
+    fire_and_forget MainWindow::OnSaveConfiguration(IInspectable const&, RoutedEventArgs const&)
+    {
+        auto lifetime = get_strong();
+        FileSavePicker picker(AppWindow().Id());
+        picker.SuggestedStartLocation(PickerLocationId::DocumentsLibrary);
+        picker.FileTypeChoices().Insert(T(L"Picker_Config"), single_threaded_vector<hstring>({ L".json" }));
+        picker.SuggestedFileName(T(L"Picker_ConfigName"));
+        auto result = co_await picker.PickSaveFileAsync();
+        if (!result)
+        {
+            co_return;
+        }
+
+        fs::path path{ std::wstring(result.Path()) };
+        try
+        {
+            CollectSettings().SaveConfiguration(path);
+            ShowConfigMessage(InfoBarSeverity::Success, T(L"Config_Saved"), path.wstring());
+        }
+        catch (std::exception const&)
+        {
+            ShowConfigMessage(InfoBarSeverity::Error, T(L"Config_SaveFailed"), path.wstring());
+        }
+    }
+
+    fire_and_forget MainWindow::OnLoadConfiguration(IInspectable const&, RoutedEventArgs const&)
+    {
+        auto lifetime = get_strong();
+        FileOpenPicker picker(AppWindow().Id());
+        picker.SuggestedStartLocation(PickerLocationId::DocumentsLibrary);
+        picker.FileTypeFilter().Append(L".json");
+        auto result = co_await picker.PickSingleFileAsync();
+        if (!result || (m_job && m_job->IsRunning()))
+        {
+            co_return;
+        }
+
+        fs::path path{ std::wstring(result.Path()) };
+        auto settings = CollectSettings();
+        std::wstring missingModel;
+        if (!settings.LoadConfiguration(path, missingModel))
+        {
+            ShowConfigMessage(InfoBarSeverity::Error, T(L"Config_LoadFailed"), F(L"Config_NotConfig", { path.filename().wstring() }));
+            co_return;
+        }
+
+        ApplySettings(settings);
+        // A configuration from another PC may pick a device or encoder this one can't use.
+        for (auto const& combo : { DeviceCombo(), CodecCombo() })
+        {
+            auto selected = combo.SelectedItem().try_as<ComboBoxItem>();
+            for (uint32_t i = 0; selected && !selected.IsEnabled() && i < combo.Items().Size(); ++i)
+            {
+                if (combo.Items().GetAt(i).as<ComboBoxItem>().IsEnabled())
+                {
+                    combo.SelectedIndex(static_cast<int32_t>(i));
+                    break;
+                }
+            }
+        }
+        CollectSettings().Save();
+        m_modelScale = 0;
+        UpdateOutputSummary();
+        ScheduleAiPreview();
+        ShowBottomTab(UpscaleSettingsTab());
+
+        if (missingModel.empty())
+        {
+            ShowConfigMessage(InfoBarSeverity::Success, T(L"Config_Loaded"), path.filename().wstring());
+        }
+        else
+        {
+            ShowConfigMessage(InfoBarSeverity::Warning, T(L"Config_Loaded"), F(L"Config_ModelMissing", { missingModel }));
+        }
+    }
+
+    void MainWindow::ShowConfigMessage(InfoBarSeverity severity, std::wstring const& title, std::wstring const& message)
+    {
+        ConfigBar().Severity(severity);
+        ConfigBar().Title(title);
+        ConfigBar().Message(message);
+        ConfigBar().IsOpen(true);
+
+        // Confirmations go away by themselves; problems stay until closed.
+        if (!m_configBarTimer)
+        {
+            m_configBarTimer = DispatcherQueue().CreateTimer();
+            m_configBarTimer.Interval(std::chrono::seconds(5));
+            m_configBarTimer.IsRepeating(false);
+            m_configBarTimer.Tick([this](auto&&, auto&&) { ConfigBar().IsOpen(false); });
+        }
+        m_configBarTimer.Stop();
+        if (severity == InfoBarSeverity::Success)
+        {
+            m_configBarTimer.Start();
+        }
+    }
+
     void MainWindow::OnManageModels(IInspectable const&, RoutedEventArgs const&)
     {
         OnOpenAppSettings(nullptr, nullptr);
@@ -1799,7 +1897,7 @@ namespace winrt::AiUpscaler::implementation
         callbacks.Log = [onUi](std::wstring const& line) { onUi([line](MainWindow& w) { w.AppendLog(line); }); };
         callbacks.Exited = [onUi](::AiUpscaler::JobOutcome outcome, DWORD code) { onUi([outcome, code](MainWindow& w) { w.OnJobExited(outcome, code); }); };
 
-        LogBox().Text(L"");
+        LogText().Text(L"");
         m_runningOutput = output;
         m_jobStart = std::chrono::steady_clock::now();
         m_job = std::make_unique<::AiUpscaler::EngineJob>(tools->Engine, std::move(args), std::move(callbacks));
@@ -1988,7 +2086,7 @@ namespace winrt::AiUpscaler::implementation
 
     void MainWindow::SetRunning(bool running)
     {
-        for (Control control : std::initializer_list<Control>{ OpenSourceButton(), ModelCombo(), ManageModelsButton(), OutputBox(), OutputButton(),
+        for (Control control : std::initializer_list<Control>{ OpenSourceButton(), LoadConfigButton(), ModelCombo(), ManageModelsButton(), OutputBox(), OutputButton(),
                                                                DeviceCombo(), HeightCombo(), CodecCombo(), QualitySlider(), TileBox(),
                                                                AudioToggle(), PreviewCombo(), StartButton(), ImportModelButton() })
         {
@@ -2014,13 +2112,42 @@ namespace winrt::AiUpscaler::implementation
 
     void MainWindow::AppendLog(std::wstring const& line)
     {
-        std::wstring text{ LogBox().Text() };
+        // Follow the end only when already there, so reading earlier lines isn't interrupted.
+        auto scroll = LogScroll();
+        bool atBottom = scroll.VerticalOffset() >= scroll.ScrollableHeight() - 4;
+
+        std::wstring text{ LogText().Text() };
         if (!text.empty())
         {
-            text += L"\r\n";
+            text += L"\n";
         }
         text += line;
-        LogBox().Text(text);
+        LogText().Text(text);
+
+        if (atBottom)
+        {
+            scroll.UpdateLayout();
+            scroll.ChangeView(nullptr, scroll.ScrollableHeight(), nullptr, true);
+        }
+    }
+
+    void MainWindow::OnCopyLog(IInspectable const&, RoutedEventArgs const&)
+    {
+        Windows::ApplicationModel::DataTransfer::DataPackage package;
+        package.SetText(LogText().Text());
+        Windows::ApplicationModel::DataTransfer::Clipboard::SetContent(package);
+
+        // Brief tick as confirmation, then back to the copy icon.
+        CopyLogIcon().Glyph(L"");
+        if (!m_copyLogTimer)
+        {
+            m_copyLogTimer = DispatcherQueue().CreateTimer();
+            m_copyLogTimer.Interval(std::chrono::milliseconds(1500));
+            m_copyLogTimer.IsRepeating(false);
+            m_copyLogTimer.Tick([this](auto&&, auto&&) { CopyLogIcon().Glyph(L""); });
+        }
+        m_copyLogTimer.Stop();
+        m_copyLogTimer.Start();
     }
 
     void MainWindow::ShowResult(InfoBarSeverity severity, std::wstring const& title, std::wstring const& message, bool canOpenOutput)

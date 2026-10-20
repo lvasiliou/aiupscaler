@@ -49,6 +49,19 @@
   <data name="OutputFileLabel.Text" xml:space="preserve"><value>Αρχείο εξόδου</value></data>
   <data name="OpenOutputButton.Content" xml:space="preserve"><value>Άνοιγμα</value></data>
   <data name="LogExpander.Header" xml:space="preserve"><value>Αρχείο καταγραφής</value></data>
+  <data name="CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Αντιγραφή αρχείου καταγραφής</value></data>
+  <data name="LoadConfigButton.Label" xml:space="preserve"><value>Φόρτωση ρυθμίσεων</value></data>
+  <data name="LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Φόρτωση ρυθμίσεων αναβάθμισης που αποθηκεύτηκαν νωρίτερα</value></data>
+  <data name="SaveConfigButton.Label" xml:space="preserve"><value>Αποθήκευση ρυθμίσεων</value></data>
+  <data name="SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Αποθήκευση των τρεχουσών ρυθμίσεων αναβάθμισης σε αρχείο (Ctrl+S)</value></data>
+  <data name="Picker_Config" xml:space="preserve"><value>Ρυθμίσεις AI Upscaler</value></data>
+  <data name="Picker_ConfigName" xml:space="preserve"><value>ρυθμίσεις αναβάθμισης</value></data>
+  <data name="Config_Saved" xml:space="preserve"><value>Οι ρυθμίσεις αποθηκεύτηκαν</value></data>
+  <data name="Config_SaveFailed" xml:space="preserve"><value>Δεν ήταν δυνατή η αποθήκευση των ρυθμίσεων</value></data>
+  <data name="Config_Loaded" xml:space="preserve"><value>Οι ρυθμίσεις φορτώθηκαν</value></data>
+  <data name="Config_LoadFailed" xml:space="preserve"><value>Δεν ήταν δυνατή η φόρτωση των ρυθμίσεων</value></data>
+  <data name="Config_NotConfig" xml:space="preserve"><value>Το {0} δεν είναι αρχείο ρυθμίσεων του AI Upscaler.</value></data>
+  <data name="Config_ModelMissing" xml:space="preserve"><value>Το μοντέλο {0} δεν υπάρχει σε αυτόν τον υπολογιστή, οπότε διατηρήθηκε το τρέχον. Εισαγάγετέ το από Ρυθμίσεις → Μοντέλα και φορτώστε ξανά τις ρυθμίσεις.</value></data>
   <data name="ThemeTitle.Text" xml:space="preserve"><value>Θέμα</value></data>
   <data name="ThemeDescription.Text" xml:space="preserve"><value>Επιλέξτε φωτεινό ή σκοτεινό, ή ακολουθήστε τα Windows.</value></data>
   <data name="ThemeSystem.Content" xml:space="preserve"><value>Ρύθμιση των Windows</value></data>

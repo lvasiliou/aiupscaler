@@ -27,9 +27,14 @@
             </StackPanel>
         </Grid>
 
-        <!-- Toolbar: what will be produced, the run controls, and app settings -->
-        <Grid Grid.Row="1" Margin="16,0,16,8" ColumnSpacing="8">
+        <!-- Toolbar: configuration files, what will be produced, the run controls, and app settings -->
+        <Grid Grid.Row="1" Margin="8,0,16,8" ColumnSpacing="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -37,29 +42,52 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+            <CommandBar x:Name="MainToolbar" Background="Transparent" DefaultLabelPosition="Right"
+                        OverflowButtonVisibility="Collapsed" VerticalAlignment="Center">
+                <AppBarButton x:Name="LoadConfigButton" x:Uid="LoadConfigButton" Label="Load configuration" Click="OnLoadConfiguration"
+                              ToolTipService.ToolTip="Load upscale settings saved earlier">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE8E5;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="SaveConfigButton" x:Uid="SaveConfigButton" Label="Save configuration" Click="OnSaveConfiguration"
+                              ToolTipService.ToolTip="Save the current upscale settings to a file">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE74E;" />
+                    </AppBarButton.Icon>
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="S" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarSeparator />
+            </CommandBar>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
                 <FontIcon Glyph="&#xE7F4;" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
                 <TextBlock x:Name="OutputSummaryText" Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
             </StackPanel>
 
-            <ComboBox x:Name="PreviewCombo" x:Uid="PreviewCombo" Grid.Column="1" SelectedIndex="0" MinWidth="190" VerticalAlignment="Center"
+            <ComboBox x:Name="PreviewCombo" x:Uid="PreviewCombo" Grid.Column="2" SelectedIndex="0" MinWidth="190" VerticalAlignment="Center"
                       ToolTipService.ToolTip="Try settings on a short clip first; previews are saved as *_preview.mp4">
                 <ComboBoxItem x:Uid="PreviewWhole" Content="Whole video" Tag="0" />
                 <ComboBoxItem x:Uid="Preview10" Content="Preview: first 10 s" Tag="10" />
                 <ComboBoxItem x:Uid="Preview30" Content="Preview: first 30 s" Tag="30" />
                 <ComboBoxItem x:Uid="Preview60" Content="Preview: first 60 s" Tag="60" />
             </ComboBox>
-            <Button x:Name="CancelButton" x:Uid="CancelButton" Grid.Column="2" Content="Cancel" IsEnabled="False" Click="OnCancel" />
-            <Button x:Name="StartButton" Grid.Column="3" Style="{StaticResource AccentButtonStyle}" Click="OnStart">
+            <Button x:Name="CancelButton" x:Uid="CancelButton" Grid.Column="3" Content="Cancel" IsEnabled="False" Click="OnCancel" />
+            <Button x:Name="StartButton" Grid.Column="4" Style="{StaticResource AccentButtonStyle}" Click="OnStart">
                 <StackPanel Orientation="Horizontal" Spacing="8">
                     <FontIcon Glyph="&#xE768;" FontSize="14" />
                     <TextBlock x:Uid="StartButtonText" Text="Upscale" />
                 </StackPanel>
             </Button>
-            <Button x:Name="AppSettingsButton" x:Uid="AppSettingsButton" Grid.Column="4" Click="OnOpenAppSettings"
+            <Button x:Name="AppSettingsButton" x:Uid="AppSettingsButton" Grid.Column="5" Click="OnOpenAppSettings"
                     Style="{StaticResource SubtleButtonStyle}" ToolTipService.ToolTip="Settings">
                 <FontIcon Glyph="&#xE713;" FontSize="16" />
             </Button>
+
+            <!-- Configuration load/save messages, here rather than on the Progress tab -->
+            <InfoBar x:Name="ConfigBar" Grid.Row="1" Grid.ColumnSpan="6" Margin="8,4,0,0" IsOpen="False" IsClosable="True" />
         </Grid>
 
         <!-- Studio: source left, output right -->
@@ -403,15 +431,24 @@
                         </InfoBar.ActionButton>
                     </InfoBar>
                     <Expander x:Name="LogExpander" x:Uid="LogExpander" Header="Log" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
-                        <TextBox
-                            x:Name="LogBox"
-                            IsReadOnly="True"
-                            AcceptsReturn="True"
-                            TextWrapping="Wrap"
-                            FontFamily="Cascadia Mono, Consolas"
-                            FontSize="12"
-                            Height="160"
-                            ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                        <!-- Follows new lines while scrolled to the bottom; Copy sits in the top-right corner -->
+                        <Grid Height="200" CornerRadius="{ThemeResource ControlCornerRadius}"
+                              Background="{ThemeResource ControlFillColorInputActiveBrush}"
+                              BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}" BorderThickness="1">
+                            <ScrollViewer x:Name="LogScroll" VerticalScrollBarVisibility="Auto" Padding="10,8,44,8">
+                                <TextBlock
+                                    x:Name="LogText"
+                                    IsTextSelectionEnabled="True"
+                                    TextWrapping="Wrap"
+                                    FontFamily="Cascadia Mono, Consolas"
+                                    FontSize="12" />
+                            </ScrollViewer>
+                            <Button x:Name="CopyLogButton" x:Uid="CopyLogButton" Click="OnCopyLog"
+                                    HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4,8,0" Padding="6"
+                                    Style="{StaticResource SubtleButtonStyle}" ToolTipService.ToolTip="Copy log">
+                                <FontIcon x:Name="CopyLogIcon" Glyph="&#xE8C8;" FontSize="14" />
+                            </Button>
+                        </Grid>
                     </Expander>
                 </StackPanel>
             </ScrollViewer>

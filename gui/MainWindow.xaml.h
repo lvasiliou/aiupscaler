@@ -49,6 +49,9 @@ namespace winrt::AiUpscaler::implementation
         void OnRestart(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         void OnOutputLocationChanged(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         winrt::fire_and_forget OnChooseOutputFolder(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        winrt::fire_and_forget OnLoadConfiguration(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        winrt::fire_and_forget OnSaveConfiguration(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        void OnCopyLog(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         winrt::fire_and_forget OnImportModel(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         void OnOpenModelsFolder(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
 
@@ -94,6 +97,7 @@ namespace winrt::AiUpscaler::implementation
         void AppendLog(std::wstring const& line);
         void ShowResult(Microsoft::UI::Xaml::Controls::InfoBarSeverity severity, std::wstring const& title, std::wstring const& message, bool canOpenOutput);
         void ShowBottomTab(Microsoft::UI::Xaml::Controls::SelectorBarItem const& tab);
+        void ShowConfigMessage(Microsoft::UI::Xaml::Controls::InfoBarSeverity severity, std::wstring const& title, std::wstring const& message);
 
         winrt::fire_and_forget LoadImage(Microsoft::UI::Xaml::Controls::Image target, std::wstring path, uint64_t generation, bool isSource);
         void FitImages();
@@ -159,6 +163,8 @@ namespace winrt::AiUpscaler::implementation
         // stays stuck on "Cancelling".
         Microsoft::UI::Dispatching::DispatcherQueueTimer m_cancelTimer{ nullptr };
         bool m_cancelRequested{ false };
+        Microsoft::UI::Dispatching::DispatcherQueueTimer m_copyLogTimer{ nullptr };
+        Microsoft::UI::Dispatching::DispatcherQueueTimer m_configBarTimer{ nullptr };
 
         // Film strip thumbnails and hardware probe run alongside frame previews.
         std::unique_ptr<::AiUpscaler::EngineJob> m_thumbJob;

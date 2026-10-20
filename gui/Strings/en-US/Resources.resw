@@ -49,6 +49,19 @@
   <data name="OutputFileLabel.Text" xml:space="preserve"><value>Output file</value></data>
   <data name="OpenOutputButton.Content" xml:space="preserve"><value>Open</value></data>
   <data name="LogExpander.Header" xml:space="preserve"><value>Log</value></data>
+  <data name="CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Copy log</value></data>
+  <data name="LoadConfigButton.Label" xml:space="preserve"><value>Load configuration</value></data>
+  <data name="LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Load upscale settings saved earlier</value></data>
+  <data name="SaveConfigButton.Label" xml:space="preserve"><value>Save configuration</value></data>
+  <data name="SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Save the current upscale settings to a file (Ctrl+S)</value></data>
+  <data name="Picker_Config" xml:space="preserve"><value>AI Upscaler configuration</value></data>
+  <data name="Picker_ConfigName" xml:space="preserve"><value>upscale settings</value></data>
+  <data name="Config_Saved" xml:space="preserve"><value>Configuration saved</value></data>
+  <data name="Config_SaveFailed" xml:space="preserve"><value>Couldn&apos;t save the configuration</value></data>
+  <data name="Config_Loaded" xml:space="preserve"><value>Configuration loaded</value></data>
+  <data name="Config_LoadFailed" xml:space="preserve"><value>Couldn&apos;t load the configuration</value></data>
+  <data name="Config_NotConfig" xml:space="preserve"><value>{0} isn&apos;t an AI Upscaler configuration file.</value></data>
+  <data name="Config_ModelMissing" xml:space="preserve"><value>The model {0} isn&apos;t on this PC, so the current model was kept. Import it in Settings → Models, then load the configuration again.</value></data>
   <data name="ThemeTitle.Text" xml:space="preserve"><value>Theme</value></data>
   <data name="ThemeDescription.Text" xml:space="preserve"><value>Choose light or dark, or follow Windows.</value></data>
   <data name="ThemeSystem.Content" xml:space="preserve"><value>Use Windows setting</value></data>

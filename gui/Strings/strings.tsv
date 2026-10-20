@@ -44,6 +44,19 @@ AudioToggle.OffContent	No audio	Χωρίς ήχο
 OutputFileLabel.Text	Output file	Αρχείο εξόδου
 OpenOutputButton.Content	Open	Άνοιγμα
 LogExpander.Header	Log	Αρχείο καταγραφής
+CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Copy log	Αντιγραφή αρχείου καταγραφής
+LoadConfigButton.Label	Load configuration	Φόρτωση ρυθμίσεων
+LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Load upscale settings saved earlier	Φόρτωση ρυθμίσεων αναβάθμισης που αποθηκεύτηκαν νωρίτερα
+SaveConfigButton.Label	Save configuration	Αποθήκευση ρυθμίσεων
+SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Save the current upscale settings to a file (Ctrl+S)	Αποθήκευση των τρεχουσών ρυθμίσεων αναβάθμισης σε αρχείο (Ctrl+S)
+Picker_Config	AI Upscaler configuration	Ρυθμίσεις AI Upscaler
+Picker_ConfigName	upscale settings	ρυθμίσεις αναβάθμισης
+Config_Saved	Configuration saved	Οι ρυθμίσεις αποθηκεύτηκαν
+Config_SaveFailed	Couldn't save the configuration	Δεν ήταν δυνατή η αποθήκευση των ρυθμίσεων
+Config_Loaded	Configuration loaded	Οι ρυθμίσεις φορτώθηκαν
+Config_LoadFailed	Couldn't load the configuration	Δεν ήταν δυνατή η φόρτωση των ρυθμίσεων
+Config_NotConfig	{0} isn't an AI Upscaler configuration file.	Το {0} δεν είναι αρχείο ρυθμίσεων του AI Upscaler.
+Config_ModelMissing	The model {0} isn't on this PC, so the current model was kept. Import it in Settings → Models, then load the configuration again.	Το μοντέλο {0} δεν υπάρχει σε αυτόν τον υπολογιστή, οπότε διατηρήθηκε το τρέχον. Εισαγάγετέ το από Ρυθμίσεις → Μοντέλα και φορτώστε ξανά τις ρυθμίσεις.
 ThemeTitle.Text	Theme	Θέμα
 ThemeDescription.Text	Choose light or dark, or follow Windows.	Επιλέξτε φωτεινό ή σκοτεινό, ή ακολουθήστε τα Windows.
 ThemeSystem.Content	Use Windows setting	Ρύθμιση των Windows

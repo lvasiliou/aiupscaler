@@ -23,6 +23,15 @@ namespace AiUpscaler
         static Settings Load();
         void Save() const;
 
+        /// Writes the upscale settings (not app settings like theme) to a configuration file
+        /// the user can share or reload.
+        void SaveConfiguration(std::filesystem::path const& path) const;
+        /// Applies a configuration file's upscale settings on top of these. A model missing
+        /// at its saved path is looked up by file name in the model library (configurations
+        /// move between PCs); `missingModel` gets its file name if it isn't found there either.
+        /// Returns false if the file can't be read or isn't a configuration.
+        bool LoadConfiguration(std::filesystem::path const& path, std::wstring& missingModel);
+
         /// Engine --crf for a quality level (lower CRF = higher quality, bigger file).
         static int QualityToCrf(int level);
     };

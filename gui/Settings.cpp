@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Settings.h"
+#include "ModelLibrary.h"
 
 #include <fstream>
 #include <sstream>
@@ -21,6 +22,92 @@ namespace AiUpscaler
             }
             return fs::path(buffer) / L"AiUpscaler" / L"settings.json";
         }
+
+        constexpr wchar_t ConfigurationType[] = L"ai-upscaler-configuration";
+
+        std::optional<JsonObject> ReadJson(fs::path const& path)
+        {
+            std::ifstream file(path, std::ios::binary);
+            if (!file)
+            {
+                return std::nullopt;
+            }
+            std::stringstream contents;
+            contents << file.rdbuf();
+            JsonObject obj{ nullptr };
+            if (!JsonObject::TryParse(winrt::to_hstring(contents.str()), obj))
+            {
+                return std::nullopt;
+            }
+            return obj;
+        }
+
+        std::wstring ValidFit(std::wstring fit)
+        {
+            return fit == L"pad" || fit == L"crop" || fit == L"stretch" ? fit : L"pad";
+        }
+    }
+
+    void Settings::SaveConfiguration(fs::path const& path) const
+    {
+        JsonObject obj;
+        obj.SetNamedValue(L"type", JsonValue::CreateStringValue(ConfigurationType));
+        obj.SetNamedValue(L"version", JsonValue::CreateNumberValue(1));
+        obj.SetNamedValue(L"model", JsonValue::CreateStringValue(ModelPath.empty() ? L"" : fs::path(ModelPath).filename().wstring()));
+        obj.SetNamedValue(L"modelPath", JsonValue::CreateStringValue(ModelPath));
+        obj.SetNamedValue(L"device", JsonValue::CreateStringValue(Device));
+        obj.SetNamedValue(L"codec", JsonValue::CreateStringValue(Codec));
+        obj.SetNamedValue(L"quality", JsonValue::CreateNumberValue(Quality));
+        obj.SetNamedValue(L"targetHeight", JsonValue::CreateNumberValue(TargetHeight));
+        obj.SetNamedValue(L"fit", JsonValue::CreateStringValue(Fit));
+        obj.SetNamedValue(L"tileSize", JsonValue::CreateNumberValue(TileSize));
+        obj.SetNamedValue(L"keepAudio", JsonValue::CreateBooleanValue(KeepAudio));
+
+        std::ofstream file(path, std::ios::binary | std::ios::trunc);
+        file << winrt::to_string(obj.Stringify());
+        if (!file)
+        {
+            throw std::runtime_error("could not write the configuration file");
+        }
+    }
+
+    bool Settings::LoadConfiguration(fs::path const& path, std::wstring& missingModel)
+    {
+        missingModel.clear();
+        auto obj = ReadJson(path);
+        if (!obj || obj->GetNamedString(L"type", L"") != ConfigurationType)
+        {
+            return false;
+        }
+
+        std::wstring modelPath{ obj->GetNamedString(L"modelPath", L"") };
+        std::wstring modelName{ obj->GetNamedString(L"model", L"") };
+        std::error_code ec;
+        if (!modelPath.empty() && fs::is_regular_file(modelPath, ec))
+        {
+            ModelPath = modelPath;
+        }
+        else if (auto inLibrary = ModelLibrary::Folder() / modelName; !modelName.empty() && fs::is_regular_file(inLibrary, ec))
+        {
+            ModelPath = inLibrary.wstring();
+        }
+        else if (!modelName.empty())
+        {
+            missingModel = modelName; // keep the current model
+        }
+        else
+        {
+            ModelPath.clear(); // the configuration says "no model"
+        }
+
+        Device = obj->GetNamedString(L"device", Device);
+        Codec = obj->GetNamedString(L"codec", Codec);
+        Quality = std::clamp(static_cast<int>(obj->GetNamedNumber(L"quality", Quality)), 1, 5);
+        TargetHeight = static_cast<int>(obj->GetNamedNumber(L"targetHeight", TargetHeight));
+        Fit = ValidFit(std::wstring(obj->GetNamedString(L"fit", Fit)));
+        TileSize = std::max(0, static_cast<int>(obj->GetNamedNumber(L"tileSize", TileSize)));
+        KeepAudio = obj->GetNamedBoolean(L"keepAudio", KeepAudio);
+        return true;
     }
 
     Settings Settings::Load()
