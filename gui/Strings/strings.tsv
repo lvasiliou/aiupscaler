@@ -39,8 +39,20 @@ CodecCombo.Header	Video encoder	Κωδικοποιητής βίντεο
 QualitySlider.Header	Quality	Ποιότητα
 TileBox.Header	Tile size (0 = auto)	Μέγεθος πλακιδίου (0 = αυτόματα)
 AudioToggle.Header	Audio	Ήχος
-AudioToggle.OnContent	Keep original audio	Διατήρηση αρχικού ήχου
+AudioToggle.OnContent	Include audio	Με ήχο
 AudioToggle.OffContent	No audio	Χωρίς ήχο
+AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Improve the audio (the main track is re-encoded as AAC)	Βελτίωση του ήχου (το κύριο κομμάτι επανακωδικοποιείται σε AAC)
+AudioDialogueItem.Text	Clearer dialogue	Καθαρότεροι διάλογοι
+AudioLoudnessItem.Text	Even out volume	Εξισορρόπηση έντασης
+AudioDenoiseItem.Text	Remove noise and hiss	Αφαίρεση θορύβου και συριγμού
+AudioUpmixItem.Text	Upmix stereo to 5.1	Μετατροπή στερεοφωνικού σε 5.1
+Audio_Original	Original audio	Αρχικός ήχος
+Audio_ImprovedSummary	Improved: {0}	Βελτιωμένος: {0}
+Audio_ShortDialogue	dialogue	διάλογοι
+Audio_ShortLoudness	volume	ένταση
+Audio_ShortDenoise	noise	θόρυβος
+Audio_ShortUpmix	5.1	5.1
+Audio_ImprovedInfo	audio improved	βελτιωμένος ήχος
 OutputFileLabel.Text	Output file	Αρχείο εξόδου
 OpenOutputButton.Content	Open	Άνοιγμα
 LogExpander.Header	Log	Αρχείο καταγραφής

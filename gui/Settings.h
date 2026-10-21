@@ -13,6 +13,14 @@ namespace AiUpscaler
         std::wstring Fit{ L"pad" }; // engine --fit: pad, crop, stretch (frames are always the standard size)
         int TileSize{ 0 }; // 0 = auto
         bool KeepAudio{ true };
+        // Audio improvements (engine --audio-enhance); none = original audio copied bit-for-bit.
+        bool AudioDialogue{ false };
+        bool AudioLoudness{ false };
+        bool AudioDenoise{ false };
+        bool AudioUpmix{ false };
+
+        /// Engine --audio-enhance value, e.g. "dialogue,loudness"; empty when none are on.
+        std::wstring AudioEnhancements() const;
         bool AutoPreview{ true }; // AI-upscale the selected frame automatically
 
         // App settings (Settings page)

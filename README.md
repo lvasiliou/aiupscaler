@@ -18,7 +18,8 @@ Source video ──ffmpeg decode──▶ ONNX model on GPU ──ffmpeg encode�
 - **Real output sizes**: 720p, 1080p, 1440p and 4K produce the standard 16:9 frames
   (1280×720 … 3840×2160), with black bars, crop or stretch for other picture shapes.
   Anamorphic DVDs come out at the correct shape.
-- **Original audio kept**, bit for bit, and in sync.
+- **Original audio kept**, bit for bit, and in sync, or **improved**: clearer dialogue, even
+  volume, noise and hiss removal, and stereo-to-5.1 upmix.
 - **Previews and estimates**: upscale the first 10/30/60 seconds to check quality and see how
   long the whole video will take before committing.
 - **Model library**: import `.onnx` models once, then pick them by name.

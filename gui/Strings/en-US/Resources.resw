@@ -44,8 +44,20 @@
   <data name="QualitySlider.Header" xml:space="preserve"><value>Quality</value></data>
   <data name="TileBox.Header" xml:space="preserve"><value>Tile size (0 = auto)</value></data>
   <data name="AudioToggle.Header" xml:space="preserve"><value>Audio</value></data>
-  <data name="AudioToggle.OnContent" xml:space="preserve"><value>Keep original audio</value></data>
+  <data name="AudioToggle.OnContent" xml:space="preserve"><value>Include audio</value></data>
   <data name="AudioToggle.OffContent" xml:space="preserve"><value>No audio</value></data>
+  <data name="AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Improve the audio (the main track is re-encoded as AAC)</value></data>
+  <data name="AudioDialogueItem.Text" xml:space="preserve"><value>Clearer dialogue</value></data>
+  <data name="AudioLoudnessItem.Text" xml:space="preserve"><value>Even out volume</value></data>
+  <data name="AudioDenoiseItem.Text" xml:space="preserve"><value>Remove noise and hiss</value></data>
+  <data name="AudioUpmixItem.Text" xml:space="preserve"><value>Upmix stereo to 5.1</value></data>
+  <data name="Audio_Original" xml:space="preserve"><value>Original audio</value></data>
+  <data name="Audio_ImprovedSummary" xml:space="preserve"><value>Improved: {0}</value></data>
+  <data name="Audio_ShortDialogue" xml:space="preserve"><value>dialogue</value></data>
+  <data name="Audio_ShortLoudness" xml:space="preserve"><value>volume</value></data>
+  <data name="Audio_ShortDenoise" xml:space="preserve"><value>noise</value></data>
+  <data name="Audio_ShortUpmix" xml:space="preserve"><value>5.1</value></data>
+  <data name="Audio_ImprovedInfo" xml:space="preserve"><value>audio improved</value></data>
   <data name="OutputFileLabel.Text" xml:space="preserve"><value>Output file</value></data>
   <data name="OpenOutputButton.Content" xml:space="preserve"><value>Open</value></data>
   <data name="LogExpander.Header" xml:space="preserve"><value>Log</value></data>

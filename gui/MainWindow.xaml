@@ -406,7 +406,21 @@
                         LargeChange="128"
                         SpinButtonPlacementMode="Compact" />
 
-                    <ToggleSwitch x:Name="AudioToggle" x:Uid="AudioToggle" Grid.Row="2" Grid.Column="2" Header="Audio" OnContent="Keep original audio" OffContent="No audio" />
+                    <StackPanel Grid.Row="2" Grid.Column="2" Spacing="4">
+                        <ToggleSwitch x:Name="AudioToggle" x:Uid="AudioToggle" Header="Audio" OnContent="Include audio" OffContent="No audio" Toggled="OnAudioOptionChanged" />
+                        <!-- Improvements re-encode the first audio track; with none it is copied untouched -->
+                        <DropDownButton x:Name="AudioImproveButton" x:Uid="AudioImproveButton" Content="Original audio"
+                                        ToolTipService.ToolTip="Improve the audio (re-encoded as AAC)">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                    <ToggleMenuFlyoutItem x:Name="AudioDialogueItem" x:Uid="AudioDialogueItem" Text="Clearer dialogue" Click="OnAudioOptionChanged" />
+                                    <ToggleMenuFlyoutItem x:Name="AudioLoudnessItem" x:Uid="AudioLoudnessItem" Text="Even out volume" Click="OnAudioOptionChanged" />
+                                    <ToggleMenuFlyoutItem x:Name="AudioDenoiseItem" x:Uid="AudioDenoiseItem" Text="Remove noise and hiss" Click="OnAudioOptionChanged" />
+                                    <ToggleMenuFlyoutItem x:Name="AudioUpmixItem" x:Uid="AudioUpmixItem" Text="Upmix stereo to 5.1" Click="OnAudioOptionChanged" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                    </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.Column="3" Spacing="4">
                         <TextBlock x:Uid="OutputFileLabel" Text="Output file" Style="{StaticResource BodyTextBlockStyle}" />

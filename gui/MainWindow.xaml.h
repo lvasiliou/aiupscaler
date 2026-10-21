@@ -51,6 +51,7 @@ namespace winrt::AiUpscaler::implementation
         winrt::fire_and_forget OnChooseOutputFolder(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         winrt::fire_and_forget OnLoadConfiguration(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         winrt::fire_and_forget OnSaveConfiguration(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        void OnAudioOptionChanged(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         void OnCopyLog(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         winrt::fire_and_forget OnImportModel(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         void OnOpenModelsFolder(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
@@ -97,6 +98,7 @@ namespace winrt::AiUpscaler::implementation
         void AppendLog(std::wstring const& line);
         void ShowResult(Microsoft::UI::Xaml::Controls::InfoBarSeverity severity, std::wstring const& title, std::wstring const& message, bool canOpenOutput);
         void ShowBottomTab(Microsoft::UI::Xaml::Controls::SelectorBarItem const& tab);
+        void UpdateAudioButton();
         void ShowConfigMessage(Microsoft::UI::Xaml::Controls::InfoBarSeverity severity, std::wstring const& title, std::wstring const& message);
 
         winrt::fire_and_forget LoadImage(Microsoft::UI::Xaml::Controls::Image target, std::wstring path, uint64_t generation, bool isSource);
@@ -163,6 +165,7 @@ namespace winrt::AiUpscaler::implementation
         // stays stuck on "Cancelling".
         Microsoft::UI::Dispatching::DispatcherQueueTimer m_cancelTimer{ nullptr };
         bool m_cancelRequested{ false };
+        bool m_applyingSettings{ false };
         Microsoft::UI::Dispatching::DispatcherQueueTimer m_copyLogTimer{ nullptr };
         Microsoft::UI::Dispatching::DispatcherQueueTimer m_configBarTimer{ nullptr };
 

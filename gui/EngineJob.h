@@ -24,6 +24,7 @@ namespace AiUpscaler
         int64_t SourceFrames{};
         std::wstring Encoder;
         bool Audio{};
+        bool AudioImproved{};
     };
 
     struct JobProgress

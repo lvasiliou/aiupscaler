@@ -42,6 +42,23 @@ namespace AiUpscaler
             return obj;
         }
 
+        // Audio improvements are stored the same way in settings.json and configuration files.
+        void WriteAudio(JsonObject const& obj, Settings const& s)
+        {
+            obj.SetNamedValue(L"audioDialogue", JsonValue::CreateBooleanValue(s.AudioDialogue));
+            obj.SetNamedValue(L"audioLoudness", JsonValue::CreateBooleanValue(s.AudioLoudness));
+            obj.SetNamedValue(L"audioDenoise", JsonValue::CreateBooleanValue(s.AudioDenoise));
+            obj.SetNamedValue(L"audioUpmix", JsonValue::CreateBooleanValue(s.AudioUpmix));
+        }
+
+        void ReadAudio(JsonObject const& obj, Settings& s)
+        {
+            s.AudioDialogue = obj.GetNamedBoolean(L"audioDialogue", s.AudioDialogue);
+            s.AudioLoudness = obj.GetNamedBoolean(L"audioLoudness", s.AudioLoudness);
+            s.AudioDenoise = obj.GetNamedBoolean(L"audioDenoise", s.AudioDenoise);
+            s.AudioUpmix = obj.GetNamedBoolean(L"audioUpmix", s.AudioUpmix);
+        }
+
         std::wstring ValidFit(std::wstring fit)
         {
             return fit == L"pad" || fit == L"crop" || fit == L"stretch" ? fit : L"pad";
@@ -62,6 +79,7 @@ namespace AiUpscaler
         obj.SetNamedValue(L"fit", JsonValue::CreateStringValue(Fit));
         obj.SetNamedValue(L"tileSize", JsonValue::CreateNumberValue(TileSize));
         obj.SetNamedValue(L"keepAudio", JsonValue::CreateBooleanValue(KeepAudio));
+        WriteAudio(obj, *this);
 
         std::ofstream file(path, std::ios::binary | std::ios::trunc);
         file << winrt::to_string(obj.Stringify());
@@ -107,6 +125,7 @@ namespace AiUpscaler
         Fit = ValidFit(std::wstring(obj->GetNamedString(L"fit", Fit)));
         TileSize = std::max(0, static_cast<int>(obj->GetNamedNumber(L"tileSize", TileSize)));
         KeepAudio = obj->GetNamedBoolean(L"keepAudio", KeepAudio);
+        ReadAudio(*obj, *this);
         return true;
     }
 
@@ -159,11 +178,26 @@ namespace AiUpscaler
         }
         settings.Quality = std::clamp(settings.Quality, 1, 5);
         settings.KeepAudio = obj.GetNamedBoolean(L"keepAudio", settings.KeepAudio);
+        ReadAudio(obj, settings);
         settings.AutoPreview = obj.GetNamedBoolean(L"autoPreview", settings.AutoPreview);
         settings.Theme = obj.GetNamedString(L"theme", settings.Theme);
         settings.Language = obj.GetNamedString(L"language", settings.Language);
         settings.OutputFolder = obj.GetNamedString(L"outputFolder", settings.OutputFolder);
         return settings;
+    }
+
+    std::wstring Settings::AudioEnhancements() const
+    {
+        std::wstring list;
+        for (auto [on, name] : { std::pair{ AudioDialogue, L"dialogue" }, std::pair{ AudioLoudness, L"loudness" },
+                                 std::pair{ AudioDenoise, L"denoise" }, std::pair{ AudioUpmix, L"upmix" } })
+        {
+            if (on)
+            {
+                list += (list.empty() ? L"" : L",") + std::wstring(name);
+            }
+        }
+        return list;
     }
 
     int Settings::QualityToCrf(int level)
@@ -190,6 +224,7 @@ namespace AiUpscaler
         obj.SetNamedValue(L"fit", JsonValue::CreateStringValue(Fit));
         obj.SetNamedValue(L"tileSize", JsonValue::CreateNumberValue(TileSize));
         obj.SetNamedValue(L"keepAudio", JsonValue::CreateBooleanValue(KeepAudio));
+        WriteAudio(obj, *this);
         obj.SetNamedValue(L"autoPreview", JsonValue::CreateBooleanValue(AutoPreview));
         obj.SetNamedValue(L"theme", JsonValue::CreateStringValue(Theme));
         obj.SetNamedValue(L"language", JsonValue::CreateStringValue(Language));

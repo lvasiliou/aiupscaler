@@ -98,6 +98,8 @@ pub struct EncoderSettings {
     pub crf: u32,
     pub preset: String,
     pub audio_codec: String,
+    /// Improvements for the first audio track (re-encoded); other tracks use `audio_codec`.
+    pub audio_plan: Option<crate::audio::AudioPlan>,
     /// ffmpeg filter chain that turns AI output frames into the final frame size
     /// (see `geometry::output_geometry`).
     pub video_filter: String,
@@ -136,6 +138,9 @@ impl Encoder {
 
         if include_audio {
             cmd.args(["-map", "1:a?", "-c:a", &settings.audio_codec]);
+            if let Some(plan) = &settings.audio_plan {
+                cmd.args(["-filter:a:0", &plan.filter, "-c:a:0", plan.codec, "-b:a:0", plan.bitrate]);
+            }
         }
 
         let q = settings.crf.to_string();

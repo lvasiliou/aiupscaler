@@ -72,6 +72,7 @@ Key options (see `--help` for all):
 | `--crf`, `--preset` | `18`, `medium` | `--crf` maps to each encoder's constant-quality mode; `--preset` is for libx264/libx265 |
 | `--audio-codec` | `copy` | Use `aac` if the output container can't hold the source audio |
 | `--no-audio` | | Drop audio |
+| `--audio-enhance` | | Improve the first audio track, comma-separated: `dialogue` (voices forward; centre boost on 5.1/7.1), `loudness` (even out volume, EBU R128), `denoise` (hiss and rumble), `upmix` (stereo to 5.1). The track is re-encoded as AAC (256k stereo, 448k 5.1); other tracks are copied |
 | `--encoder-args ...` | | Extra args appended to the ffmpeg encoder command |
 
 ## Notes

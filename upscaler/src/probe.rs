@@ -20,6 +20,9 @@ pub struct MediaInfo {
     /// Sample (pixel) aspect ratio, e.g. 32/27 for widescreen NTSC DVD; 1.0 for square pixels.
     pub sar: f64,
     pub has_audio: bool,
+    /// Channels and ffmpeg channel layout (e.g. "stereo", "5.1(side)") of the first audio track.
+    pub audio_channels: u32,
+    pub audio_layout: String,
 }
 
 #[derive(Deserialize)]
@@ -38,6 +41,8 @@ struct ProbeStream {
     nb_frames: Option<String>,
     duration: Option<String>,
     sample_aspect_ratio: Option<String>,
+    channels: Option<u32>,
+    channel_layout: Option<String>,
 }
 
 #[derive(Deserialize)]
@@ -68,7 +73,23 @@ pub fn probe(ffprobe: &str, input: &Path) -> Result<MediaInfo> {
         .iter()
         .find(|s| s.codec_type == "video")
         .context("input has no video stream")?;
-    let has_audio = parsed.streams.iter().any(|s| s.codec_type == "audio");
+    let audio = parsed.streams.iter().find(|s| s.codec_type == "audio");
+    let has_audio = audio.is_some();
+    let audio_channels = audio.and_then(|a| a.channels).unwrap_or(0);
+    // ffprobe leaves the layout empty for some files; guess it from the channel count.
+    let audio_layout = audio
+        .and_then(|a| a.channel_layout.clone())
+        .filter(|l| !l.is_empty())
+        .unwrap_or_else(|| {
+            match audio_channels {
+                1 => "mono",
+                2 => "stereo",
+                6 => "5.1",
+                8 => "7.1",
+                _ => "",
+            }
+            .to_string()
+        });
 
     let (width, height) = match (video.width, video.height) {
         (Some(w), Some(h)) if w > 0 && h > 0 => (w, h),
@@ -104,5 +125,5 @@ pub fn probe(ffprobe: &str, input: &Path) -> Result<MediaInfo> {
         .and_then(|s| parse_rational(&s))
         .unwrap_or(1.0);
 
-    Ok(MediaInfo { width, height, fps, fps_value, frame_count, duration_secs, sar, has_audio })
+    Ok(MediaInfo { width, height, fps, fps_value, frame_count, duration_secs, sar, has_audio, audio_channels, audio_layout })
 }

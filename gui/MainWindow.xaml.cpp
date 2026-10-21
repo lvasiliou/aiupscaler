@@ -272,8 +272,42 @@ namespace winrt::AiUpscaler::implementation
         FitCombo().IsEnabled(settings.TargetHeight > 0);
         QualitySlider().Value(settings.Quality);
         TileBox().Value(settings.TileSize);
+        // Toggling the switch saves settings; don't save half-applied ones.
+        m_applyingSettings = true;
         AudioToggle().IsOn(settings.KeepAudio);
+        AudioDialogueItem().IsChecked(settings.AudioDialogue);
+        AudioLoudnessItem().IsChecked(settings.AudioLoudness);
+        AudioDenoiseItem().IsChecked(settings.AudioDenoise);
+        AudioUpmixItem().IsChecked(settings.AudioUpmix);
+        m_applyingSettings = false;
+        UpdateAudioButton();
         AutoPreviewCheck().IsChecked(settings.AutoPreview);
+    }
+
+    void MainWindow::OnAudioOptionChanged(IInspectable const&, RoutedEventArgs const&)
+    {
+        if (!AudioImproveButton() || m_applyingSettings)
+        {
+            return;
+        }
+        UpdateAudioButton();
+        CollectSettings().Save();
+    }
+
+    void MainWindow::UpdateAudioButton()
+    {
+        // e.g. "Original audio" or "Improved: dialogue, volume"
+        std::wstring summary;
+        for (auto [item, key] : { std::pair{ AudioDialogueItem(), L"Audio_ShortDialogue" }, std::pair{ AudioLoudnessItem(), L"Audio_ShortLoudness" },
+                                  std::pair{ AudioDenoiseItem(), L"Audio_ShortDenoise" }, std::pair{ AudioUpmixItem(), L"Audio_ShortUpmix" } })
+        {
+            if (item.IsChecked())
+            {
+                summary += (summary.empty() ? L"" : L", ") + T(key);
+            }
+        }
+        AudioImproveButton().Content(box_value(summary.empty() ? T(L"Audio_Original") : F(L"Audio_ImprovedSummary", { summary })));
+        AudioImproveButton().IsEnabled(AudioToggle().IsOn() && !(m_job && m_job->IsRunning()));
     }
 
     ::AiUpscaler::Settings MainWindow::CollectSettings()
@@ -289,6 +323,10 @@ namespace winrt::AiUpscaler::implementation
         auto tile = TileBox().Value();
         settings.TileSize = std::isnan(tile) ? 0 : static_cast<int>(tile);
         settings.KeepAudio = AudioToggle().IsOn();
+        settings.AudioDialogue = AudioDialogueItem().IsChecked();
+        settings.AudioLoudness = AudioLoudnessItem().IsChecked();
+        settings.AudioDenoise = AudioDenoiseItem().IsChecked();
+        settings.AudioUpmix = AudioUpmixItem().IsChecked();
         settings.AutoPreview = unbox_value_or<bool>(AutoPreviewCheck().IsChecked(), false);
         return settings;
     }
@@ -1875,6 +1913,10 @@ namespace winrt::AiUpscaler::implementation
         {
             args.emplace_back(L"--no-audio");
         }
+        else if (auto audio = settings.AudioEnhancements(); !audio.empty())
+        {
+            args.insert(args.end(), { L"--audio-enhance", audio });
+        }
         if (m_previewSeconds > 0)
         {
             args.insert(args.end(), { L"--max-seconds", std::to_wstring(m_previewSeconds) });
@@ -1962,7 +2004,7 @@ namespace winrt::AiUpscaler::implementation
     {
         JobInfoText().Text(F(L"JobInfo", { std::to_wstring(s.Width), std::to_wstring(s.Height), std::to_wstring(s.OutWidth), std::to_wstring(s.OutHeight),
                                            std::to_wstring(s.FinalWidth), std::to_wstring(s.FinalHeight), Num(s.Fps, 2), s.Encoder,
-                                           T(s.Audio ? L"Audio_Kept" : L"Audio_None") }));
+                                           T(s.AudioImproved ? L"Audio_ImprovedInfo" : s.Audio ? L"Audio_Kept" : L"Audio_None") }));
         if (s.Height > 0)
         {
             m_modelScale = s.OutHeight / s.Height;
@@ -2088,11 +2130,12 @@ namespace winrt::AiUpscaler::implementation
     {
         for (Control control : std::initializer_list<Control>{ OpenSourceButton(), LoadConfigButton(), ModelCombo(), ManageModelsButton(), OutputBox(), OutputButton(),
                                                                DeviceCombo(), HeightCombo(), CodecCombo(), QualitySlider(), TileBox(),
-                                                               AudioToggle(), PreviewCombo(), StartButton(), ImportModelButton() })
+                                                               AudioToggle(), AudioImproveButton(), PreviewCombo(), StartButton(), ImportModelButton() })
         {
             control.IsEnabled(!running);
         }
         FitCombo().IsEnabled(!running && SelectedTag(HeightCombo()) != L"0");
+        AudioImproveButton().IsEnabled(!running && AudioToggle().IsOn());
         bool haveSource = !running && m_duration > 0;
         TimelineSlider().IsEnabled(haveSource);
         AutoPreviewCheck().IsEnabled(!running);

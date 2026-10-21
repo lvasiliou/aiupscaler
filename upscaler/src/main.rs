@@ -1,3 +1,4 @@
+mod audio;
 mod frame;
 mod geometry;
 mod preview;
@@ -106,6 +107,11 @@ struct Args {
     /// Drop audio from the output.
     #[arg(long)]
     no_audio: bool,
+
+    /// Improve the first audio track (re-encoded as AAC; other tracks are kept as they are).
+    /// Comma-separated: dialogue, loudness, denoise, upmix.
+    #[arg(long, value_enum, value_delimiter = ',')]
+    audio_enhance: Vec<audio::Enhancement>,
 
     /// Only process the first N frames (handy for previews).
     #[arg(long)]
@@ -319,12 +325,17 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
     let include_audio = info.has_audio && !args.no_audio;
     let frame_limit = args.max_frames.or(args.max_seconds.map(|s| (s * info.fps_value).ceil().max(1.0) as u64));
     let geometry = geometry::output_geometry(out_w, out_h, info.sar, args.size, args.height, args.fit);
+    let audio_plan = include_audio.then(|| audio::plan(&args.audio_enhance, info.audio_channels, &info.audio_layout)).flatten();
+    if include_audio && !args.audio_enhance.is_empty() && audio_plan.is_none() {
+        eprintln!("Audio improvements don't apply to this {}-channel track; copying it unchanged", info.audio_channels);
+    }
 
     let settings = EncoderSettings {
         codec: video::resolve_codec(&args.ffmpeg, &args.codec),
         crf: args.crf,
         preset: args.preset.clone(),
         audio_codec: args.audio_codec.clone(),
+        audio_plan: audio_plan.clone(),
         video_filter: geometry.filter.clone(),
         duration_limit: frame_limit.map(|n| n as f64 / info.fps_value),
         extra_args: args.encoder_args.clone(),
@@ -341,7 +352,11 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
         geometry.height,
         settings.codec,
         args.hwdec,
-        if include_audio { args.audio_codec.as_str() } else { "none" },
+        match (&audio_plan, include_audio) {
+            (Some(plan), _) => format!("improved ({} ch {} {}) via {}", plan.channels, plan.codec, plan.bitrate, plan.filter),
+            (None, true) => args.audio_codec.clone(),
+            (None, false) => "none".to_string(),
+        },
     );
 
     let total = match (frame_limit, info.frame_count) {
@@ -364,6 +379,8 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
             "source_frames": info.frame_count,
             "encoder": settings.codec,
             "audio": include_audio,
+            "audio_improved": audio_plan.is_some(),
+            "audio_channels": audio_plan.as_ref().map_or(info.audio_channels, |p| p.channels),
         }),
     );
 

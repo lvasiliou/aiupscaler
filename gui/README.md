@@ -27,6 +27,8 @@ MSIX install and no separate Windows App Runtime installer.
 - **Preview runs**: the first 10/30/60 s only (saved as `*_preview.mp4`, audio trimmed to match).
 - **Upscale settings tab** (first): AI model (by name, from the model library), output path, AI
   device, output size, picture shape, encoder, quality (1–5), tile size, audio.
+  - **Improve audio** (under the Audio switch): clearer dialogue, even out volume, remove noise
+    and hiss, upmix stereo to 5.1. With none ticked, the original audio is copied untouched.
   - **Output size** always produces the standard 16:9 frame: 720p 1280×720, 1080p 1920×1080,
     1440p 2560×1440, 4K 3840×2160. **Picture shape** decides how a picture of another shape (e.g.
     4:3) fills it: black bars (default), crop, or stretch. The resulting file size is shown under

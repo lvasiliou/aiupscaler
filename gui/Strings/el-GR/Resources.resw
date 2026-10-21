@@ -44,8 +44,20 @@
   <data name="QualitySlider.Header" xml:space="preserve"><value>Ποιότητα</value></data>
   <data name="TileBox.Header" xml:space="preserve"><value>Μέγεθος πλακιδίου (0 = αυτόματα)</value></data>
   <data name="AudioToggle.Header" xml:space="preserve"><value>Ήχος</value></data>
-  <data name="AudioToggle.OnContent" xml:space="preserve"><value>Διατήρηση αρχικού ήχου</value></data>
+  <data name="AudioToggle.OnContent" xml:space="preserve"><value>Με ήχο</value></data>
   <data name="AudioToggle.OffContent" xml:space="preserve"><value>Χωρίς ήχο</value></data>
+  <data name="AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Βελτίωση του ήχου (το κύριο κομμάτι επανακωδικοποιείται σε AAC)</value></data>
+  <data name="AudioDialogueItem.Text" xml:space="preserve"><value>Καθαρότεροι διάλογοι</value></data>
+  <data name="AudioLoudnessItem.Text" xml:space="preserve"><value>Εξισορρόπηση έντασης</value></data>
+  <data name="AudioDenoiseItem.Text" xml:space="preserve"><value>Αφαίρεση θορύβου και συριγμού</value></data>
+  <data name="AudioUpmixItem.Text" xml:space="preserve"><value>Μετατροπή στερεοφωνικού σε 5.1</value></data>
+  <data name="Audio_Original" xml:space="preserve"><value>Αρχικός ήχος</value></data>
+  <data name="Audio_ImprovedSummary" xml:space="preserve"><value>Βελτιωμένος: {0}</value></data>
+  <data name="Audio_ShortDialogue" xml:space="preserve"><value>διάλογοι</value></data>
+  <data name="Audio_ShortLoudness" xml:space="preserve"><value>ένταση</value></data>
+  <data name="Audio_ShortDenoise" xml:space="preserve"><value>θόρυβος</value></data>
+  <data name="Audio_ShortUpmix" xml:space="preserve"><value>5.1</value></data>
+  <data name="Audio_ImprovedInfo" xml:space="preserve"><value>βελτιωμένος ήχος</value></data>
   <data name="OutputFileLabel.Text" xml:space="preserve"><value>Αρχείο εξόδου</value></data>
   <data name="OpenOutputButton.Content" xml:space="preserve"><value>Άνοιγμα</value></data>
   <data name="LogExpander.Header" xml:space="preserve"><value>Αρχείο καταγραφής</value></data>

@@ -234,6 +234,7 @@ namespace AiUpscaler
             started.SourceFrames = static_cast<int64_t>(NumberOr(obj, L"source_frames", 0));
             started.Encoder = obj.GetNamedString(L"encoder", L"");
             started.Audio = obj.GetNamedBoolean(L"audio", false);
+            started.AudioImproved = obj.GetNamedBoolean(L"audio_improved", false);
             m_callbacks.Started(started);
         }
         else if (event == L"progress" && m_callbacks.Progress)
