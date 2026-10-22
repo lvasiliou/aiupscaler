@@ -100,6 +100,11 @@ pub struct EncoderSettings {
     pub audio_codec: String,
     /// Improvements for the first audio track (re-encoded); other tracks use `audio_codec`.
     pub audio_plan: Option<crate::audio::AudioPlan>,
+    /// Source subtitle tracks to keep, as (index among subtitle tracks, output codec); see
+    /// `matroska_subtitles`. Empty for containers that don't carry them.
+    pub subtitles: Vec<(usize, &'static str)>,
+    /// Copy attachments (fonts for styled subtitles); Matroska only.
+    pub attachments: bool,
     /// ffmpeg filter chain that turns AI output frames into the final frame size
     /// (see `geometry::output_geometry`).
     pub video_filter: String,
@@ -141,6 +146,14 @@ impl Encoder {
             if let Some(plan) = &settings.audio_plan {
                 cmd.args(["-filter:a:0", &plan.filter, "-c:a:0", plan.codec, "-b:a:0", plan.bitrate]);
             }
+        }
+        // Each track is mapped on its own: mapping all of them would also take tracks the
+        // container rejects (e.g. MP4 chapter text tracks show up as data streams).
+        for (out, (index, codec)) in settings.subtitles.iter().enumerate() {
+            cmd.args(["-map", &format!("1:s:{index}"), &format!("-c:s:{out}"), codec]);
+        }
+        if settings.attachments {
+            cmd.args(["-map", "1:t?", "-c:t", "copy"]);
         }
 
         let q = settings.crf.to_string();
@@ -228,6 +241,31 @@ fn software_encoder(family: &str) -> &'static str {
     }
 }
 
+/// True for outputs written as Matroska (.mkv), which can hold subtitle tracks and attachments.
+pub fn is_matroska(output: &Path) -> bool {
+    output.extension().and_then(|e| e.to_str()).is_some_and(|e| e.eq_ignore_ascii_case("mkv"))
+}
+
+/// Which source subtitle tracks (by codec, in order) a Matroska output keeps, and how:
+/// (index among the subtitle tracks, ffmpeg codec). Formats Matroska stores are copied; MP4
+/// text subtitles (mov_text) are converted to SRT; anything else (e.g. closed captions) is
+/// left out rather than failing the whole encode.
+pub fn matroska_subtitles(codecs: &[String]) -> Vec<(usize, &'static str)> {
+    const COPY: &[&str] = &["subrip", "ass", "ssa", "webvtt", "dvd_subtitle", "hdmv_pgs_subtitle", "dvb_subtitle"];
+    codecs
+        .iter()
+        .enumerate()
+        .filter_map(|(i, codec)| match codec.as_str() {
+            c if COPY.contains(&c) => Some((i, "copy")),
+            "mov_text" | "text" => Some((i, "srt")),
+            other => {
+                eprintln!("Leaving out subtitle track {i}: {other} subtitles can't be stored in MKV");
+                None
+            }
+        })
+        .collect()
+}
+
 /// Resolves `auto`, `auto-hevc` and `auto-av1` to the first GPU encoder that can actually
 /// open on this machine (ffmpeg lists encoders it was built with even when the GPU is
 /// missing, so each one is test-encoded). Other codec names are returned unchanged.
@@ -283,4 +321,24 @@ pub fn probe_encoders(ffmpeg: &str) -> serde_json::Value {
         result.insert(name.to_string(), serde_json::Value::from(works(name)));
     }
     serde_json::Value::Object(result)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn matroska_output_is_detected_by_extension() {
+        assert!(is_matroska(Path::new("a/b.mkv")));
+        assert!(is_matroska(Path::new("B.MKV")));
+        assert!(!is_matroska(Path::new("b.mp4")));
+        assert!(!is_matroska(Path::new("mkv")));
+    }
+
+    #[test]
+    fn matroska_subtitles_copy_convert_or_skip() {
+        let codecs: Vec<String> = ["subrip", "mov_text", "eia_608", "hdmv_pgs_subtitle"].iter().map(|s| s.to_string()).collect();
+        assert_eq!(matroska_subtitles(&codecs), vec![(0, "copy"), (1, "srt"), (3, "copy")]);
+        assert!(matroska_subtitles(&[]).is_empty());
+    }
 }

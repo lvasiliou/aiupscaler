@@ -353,9 +353,15 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBox x:Name="OutputBox" x:Uid="OutputBox" Header="Output video" PlaceholderText="Where to save the upscaled video" />
-                        <Button x:Name="OutputButton" x:Uid="OutputButton" Grid.Column="1" Content="Browse…" VerticalAlignment="Bottom" Click="OnBrowseOutput" />
+                        <ComboBox x:Name="FormatCombo" x:Uid="FormatCombo" Grid.Column="1" Header="Format" MinWidth="96" SelectionChanged="OnSettingChanged"
+                                  ToolTipService.ToolTip="MKV also keeps the source's subtitle tracks and fonts">
+                            <ComboBoxItem Content="MP4" Tag="mp4" />
+                            <ComboBoxItem Content="MKV" Tag="mkv" />
+                        </ComboBox>
+                        <Button x:Name="OutputButton" x:Uid="OutputButton" Grid.Column="2" Content="Browse…" VerticalAlignment="Bottom" Click="OnBrowseOutput" />
                     </Grid>
 
                     <!-- Row 1: picture -->

@@ -243,3 +243,5 @@ Config_Untitled	Unsaved configuration	Μη αποθηκευμένες ρυθμί
 Unsaved_Title	Do you want to save changes to {0}?	Θέλετε να αποθηκεύσετε τις αλλαγές στο {0};
 Unsaved_TitleNew	Do you want to save your upscale settings as a configuration?	Θέλετε να αποθηκεύσετε τις ρυθμίσεις αναβάθμισης σε αρχείο ρυθμίσεων;
 Unsaved_Message	Changes to the upscale settings are lost if they aren't saved.	Οι αλλαγές στις ρυθμίσεις αναβάθμισης θα χαθούν αν δεν αποθηκευτούν.
+FormatCombo.Header	Format	Μορφή
+FormatCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	MKV also keeps the source's subtitle tracks and fonts	Το MKV διατηρεί επίσης τους υπότιτλους και τις γραμματοσειρές της πηγής

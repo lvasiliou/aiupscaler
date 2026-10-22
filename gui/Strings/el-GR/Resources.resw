@@ -248,4 +248,6 @@
   <data name="Unsaved_Title" xml:space="preserve"><value>Θέλετε να αποθηκεύσετε τις αλλαγές στο {0};</value></data>
   <data name="Unsaved_TitleNew" xml:space="preserve"><value>Θέλετε να αποθηκεύσετε τις ρυθμίσεις αναβάθμισης σε αρχείο ρυθμίσεων;</value></data>
   <data name="Unsaved_Message" xml:space="preserve"><value>Οι αλλαγές στις ρυθμίσεις αναβάθμισης θα χαθούν αν δεν αποθηκευτούν.</value></data>
+  <data name="FormatCombo.Header" xml:space="preserve"><value>Μορφή</value></data>
+  <data name="FormatCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Το MKV διατηρεί επίσης τους υπότιτλους και τις γραμματοσειρές της πηγής</value></data>
 </root>

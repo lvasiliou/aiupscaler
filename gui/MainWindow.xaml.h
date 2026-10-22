@@ -99,7 +99,9 @@ namespace winrt::AiUpscaler::implementation
         /// Caption button glyphs use the accent colour in light theme, the defaults in dark.
         void UpdateCaptionButtons();
         void SaveAppSettings();
-        std::wstring DefaultOutputFor(std::wstring const& input) const;
+        std::wstring DefaultOutputFor(std::wstring const& input);
+        /// The selected output format's file extension without the dot: "mp4" or "mkv".
+        std::wstring OutputContainer();
 
         // Model library
         void RefreshModels(std::wstring const& select);
@@ -123,7 +125,7 @@ namespace winrt::AiUpscaler::implementation
         void AddToBatch(std::vector<std::wstring> const& paths);
         void RefreshBatchList();
         void UpdateBatchRow(size_t index);
-        std::wstring BatchOutputFor(size_t index) const;
+        std::wstring BatchOutputFor(size_t index);
         /// Starts the next waiting video; finishes the batch when none is left.
         void StartNextBatchItem();
         void OnBatchItemExited(::AiUpscaler::JobOutcome outcome, DWORD exitCode, std::wstring const& elapsed);
@@ -194,6 +196,7 @@ namespace winrt::AiUpscaler::implementation
         std::wstring m_configPath;
         ::AiUpscaler::Settings m_savedConfig; // compared with SameConfiguration
         bool m_configTracking{}; // false until the controls hold the startup settings
+        bool m_syncingFormat{}; // the format follows a picked output file; don't rename that file
         bool m_savePromptOpen{};
         bool m_closeConfirmed{};
 

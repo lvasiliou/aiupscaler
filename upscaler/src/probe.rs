@@ -23,6 +23,10 @@ pub struct MediaInfo {
     /// Channels and ffmpeg channel layout (e.g. "stereo", "5.1(side)") of the first audio track.
     pub audio_channels: u32,
     pub audio_layout: String,
+    /// Codec of each subtitle track, in order (e.g. "subrip", "mov_text", "hdmv_pgs_subtitle").
+    pub subtitle_codecs: Vec<String>,
+    /// Attachments (e.g. fonts for styled subtitles), which only Matroska carries.
+    pub has_attachments: bool,
 }
 
 #[derive(Deserialize)]
@@ -34,6 +38,7 @@ struct ProbeOutput {
 #[derive(Deserialize)]
 struct ProbeStream {
     codec_type: String,
+    codec_name: Option<String>,
     width: Option<u32>,
     height: Option<u32>,
     avg_frame_rate: Option<String>,
@@ -125,5 +130,26 @@ pub fn probe(ffprobe: &str, input: &Path) -> Result<MediaInfo> {
         .and_then(|s| parse_rational(&s))
         .unwrap_or(1.0);
 
-    Ok(MediaInfo { width, height, fps, fps_value, frame_count, duration_secs, sar, has_audio, audio_channels, audio_layout })
+    let subtitle_codecs = parsed
+        .streams
+        .iter()
+        .filter(|s| s.codec_type == "subtitle")
+        .map(|s| s.codec_name.clone().unwrap_or_default())
+        .collect();
+    let has_attachments = parsed.streams.iter().any(|s| s.codec_type == "attachment");
+
+    Ok(MediaInfo {
+        width,
+        height,
+        fps,
+        fps_value,
+        frame_count,
+        duration_secs,
+        sar,
+        has_audio,
+        audio_channels,
+        audio_layout,
+        subtitle_codecs,
+        has_attachments,
+    })
 }

@@ -311,6 +311,7 @@ namespace winrt::AiUpscaler::implementation
         SelectByTag(CodecCombo(), settings.Codec);
         SelectByTag(HeightCombo(), std::to_wstring(settings.TargetHeight));
         SelectByTag(FitCombo(), settings.Fit);
+        SelectByTag(FormatCombo(), settings.Container);
         FitCombo().IsEnabled(settings.TargetHeight > 0);
         QualitySlider().Value(settings.Quality);
         TileBox().Value(settings.TileSize);
@@ -366,6 +367,7 @@ namespace winrt::AiUpscaler::implementation
         auto tile = TileBox().Value();
         settings.TileSize = std::isnan(tile) ? 0 : static_cast<int>(tile);
         settings.KeepAudio = AudioToggle().IsOn();
+        settings.Container = OutputContainer();
         settings.AudioDialogue = AudioDialogueItem().IsChecked();
         settings.AudioLoudness = AudioLoudnessItem().IsChecked();
         settings.AudioDenoise = AudioDenoiseItem().IsChecked();
@@ -392,10 +394,10 @@ namespace winrt::AiUpscaler::implementation
         return Tools{ *engine, *ffmpeg, *ffprobe };
     }
 
-    std::wstring MainWindow::DefaultOutputFor(std::wstring const& input) const
+    std::wstring MainWindow::DefaultOutputFor(std::wstring const& input)
     {
         fs::path source(input);
-        auto name = source.stem().wstring() + L"_upscaled.mp4";
+        auto name = source.stem().wstring() + L"_upscaled." + OutputContainer();
         std::error_code ec;
         if (!m_appSettings.OutputFolder.empty() && fs::is_directory(m_appSettings.OutputFolder, ec))
         {
@@ -501,8 +503,23 @@ namespace winrt::AiUpscaler::implementation
         picker.SuggestedFileName(current.empty() ? T(L"Picker_DefaultName") : fs::path(current).stem().wstring());
         if (auto result = co_await picker.PickSaveFileAsync())
         {
-            OutputBox().Text(result.Path());
+            std::wstring path{ result.Path() };
+            OutputBox().Text(path);
+            // Picking an .mp4 or .mkv file also picks that format (an .mov keeps the setting).
+            auto extension = LowerExtension(path);
+            if (extension == L".mp4" || extension == L".mkv")
+            {
+                m_syncingFormat = true;
+                SelectByTag(FormatCombo(), extension.substr(1));
+                m_syncingFormat = false;
+            }
         }
+    }
+
+    std::wstring MainWindow::OutputContainer()
+    {
+        auto container = FormatCombo() ? SelectedTag(FormatCombo()) : L"";
+        return container.empty() ? L"mp4" : container;
     }
 
     fire_and_forget MainWindow::OnSaveConfiguration(IInspectable const&, RoutedEventArgs const&)
@@ -647,6 +664,20 @@ namespace winrt::AiUpscaler::implementation
         if (sender == ModelCombo())
         {
             m_modelScale = 0; // a different model may have a different scale
+        }
+        if (sender == FormatCombo() && !m_syncingFormat)
+        {
+            // The output file follows the format, whether it was chosen automatically or by hand.
+            std::wstring output{ OutputBox().Text() };
+            if (!output.empty())
+            {
+                auto changed = fs::path(output).replace_extension(L"." + OutputContainer()).wstring();
+                if (output == m_autoOutput)
+                {
+                    m_autoOutput = changed;
+                }
+                OutputBox().Text(changed);
+            }
         }
         FitCombo().IsEnabled(SelectedTag(HeightCombo()) != L"0" && !(m_job && m_job->IsRunning()));
         UpdateOutputSummary();
@@ -2171,7 +2202,7 @@ namespace winrt::AiUpscaler::implementation
         row.Path.Text(item.State == BatchState::Done && !item.Output.empty() ? F(L"Batch_SavedAs", { item.Output }) : item.Input);
     }
 
-    std::wstring MainWindow::BatchOutputFor(size_t index) const
+    std::wstring MainWindow::BatchOutputFor(size_t index)
     {
         auto const& input = m_batch[index].Input;
         fs::path base(DefaultOutputFor(input));
@@ -2759,7 +2790,7 @@ namespace winrt::AiUpscaler::implementation
     {
         for (Control control : std::initializer_list<Control>{ OpenSourceButton(), LoadConfigButton(), ModelCombo(), ManageModelsButton(), OutputBox(), OutputButton(),
                                                                DeviceCombo(), HeightCombo(), CodecCombo(), QualitySlider(), TileBox(),
-                                                               AudioToggle(), AudioImproveButton(), PreviewCombo(), StartButton(), ImportModelButton() })
+                                                               AudioToggle(), AudioImproveButton(), FormatCombo(), PreviewCombo(), StartButton(), ImportModelButton() })
         {
             control.IsEnabled(!running);
         }

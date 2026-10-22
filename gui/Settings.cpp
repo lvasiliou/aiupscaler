@@ -63,6 +63,11 @@ namespace AiUpscaler
         {
             return fit == L"pad" || fit == L"crop" || fit == L"stretch" ? fit : L"pad";
         }
+
+        std::wstring ValidContainer(std::wstring container)
+        {
+            return container == L"mkv" ? container : L"mp4";
+        }
     }
 
     void Settings::SaveConfiguration(fs::path const& path) const
@@ -79,6 +84,7 @@ namespace AiUpscaler
         obj.SetNamedValue(L"fit", JsonValue::CreateStringValue(Fit));
         obj.SetNamedValue(L"tileSize", JsonValue::CreateNumberValue(TileSize));
         obj.SetNamedValue(L"keepAudio", JsonValue::CreateBooleanValue(KeepAudio));
+        obj.SetNamedValue(L"container", JsonValue::CreateStringValue(Container));
         WriteAudio(obj, *this);
 
         std::ofstream file(path, std::ios::binary | std::ios::trunc);
@@ -125,6 +131,7 @@ namespace AiUpscaler
         Fit = ValidFit(std::wstring(obj->GetNamedString(L"fit", Fit)));
         TileSize = std::max(0, static_cast<int>(obj->GetNamedNumber(L"tileSize", TileSize)));
         KeepAudio = obj->GetNamedBoolean(L"keepAudio", KeepAudio);
+        Container = ValidContainer(std::wstring(obj->GetNamedString(L"container", Container)));
         ReadAudio(*obj, *this);
         return true;
     }
@@ -178,6 +185,7 @@ namespace AiUpscaler
         }
         settings.Quality = std::clamp(settings.Quality, 1, 5);
         settings.KeepAudio = obj.GetNamedBoolean(L"keepAudio", settings.KeepAudio);
+        settings.Container = ValidContainer(std::wstring(obj.GetNamedString(L"container", settings.Container)));
         ReadAudio(obj, settings);
         settings.AutoPreview = obj.GetNamedBoolean(L"autoPreview", settings.AutoPreview);
         settings.Theme = obj.GetNamedString(L"theme", settings.Theme);
@@ -204,7 +212,7 @@ namespace AiUpscaler
     {
         auto fields = [](Settings const& s)
         {
-            return std::tie(s.ModelPath, s.Device, s.Codec, s.Quality, s.TargetHeight, s.Fit, s.TileSize, s.KeepAudio, s.AudioDialogue,
+            return std::tie(s.ModelPath, s.Device, s.Codec, s.Quality, s.TargetHeight, s.Fit, s.TileSize, s.KeepAudio, s.Container, s.AudioDialogue,
                             s.AudioLoudness, s.AudioDenoise, s.AudioUpmix);
         };
         return fields(*this) == fields(other);
@@ -234,6 +242,7 @@ namespace AiUpscaler
         obj.SetNamedValue(L"fit", JsonValue::CreateStringValue(Fit));
         obj.SetNamedValue(L"tileSize", JsonValue::CreateNumberValue(TileSize));
         obj.SetNamedValue(L"keepAudio", JsonValue::CreateBooleanValue(KeepAudio));
+        obj.SetNamedValue(L"container", JsonValue::CreateStringValue(Container));
         WriteAudio(obj, *this);
         obj.SetNamedValue(L"autoPreview", JsonValue::CreateBooleanValue(AutoPreview));
         obj.SetNamedValue(L"theme", JsonValue::CreateStringValue(Theme));

@@ -113,6 +113,11 @@ struct Args {
     #[arg(long, value_enum, value_delimiter = ',')]
     audio_enhance: Vec<audio::Enhancement>,
 
+    /// Leave out subtitle tracks and attachments. Without this, an .mkv output keeps them
+    /// (MP4 text subtitles are converted to SRT); other containers never carry them.
+    #[arg(long)]
+    no_subtitles: bool,
+
     /// Only process the first N frames (handy for previews).
     #[arg(long)]
     max_frames: Option<u64>,
@@ -330,8 +335,13 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
         eprintln!("Audio improvements don't apply to this {}-channel track; copying it unchanged", info.audio_channels);
     }
 
+    let keep_subtitles = video::is_matroska(output) && !args.no_subtitles;
+    let subtitles = if keep_subtitles { video::matroska_subtitles(&info.subtitle_codecs) } else { Vec::new() };
+
     let settings = EncoderSettings {
         codec: video::resolve_codec(&args.ffmpeg, &args.codec),
+        subtitles: subtitles.clone(),
+        attachments: keep_subtitles && info.has_attachments,
         crf: args.crf,
         preset: args.preset.clone(),
         audio_codec: args.audio_codec.clone(),
@@ -342,7 +352,7 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
     };
 
     eprintln!(
-        "{}x{} @ {:.3} fps -> AI {}x{} -> output {}x{} | encoder: {} | hwdec: {} | audio: {}",
+        "{}x{} @ {:.3} fps -> AI {}x{} -> output {}x{} | encoder: {} | hwdec: {} | audio: {} | subtitles: {}",
         info.width,
         info.height,
         info.fps_value,
@@ -357,6 +367,7 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
             (None, true) => args.audio_codec.clone(),
             (None, false) => "none".to_string(),
         },
+        subtitles.len(),
     );
 
     let total = match (frame_limit, info.frame_count) {
@@ -381,6 +392,7 @@ fn upscale_video(args: &Args, output: &Path) -> Result<()> {
             "audio": include_audio,
             "audio_improved": audio_plan.is_some(),
             "audio_channels": audio_plan.as_ref().map_or(info.audio_channels, |p| p.channels),
+            "subtitles": subtitles.len(),
         }),
     );
 

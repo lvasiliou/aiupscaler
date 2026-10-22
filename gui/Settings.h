@@ -13,6 +13,7 @@ namespace AiUpscaler
         std::wstring Fit{ L"pad" }; // engine --fit: pad, crop, stretch (frames are always the standard size)
         int TileSize{ 0 }; // 0 = auto
         bool KeepAudio{ true };
+        std::wstring Container{ L"mp4" }; // output file format: mp4, or mkv (also keeps subtitles)
         // Audio improvements (engine --audio-enhance); none = original audio copied bit-for-bit.
         bool AudioDialogue{ false };
         bool AudioLoudness{ false };
