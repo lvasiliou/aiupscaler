@@ -200,6 +200,16 @@ namespace AiUpscaler
         return list;
     }
 
+    bool Settings::SameConfiguration(Settings const& other) const
+    {
+        auto fields = [](Settings const& s)
+        {
+            return std::tie(s.ModelPath, s.Device, s.Codec, s.Quality, s.TargetHeight, s.Fit, s.TileSize, s.KeepAudio, s.AudioDialogue,
+                            s.AudioLoudness, s.AudioDenoise, s.AudioUpmix);
+        };
+        return fields(*this) == fields(other);
+    }
+
     int Settings::QualityToCrf(int level)
     {
         static constexpr int Crf[] = { 28, 24, 20, 17, 14 };

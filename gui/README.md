@@ -36,6 +36,17 @@ MSIX install and no separate Windows App Runtime installer.
   - **Hardware-aware options**: at startup the engine checks which AI devices and video encoders
     really work on this PC; unsupported ones are greyed out with a tooltip saying why.
   - **Quality 1–5** maps to the encoder's constant quality (CRF 28, 24, 20, 17, 14).
+- **Batch tab**: a queue of videos (drop files or a folder, **Add videos…**, or **Add current video**)
+  upscaled one after another with the current upscale settings. Outputs follow the default output
+  folder rule; two videos with the same name get `_2`, `_3`… Each row shows its own progress and
+  result. Videos already done are skipped on the next **Upscale all** (unless every one is done);
+  Cancel stops the whole batch. Live previews show only for the video open in the studio.
+- **Configurations** (toolbar **Load configuration**, **Save configuration** Ctrl+S, **Save as**
+  Ctrl+Shift+S): the upscale settings saved as a `.json` file, also loaded by dropping it on the
+  Source pane or `AiUpscaler.exe <file>.json`. Once a configuration is loaded or saved, Save writes
+  back to that file. The title bar shows its name, with `*` for unsaved changes. Closing the app (or
+  restarting it for a new language) with unsaved changes asks to save them: into the loaded
+  configuration, or a new file otherwise.
 - **Progress tab**: frame count, fps, and a time estimate with the local finish time, measured
   after warm-up. Previews also estimate the whole video. Cancel stops cleanly and deletes the
   partial file. When a file or preview is ready, **Open** plays it in the default player. The

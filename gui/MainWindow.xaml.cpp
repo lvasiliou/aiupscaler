@@ -17,6 +17,7 @@ using namespace winrt::Microsoft::UI::Xaml::Controls;
 using namespace winrt::Microsoft::Windows::Storage::Pickers;
 using winrt::Windows::ApplicationModel::DataTransfer::DataPackageOperation;
 using winrt::Windows::ApplicationModel::DataTransfer::StandardDataFormats;
+using winrt::Windows::Foundation::IAsyncOperation;
 namespace fs = std::filesystem;
 
 namespace
@@ -184,6 +185,30 @@ namespace
     }
 
     constexpr wchar_t const* VideoExtensions[] = { L".mp4", L".mkv", L".mov", L".avi", L".webm", L".m4v", L".wmv", L".ts", L".flv", L".mpg", L".vob" };
+
+    std::wstring LowerExtension(std::wstring const& path)
+    {
+        auto extension = fs::path(path).extension().wstring();
+        std::transform(extension.begin(), extension.end(), extension.begin(), ::towlower);
+        return extension;
+    }
+
+    bool IsConfigFile(std::wstring const& path)
+    {
+        return LowerExtension(path) == L".json"; // configuration files (Settings::SaveConfiguration)
+    }
+
+    bool IsVideoFile(std::wstring const& path)
+    {
+        auto extension = LowerExtension(path);
+        return std::any_of(std::begin(VideoExtensions), std::end(VideoExtensions), [&](auto known) { return extension == known; });
+    }
+
+    bool SamePath(std::wstring const& a, std::wstring const& b)
+    {
+        std::error_code ec;
+        return _wcsicmp(a.c_str(), b.c_str()) == 0 || fs::equivalent(a, b, ec);
+    }
 }
 
 namespace winrt::AiUpscaler::implementation
@@ -232,6 +257,23 @@ namespace winrt::AiUpscaler::implementation
 
         UpdateOutputSummary();
         StartCapabilities();
+
+        // The settings the app starts with are the baseline for "unsaved changes".
+        m_savedConfig = CollectSettings();
+        m_configTracking = true;
+        UpdateConfigTitle();
+        RefreshBatchList();
+
+        // Closing with unsaved config changes asks to save them first.
+        AppWindow().Closing([this](auto&&, Microsoft::UI::Windowing::AppWindowClosingEventArgs const& e)
+        {
+            if (m_closeConfirmed || !HasUnsavedChanges())
+            {
+                return;
+            }
+            e.Cancel(true);
+            CloseAfterConfirm();
+        });
 
         Closed([this](auto&&, auto&&)
         {
@@ -292,6 +334,7 @@ namespace winrt::AiUpscaler::implementation
         }
         UpdateAudioButton();
         CollectSettings().Save();
+        UpdateConfigTitle();
     }
 
     void MainWindow::UpdateAudioButton()
@@ -367,7 +410,14 @@ namespace winrt::AiUpscaler::implementation
     {
         if (fs::exists(path))
         {
-            SetInput(path);
+            if (IsConfigFile(path))
+            {
+                LoadConfigurationFile(path);
+            }
+            else
+            {
+                SetInput(path);
+            }
         }
         else
         {
@@ -458,31 +508,22 @@ namespace winrt::AiUpscaler::implementation
     fire_and_forget MainWindow::OnSaveConfiguration(IInspectable const&, RoutedEventArgs const&)
     {
         auto lifetime = get_strong();
-        FileSavePicker picker(AppWindow().Id());
-        picker.SuggestedStartLocation(PickerLocationId::DocumentsLibrary);
-        picker.FileTypeChoices().Insert(T(L"Picker_Config"), single_threaded_vector<hstring>({ L".json" }));
-        picker.SuggestedFileName(T(L"Picker_ConfigName"));
-        auto result = co_await picker.PickSaveFileAsync();
-        if (!result)
-        {
-            co_return;
-        }
+        co_await SaveConfigAsync(false);
+    }
 
-        fs::path path{ std::wstring(result.Path()) };
-        try
-        {
-            CollectSettings().SaveConfiguration(path);
-            ShowConfigMessage(InfoBarSeverity::Success, T(L"Config_Saved"), path.wstring());
-        }
-        catch (std::exception const&)
-        {
-            ShowConfigMessage(InfoBarSeverity::Error, T(L"Config_SaveFailed"), path.wstring());
-        }
+    fire_and_forget MainWindow::OnSaveConfigurationAs(IInspectable const&, RoutedEventArgs const&)
+    {
+        auto lifetime = get_strong();
+        co_await SaveConfigAsync(true);
     }
 
     fire_and_forget MainWindow::OnLoadConfiguration(IInspectable const&, RoutedEventArgs const&)
     {
         auto lifetime = get_strong();
+        if ((m_job && m_job->IsRunning()) || !co_await ConfirmUnsavedChangesAsync())
+        {
+            co_return;
+        }
         FileOpenPicker picker(AppWindow().Id());
         picker.SuggestedStartLocation(PickerLocationId::DocumentsLibrary);
         picker.FileTypeFilter().Append(L".json");
@@ -491,14 +532,26 @@ namespace winrt::AiUpscaler::implementation
         {
             co_return;
         }
+        LoadConfigurationFile(std::wstring(result.Path()));
+    }
 
-        fs::path path{ std::wstring(result.Path()) };
+    fire_and_forget MainWindow::LoadConfigurationAfterConfirm(std::wstring path)
+    {
+        auto lifetime = get_strong();
+        if (!(m_job && m_job->IsRunning()) && co_await ConfirmUnsavedChangesAsync())
+        {
+            LoadConfigurationFile(path);
+        }
+    }
+
+    void MainWindow::LoadConfigurationFile(fs::path const& path)
+    {
         auto settings = CollectSettings();
         std::wstring missingModel;
         if (!settings.LoadConfiguration(path, missingModel))
         {
             ShowConfigMessage(InfoBarSeverity::Error, T(L"Config_LoadFailed"), F(L"Config_NotConfig", { path.filename().wstring() }));
-            co_return;
+            return;
         }
 
         ApplySettings(settings);
@@ -520,6 +573,12 @@ namespace winrt::AiUpscaler::implementation
         UpdateOutputSummary();
         ScheduleAiPreview();
         ShowBottomTab(UpscaleSettingsTab());
+
+        // Saving goes back to this file from now on. The baseline is what the controls now hold,
+        // so options this PC lacks (or a missing model) don't count as unsaved changes.
+        m_configPath = path.wstring();
+        m_savedConfig = CollectSettings();
+        UpdateConfigTitle();
 
         if (missingModel.empty())
         {
@@ -570,6 +629,12 @@ namespace winrt::AiUpscaler::implementation
         std::wstring label = T((L"Quality_" + std::to_wstring(level)).c_str());
         QualityText().Text(F(L"Quality_Format", { std::to_wstring(level), label }));
         UpdateOutputSummary();
+        UpdateConfigTitle();
+    }
+
+    void MainWindow::OnTileChanged(NumberBox const&, NumberBoxValueChangedEventArgs const&)
+    {
+        UpdateConfigTitle();
     }
 
     void MainWindow::OnSettingChanged(IInspectable const& sender, RoutedEventArgs const&)
@@ -585,6 +650,7 @@ namespace winrt::AiUpscaler::implementation
         }
         FitCombo().IsEnabled(SelectedTag(HeightCombo()) != L"0" && !(m_job && m_job->IsRunning()));
         UpdateOutputSummary();
+        UpdateConfigTitle();
         if (sender == ModelCombo() || sender == DeviceCombo())
         {
             ScheduleAiPreview(); // show the frame with the new model or device
@@ -641,9 +707,12 @@ namespace winrt::AiUpscaler::implementation
                 continue;
             }
             std::wstring path{ item.Path() };
-            auto extension = fs::path(path).extension().wstring();
-            std::transform(extension.begin(), extension.end(), extension.begin(), ::towlower);
-            if (extension != L".onnx")
+            if (IsConfigFile(path))
+            {
+                LoadConfigurationAfterConfirm(path);
+                break;
+            }
+            if (LowerExtension(path) != L".onnx")
             {
                 SetInput(path);
                 break;
@@ -1197,6 +1266,8 @@ namespace winrt::AiUpscaler::implementation
         {
             return;
         }
+        // Options this PC can't run may be swapped for ones it can; that's not a change the user made.
+        bool wasSaved = !HasUnsavedChanges();
 
         bool directml = devices.GetNamedBoolean(L"directml", false);
         bool cuda = devices.GetNamedBoolean(L"cuda", false);
@@ -1244,6 +1315,11 @@ namespace winrt::AiUpscaler::implementation
         HardwareText().Text(F(L"Hw_Summary", { T(cuda ? L"Hw_AiCuda" : directml ? L"Hw_AiDml" : L"Hw_AiCpu"),
                                                gpuEncoders.empty() ? T(L"Hw_NoGpuEncode") : F(L"Hw_GpuEncodes", { gpuVendor, gpuEncoders }) }));
         UpdateOutputSummary();
+        if (wasSaved)
+        {
+            m_savedConfig = CollectSettings();
+        }
+        UpdateConfigTitle();
     }
 
     std::wstring MainWindow::DescribeFinalSize(::AiUpscaler::Settings const& settings, bool withNote)
@@ -1475,7 +1551,7 @@ namespace winrt::AiUpscaler::implementation
 
     void MainWindow::ShowBottomTab(SelectorBarItem const& tab)
     {
-        if (!ProgressPanel() || !UpscaleSettingsPanel())
+        if (!ProgressPanel() || !UpscaleSettingsPanel() || !BatchPanel())
         {
             return; // during InitializeComponent
         }
@@ -1485,6 +1561,7 @@ namespace winrt::AiUpscaler::implementation
         }
         ProgressPanel().Visibility(tab == ProgressTab() ? Visibility::Visible : Visibility::Collapsed);
         UpscaleSettingsPanel().Visibility(tab == UpscaleSettingsTab() ? Visibility::Visible : Visibility::Collapsed);
+        BatchPanel().Visibility(tab == BatchTab() ? Visibility::Visible : Visibility::Collapsed);
     }
 
     // ---- App settings page -----------------------------------------------------------------------
@@ -1621,12 +1698,17 @@ namespace winrt::AiUpscaler::implementation
         LanguageRestartBar().IsOpen(m_appSettings.Language != m_startupLanguage);
     }
 
-    void MainWindow::OnRestart(IInspectable const&, RoutedEventArgs const&)
+    fire_and_forget MainWindow::OnRestart(IInspectable const&, RoutedEventArgs const&)
     {
+        auto lifetime = get_strong();
         if (m_job && m_job->IsRunning())
         {
             LanguageRestartBar().Message(T(L"Lang_RestartBusy"));
-            return;
+            co_return;
+        }
+        if (!co_await ConfirmUnsavedChangesAsync())
+        {
+            co_return;
         }
         wchar_t exe[MAX_PATH * 4]{};
         GetModuleFileNameW(nullptr, exe, ARRAYSIZE(exe));
@@ -1634,6 +1716,7 @@ namespace winrt::AiUpscaler::implementation
         std::wstring args = m_inputPath.empty() ? L"" : L"\"" + m_inputPath + L"\"";
         if (reinterpret_cast<INT_PTR>(ShellExecuteW(nullptr, L"open", exe, args.empty() ? nullptr : args.c_str(), nullptr, SW_SHOWNORMAL)) > 32)
         {
+            m_closeConfirmed = true;
             Close();
         }
     }
@@ -1841,6 +1924,507 @@ namespace winrt::AiUpscaler::implementation
         ShellExecuteW(nullptr, L"open", ::AiUpscaler::ModelLibrary::Folder().c_str(), nullptr, nullptr, SW_SHOWNORMAL);
     }
 
+    // ---- Unsaved configuration changes -----------------------------------------------------------
+
+    bool MainWindow::HasUnsavedChanges()
+    {
+        return m_configTracking && !CollectSettings().SameConfiguration(m_savedConfig);
+    }
+
+    void MainWindow::UpdateConfigTitle()
+    {
+        if (!m_configTracking)
+        {
+            return;
+        }
+        bool unsaved = HasUnsavedChanges();
+        std::wstring name = m_configPath.empty() ? (unsaved ? T(L"Config_Untitled") : L"") : fs::path(m_configPath).filename().wstring();
+        if (!name.empty() && unsaved)
+        {
+            name += L"*";
+        }
+        ConfigTitleText().Text(name.empty() ? L"" : L"— " + name);
+        Title(name.empty() ? L"AI Upscaler" : name + L" – AI Upscaler");
+    }
+
+    IAsyncOperation<bool> MainWindow::SaveConfigAsync(bool saveAs)
+    {
+        auto lifetime = get_strong();
+        std::wstring path = m_configPath;
+        if (saveAs || path.empty())
+        {
+            FileSavePicker picker(AppWindow().Id());
+            picker.SuggestedStartLocation(PickerLocationId::DocumentsLibrary);
+            picker.FileTypeChoices().Insert(T(L"Picker_Config"), single_threaded_vector<hstring>({ L".json" }));
+            picker.SuggestedFileName(path.empty() ? T(L"Picker_ConfigName") : fs::path(path).stem().wstring());
+            auto result = co_await picker.PickSaveFileAsync();
+            if (!result)
+            {
+                co_return false;
+            }
+            path = result.Path();
+        }
+
+        auto settings = CollectSettings();
+        try
+        {
+            settings.SaveConfiguration(path);
+        }
+        catch (std::exception const&)
+        {
+            ShowConfigMessage(InfoBarSeverity::Error, T(L"Config_SaveFailed"), path);
+            co_return false;
+        }
+        ShowConfigMessage(InfoBarSeverity::Success, T(L"Config_Saved"), path);
+        m_configPath = path;
+        m_savedConfig = settings;
+        UpdateConfigTitle();
+        co_return true;
+    }
+
+    IAsyncOperation<bool> MainWindow::ConfirmUnsavedChangesAsync()
+    {
+        auto lifetime = get_strong();
+        if (!HasUnsavedChanges())
+        {
+            co_return true;
+        }
+        if (m_savePromptOpen)
+        {
+            co_return false; // already asking (e.g. the close button pressed twice)
+        }
+
+        ContentDialog dialog;
+        dialog.XamlRoot(Content().XamlRoot());
+        dialog.Style(Application::Current().Resources().Lookup(box_value(L"DefaultContentDialogStyle")).as<Style>());
+        dialog.RequestedTheme(RootGrid().ActualTheme());
+        dialog.Title(box_value(m_configPath.empty() ? T(L"Unsaved_TitleNew") : F(L"Unsaved_Title", { fs::path(m_configPath).filename().wstring() })));
+        TextBlock message;
+        message.Text(T(L"Unsaved_Message"));
+        message.TextWrapping(TextWrapping::Wrap);
+        dialog.Content(message);
+        dialog.PrimaryButtonText(T(L"Unsaved_Save"));
+        dialog.SecondaryButtonText(T(L"Unsaved_DontSave"));
+        dialog.CloseButtonText(T(L"Unsaved_Cancel"));
+        dialog.DefaultButton(ContentDialogButton::Primary);
+
+        m_savePromptOpen = true;
+        auto promptClosed = wil::scope_exit([this] { m_savePromptOpen = false; });
+        auto result = co_await dialog.ShowAsync();
+        promptClosed.reset();
+        if (result == ContentDialogResult::Primary)
+        {
+            co_return co_await SaveConfigAsync(false);
+        }
+        co_return result == ContentDialogResult::Secondary;
+    }
+
+    fire_and_forget MainWindow::CloseAfterConfirm()
+    {
+        auto lifetime = get_strong();
+        if (co_await ConfirmUnsavedChangesAsync())
+        {
+            m_closeConfirmed = true;
+            Close();
+        }
+    }
+
+    // ---- Batch -------------------------------------------------------------------------------------
+
+    void MainWindow::AddToBatch(std::vector<std::wstring> const& paths)
+    {
+        bool added = false;
+        for (auto const& path : paths)
+        {
+            bool queued = std::any_of(m_batch.begin(), m_batch.end(), [&](BatchItem const& item) { return SamePath(item.Input, path); });
+            if (!queued)
+            {
+                m_batch.push_back(BatchItem{ path });
+                added = true;
+            }
+        }
+        if (added)
+        {
+            RefreshBatchList();
+        }
+        ShowBottomTab(BatchTab());
+    }
+
+    void MainWindow::RefreshBatchList()
+    {
+        if (!BatchList())
+        {
+            return;
+        }
+        auto list = BatchList();
+        list.Items().Clear();
+        m_batchRows.clear();
+        auto resources = Application::Current().Resources();
+        auto caption = resources.Lookup(box_value(L"CaptionTextBlockStyle")).as<Style>();
+
+        for (size_t i = 0; i < m_batch.size(); ++i)
+        {
+            Grid row;
+            row.ColumnSpacing(12);
+            row.Padding(ThicknessHelper::FromLengths(0, 4, 0, 4));
+            for (auto width : { GridLengthHelper::Auto(), GridLengthHelper::FromValueAndType(1, GridUnitType::Star), GridLengthHelper::Auto(),
+                                GridLengthHelper::Auto() })
+            {
+                ColumnDefinition column;
+                column.Width(width);
+                row.ColumnDefinitions().Append(column);
+            }
+
+            FontIcon icon;
+            icon.FontSize(16);
+            icon.VerticalAlignment(VerticalAlignment::Center);
+            row.Children().Append(icon);
+
+            StackPanel text;
+            text.VerticalAlignment(VerticalAlignment::Center);
+            text.Spacing(2);
+            TextBlock name;
+            name.Text(fs::path(m_batch[i].Input).filename().wstring());
+            name.TextTrimming(TextTrimming::CharacterEllipsis);
+            TextBlock path;
+            path.Style(caption);
+            path.TextTrimming(TextTrimming::CharacterEllipsis);
+            ProgressBar progress;
+            progress.Maximum(100);
+            text.Children().Append(name);
+            text.Children().Append(path);
+            text.Children().Append(progress);
+            Grid::SetColumn(text, 1);
+            row.Children().Append(text);
+
+            TextBlock status;
+            status.Style(caption);
+            status.VerticalAlignment(VerticalAlignment::Center);
+            Grid::SetColumn(status, 2);
+            row.Children().Append(status);
+
+            Button remove;
+            remove.Style(resources.Lookup(box_value(L"SubtleButtonStyle")).as<Style>());
+            FontIcon removeIcon;
+            removeIcon.Glyph(L""); // Cancel (×)
+            removeIcon.FontSize(12);
+            remove.Content(removeIcon);
+            ToolTipService::SetToolTip(remove, box_value(T(L"Batch_RemoveTip")));
+            remove.IsEnabled(!m_batchRunning);
+            remove.VerticalAlignment(VerticalAlignment::Center);
+            Grid::SetColumn(remove, 3);
+            auto input = m_batch[i].Input;
+            remove.Click([this, input](auto&&, auto&&)
+            {
+                if (m_batchRunning)
+                {
+                    return;
+                }
+                std::erase_if(m_batch, [&](BatchItem const& item) { return item.Input == input; });
+                RefreshBatchList();
+            });
+            row.Children().Append(remove);
+
+            list.Items().Append(row);
+            m_batchRows.push_back(BatchRow{ icon, status, path, progress });
+            UpdateBatchRow(i);
+        }
+
+        BatchEmptyText().Visibility(m_batch.empty() ? Visibility::Visible : Visibility::Collapsed);
+        auto done = std::count_if(m_batch.begin(), m_batch.end(), [](BatchItem const& item) { return item.State == BatchState::Done; });
+        BatchSummaryText().Text(m_batch.empty() ? L"" : F(L"Batch_Summary", { std::to_wstring(m_batch.size()), std::to_wstring(done) }));
+    }
+
+    void MainWindow::UpdateBatchRow(size_t index)
+    {
+        if (index >= m_batchRows.size() || index >= m_batch.size())
+        {
+            return;
+        }
+        auto const& item = m_batch[index];
+        auto& row = m_batchRows[index];
+        switch (item.State)
+        {
+        case BatchState::Waiting:
+            row.Icon.Glyph(L""); // Recent
+            row.Status.Text(T(L"Batch_Waiting"));
+            break;
+        case BatchState::Running:
+            row.Icon.Glyph(L""); // Play
+            row.Status.Text(F(L"Batch_Running", { Num(item.Percent, 0) }));
+            break;
+        case BatchState::Done:
+            row.Icon.Glyph(L""); // CheckMark
+            row.Status.Text(item.Detail);
+            break;
+        case BatchState::Failed:
+            row.Icon.Glyph(L""); // Error
+            row.Status.Text(item.Detail);
+            break;
+        case BatchState::Cancelled:
+            row.Icon.Glyph(L""); // Cancel
+            row.Status.Text(T(L"Batch_Cancelled"));
+            break;
+        }
+        row.Progress.Visibility(item.State == BatchState::Running ? Visibility::Visible : Visibility::Collapsed);
+        row.Progress.Value(item.Percent);
+        row.Path.Text(item.State == BatchState::Done && !item.Output.empty() ? F(L"Batch_SavedAs", { item.Output }) : item.Input);
+    }
+
+    std::wstring MainWindow::BatchOutputFor(size_t index) const
+    {
+        auto const& input = m_batch[index].Input;
+        fs::path base(DefaultOutputFor(input));
+        auto output = base.wstring();
+        // Two queued videos with the same name (from different folders) would otherwise write the same file.
+        for (int n = 2;; ++n)
+        {
+            bool taken = SamePath(output, input);
+            for (size_t j = 0; j < m_batch.size() && !taken; ++j)
+            {
+                taken = j != index && !m_batch[j].Output.empty() && SamePath(m_batch[j].Output, output);
+            }
+            if (!taken)
+            {
+                return output;
+            }
+            output = (base.parent_path() / (base.stem().wstring() + L"_" + std::to_wstring(n) + base.extension().wstring())).wstring();
+        }
+    }
+
+    fire_and_forget MainWindow::OnBatchAdd(IInspectable const&, RoutedEventArgs const&)
+    {
+        auto lifetime = get_strong();
+        FileOpenPicker picker(AppWindow().Id());
+        picker.SuggestedStartLocation(PickerLocationId::VideosLibrary);
+        for (auto extension : VideoExtensions)
+        {
+            picker.FileTypeFilter().Append(extension);
+        }
+        auto results = co_await picker.PickMultipleFilesAsync();
+        std::vector<std::wstring> paths;
+        for (auto const& result : results)
+        {
+            paths.emplace_back(result.Path());
+        }
+        if (!paths.empty())
+        {
+            AddToBatch(paths);
+        }
+    }
+
+    void MainWindow::OnBatchAddCurrent(IInspectable const&, RoutedEventArgs const&)
+    {
+        if (m_inputPath.empty())
+        {
+            ShowResult(InfoBarSeverity::Warning, T(L"Err_NoVideo_Title"), T(L"Err_NoVideo"), false);
+            return;
+        }
+        AddToBatch({ m_inputPath });
+    }
+
+    void MainWindow::OnBatchClear(IInspectable const&, RoutedEventArgs const&)
+    {
+        if (m_batchRunning)
+        {
+            return;
+        }
+        m_batch.clear();
+        RefreshBatchList();
+    }
+
+    void MainWindow::OnBatchDragOver(IInspectable const&, DragEventArgs const& e)
+    {
+        if (!m_batchRunning && e.DataView().Contains(StandardDataFormats::StorageItems()))
+        {
+            e.AcceptedOperation(DataPackageOperation::Copy);
+            e.DragUIOverride().Caption(T(L"Drag_AddToBatch"));
+        }
+    }
+
+    fire_and_forget MainWindow::OnBatchDrop(IInspectable const&, DragEventArgs const& e)
+    {
+        auto lifetime = get_strong();
+        auto view = e.DataView();
+        if (m_batchRunning || !view.Contains(StandardDataFormats::StorageItems()))
+        {
+            co_return;
+        }
+        auto items = co_await view.GetStorageItemsAsync();
+        std::vector<std::wstring> paths;
+        for (auto const& item : items)
+        {
+            std::wstring path{ item.Path() };
+            if (item.IsOfType(Windows::Storage::StorageItemTypes::Folder))
+            {
+                // A dropped folder adds the videos directly in it.
+                std::vector<std::wstring> videos;
+                std::error_code ec;
+                for (auto const& entry : fs::directory_iterator(path, ec))
+                {
+                    if (entry.is_regular_file(ec) && IsVideoFile(entry.path().wstring()))
+                    {
+                        videos.push_back(entry.path().wstring());
+                    }
+                }
+                std::sort(videos.begin(), videos.end());
+                paths.insert(paths.end(), videos.begin(), videos.end());
+            }
+            else if (!IsConfigFile(path) && LowerExtension(path) != L".onnx")
+            {
+                paths.push_back(path);
+            }
+        }
+        if (!paths.empty())
+        {
+            AddToBatch(paths);
+        }
+    }
+
+    void MainWindow::OnBatchStart(IInspectable const&, RoutedEventArgs const&)
+    {
+        if (m_job && m_job->IsRunning())
+        {
+            return;
+        }
+        ResultBar().IsOpen(false);
+        if (m_batch.empty())
+        {
+            ShowResult(InfoBarSeverity::Warning, T(L"Err_BatchEmpty_Title"), T(L"Err_BatchEmpty"), false);
+            return;
+        }
+        auto settings = CollectSettings();
+        if (!settings.ModelPath.empty() && !fs::exists(settings.ModelPath))
+        {
+            ShowResult(InfoBarSeverity::Warning, T(L"Err_ModelMissing_Title"), T(L"Err_ModelMissing"), false);
+            return;
+        }
+        if (!FindTools())
+        {
+            return;
+        }
+
+        // Videos already upscaled are skipped; when every one is, the whole list runs again.
+        bool anyPending = std::any_of(m_batch.begin(), m_batch.end(), [](BatchItem const& item) { return item.State != BatchState::Done; });
+        m_batchTotal = 0;
+        for (auto& item : m_batch)
+        {
+            if (!anyPending || item.State != BatchState::Done)
+            {
+                item = BatchItem{ item.Input };
+                ++m_batchTotal;
+            }
+        }
+        m_batchNumber = 0;
+        m_previewSeconds = 0; // a batch always upscales whole videos
+        m_batchRunning = true;
+        LogText().Text(L"");
+        RefreshBatchList();
+        StartNextBatchItem();
+    }
+
+    void MainWindow::StartNextBatchItem()
+    {
+        auto next = std::find_if(m_batch.begin(), m_batch.end(), [](BatchItem const& item) { return item.State == BatchState::Waiting; });
+        if (next == m_batch.end())
+        {
+            FinishBatch();
+            return;
+        }
+        auto index = static_cast<size_t>(next - m_batch.begin());
+        auto& item = *next;
+        ++m_batchNumber;
+        if (!fs::exists(item.Input))
+        {
+            item.State = BatchState::Failed;
+            item.Detail = T(L"Batch_NotFound");
+            AppendLog(F(L"Log_BatchNotFound", { item.Input }));
+            UpdateBatchRow(index);
+            StartNextBatchItem();
+            return;
+        }
+
+        item.Output = BatchOutputFor(index);
+        item.State = BatchState::Running;
+        item.Percent = 0;
+        m_batchCurrent = index;
+        UpdateBatchRow(index);
+        AppendLog(L"== " + item.Input + L" → " + item.Output);
+        if (!StartUpscale(item.Input, item.Output))
+        {
+            item.State = BatchState::Waiting;
+            m_batchCurrent.reset();
+            m_batchRunning = false;
+            SetRunning(false);
+        }
+    }
+
+    void MainWindow::OnBatchItemExited(::AiUpscaler::JobOutcome outcome, DWORD exitCode, std::wstring const& elapsed)
+    {
+        auto index = *m_batchCurrent;
+        m_batchCurrent.reset();
+        auto& item = m_batch[index];
+        switch (outcome)
+        {
+        case ::AiUpscaler::JobOutcome::Completed:
+            item.State = BatchState::Done;
+            item.Percent = 100;
+            item.Detail = F(L"Batch_Done", { elapsed });
+            break;
+        case ::AiUpscaler::JobOutcome::Cancelled:
+            item.State = BatchState::Cancelled;
+            break;
+        case ::AiUpscaler::JobOutcome::Failed:
+            item.State = BatchState::Failed;
+            item.Detail = F(L"Batch_Failed", { std::to_wstring(exitCode) });
+            break;
+        }
+        UpdateBatchRow(index);
+
+        if (outcome == ::AiUpscaler::JobOutcome::Cancelled)
+        {
+            // Cancel stops the whole batch; the videos not yet upscaled stay in the list.
+            m_batchRunning = false;
+            SetRunning(false);
+            JobProgress().Value(0);
+            StatusText().Text(T(L"Status_BatchCancelled"));
+            return;
+        }
+        StartNextBatchItem();
+    }
+
+    void MainWindow::FinishBatch()
+    {
+        m_batchRunning = false;
+        SetRunning(false);
+        JobProgress().Value(100);
+
+        auto done = std::count_if(m_batch.begin(), m_batch.end(), [](BatchItem const& item) { return item.State == BatchState::Done; });
+        auto failed = std::count_if(m_batch.begin(), m_batch.end(), [](BatchItem const& item) { return item.State == BatchState::Failed; });
+        // Open shows the folder of the last finished video.
+        std::wstring folder;
+        for (auto const& item : m_batch)
+        {
+            if (item.State == BatchState::Done)
+            {
+                folder = fs::path(item.Output).parent_path().wstring();
+            }
+        }
+        m_runningOutput = folder;
+
+        auto result = F(L"Batch_Result", { std::to_wstring(done), std::to_wstring(m_batch.size()) });
+        StatusText().Text(result);
+        if (failed == 0)
+        {
+            ShowResult(InfoBarSeverity::Success, T(L"Batch_Complete_Title"), result, !folder.empty());
+        }
+        else
+        {
+            ShowResult(InfoBarSeverity::Warning, T(L"Batch_Partial_Title"), result + L" " + T(L"Err_SeeLog"), !folder.empty());
+            LogExpander().IsExpanded(true);
+        }
+    }
+
     // ---- Upscale run ---------------------------------------------------------------------------------
 
     void MainWindow::OnStart(IInspectable const&, RoutedEventArgs const&)
@@ -1865,10 +2449,23 @@ namespace winrt::AiUpscaler::implementation
             ShowResult(InfoBarSeverity::Warning, T(L"Err_ModelMissing_Title"), T(L"Err_ModelMissing"), false);
             return;
         }
+        // Previews go next to the real output so they never overwrite a finished video.
+        m_previewSeconds = _wtoi(SelectedTag(PreviewCombo()).c_str());
+        if (m_previewSeconds > 0)
+        {
+            output = PreviewPathFor(output);
+        }
+        LogText().Text(L"");
+        StartUpscale(m_inputPath, output);
+    }
+
+    bool MainWindow::StartUpscale(std::wstring const& input, std::wstring const& output)
+    {
+        auto settings = CollectSettings();
         auto tools = FindTools();
         if (!tools)
         {
-            return;
+            return false;
         }
 
         settings.Save();
@@ -1885,20 +2482,19 @@ namespace winrt::AiUpscaler::implementation
         SourceBusy().IsActive(false);
         OutputBusy().IsActive(false);
 
-        // Previews go next to the real output so they never overwrite a finished video.
-        m_previewSeconds = _wtoi(SelectedTag(PreviewCombo()).c_str());
-        if (m_previewSeconds > 0)
-        {
-            output = PreviewPathFor(output);
-        }
         std::error_code ec;
         fs::create_directories(fs::path(output).parent_path(), ec);
 
-        std::vector<std::wstring> args{ m_inputPath, L"--output", output, L"--device", settings.Device, L"--codec", settings.Codec,
+        std::vector<std::wstring> args{ input, L"--output", output, L"--device", settings.Device, L"--codec", settings.Codec,
                                         L"--crf", std::to_wstring(::AiUpscaler::Settings::QualityToCrf(settings.Quality)),
                                         L"--tile", std::to_wstring(settings.TileSize),
-                                        L"--preview-dir", m_previewDir.wstring(), L"--preview-interval", L"2",
                                         L"--ffmpeg", tools->Ffmpeg.wstring(), L"--ffprobe", tools->Ffprobe.wstring(), L"--json" };
+        // Live previews are shown in the studio panes, which are sized for the video open there.
+        bool livePreviews = !m_inputPath.empty() && SamePath(input, m_inputPath);
+        if (livePreviews)
+        {
+            args.insert(args.end(), { L"--preview-dir", m_previewDir.wstring(), L"--preview-interval", L"2" });
+        }
         if (!settings.ModelPath.empty())
         {
             args.insert(args.end(), { L"--model", settings.ModelPath });
@@ -1939,7 +2535,6 @@ namespace winrt::AiUpscaler::implementation
         callbacks.Log = [onUi](std::wstring const& line) { onUi([line](MainWindow& w) { w.AppendLog(line); }); };
         callbacks.Exited = [onUi](::AiUpscaler::JobOutcome outcome, DWORD code) { onUi([outcome, code](MainWindow& w) { w.OnJobExited(outcome, code); }); };
 
-        LogText().Text(L"");
         m_runningOutput = output;
         m_jobStart = std::chrono::steady_clock::now();
         m_job = std::make_unique<::AiUpscaler::EngineJob>(tools->Engine, std::move(args), std::move(callbacks));
@@ -1951,7 +2546,7 @@ namespace winrt::AiUpscaler::implementation
         {
             m_job.reset();
             ShowResult(InfoBarSeverity::Error, T(L"Err_EngineStart"), std::wstring(to_message()), false);
-            return;
+            return false;
         }
 
         m_sourceFrames = 0;
@@ -1959,11 +2554,23 @@ namespace winrt::AiUpscaler::implementation
         m_measuredFps = 0;
         EstimateText().Visibility(Visibility::Collapsed);
         SetRunning(true);
-        ShowBottomTab(ProgressTab());
+        if (!m_batchRunning)
+        {
+            ShowBottomTab(ProgressTab()); // a batch shows each video's progress on its own tab
+        }
         StatusText().Text(T(L"Status_Loading"));
         JobInfoText().Text(L"");
         JobProgress().IsIndeterminate(true);
-        OutputPlaceholderText().Text(T(L"Placeholder_Live"));
+        if (livePreviews)
+        {
+            OutputPlaceholderText().Text(T(L"Placeholder_Live"));
+        }
+        else
+        {
+            OutputPlaceholder().Visibility(OutputImage().Source() ? Visibility::Collapsed : Visibility::Visible);
+            OutputPlaceholderText().Text(F(L"Placeholder_BatchOther", { fs::path(input).filename().wstring() }));
+        }
+        return true;
     }
 
     void MainWindow::OnCancel(IInspectable const&, RoutedEventArgs const&)
@@ -2009,8 +2616,18 @@ namespace winrt::AiUpscaler::implementation
         {
             m_modelScale = s.OutHeight / s.Height;
         }
-        StatusText().Text(T(m_previewSeconds > 0 ? L"Status_UpscalingPreview" : L"Status_Upscaling"));
+        StatusText().Text(BatchPrefix() + T(m_previewSeconds > 0 ? L"Status_UpscalingPreview" : L"Status_Upscaling"));
         m_sourceFrames = s.SourceFrames;
+    }
+
+    std::wstring MainWindow::BatchPrefix() const
+    {
+        if (!m_batchCurrent)
+        {
+            return L"";
+        }
+        return F(L"Batch_Item", { std::to_wstring(m_batchNumber), std::to_wstring(m_batchTotal),
+                                  fs::path(m_batch[*m_batchCurrent].Input).filename().wstring() }) + L"\n";
     }
 
     void MainWindow::UpdateEstimate(::AiUpscaler::JobProgress const& p)
@@ -2057,22 +2674,29 @@ namespace winrt::AiUpscaler::implementation
         {
             JobProgress().IsIndeterminate(false);
             JobProgress().Value(100.0 * static_cast<double>(p.Frame) / static_cast<double>(p.Total));
+            if (m_batchCurrent)
+            {
+                m_batch[*m_batchCurrent].Percent = 100.0 * static_cast<double>(p.Frame) / static_cast<double>(p.Total);
+                UpdateBatchRow(*m_batchCurrent);
+            }
         }
 
         auto elapsed = FormatDuration(std::chrono::duration<double>(std::chrono::steady_clock::now() - m_jobStart).count());
         auto fps = Num(p.Fps, 2);
+        std::wstring status;
         if (p.Total > 0 && p.EtaSeconds)
         {
-            StatusText().Text(F(L"Progress_FramesEta", { std::to_wstring(p.Frame), std::to_wstring(p.Total), fps, elapsed, FormatDuration(*p.EtaSeconds) }));
+            status = F(L"Progress_FramesEta", { std::to_wstring(p.Frame), std::to_wstring(p.Total), fps, elapsed, FormatDuration(*p.EtaSeconds) });
         }
         else if (p.Total > 0)
         {
-            StatusText().Text(F(L"Progress_Frames", { std::to_wstring(p.Frame), std::to_wstring(p.Total), fps, elapsed }));
+            status = F(L"Progress_Frames", { std::to_wstring(p.Frame), std::to_wstring(p.Total), fps, elapsed });
         }
         else
         {
-            StatusText().Text(F(L"Progress_FramesOnly", { std::to_wstring(p.Frame), fps, elapsed }));
+            status = F(L"Progress_FramesOnly", { std::to_wstring(p.Frame), fps, elapsed });
         }
+        StatusText().Text(BatchPrefix() + status);
         UpdateEstimate(p);
     }
 
@@ -2090,11 +2714,16 @@ namespace winrt::AiUpscaler::implementation
             outcome = ::AiUpscaler::JobOutcome::Cancelled;
             DeleteFileW(m_runningOutput.c_str());
         }
-        SetRunning(false);
         EstimateText().Visibility(Visibility::Collapsed);
         JobProgress().IsIndeterminate(false);
 
         auto elapsed = FormatDuration(std::chrono::duration<double>(std::chrono::steady_clock::now() - m_jobStart).count());
+        if (m_batchCurrent)
+        {
+            OnBatchItemExited(outcome, exitCode, elapsed);
+            return;
+        }
+        SetRunning(false);
         switch (outcome)
         {
         case ::AiUpscaler::JobOutcome::Completed:
@@ -2151,6 +2780,14 @@ namespace winrt::AiUpscaler::implementation
         }
         CancelButton().IsEnabled(running);
         SourcePane().AllowDrop(!running);
+        BatchStartButton().IsEnabled(!running);
+        // The queue can grow while a single video upscales, but not change under a running batch.
+        for (Control control : std::initializer_list<Control>{ BatchAddButton(), BatchAddCurrentButton(), BatchClearButton() })
+        {
+            control.IsEnabled(!m_batchRunning);
+        }
+        BatchPanel().AllowDrop(!m_batchRunning);
+        RefreshBatchList();
     }
 
     void MainWindow::AppendLog(std::wstring const& line)

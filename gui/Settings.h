@@ -39,6 +39,8 @@ namespace AiUpscaler
         /// move between PCs); `missingModel` gets its file name if it isn't found there either.
         /// Returns false if the file can't be read or isn't a configuration.
         bool LoadConfiguration(std::filesystem::path const& path, std::wstring& missingModel);
+        /// True when the upscale settings a configuration file holds are the same in both.
+        bool SameConfiguration(Settings const& other) const;
 
         /// Engine --crf for a quality level (lower CRF = higher quality, bigger file).
         static int QualityToCrf(int level);

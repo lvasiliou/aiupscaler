@@ -22,6 +22,9 @@ Source video ──ffmpeg decode──▶ ONNX model on GPU ──ffmpeg encode�
   volume, noise and hiss removal, and stereo-to-5.1 upmix.
 - **Previews and estimates**: upscale the first 10/30/60 seconds to check quality and see how
   long the whole video will take before committing.
+- **Batch processing**: queue many videos (or a whole folder) and upscale them one after another.
+- **Configurations**: save the upscale settings to a file and load them later; closing with
+  unsaved changes asks to save them.
 - **Model library**: import `.onnx` models once, then pick them by name.
 - **Hardware-aware**: options this PC can't run are greyed out with the reason.
 - English and Greek UI, light and dark themes.

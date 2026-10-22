@@ -214,4 +214,38 @@
   <data name="Section_Appearance" xml:space="preserve"><value>Appearance</value></data>
   <data name="Section_Output" xml:space="preserve"><value>Output</value></data>
   <data name="Section_Models" xml:space="preserve"><value>Models</value></data>
+  <data name="BatchTab.Text" xml:space="preserve"><value>Batch</value></data>
+  <data name="BatchAddText.Text" xml:space="preserve"><value>Add videos…</value></data>
+  <data name="BatchAddCurrentButton.Content" xml:space="preserve"><value>Add current video</value></data>
+  <data name="BatchClearButton.Content" xml:space="preserve"><value>Clear list</value></data>
+  <data name="BatchStartText.Text" xml:space="preserve"><value>Upscale all</value></data>
+  <data name="BatchEmptyText.Text" xml:space="preserve"><value>Drop videos or a folder here, or use Add videos. Each one is upscaled with the current upscale settings, one after another.</value></data>
+  <data name="Unsaved_Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Unsaved_DontSave" xml:space="preserve"><value>Don&apos;t save</value></data>
+  <data name="Unsaved_Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Err_BatchEmpty_Title" xml:space="preserve"><value>Add videos to the batch first</value></data>
+  <data name="Err_BatchEmpty" xml:space="preserve"><value>Drop videos on the Batch tab, or use Add videos.</value></data>
+  <data name="Batch_Waiting" xml:space="preserve"><value>Waiting</value></data>
+  <data name="Batch_Running" xml:space="preserve"><value>Upscaling… {0}%</value></data>
+  <data name="Batch_Done" xml:space="preserve"><value>Done in {0}</value></data>
+  <data name="Batch_Failed" xml:space="preserve"><value>Failed (exit code {0})</value></data>
+  <data name="Batch_Cancelled" xml:space="preserve"><value>Cancelled</value></data>
+  <data name="Batch_NotFound" xml:space="preserve"><value>File not found</value></data>
+  <data name="Batch_SavedAs" xml:space="preserve"><value>Saved as {0}</value></data>
+  <data name="Batch_RemoveTip" xml:space="preserve"><value>Remove from the list</value></data>
+  <data name="Batch_Summary" xml:space="preserve"><value>{0} videos · {1} done</value></data>
+  <data name="Batch_Item" xml:space="preserve"><value>Video {0} of {1}: {2}</value></data>
+  <data name="Batch_Result" xml:space="preserve"><value>{0} of {1} videos upscaled.</value></data>
+  <data name="Batch_Complete_Title" xml:space="preserve"><value>Batch complete</value></data>
+  <data name="Batch_Partial_Title" xml:space="preserve"><value>Some videos weren&apos;t upscaled</value></data>
+  <data name="Status_BatchCancelled" xml:space="preserve"><value>Batch cancelled. Videos not yet upscaled stay in the list.</value></data>
+  <data name="Placeholder_BatchOther" xml:space="preserve"><value>Upscaling {0}. Live previews appear only for the video open in the studio.</value></data>
+  <data name="Drag_AddToBatch" xml:space="preserve"><value>Add to batch</value></data>
+  <data name="Log_BatchNotFound" xml:space="preserve"><value>Skipped {0}: file not found.</value></data>
+  <data name="SaveConfigAsButton.Label" xml:space="preserve"><value>Save as</value></data>
+  <data name="SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Save the current upscale settings to a new file (Ctrl+Shift+S)</value></data>
+  <data name="Config_Untitled" xml:space="preserve"><value>Unsaved configuration</value></data>
+  <data name="Unsaved_Title" xml:space="preserve"><value>Do you want to save changes to {0}?</value></data>
+  <data name="Unsaved_TitleNew" xml:space="preserve"><value>Do you want to save your upscale settings as a configuration?</value></data>
+  <data name="Unsaved_Message" xml:space="preserve"><value>Changes to the upscale settings are lost if they aren&apos;t saved.</value></data>
 </root>

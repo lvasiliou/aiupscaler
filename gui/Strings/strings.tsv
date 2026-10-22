@@ -209,3 +209,37 @@ SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Back
 Section_Appearance	Appearance	Εμφάνιση
 Section_Output	Output	Έξοδος
 Section_Models	Models	Μοντέλα
+BatchTab.Text	Batch	Μαζική επεξεργασία
+BatchAddText.Text	Add videos…	Προσθήκη βίντεο…
+BatchAddCurrentButton.Content	Add current video	Προσθήκη τρέχοντος βίντεο
+BatchClearButton.Content	Clear list	Εκκαθάριση λίστας
+BatchStartText.Text	Upscale all	Αναβάθμιση όλων
+BatchEmptyText.Text	Drop videos or a folder here, or use Add videos. Each one is upscaled with the current upscale settings, one after another.	Αφήστε εδώ βίντεο ή φάκελο ή χρησιμοποιήστε την Προσθήκη βίντεο. Κάθε βίντεο αναβαθμίζεται με τις τρέχουσες ρυθμίσεις αναβάθμισης, το ένα μετά το άλλο.
+Unsaved_Save	Save	Αποθήκευση
+Unsaved_DontSave	Don't save	Χωρίς αποθήκευση
+Unsaved_Cancel	Cancel	Ακύρωση
+Err_BatchEmpty_Title	Add videos to the batch first	Προσθέστε πρώτα βίντεο στη μαζική επεξεργασία
+Err_BatchEmpty	Drop videos on the Batch tab, or use Add videos.	Αφήστε βίντεο στην καρτέλα Μαζική επεξεργασία ή χρησιμοποιήστε την Προσθήκη βίντεο.
+Batch_Waiting	Waiting	Σε αναμονή
+Batch_Running	Upscaling… {0}%	Αναβάθμιση… {0}%
+Batch_Done	Done in {0}	Ολοκληρώθηκε σε {0}
+Batch_Failed	Failed (exit code {0})	Απέτυχε (κωδικός εξόδου {0})
+Batch_Cancelled	Cancelled	Ακυρώθηκε
+Batch_NotFound	File not found	Το αρχείο δεν βρέθηκε
+Batch_SavedAs	Saved as {0}	Αποθηκεύτηκε ως {0}
+Batch_RemoveTip	Remove from the list	Αφαίρεση από τη λίστα
+Batch_Summary	{0} videos · {1} done	{0} βίντεο · {1} ολοκληρώθηκαν
+Batch_Item	Video {0} of {1}: {2}	Βίντεο {0} από {1}: {2}
+Batch_Result	{0} of {1} videos upscaled.	Αναβαθμίστηκαν {0} από {1} βίντεο.
+Batch_Complete_Title	Batch complete	Η μαζική επεξεργασία ολοκληρώθηκε
+Batch_Partial_Title	Some videos weren't upscaled	Ορισμένα βίντεο δεν αναβαθμίστηκαν
+Status_BatchCancelled	Batch cancelled. Videos not yet upscaled stay in the list.	Η μαζική επεξεργασία ακυρώθηκε. Τα βίντεο που δεν αναβαθμίστηκαν παραμένουν στη λίστα.
+Placeholder_BatchOther	Upscaling {0}. Live previews appear only for the video open in the studio.	Αναβάθμιση του {0}. Ζωντανές προεπισκοπήσεις εμφανίζονται μόνο για το βίντεο που είναι ανοιχτό στο στούντιο.
+Drag_AddToBatch	Add to batch	Προσθήκη στη μαζική επεξεργασία
+Log_BatchNotFound	Skipped {0}: file not found.	Παραλείφθηκε το {0}: το αρχείο δεν βρέθηκε.
+SaveConfigAsButton.Label	Save as	Αποθήκευση ως
+SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Save the current upscale settings to a new file (Ctrl+Shift+S)	Αποθήκευση των τρεχουσών ρυθμίσεων αναβάθμισης σε νέο αρχείο (Ctrl+Shift+S)
+Config_Untitled	Unsaved configuration	Μη αποθηκευμένες ρυθμίσεις
+Unsaved_Title	Do you want to save changes to {0}?	Θέλετε να αποθηκεύσετε τις αλλαγές στο {0};
+Unsaved_TitleNew	Do you want to save your upscale settings as a configuration?	Θέλετε να αποθηκεύσετε τις ρυθμίσεις αναβάθμισης σε αρχείο ρυθμίσεων;
+Unsaved_Message	Changes to the upscale settings are lost if they aren't saved.	Οι αλλαγές στις ρυθμίσεις αναβάθμισης θα χαθούν αν δεν αποθηκευτούν.

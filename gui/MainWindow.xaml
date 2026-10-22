@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="AI Upscaler">
 
-    <Grid x:Name="RootGrid">
+    <!-- Hidden placement: otherwise hovering anywhere in the window shows the accelerators as a tooltip -->
+    <Grid x:Name="RootGrid" KeyboardAcceleratorPlacementMode="Hidden">
         <Grid.KeyboardAccelerators>
             <KeyboardAccelerator Modifiers="Control" Key="O" Invoked="OnOpenAccelerator" />
             <KeyboardAccelerator Modifiers="Control" Key="P" Invoked="OnPreviewAccelerator" />
@@ -24,6 +25,7 @@
             <StackPanel Orientation="Horizontal" Spacing="12" Margin="16,0,0,0" VerticalAlignment="Center">
                 <FontIcon Glyph="&#xE714;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
                 <TextBlock x:Uid="AppTitleText" Text="AI Upscaler Studio" Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" />
+                <TextBlock x:Name="ConfigTitleText" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center" />
             </StackPanel>
         </Grid>
 
@@ -57,6 +59,15 @@
                     </AppBarButton.Icon>
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="S" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:Name="SaveConfigAsButton" x:Uid="SaveConfigAsButton" Label="Save as" Click="OnSaveConfigurationAs"
+                              ToolTipService.ToolTip="Save the current upscale settings to a new file">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE792;" />
+                    </AppBarButton.Icon>
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control,Shift" Key="S" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarSeparator />
@@ -310,6 +321,7 @@
             </Grid.RowDefinitions>
             <SelectorBar x:Name="BottomTabs" Margin="8,4,8,0" SelectionChanged="OnBottomTabChanged">
                 <SelectorBarItem x:Name="UpscaleSettingsTab" x:Uid="UpscaleSettingsTab" Text="Upscale settings" IsSelected="True" />
+                <SelectorBarItem x:Name="BatchTab" x:Uid="BatchTab" Text="Batch" />
                 <SelectorBarItem x:Name="ProgressTab" x:Uid="ProgressTab" Text="Progress" />
             </SelectorBar>
 
@@ -404,7 +416,8 @@
                         Maximum="2048"
                         SmallChange="32"
                         LargeChange="128"
-                        SpinButtonPlacementMode="Compact" />
+                        SpinButtonPlacementMode="Compact"
+                        ValueChanged="OnTileChanged" />
 
                     <StackPanel Grid.Row="2" Grid.Column="2" Spacing="4">
                         <ToggleSwitch x:Name="AudioToggle" x:Uid="AudioToggle" Header="Audio" OnContent="Include audio" OffContent="No audio" Toggled="OnAudioOptionChanged" />
@@ -429,6 +442,44 @@
                     </StackPanel>
                 </Grid>
             </ScrollViewer>
+
+            <!-- Batch: a queue of videos upscaled one after another with the upscale settings -->
+            <Grid x:Name="BatchPanel" Grid.Row="1" Visibility="Collapsed" Padding="16,8,16,12" RowSpacing="8" Background="Transparent"
+                  AllowDrop="True" DragOver="OnBatchDragOver" Drop="OnBatchDrop">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid ColumnSpacing="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BatchAddButton" Click="OnBatchAdd">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xE710;" FontSize="14" />
+                            <TextBlock x:Uid="BatchAddText" Text="Add videos…" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="BatchAddCurrentButton" x:Uid="BatchAddCurrentButton" Grid.Column="1" Content="Add current video" Click="OnBatchAddCurrent" />
+                    <Button x:Name="BatchClearButton" x:Uid="BatchClearButton" Grid.Column="2" Content="Clear list" Click="OnBatchClear" />
+                    <TextBlock x:Name="BatchSummaryText" Grid.Column="3" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                    <Button x:Name="BatchStartButton" Grid.Column="4" Style="{StaticResource AccentButtonStyle}" Click="OnBatchStart">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon Glyph="&#xE768;" FontSize="14" />
+                            <TextBlock x:Uid="BatchStartText" Text="Upscale all" />
+                        </StackPanel>
+                    </Button>
+                </Grid>
+                <ListView x:Name="BatchList" Grid.Row="1" SelectionMode="None" />
+                <TextBlock x:Name="BatchEmptyText" x:Uid="BatchEmptyText" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Text="Drop videos here, or use Add videos. Each one is upscaled with the current upscale settings, one after another."
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            </Grid>
 
             <!-- Progress, with the engine log as a collapsible section -->
             <ScrollViewer x:Name="ProgressPanel" Grid.Row="1" Visibility="Collapsed">
@@ -474,6 +525,7 @@
             Grid.Row="1"
             Grid.RowSpan="5"
             Visibility="Collapsed"
+            KeyboardAcceleratorPlacementMode="Hidden"
             Background="{ThemeResource SolidBackgroundFillColorBaseBrush}">
             <Grid.KeyboardAccelerators>
                 <KeyboardAccelerator Key="Escape" Invoked="OnSettingsEscape" />

@@ -10,8 +10,18 @@ namespace winrt::AiUpscaler::implementation
     {
         MainWindow();
 
-        /// Opens a video passed on the command line (e.g. "Open with").
+        /// Opens a video or configuration file passed on the command line (e.g. "Open with").
         void OpenFile(std::wstring const& path);
+
+        void OnTileChanged(Microsoft::UI::Xaml::Controls::NumberBox const&, Microsoft::UI::Xaml::Controls::NumberBoxValueChangedEventArgs const&);
+
+        // Batch
+        winrt::fire_and_forget OnBatchAdd(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        void OnBatchAddCurrent(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        void OnBatchClear(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        void OnBatchStart(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        void OnBatchDragOver(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::DragEventArgs const&);
+        winrt::fire_and_forget OnBatchDrop(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::DragEventArgs const&);
 
         // Studio
         winrt::fire_and_forget OnBrowseInput(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
@@ -46,11 +56,12 @@ namespace winrt::AiUpscaler::implementation
         void OnSettingsNavChanged(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::Controls::SelectionChangedEventArgs const&);
         void OnThemeChanged(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::Controls::SelectionChangedEventArgs const&);
         void OnLanguageChanged(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::Controls::SelectionChangedEventArgs const&);
-        void OnRestart(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        winrt::fire_and_forget OnRestart(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         void OnOutputLocationChanged(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         winrt::fire_and_forget OnChooseOutputFolder(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         winrt::fire_and_forget OnLoadConfiguration(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         winrt::fire_and_forget OnSaveConfiguration(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
+        winrt::fire_and_forget OnSaveConfigurationAs(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         void OnAudioOptionChanged(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         void OnCopyLog(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
         winrt::fire_and_forget OnImportModel(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const&);
@@ -68,6 +79,18 @@ namespace winrt::AiUpscaler::implementation
         void ApplySettings(::AiUpscaler::Settings const& settings);
         ::AiUpscaler::Settings CollectSettings();
         std::optional<Tools> FindTools();
+
+        // Configuration files and unsaved changes
+        void LoadConfigurationFile(std::filesystem::path const& path);
+        winrt::fire_and_forget LoadConfigurationAfterConfirm(std::wstring path);
+        bool HasUnsavedChanges();
+        /// Shows the configuration's name, with * for unsaved changes, in the title bar.
+        void UpdateConfigTitle();
+        /// Saves to the loaded configuration file, or asks for a new one (always, with saveAs). False if not saved.
+        Windows::Foundation::IAsyncOperation<bool> SaveConfigAsync(bool saveAs);
+        /// With unsaved changes, asks whether to save them. False if the user cancelled (or saving didn't happen).
+        Windows::Foundation::IAsyncOperation<bool> ConfirmUnsavedChangesAsync();
+        winrt::fire_and_forget CloseAfterConfirm();
 
         // App settings
         void LoadAppSettingsPage();
@@ -92,6 +115,21 @@ namespace winrt::AiUpscaler::implementation
         void ScheduleAiPreview();
         void SetZoom(bool actualPixels);
         void ShowZoomState(bool actualPixels);
+
+        /// Starts the engine on `input`; live previews only when it is the video open in the studio.
+        bool StartUpscale(std::wstring const& input, std::wstring const& output);
+
+        // Batch
+        void AddToBatch(std::vector<std::wstring> const& paths);
+        void RefreshBatchList();
+        void UpdateBatchRow(size_t index);
+        std::wstring BatchOutputFor(size_t index) const;
+        /// Starts the next waiting video; finishes the batch when none is left.
+        void StartNextBatchItem();
+        void OnBatchItemExited(::AiUpscaler::JobOutcome outcome, DWORD exitCode, std::wstring const& elapsed);
+        void FinishBatch();
+        /// "Video 2 of 5: name.mkv" and a line break while a batch runs; empty otherwise.
+        std::wstring BatchPrefix() const;
 
         void SetRunning(bool running);
         void SetTimelinePosition(double seconds);
@@ -150,6 +188,45 @@ namespace winrt::AiUpscaler::implementation
         int64_t m_rateStartFrame{ -1 };
         std::chrono::steady_clock::time_point m_rateStartTime;
         double m_measuredFps{};
+
+        // Configuration: the file it was last loaded from or saved to (empty = never saved),
+        // and its contents then; anything different is an unsaved change.
+        std::wstring m_configPath;
+        ::AiUpscaler::Settings m_savedConfig; // compared with SameConfiguration
+        bool m_configTracking{}; // false until the controls hold the startup settings
+        bool m_savePromptOpen{};
+        bool m_closeConfirmed{};
+
+        // Batch queue, upscaled one video at a time with the current upscale settings.
+        enum class BatchState
+        {
+            Waiting,
+            Running,
+            Done,
+            Failed,
+            Cancelled,
+        };
+        struct BatchItem
+        {
+            std::wstring Input;
+            std::wstring Output;
+            BatchState State{ BatchState::Waiting };
+            double Percent{};
+            std::wstring Detail;
+        };
+        struct BatchRow
+        {
+            Microsoft::UI::Xaml::Controls::FontIcon Icon;
+            Microsoft::UI::Xaml::Controls::TextBlock Status;
+            Microsoft::UI::Xaml::Controls::TextBlock Path;
+            Microsoft::UI::Xaml::Controls::ProgressBar Progress;
+        };
+        std::vector<BatchItem> m_batch;
+        std::vector<BatchRow> m_batchRows;
+        bool m_batchRunning{};
+        std::optional<size_t> m_batchCurrent;
+        int m_batchTotal{}; // videos in this run, for "Video 2 of 5"
+        int m_batchNumber{};
 
         // Probe and single-frame preview jobs: one at a time, and a newer request replaces
         // any that is still waiting (so fast scrubbing doesn't queue up stale frames).

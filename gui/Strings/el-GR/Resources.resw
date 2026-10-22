@@ -214,4 +214,38 @@
   <data name="Section_Appearance" xml:space="preserve"><value>Εμφάνιση</value></data>
   <data name="Section_Output" xml:space="preserve"><value>Έξοδος</value></data>
   <data name="Section_Models" xml:space="preserve"><value>Μοντέλα</value></data>
+  <data name="BatchTab.Text" xml:space="preserve"><value>Μαζική επεξεργασία</value></data>
+  <data name="BatchAddText.Text" xml:space="preserve"><value>Προσθήκη βίντεο…</value></data>
+  <data name="BatchAddCurrentButton.Content" xml:space="preserve"><value>Προσθήκη τρέχοντος βίντεο</value></data>
+  <data name="BatchClearButton.Content" xml:space="preserve"><value>Εκκαθάριση λίστας</value></data>
+  <data name="BatchStartText.Text" xml:space="preserve"><value>Αναβάθμιση όλων</value></data>
+  <data name="BatchEmptyText.Text" xml:space="preserve"><value>Αφήστε εδώ βίντεο ή φάκελο ή χρησιμοποιήστε την Προσθήκη βίντεο. Κάθε βίντεο αναβαθμίζεται με τις τρέχουσες ρυθμίσεις αναβάθμισης, το ένα μετά το άλλο.</value></data>
+  <data name="Unsaved_Save" xml:space="preserve"><value>Αποθήκευση</value></data>
+  <data name="Unsaved_DontSave" xml:space="preserve"><value>Χωρίς αποθήκευση</value></data>
+  <data name="Unsaved_Cancel" xml:space="preserve"><value>Ακύρωση</value></data>
+  <data name="Err_BatchEmpty_Title" xml:space="preserve"><value>Προσθέστε πρώτα βίντεο στη μαζική επεξεργασία</value></data>
+  <data name="Err_BatchEmpty" xml:space="preserve"><value>Αφήστε βίντεο στην καρτέλα Μαζική επεξεργασία ή χρησιμοποιήστε την Προσθήκη βίντεο.</value></data>
+  <data name="Batch_Waiting" xml:space="preserve"><value>Σε αναμονή</value></data>
+  <data name="Batch_Running" xml:space="preserve"><value>Αναβάθμιση… {0}%</value></data>
+  <data name="Batch_Done" xml:space="preserve"><value>Ολοκληρώθηκε σε {0}</value></data>
+  <data name="Batch_Failed" xml:space="preserve"><value>Απέτυχε (κωδικός εξόδου {0})</value></data>
+  <data name="Batch_Cancelled" xml:space="preserve"><value>Ακυρώθηκε</value></data>
+  <data name="Batch_NotFound" xml:space="preserve"><value>Το αρχείο δεν βρέθηκε</value></data>
+  <data name="Batch_SavedAs" xml:space="preserve"><value>Αποθηκεύτηκε ως {0}</value></data>
+  <data name="Batch_RemoveTip" xml:space="preserve"><value>Αφαίρεση από τη λίστα</value></data>
+  <data name="Batch_Summary" xml:space="preserve"><value>{0} βίντεο · {1} ολοκληρώθηκαν</value></data>
+  <data name="Batch_Item" xml:space="preserve"><value>Βίντεο {0} από {1}: {2}</value></data>
+  <data name="Batch_Result" xml:space="preserve"><value>Αναβαθμίστηκαν {0} από {1} βίντεο.</value></data>
+  <data name="Batch_Complete_Title" xml:space="preserve"><value>Η μαζική επεξεργασία ολοκληρώθηκε</value></data>
+  <data name="Batch_Partial_Title" xml:space="preserve"><value>Ορισμένα βίντεο δεν αναβαθμίστηκαν</value></data>
+  <data name="Status_BatchCancelled" xml:space="preserve"><value>Η μαζική επεξεργασία ακυρώθηκε. Τα βίντεο που δεν αναβαθμίστηκαν παραμένουν στη λίστα.</value></data>
+  <data name="Placeholder_BatchOther" xml:space="preserve"><value>Αναβάθμιση του {0}. Ζωντανές προεπισκοπήσεις εμφανίζονται μόνο για το βίντεο που είναι ανοιχτό στο στούντιο.</value></data>
+  <data name="Drag_AddToBatch" xml:space="preserve"><value>Προσθήκη στη μαζική επεξεργασία</value></data>
+  <data name="Log_BatchNotFound" xml:space="preserve"><value>Παραλείφθηκε το {0}: το αρχείο δεν βρέθηκε.</value></data>
+  <data name="SaveConfigAsButton.Label" xml:space="preserve"><value>Αποθήκευση ως</value></data>
+  <data name="SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Αποθήκευση των τρεχουσών ρυθμίσεων αναβάθμισης σε νέο αρχείο (Ctrl+Shift+S)</value></data>
+  <data name="Config_Untitled" xml:space="preserve"><value>Μη αποθηκευμένες ρυθμίσεις</value></data>
+  <data name="Unsaved_Title" xml:space="preserve"><value>Θέλετε να αποθηκεύσετε τις αλλαγές στο {0};</value></data>
+  <data name="Unsaved_TitleNew" xml:space="preserve"><value>Θέλετε να αποθηκεύσετε τις ρυθμίσεις αναβάθμισης σε αρχείο ρυθμίσεων;</value></data>
+  <data name="Unsaved_Message" xml:space="preserve"><value>Οι αλλαγές στις ρυθμίσεις αναβάθμισης θα χαθούν αν δεν αποθηκευτούν.</value></data>
 </root>
