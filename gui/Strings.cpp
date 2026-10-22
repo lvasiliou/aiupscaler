@@ -48,7 +48,9 @@ namespace AiUpscaler::Strings
 
     std::vector<Language> const& Available()
     {
-        static std::vector<Language> const languages{ { L"en-US", L"English" }, { L"el-GR", L"Ελληνικά" } };
+        static std::vector<Language> const languages{ { L"en-US", L"English" },  { L"el-GR", L"Ελληνικά" }, { L"de-DE", L"Deutsch" },
+                                                      { L"fr-FR", L"Français" }, { L"zh-CN", L"简体中文" },  { L"tr-TR", L"Türkçe" },
+                                                      { L"ja-JP", L"日本語" } };
         return languages;
     }
 

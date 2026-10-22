@@ -299,6 +299,20 @@ namespace winrt::AiUpscaler::implementation
         SetTitleBar(AppTitleBar());
         AppWindow().TitleBar().PreferredHeightOption(Microsoft::UI::Windowing::TitleBarHeightOption::Tall);
 
+        // The app icon (resource 1, AiUpscaler.rc) for the taskbar and Alt+Tab; the title bar
+        // shows the same icon from Assets\AppIcon.png next to the .exe.
+        if (auto icon = static_cast<HICON>(::LoadImageW(GetModuleHandleW(nullptr), MAKEINTRESOURCEW(1), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE | LR_SHARED)))
+        {
+            AppWindow().SetIcon(Microsoft::UI::GetIconIdFromIcon(icon));
+        }
+        wchar_t exe[MAX_PATH * 4]{};
+        GetModuleFileNameW(nullptr, exe, ARRAYSIZE(exe));
+        auto iconPng = fs::path(exe).parent_path() / L"Assets" / L"AppIcon.png";
+        Media::Imaging::BitmapImage iconImage;
+        iconImage.DecodePixelWidth(64); // sharp at 18 px up to 350% scaling
+        iconImage.UriSource(Windows::Foundation::Uri(iconPng.wstring()));
+        AppIconImage().Source(iconImage);
+
         auto hwnd = Microsoft::UI::GetWindowFromWindowId(AppWindow().Id());
         double scale = GetDpiForWindow(hwnd) / 96.0;
         AppWindow().Resize({ static_cast<int32_t>(1440 * scale), static_cast<int32_t>(960 * scale) });

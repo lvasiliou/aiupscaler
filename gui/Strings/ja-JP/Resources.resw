@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>  <data name="AppTitleText.Text" xml:space="preserve"><value>AI Upscaler Studio</value></data>
+  <data name="PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>まず短いクリップで設定を試してください。プレビューは *_preview.mp4 として保存されます</value></data>
+  <data name="PreviewWhole.Content" xml:space="preserve"><value>動画全体</value></data>
+  <data name="Preview10.Content" xml:space="preserve"><value>プレビュー：最初の 10 秒</value></data>
+  <data name="Preview30.Content" xml:space="preserve"><value>プレビュー：最初の 30 秒</value></data>
+  <data name="Preview60.Content" xml:space="preserve"><value>プレビュー：最初の 60 秒</value></data>
+  <data name="CancelButton.Content" xml:space="preserve"><value>キャンセル</value></data>
+  <data name="StartButtonText.Text" xml:space="preserve"><value>アップスケール</value></data>
+  <data name="AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>設定</value></data>
+  <data name="SourceHeader.Text" xml:space="preserve"><value>ソース</value></data>
+  <data name="OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>別の動画を開く（Ctrl+O）</value></data>
+  <data name="DropZoneTitle.Text" xml:space="preserve"><value>ここに動画をドロップ</value></data>
+  <data name="DropZoneOr.Text" xml:space="preserve"><value>または</value></data>
+  <data name="DropZoneBrowse.Content" xml:space="preserve"><value>参照…</value></data>
+  <data name="UpscaledHeader.Text" xml:space="preserve"><value>アップスケール後</value></data>
+  <data name="AutoPreviewCheck.Content" xml:space="preserve"><value>AI プレビューを生成する</value></data>
+  <data name="AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>タイムラインの移動を止めてから 3 秒後に、選択したフレームをアップスケールします。Ctrl+P を押すとすぐにプレビューします。</value></data>
+  <data name="ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>フレームに合わせる表示と 100% ピクセル（1:1）表示を切り替えます</value></data>
+  <data name="UpscaleSettingsTab.Text" xml:space="preserve"><value>アップスケール設定</value></data>
+  <data name="ProgressTab.Text" xml:space="preserve"><value>進行状況</value></data>
+  <data name="ModelCombo.Header" xml:space="preserve"><value>AI モデル</value></data>
+  <data name="ManageModelsButton.Content" xml:space="preserve"><value>管理…</value></data>
+  <data name="OutputBox.Header" xml:space="preserve"><value>出力動画</value></data>
+  <data name="OutputBox.PlaceholderText" xml:space="preserve"><value>アップスケールした動画の保存先</value></data>
+  <data name="OutputButton.Content" xml:space="preserve"><value>参照…</value></data>
+  <data name="DeviceCombo.Header" xml:space="preserve"><value>AI デバイス</value></data>
+  <data name="DeviceAuto.Content" xml:space="preserve"><value>自動（利用可能な最適なデバイス）</value></data>
+  <data name="DeviceDirectML.Content" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="DeviceCuda.Content" xml:space="preserve"><value>GPU – CUDA（NVIDIA）</value></data>
+  <data name="DeviceCpu.Content" xml:space="preserve"><value>CPU</value></data>
+  <data name="HeightCombo.Header" xml:space="preserve"><value>出力サイズ</value></data>
+  <data name="SizeModel.Content" xml:space="preserve"><value>モデルの倍率（例：×4）</value></data>
+  <data name="FitCombo.Header" xml:space="preserve"><value>画像の形状</value></data>
+  <data name="FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>4:3（またはその他）の画像を 16:9 のフレームに収める方法</value></data>
+  <data name="FitPad.Content" xml:space="preserve"><value>黒帯（形状を維持）</value></data>
+  <data name="FitCrop.Content" xml:space="preserve"><value>トリミングして全体に表示</value></data>
+  <data name="FitStretch.Content" xml:space="preserve"><value>引き伸ばして全体に表示</value></data>
+  <data name="CodecCombo.Header" xml:space="preserve"><value>ビデオ エンコーダー</value></data>
+  <data name="QualitySlider.Header" xml:space="preserve"><value>品質</value></data>
+  <data name="TileBox.Header" xml:space="preserve"><value>タイル サイズ（0 = 自動）</value></data>
+  <data name="AudioToggle.Header" xml:space="preserve"><value>オーディオ</value></data>
+  <data name="AudioToggle.OnContent" xml:space="preserve"><value>オーディオを含める</value></data>
+  <data name="AudioToggle.OffContent" xml:space="preserve"><value>オーディオなし</value></data>
+  <data name="AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>オーディオを改善します（メイン トラックは AAC で再エンコードされます）</value></data>
+  <data name="AudioDialogueItem.Text" xml:space="preserve"><value>会話を聞き取りやすくする</value></data>
+  <data name="AudioLoudnessItem.Text" xml:space="preserve"><value>音量を均一にする</value></data>
+  <data name="AudioDenoiseItem.Text" xml:space="preserve"><value>ノイズとヒスノイズを除去する</value></data>
+  <data name="AudioUpmixItem.Text" xml:space="preserve"><value>ステレオを 5.1 にアップミックスする</value></data>
+  <data name="Audio_Original" xml:space="preserve"><value>元のオーディオ</value></data>
+  <data name="Audio_ImprovedSummary" xml:space="preserve"><value>改善済み：{0}</value></data>
+  <data name="Audio_ShortDialogue" xml:space="preserve"><value>会話</value></data>
+  <data name="Audio_ShortLoudness" xml:space="preserve"><value>音量</value></data>
+  <data name="Audio_ShortDenoise" xml:space="preserve"><value>ノイズ</value></data>
+  <data name="Audio_ShortUpmix" xml:space="preserve"><value>5.1</value></data>
+  <data name="Audio_ImprovedInfo" xml:space="preserve"><value>オーディオ改善済み</value></data>
+  <data name="OutputFileLabel.Text" xml:space="preserve"><value>出力ファイル</value></data>
+  <data name="OpenOutputButton.Content" xml:space="preserve"><value>開く</value></data>
+  <data name="LogExpander.Header" xml:space="preserve"><value>ログ</value></data>
+  <data name="CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>ログをコピー</value></data>
+  <data name="LoadConfigButton.Label" xml:space="preserve"><value>構成の読み込み</value></data>
+  <data name="LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>以前に保存したアップスケール設定を読み込みます</value></data>
+  <data name="SaveConfigButton.Label" xml:space="preserve"><value>構成の保存</value></data>
+  <data name="SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>現在のアップスケール設定をファイルに保存します（Ctrl+S）</value></data>
+  <data name="Picker_Config" xml:space="preserve"><value>AI Upscaler 構成</value></data>
+  <data name="Picker_ConfigName" xml:space="preserve"><value>アップスケール設定</value></data>
+  <data name="Config_Saved" xml:space="preserve"><value>構成を保存しました</value></data>
+  <data name="Config_SaveFailed" xml:space="preserve"><value>構成を保存できませんでした</value></data>
+  <data name="Config_Loaded" xml:space="preserve"><value>構成を読み込みました</value></data>
+  <data name="Config_LoadFailed" xml:space="preserve"><value>構成を読み込めませんでした</value></data>
+  <data name="Config_NotConfig" xml:space="preserve"><value>{0} は AI Upscaler の構成ファイルではありません。</value></data>
+  <data name="Config_ModelMissing" xml:space="preserve"><value>モデル {0} がこの PC にないため、現在のモデルを維持しました。[設定] → [モデル] でモデルをインポートしてから、構成をもう一度読み込んでください。</value></data>
+  <data name="ThemeTitle.Text" xml:space="preserve"><value>テーマ</value></data>
+  <data name="ThemeDescription.Text" xml:space="preserve"><value>ライトまたはダークを選択するか、Windows の設定に従います。</value></data>
+  <data name="ThemeSystem.Content" xml:space="preserve"><value>Windows の設定を使用する</value></data>
+  <data name="ThemeLight.Content" xml:space="preserve"><value>ライト</value></data>
+  <data name="ThemeDark.Content" xml:space="preserve"><value>ダーク</value></data>
+  <data name="LanguageTitle.Text" xml:space="preserve"><value>言語</value></data>
+  <data name="LanguageDescription.Text" xml:space="preserve"><value>アプリのテキストの言語です。</value></data>
+  <data name="LanguageRestartBar.Message" xml:space="preserve"><value>新しい言語を使用するには、アプリを再起動してください。</value></data>
+  <data name="RestartButton.Content" xml:space="preserve"><value>今すぐ再起動</value></data>
+  <data name="OutputFolderTitle.Text" xml:space="preserve"><value>既定の出力フォルダー</value></data>
+  <data name="OutputFolderDescription.Text" xml:space="preserve"><value>別のファイルを選択しない限り、アップスケールした動画はここに保存されます。</value></data>
+  <data name="OutputNextToSourceRadio.Content" xml:space="preserve"><value>ソース動画と同じフォルダー</value></data>
+  <data name="OutputFolderRadio.Content" xml:space="preserve"><value>次のフォルダー:</value></data>
+  <data name="ChooseOutputFolderButton.Content" xml:space="preserve"><value>選択…</value></data>
+  <data name="ModelsDescription.Text" xml:space="preserve"><value>ライブラリ内の AI モデル（.onnx）は、アップスケール設定の AI モデル一覧に表示されます。インポートすると、ファイルとその横にある重みファイルがライブラリ フォルダーに移動されます。</value></data>
+  <data name="ImportModelText.Text" xml:space="preserve"><value>モデルのインポート…</value></data>
+  <data name="OpenModelsFolderText.Text" xml:space="preserve"><value>フォルダーを開く</value></data>
+  <data name="ModelsEmptyText.Text" xml:space="preserve"><value>モデルはまだありません。.onnx モデルをインポートして開始してください。</value></data>
+  <data name="Status_Ready" xml:space="preserve"><value>準備完了。</value></data>
+  <data name="Placeholder_Open" xml:space="preserve"><value>動画を開いてください。選択したフレームの AI 結果がここに表示されます。</value></data>
+  <data name="Placeholder_PickFrame" xml:space="preserve"><value>フィルム ストリップまたはタイムラインでフレームを選択してください。その AI プレビューがここに表示されます。</value></data>
+  <data name="Placeholder_Upscaling" xml:space="preserve"><value>このフレームをアップスケールしています…</value></data>
+  <data name="Placeholder_Coming" xml:space="preserve"><value>このフレームで止まると、{0} の AI プレビューが表示されます。</value></data>
+  <data name="Placeholder_Off" xml:space="preserve"><value>AI プレビューはオフです。{0} のフレームをアップスケールするには Ctrl+P を押してください。</value></data>
+  <data name="Placeholder_PreviewFailed" xml:space="preserve"><value>プレビューに失敗しました。[進行状況] タブのログを確認してください。</value></data>
+  <data name="Placeholder_Live" xml:space="preserve"><value>アップスケール中の動画のライブ プレビューが、数秒ごとにここに表示されます。</value></data>
+  <data name="Dur_Days" xml:space="preserve"><value>{0} 日 {1} 時間</value></data>
+  <data name="Dur_Hours" xml:space="preserve"><value>{0} 時間 {1} 分</value></data>
+  <data name="Dur_Minutes" xml:space="preserve"><value>{0} 分 {1} 秒</value></data>
+  <data name="Dur_Seconds" xml:space="preserve"><value>{0} 秒</value></data>
+  <data name="Time_Today" xml:space="preserve"><value>今日 {0}</value></data>
+  <data name="Size_MB" xml:space="preserve"><value>{0} MB</value></data>
+  <data name="Err_EngineMissing_Title" xml:space="preserve"><value>エンジンが見つかりません</value></data>
+  <data name="Err_EngineMissing" xml:space="preserve"><value>アプリの横（engine フォルダー）に ai-upscaler.exe が見つかりませんでした。</value></data>
+  <data name="Err_FfmpegMissing_Title" xml:space="preserve"><value>FFmpeg が見つかりません</value></data>
+  <data name="Err_FfmpegMissing" xml:space="preserve"><value>次のコマンドでインストールしてください：winget install Gyan.FFmpeg</value></data>
+  <data name="Err_FileNotFound_Title" xml:space="preserve"><value>ファイルが見つかりません</value></data>
+  <data name="Err_ModelMissing_Title" xml:space="preserve"><value>モデルが見つかりません</value></data>
+  <data name="Err_ModelMissing" xml:space="preserve"><value>選択したモデル ファイルが存在しません。</value></data>
+  <data name="Err_EngineStart" xml:space="preserve"><value>エンジンを起動できませんでした</value></data>
+  <data name="Err_ReadVideo_Title" xml:space="preserve"><value>動画を読み取れませんでした</value></data>
+  <data name="Err_SeeLog" xml:space="preserve"><value>詳細については、[進行状況] タブのログを確認してください。</value></data>
+  <data name="Err_NoVideo_Title" xml:space="preserve"><value>最初に動画を開いてください</value></data>
+  <data name="Err_NoVideo" xml:space="preserve"><value>[ソース] ウィンドウに動画をドロップするか、[参照] ボタンを使用してください。</value></data>
+  <data name="Err_UpscaleFailed_Title" xml:space="preserve"><value>アップスケールに失敗しました</value></data>
+  <data name="Source_Reading" xml:space="preserve"><value>読み取り中…</value></data>
+  <data name="Source_Unreadable" xml:space="preserve"><value>このファイルを読み取れませんでした</value></data>
+  <data name="Source_Info" xml:space="preserve"><value>{0}×{1} · {2} · {3} fps · {4}</value></data>
+  <data name="Source_WithAudio" xml:space="preserve"><value>{0} · オーディオ</value></data>
+  <data name="Picker_Mp4" xml:space="preserve"><value>MP4 ビデオ</value></data>
+  <data name="Picker_Mkv" xml:space="preserve"><value>Matroska ビデオ</value></data>
+  <data name="Picker_Mov" xml:space="preserve"><value>QuickTime ビデオ</value></data>
+  <data name="Picker_DefaultName" xml:space="preserve"><value>upscaled</value></data>
+  <data name="Quality_1" xml:space="preserve"><value>最小ファイル</value></data>
+  <data name="Quality_2" xml:space="preserve"><value>小さいファイル</value></data>
+  <data name="Quality_3" xml:space="preserve"><value>バランス</value></data>
+  <data name="Quality_4" xml:space="preserve"><value>高品質</value></data>
+  <data name="Quality_5" xml:space="preserve"><value>最高品質（最大ファイル）</value></data>
+  <data name="Quality_Format" xml:space="preserve"><value>{0}/5 · {1}</value></data>
+  <data name="Drag_OpenAsSource" xml:space="preserve"><value>ソースとして開く</value></data>
+  <data name="Auto_Off" xml:space="preserve"><value>オフ · Ctrl+P で現在のフレームをプレビュー</value></data>
+  <data name="Auto_Countdown" xml:space="preserve"><value>3 秒後に AI プレビュー…</value></data>
+  <data name="Auto_Working" xml:space="preserve"><value>{0} のフレームをアップスケールしています…</value></data>
+  <data name="Auto_Live" xml:space="preserve"><value>アップスケール中のライブ プレビュー</value></data>
+  <data name="OutputInfo" xml:space="preserve"><value>AI ×{0} → ファイル {1} · {2} のフレーム</value></data>
+  <data name="Log_ImageFailed" xml:space="preserve"><value>プレビュー画像 {0} を読み込めませんでした：{1}</value></data>
+  <data name="Log_ThumbsFailed" xml:space="preserve"><value>サムネイル ジョブを開始できませんでした：{0}</value></data>
+  <data name="Film_GoTo" xml:space="preserve"><value>{0} に移動</value></data>
+  <data name="Hw_Checking" xml:space="preserve"><value>この PC の GPU を確認しています…</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>{0} – 利用不可</value></data>
+  <data name="Device_AutoCuda" xml:space="preserve"><value>自動（CUDA GPU）</value></data>
+  <data name="Device_AutoDml" xml:space="preserve"><value>自動（DirectML GPU）</value></data>
+  <data name="Device_AutoCpu" xml:space="preserve"><value>自動（CPU のみ）</value></data>
+  <data name="Device_DirectML" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="Device_NoDml" xml:space="preserve"><value>この PC に DirectX 12 GPU が見つかりませんでした。</value></data>
+  <data name="Device_Cuda" xml:space="preserve"><value>GPU – CUDA（NVIDIA）</value></data>
+  <data name="Device_NoCuda" xml:space="preserve"><value>NVIDIA GPU と、CUDA サポート付きでビルドされたエンジンが必要です。</value></data>
+  <data name="Device_CudaNotBuilt" xml:space="preserve"><value>このビルドには CUDA サポートがありません。build.ps1 -Cuda でビルドするか、NVIDIA GPU でも動作する DirectML を使用してください。</value></data>
+  <data name="Device_CudaRuntime" xml:space="preserve"><value>CUDA を開始できませんでした。NVIDIA ドライバー、CUDA 13 ランタイム、CUDA 13 用 cuDNN 9 をインストールし、それぞれの bin フォルダーを PATH に追加してください。詳細：{0}</value></data>
+  <data name="Codec_Gpu" xml:space="preserve"><value>{0} – GPU（{1}）</value></data>
+  <data name="Codec_GpuPlain" xml:space="preserve"><value>{0} – GPU</value></data>
+  <data name="Codec_NoGpu" xml:space="preserve"><value>この PC の GPU は {0} をエンコードできません。</value></data>
+  <data name="Codec_NotInFfmpeg" xml:space="preserve"><value>この FFmpeg ビルドには含まれていません。</value></data>
+  <data name="Hw_Summary" xml:space="preserve"><value>AI：{0} · {1}</value></data>
+  <data name="Hw_AiCuda" xml:space="preserve"><value>CUDA GPU</value></data>
+  <data name="Hw_AiDml" xml:space="preserve"><value>DirectML GPU</value></data>
+  <data name="Hw_AiCpu" xml:space="preserve"><value>CPU のみ</value></data>
+  <data name="Hw_NoGpuEncode" xml:space="preserve"><value>GPU ビデオ エンコードなし</value></data>
+  <data name="Hw_GpuEncodes" xml:space="preserve"><value>{0} GPU で {1} をエンコード</value></data>
+  <data name="Size_Fills" xml:space="preserve"><value>{0}（フレーム全体に表示）</value></data>
+  <data name="Size_Crop" xml:space="preserve"><value>{0}（{1} の画像、端をトリミング）</value></data>
+  <data name="Size_Stretch" xml:space="preserve"><value>{0}（{1} の画像を 16:9 に引き伸ばし）</value></data>
+  <data name="Size_PadSides" xml:space="preserve"><value>{0}（{1} の画像、左右に黒帯）</value></data>
+  <data name="Size_PadTopBottom" xml:space="preserve"><value>{0}（{1} の画像、上下に黒帯）</value></data>
+  <data name="Size_Model" xml:space="preserve"><value>{0}（モデル ×{1}）</value></data>
+  <data name="Size_ModelUnknown" xml:space="preserve"><value>モデルの倍率：最初の AI プレビュー後に判明します</value></data>
+  <data name="Size_ModelShort" xml:space="preserve"><value>モデルの倍率</value></data>
+  <data name="Size_OpenVideo" xml:space="preserve"><value>出力サイズを確認するには動画を開いてください</value></data>
+  <data name="Summary_Begin" xml:space="preserve"><value>開始するには [ソース] ウィンドウに動画をドロップしてください</value></data>
+  <data name="Summary" xml:space="preserve"><value>出力：{0} · {1} · 品質 {2}/5</value></data>
+  <data name="Summary_NoModel" xml:space="preserve"><value>{0} · AI モデルなし</value></data>
+  <data name="Zoom_Fit" xml:space="preserve"><value>全体表示</value></data>
+  <data name="Lang_System" xml:space="preserve"><value>Windows の既定</value></data>
+  <data name="Lang_RestartBusy" xml:space="preserve"><value>再起動する前に、アップスケールを完了するかキャンセルしてください。</value></data>
+  <data name="OutputFolder_None" xml:space="preserve"><value>フォルダーが選択されていません</value></data>
+  <data name="Model_None" xml:space="preserve"><value>なし（Lanczos、AI なし）</value></data>
+  <data name="Model_External" xml:space="preserve"><value>{0}（ライブラリ外）</value></data>
+  <data name="Models_Folder" xml:space="preserve"><value>ライブラリ フォルダー：{0}</value></data>
+  <data name="Models_InUse" xml:space="preserve"><value>{0}（使用中）</value></data>
+  <data name="Models_Details" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="Models_RemoveTip" xml:space="preserve"><value>ごみ箱に移動</value></data>
+  <data name="Models_Removed" xml:space="preserve"><value>{0} をごみ箱に移動しました。</value></data>
+  <data name="Models_RemoveFailed" xml:space="preserve"><value>{0} を削除できませんでした。</value></data>
+  <data name="Models_Imported" xml:space="preserve"><value>{0} をインポートしました。ファイルはライブラリに移動されました。</value></data>
+  <data name="Models_Exists" xml:space="preserve"><value>{0} という名前のモデルは既にライブラリにあります。</value></data>
+  <data name="Models_ImportFailed" xml:space="preserve"><value>{0} をインポートできませんでした。{1}</value></data>
+  <data name="Status_Loading" xml:space="preserve"><value>モデルを読み込んでいます…</value></data>
+  <data name="Status_Cancelling" xml:space="preserve"><value>キャンセルしています…</value></data>
+  <data name="Status_Cancelled" xml:space="preserve"><value>キャンセルしました。</value></data>
+  <data name="Status_Upscaling" xml:space="preserve"><value>アップスケールしています…</value></data>
+  <data name="Status_UpscalingPreview" xml:space="preserve"><value>プレビューをアップスケールしています…</value></data>
+  <data name="Status_Finished" xml:space="preserve"><value>{0} で完了しました。</value></data>
+  <data name="Status_Failed" xml:space="preserve"><value>失敗しました（終了コード {0}）。</value></data>
+  <data name="JobInfo" xml:space="preserve"><value>{0}×{1} → AI {2}×{3} → ファイル {4}×{5} · {6} fps · {7} · {8}</value></data>
+  <data name="Audio_Kept" xml:space="preserve"><value>オーディオを維持</value></data>
+  <data name="Audio_None" xml:space="preserve"><value>オーディオなし</value></data>
+  <data name="Estimate_Left" xml:space="preserve"><value>残り約 {0} · {1} ごろ完了</value></data>
+  <data name="Estimate_Whole" xml:space="preserve"><value>この速度では、動画全体に約 {0} かかります。</value></data>
+  <data name="Progress_FramesEta" xml:space="preserve"><value>フレーム {0}/{1} · {2} fps · 経過 {3} · 残り {4}</value></data>
+  <data name="Progress_Frames" xml:space="preserve"><value>フレーム {0}/{1} · {2} fps · 経過 {3}</value></data>
+  <data name="Progress_FramesOnly" xml:space="preserve"><value>フレーム {0} · {1} fps · 経過 {2}</value></data>
+  <data name="Result_PreviewReady" xml:space="preserve"><value>プレビューの準備ができました</value></data>
+  <data name="Result_Complete" xml:space="preserve"><value>アップスケールが完了しました</value></data>
+  <data name="AppearanceNavText.Text" xml:space="preserve"><value>外観</value></data>
+  <data name="OutputNavText.Text" xml:space="preserve"><value>出力</value></data>
+  <data name="ModelsNavText.Text" xml:space="preserve"><value>モデル</value></data>
+  <data name="SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>戻る（Esc）</value></data>
+  <data name="Section_Appearance" xml:space="preserve"><value>外観</value></data>
+  <data name="Section_Output" xml:space="preserve"><value>出力</value></data>
+  <data name="Section_Models" xml:space="preserve"><value>モデル</value></data>
+  <data name="BatchTab.Text" xml:space="preserve"><value>バッチ</value></data>
+  <data name="BatchAddText.Text" xml:space="preserve"><value>動画の追加…</value></data>
+  <data name="BatchAddCurrentButton.Content" xml:space="preserve"><value>現在の動画を追加</value></data>
+  <data name="BatchClearButton.Content" xml:space="preserve"><value>一覧をクリア</value></data>
+  <data name="BatchStartText.Text" xml:space="preserve"><value>すべてアップスケール</value></data>
+  <data name="BatchEmptyText.Text" xml:space="preserve"><value>ここに動画またはフォルダーをドロップするか、[動画の追加] を使用してください。各動画は現在のアップスケール設定で 1 つずつ順番にアップスケールされます。</value></data>
+  <data name="Unsaved_Save" xml:space="preserve"><value>保存</value></data>
+  <data name="Unsaved_DontSave" xml:space="preserve"><value>保存しない</value></data>
+  <data name="Unsaved_Cancel" xml:space="preserve"><value>キャンセル</value></data>
+  <data name="Err_BatchEmpty_Title" xml:space="preserve"><value>最初にバッチに動画を追加してください</value></data>
+  <data name="Err_BatchEmpty" xml:space="preserve"><value>[バッチ] タブに動画をドロップするか、[動画の追加] を使用してください。</value></data>
+  <data name="Batch_Waiting" xml:space="preserve"><value>待機中</value></data>
+  <data name="Batch_Running" xml:space="preserve"><value>アップスケール中… {0}%</value></data>
+  <data name="Batch_Done" xml:space="preserve"><value>{0} で完了</value></data>
+  <data name="Batch_Failed" xml:space="preserve"><value>失敗（終了コード {0}）</value></data>
+  <data name="Batch_Cancelled" xml:space="preserve"><value>キャンセル済み</value></data>
+  <data name="Batch_NotFound" xml:space="preserve"><value>ファイルが見つかりません</value></data>
+  <data name="Batch_SavedAs" xml:space="preserve"><value>{0} として保存</value></data>
+  <data name="Batch_RemoveTip" xml:space="preserve"><value>一覧から削除</value></data>
+  <data name="Batch_Summary" xml:space="preserve"><value>動画 {0} 本 · {1} 本完了</value></data>
+  <data name="Batch_Item" xml:space="preserve"><value>動画 {0}/{1}：{2}</value></data>
+  <data name="Batch_Result" xml:space="preserve"><value>{1} 本中 {0} 本の動画をアップスケールしました。</value></data>
+  <data name="Batch_Complete_Title" xml:space="preserve"><value>バッチが完了しました</value></data>
+  <data name="Batch_Partial_Title" xml:space="preserve"><value>一部の動画はアップスケールされませんでした</value></data>
+  <data name="Status_BatchCancelled" xml:space="preserve"><value>バッチをキャンセルしました。まだアップスケールされていない動画は一覧に残ります。</value></data>
+  <data name="Placeholder_BatchOther" xml:space="preserve"><value>{0} をアップスケールしています。ライブ プレビューは、スタジオで開いている動画に対してのみ表示されます。</value></data>
+  <data name="Drag_AddToBatch" xml:space="preserve"><value>バッチに追加</value></data>
+  <data name="Log_BatchNotFound" xml:space="preserve"><value>{0} をスキップしました：ファイルが見つかりません。</value></data>
+  <data name="SaveConfigAsButton.Label" xml:space="preserve"><value>名前を付けて保存</value></data>
+  <data name="SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>現在のアップスケール設定を新しいファイルに保存します（Ctrl+Shift+S）</value></data>
+  <data name="Config_Untitled" xml:space="preserve"><value>未保存の構成</value></data>
+  <data name="Unsaved_Title" xml:space="preserve"><value>{0} への変更を保存しますか？</value></data>
+  <data name="Unsaved_TitleNew" xml:space="preserve"><value>アップスケール設定を構成として保存しますか？</value></data>
+  <data name="Unsaved_Message" xml:space="preserve"><value>保存しないと、アップスケール設定への変更は失われます。</value></data>
+  <data name="FormatCombo.Header" xml:space="preserve"><value>形式</value></data>
+  <data name="FormatCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>MKV では、ソースの字幕トラックとフォントも保持されます</value></data>
+</root>

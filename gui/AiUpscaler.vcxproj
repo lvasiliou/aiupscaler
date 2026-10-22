@@ -127,6 +127,12 @@
     <Manifest Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="AiUpscaler.rc" />
+    <!-- The title bar shows the icon as an image; the .ico itself is compiled into the .exe. -->
+    <None Include="Assets\AppIcon.ico" />
+    <None Include="Assets\AppIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
     <Page Include="MainWindow.xaml" />
   </ItemGroup>
@@ -174,6 +180,11 @@
   <ItemGroup>
     <PRIResource Include="Strings\en-US\Resources.resw" />
     <PRIResource Include="Strings\el-GR\Resources.resw" />
+    <PRIResource Include="Strings\de-DE\Resources.resw" />
+    <PRIResource Include="Strings\fr-FR\Resources.resw" />
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
+    <PRIResource Include="Strings\tr-TR\Resources.resw" />
+    <PRIResource Include="Strings\ja-JP\Resources.resw" />
   </ItemGroup>
 
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
@@ -201,5 +212,6 @@
     </ItemGroup>
     <Warning Condition="!Exists('$(EngineDir)\ai-upscaler.exe')" Text="Rust engine not found in $(EngineDir). Run `cargo build --release` in ..\upscaler or pass -p:EngineDir=..." />
     <Copy SourceFiles="@(EngineFiles)" DestinationFolder="$(OutDir)engine" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="Assets\AppIcon.png" DestinationFolder="$(OutDir)Assets" SkipUnchangedFiles="true" />
   </Target>
 </Project>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>  <data name="AppTitleText.Text" xml:space="preserve"><value>AI Upscaler Studio</value></data>
+  <data name="PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Testen Sie die Einstellungen zuerst an einem kurzen Clip. Vorschauen werden als *_preview.mp4 gespeichert.</value></data>
+  <data name="PreviewWhole.Content" xml:space="preserve"><value>Gesamtes Video</value></data>
+  <data name="Preview10.Content" xml:space="preserve"><value>Vorschau: erste 10 Sek.</value></data>
+  <data name="Preview30.Content" xml:space="preserve"><value>Vorschau: erste 30 Sek.</value></data>
+  <data name="Preview60.Content" xml:space="preserve"><value>Vorschau: erste 60 Sek.</value></data>
+  <data name="CancelButton.Content" xml:space="preserve"><value>Abbrechen</value></data>
+  <data name="StartButtonText.Text" xml:space="preserve"><value>Hochskalieren</value></data>
+  <data name="AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Einstellungen</value></data>
+  <data name="SourceHeader.Text" xml:space="preserve"><value>Quelle</value></data>
+  <data name="OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Anderes Video öffnen (Ctrl+O)</value></data>
+  <data name="DropZoneTitle.Text" xml:space="preserve"><value>Video hier ablegen</value></data>
+  <data name="DropZoneOr.Text" xml:space="preserve"><value>oder</value></data>
+  <data name="DropZoneBrowse.Content" xml:space="preserve"><value>Durchsuchen…</value></data>
+  <data name="UpscaledHeader.Text" xml:space="preserve"><value>Hochskaliert</value></data>
+  <data name="AutoPreviewCheck.Content" xml:space="preserve"><value>AI-Vorschauen erstellen</value></data>
+  <data name="AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Der ausgewählte Frame wird 3 Sekunden, nachdem Sie die Zeitachse nicht mehr bewegen, hochskaliert. Mit Ctrl+P wird sofort eine Vorschau erstellt.</value></data>
+  <data name="ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Zwischen Einpassen des Frames und 100 % Pixeln (1:1) wechseln</value></data>
+  <data name="UpscaleSettingsTab.Text" xml:space="preserve"><value>Hochskalierungseinstellungen</value></data>
+  <data name="ProgressTab.Text" xml:space="preserve"><value>Fortschritt</value></data>
+  <data name="ModelCombo.Header" xml:space="preserve"><value>AI-Modell</value></data>
+  <data name="ManageModelsButton.Content" xml:space="preserve"><value>Verwalten…</value></data>
+  <data name="OutputBox.Header" xml:space="preserve"><value>Ausgabevideo</value></data>
+  <data name="OutputBox.PlaceholderText" xml:space="preserve"><value>Speicherort für das hochskalierte Video</value></data>
+  <data name="OutputButton.Content" xml:space="preserve"><value>Durchsuchen…</value></data>
+  <data name="DeviceCombo.Header" xml:space="preserve"><value>AI-Gerät</value></data>
+  <data name="DeviceAuto.Content" xml:space="preserve"><value>Automatisch (bestes verfügbares Gerät)</value></data>
+  <data name="DeviceDirectML.Content" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="DeviceCuda.Content" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="DeviceCpu.Content" xml:space="preserve"><value>CPU</value></data>
+  <data name="HeightCombo.Header" xml:space="preserve"><value>Ausgabegröße</value></data>
+  <data name="SizeModel.Content" xml:space="preserve"><value>Modellskalierung (z. B. ×4)</value></data>
+  <data name="FitCombo.Header" xml:space="preserve"><value>Bildform</value></data>
+  <data name="FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Wie ein Bild im Format 4:3 (oder einem anderen Format) einen 16:9-Frame ausfüllt</value></data>
+  <data name="FitPad.Content" xml:space="preserve"><value>Schwarze Balken (Form beibehalten)</value></data>
+  <data name="FitCrop.Content" xml:space="preserve"><value>Zuschneiden und ausfüllen</value></data>
+  <data name="FitStretch.Content" xml:space="preserve"><value>Strecken und ausfüllen</value></data>
+  <data name="CodecCombo.Header" xml:space="preserve"><value>Videoencoder</value></data>
+  <data name="QualitySlider.Header" xml:space="preserve"><value>Qualität</value></data>
+  <data name="TileBox.Header" xml:space="preserve"><value>Kachelgröße (0 = automatisch)</value></data>
+  <data name="AudioToggle.Header" xml:space="preserve"><value>Audio</value></data>
+  <data name="AudioToggle.OnContent" xml:space="preserve"><value>Mit Audio</value></data>
+  <data name="AudioToggle.OffContent" xml:space="preserve"><value>Ohne Audio</value></data>
+  <data name="AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Audio verbessern (die Hauptspur wird als AAC neu codiert)</value></data>
+  <data name="AudioDialogueItem.Text" xml:space="preserve"><value>Klarere Dialoge</value></data>
+  <data name="AudioLoudnessItem.Text" xml:space="preserve"><value>Lautstärke ausgleichen</value></data>
+  <data name="AudioDenoiseItem.Text" xml:space="preserve"><value>Rauschen und Zischen entfernen</value></data>
+  <data name="AudioUpmixItem.Text" xml:space="preserve"><value>Stereo auf 5.1 hochmischen</value></data>
+  <data name="Audio_Original" xml:space="preserve"><value>Originalaudio</value></data>
+  <data name="Audio_ImprovedSummary" xml:space="preserve"><value>Verbessert: {0}</value></data>
+  <data name="Audio_ShortDialogue" xml:space="preserve"><value>Dialoge</value></data>
+  <data name="Audio_ShortLoudness" xml:space="preserve"><value>Lautstärke</value></data>
+  <data name="Audio_ShortDenoise" xml:space="preserve"><value>Rauschen</value></data>
+  <data name="Audio_ShortUpmix" xml:space="preserve"><value>5.1</value></data>
+  <data name="Audio_ImprovedInfo" xml:space="preserve"><value>Audio verbessert</value></data>
+  <data name="OutputFileLabel.Text" xml:space="preserve"><value>Ausgabedatei</value></data>
+  <data name="OpenOutputButton.Content" xml:space="preserve"><value>Öffnen</value></data>
+  <data name="LogExpander.Header" xml:space="preserve"><value>Protokoll</value></data>
+  <data name="CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Protokoll kopieren</value></data>
+  <data name="LoadConfigButton.Label" xml:space="preserve"><value>Konfiguration laden</value></data>
+  <data name="LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Zuvor gespeicherte Hochskalierungseinstellungen laden</value></data>
+  <data name="SaveConfigButton.Label" xml:space="preserve"><value>Konfiguration speichern</value></data>
+  <data name="SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Aktuelle Hochskalierungseinstellungen in einer Datei speichern (Ctrl+S)</value></data>
+  <data name="Picker_Config" xml:space="preserve"><value>AI Upscaler-Konfiguration</value></data>
+  <data name="Picker_ConfigName" xml:space="preserve"><value>Hochskalierungseinstellungen</value></data>
+  <data name="Config_Saved" xml:space="preserve"><value>Konfiguration gespeichert</value></data>
+  <data name="Config_SaveFailed" xml:space="preserve"><value>Die Konfiguration konnte nicht gespeichert werden</value></data>
+  <data name="Config_Loaded" xml:space="preserve"><value>Konfiguration geladen</value></data>
+  <data name="Config_LoadFailed" xml:space="preserve"><value>Die Konfiguration konnte nicht geladen werden</value></data>
+  <data name="Config_NotConfig" xml:space="preserve"><value>{0} ist keine AI Upscaler-Konfigurationsdatei.</value></data>
+  <data name="Config_ModelMissing" xml:space="preserve"><value>Das Modell {0} ist auf diesem PC nicht vorhanden, daher wurde das aktuelle Modell beibehalten. Importieren Sie es unter „Einstellungen → Modelle“, und laden Sie die Konfiguration dann erneut.</value></data>
+  <data name="ThemeTitle.Text" xml:space="preserve"><value>Design</value></data>
+  <data name="ThemeDescription.Text" xml:space="preserve"><value>Wählen Sie „Hell“ oder „Dunkel“, oder verwenden Sie die Windows-Einstellung.</value></data>
+  <data name="ThemeSystem.Content" xml:space="preserve"><value>Windows-Einstellung verwenden</value></data>
+  <data name="ThemeLight.Content" xml:space="preserve"><value>Hell</value></data>
+  <data name="ThemeDark.Content" xml:space="preserve"><value>Dunkel</value></data>
+  <data name="LanguageTitle.Text" xml:space="preserve"><value>Sprache</value></data>
+  <data name="LanguageDescription.Text" xml:space="preserve"><value>Die Sprache der App-Texte.</value></data>
+  <data name="LanguageRestartBar.Message" xml:space="preserve"><value>Starten Sie die App neu, um die neue Sprache zu verwenden.</value></data>
+  <data name="RestartButton.Content" xml:space="preserve"><value>Jetzt neu starten</value></data>
+  <data name="OutputFolderTitle.Text" xml:space="preserve"><value>Standardausgabeordner</value></data>
+  <data name="OutputFolderDescription.Text" xml:space="preserve"><value>Hier werden hochskalierte Videos gespeichert, sofern Sie keine andere Datei auswählen.</value></data>
+  <data name="OutputNextToSourceRadio.Content" xml:space="preserve"><value>Gleicher Ordner wie das Quellvideo</value></data>
+  <data name="OutputFolderRadio.Content" xml:space="preserve"><value>Dieser Ordner:</value></data>
+  <data name="ChooseOutputFolderButton.Content" xml:space="preserve"><value>Auswählen…</value></data>
+  <data name="ModelsDescription.Text" xml:space="preserve"><value>AI-Modelle (.onnx) in der Bibliothek werden in der AI-Modellliste der Hochskalierungseinstellungen angezeigt. Beim Importieren werden die Datei und eine ggf. daneben liegende Gewichtungsdatei in den Bibliotheksordner verschoben.</value></data>
+  <data name="ImportModelText.Text" xml:space="preserve"><value>Modell importieren…</value></data>
+  <data name="OpenModelsFolderText.Text" xml:space="preserve"><value>Ordner öffnen</value></data>
+  <data name="ModelsEmptyText.Text" xml:space="preserve"><value>Noch keine Modelle vorhanden. Importieren Sie ein .onnx-Modell, um zu beginnen.</value></data>
+  <data name="Status_Ready" xml:space="preserve"><value>Bereit.</value></data>
+  <data name="Placeholder_Open" xml:space="preserve"><value>Öffnen Sie ein Video. Das AI-Ergebnis des ausgewählten Frames wird hier angezeigt.</value></data>
+  <data name="Placeholder_PickFrame" xml:space="preserve"><value>Wählen Sie einen Frame im Filmstreifen oder auf der Zeitachse aus. Die zugehörige AI-Vorschau wird hier angezeigt.</value></data>
+  <data name="Placeholder_Upscaling" xml:space="preserve"><value>Dieser Frame wird hochskaliert…</value></data>
+  <data name="Placeholder_Coming" xml:space="preserve"><value>Die AI-Vorschau von {0} wird angezeigt, wenn Sie bei diesem Frame anhalten.</value></data>
+  <data name="Placeholder_Off" xml:space="preserve"><value>AI-Vorschauen sind deaktiviert. Drücken Sie Ctrl+P, um den Frame bei {0} hochzuskalieren.</value></data>
+  <data name="Placeholder_PreviewFailed" xml:space="preserve"><value>Fehler bei der Vorschau. Details finden Sie im Protokoll auf der Registerkarte „Fortschritt“.</value></data>
+  <data name="Placeholder_Live" xml:space="preserve"><value>Livevorschauen des hochskalierten Videos werden hier alle paar Sekunden angezeigt.</value></data>
+  <data name="Dur_Days" xml:space="preserve"><value>{0} Tg. {1} Std.</value></data>
+  <data name="Dur_Hours" xml:space="preserve"><value>{0} Std. {1} Min.</value></data>
+  <data name="Dur_Minutes" xml:space="preserve"><value>{0} Min. {1} Sek.</value></data>
+  <data name="Dur_Seconds" xml:space="preserve"><value>{0} Sek.</value></data>
+  <data name="Time_Today" xml:space="preserve"><value>heute {0}</value></data>
+  <data name="Size_MB" xml:space="preserve"><value>{0} MB</value></data>
+  <data name="Err_EngineMissing_Title" xml:space="preserve"><value>Engine fehlt</value></data>
+  <data name="Err_EngineMissing" xml:space="preserve"><value>ai-upscaler.exe wurde nicht neben der App gefunden (Ordner „engine“).</value></data>
+  <data name="Err_FfmpegMissing_Title" xml:space="preserve"><value>FFmpeg nicht gefunden</value></data>
+  <data name="Err_FfmpegMissing" xml:space="preserve"><value>Installieren Sie es mit: winget install Gyan.FFmpeg</value></data>
+  <data name="Err_FileNotFound_Title" xml:space="preserve"><value>Datei nicht gefunden</value></data>
+  <data name="Err_ModelMissing_Title" xml:space="preserve"><value>Modell nicht gefunden</value></data>
+  <data name="Err_ModelMissing" xml:space="preserve"><value>Die ausgewählte Modelldatei ist nicht vorhanden.</value></data>
+  <data name="Err_EngineStart" xml:space="preserve"><value>Die Engine konnte nicht gestartet werden</value></data>
+  <data name="Err_ReadVideo_Title" xml:space="preserve"><value>Das Video konnte nicht gelesen werden</value></data>
+  <data name="Err_SeeLog" xml:space="preserve"><value>Details finden Sie im Protokoll auf der Registerkarte „Fortschritt“.</value></data>
+  <data name="Err_NoVideo_Title" xml:space="preserve"><value>Öffnen Sie zuerst ein Video</value></data>
+  <data name="Err_NoVideo" xml:space="preserve"><value>Legen Sie ein Video im Bereich „Quelle“ ab, oder verwenden Sie die dortige Schaltfläche „Durchsuchen“.</value></data>
+  <data name="Err_UpscaleFailed_Title" xml:space="preserve"><value>Fehler beim Hochskalieren</value></data>
+  <data name="Source_Reading" xml:space="preserve"><value>Wird gelesen…</value></data>
+  <data name="Source_Unreadable" xml:space="preserve"><value>Diese Datei konnte nicht gelesen werden</value></data>
+  <data name="Source_Info" xml:space="preserve"><value>{0}×{1} · {2} · {3} fps · {4}</value></data>
+  <data name="Source_WithAudio" xml:space="preserve"><value>{0} · Audio</value></data>
+  <data name="Picker_Mp4" xml:space="preserve"><value>MP4-Video</value></data>
+  <data name="Picker_Mkv" xml:space="preserve"><value>Matroska-Video</value></data>
+  <data name="Picker_Mov" xml:space="preserve"><value>QuickTime-Video</value></data>
+  <data name="Picker_DefaultName" xml:space="preserve"><value>hochskaliert</value></data>
+  <data name="Quality_1" xml:space="preserve"><value>Kleinste Datei</value></data>
+  <data name="Quality_2" xml:space="preserve"><value>Kleine Datei</value></data>
+  <data name="Quality_3" xml:space="preserve"><value>Ausgewogen</value></data>
+  <data name="Quality_4" xml:space="preserve"><value>Hohe Qualität</value></data>
+  <data name="Quality_5" xml:space="preserve"><value>Beste Qualität (größte Datei)</value></data>
+  <data name="Quality_Format" xml:space="preserve"><value>{0} von 5 · {1}</value></data>
+  <data name="Drag_OpenAsSource" xml:space="preserve"><value>Als Quelle öffnen</value></data>
+  <data name="Auto_Off" xml:space="preserve"><value>Aus · Ctrl+P zeigt eine Vorschau des aktuellen Frames</value></data>
+  <data name="Auto_Countdown" xml:space="preserve"><value>AI-Vorschau in 3 Sekunden…</value></data>
+  <data name="Auto_Working" xml:space="preserve"><value>Frame bei {0} wird hochskaliert…</value></data>
+  <data name="Auto_Live" xml:space="preserve"><value>Livevorschauen während der Hochskalierung</value></data>
+  <data name="OutputInfo" xml:space="preserve"><value>AI ×{0} → Datei {1} · Frame bei {2}</value></data>
+  <data name="Log_ImageFailed" xml:space="preserve"><value>Vorschaubild {0} konnte nicht geladen werden: {1}</value></data>
+  <data name="Log_ThumbsFailed" xml:space="preserve"><value>Der Auftrag für Miniaturansichten konnte nicht gestartet werden: {0}</value></data>
+  <data name="Film_GoTo" xml:space="preserve"><value>Gehe zu {0}</value></data>
+  <data name="Hw_Checking" xml:space="preserve"><value>GPU dieses PCs wird überprüft…</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>{0} – nicht verfügbar</value></data>
+  <data name="Device_AutoCuda" xml:space="preserve"><value>Automatisch (CUDA-GPU)</value></data>
+  <data name="Device_AutoDml" xml:space="preserve"><value>Automatisch (DirectML-GPU)</value></data>
+  <data name="Device_AutoCpu" xml:space="preserve"><value>Automatisch (nur CPU)</value></data>
+  <data name="Device_DirectML" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="Device_NoDml" xml:space="preserve"><value>Auf diesem PC wurde keine DirectX 12-GPU gefunden.</value></data>
+  <data name="Device_Cuda" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="Device_NoCuda" xml:space="preserve"><value>Erfordert eine NVIDIA-GPU und eine mit CUDA-Unterstützung erstellte Engine.</value></data>
+  <data name="Device_CudaNotBuilt" xml:space="preserve"><value>Dieser Build bietet keine CUDA-Unterstützung. Erstellen Sie ihn mit build.ps1 -Cuda, oder verwenden Sie DirectML, das auch auf NVIDIA-GPUs ausgeführt wird.</value></data>
+  <data name="Device_CudaRuntime" xml:space="preserve"><value>CUDA konnte nicht gestartet werden. Installieren Sie einen NVIDIA-Treiber, die CUDA 13-Runtime und cuDNN 9 für CUDA 13, und fügen Sie deren bin-Ordner zu PATH hinzu. Details: {0}</value></data>
+  <data name="Codec_Gpu" xml:space="preserve"><value>{0} – GPU ({1})</value></data>
+  <data name="Codec_GpuPlain" xml:space="preserve"><value>{0} – GPU</value></data>
+  <data name="Codec_NoGpu" xml:space="preserve"><value>Die GPU dieses PCs kann {0} nicht codieren.</value></data>
+  <data name="Codec_NotInFfmpeg" xml:space="preserve"><value>Nicht in diesem FFmpeg-Build enthalten.</value></data>
+  <data name="Hw_Summary" xml:space="preserve"><value>AI auf {0} · {1}</value></data>
+  <data name="Hw_AiCuda" xml:space="preserve"><value>CUDA-GPU</value></data>
+  <data name="Hw_AiDml" xml:space="preserve"><value>DirectML-GPU</value></data>
+  <data name="Hw_AiCpu" xml:space="preserve"><value>nur CPU</value></data>
+  <data name="Hw_NoGpuEncode" xml:space="preserve"><value>keine Videocodierung per GPU</value></data>
+  <data name="Hw_GpuEncodes" xml:space="preserve"><value>{0}-GPU codiert {1}</value></data>
+  <data name="Size_Fills" xml:space="preserve"><value>{0} (füllt den Frame aus)</value></data>
+  <data name="Size_Crop" xml:space="preserve"><value>{0} ({1}-Bild, Ränder abgeschnitten)</value></data>
+  <data name="Size_Stretch" xml:space="preserve"><value>{0} ({1}-Bild auf 16:9 gestreckt)</value></data>
+  <data name="Size_PadSides" xml:space="preserve"><value>{0} ({1}-Bild, schwarze Balken seitlich)</value></data>
+  <data name="Size_PadTopBottom" xml:space="preserve"><value>{0} ({1}-Bild, schwarze Balken oben und unten)</value></data>
+  <data name="Size_Model" xml:space="preserve"><value>{0} (Modell ×{1})</value></data>
+  <data name="Size_ModelUnknown" xml:space="preserve"><value>Modellskalierung: nach der ersten AI-Vorschau bekannt</value></data>
+  <data name="Size_ModelShort" xml:space="preserve"><value>Modellskalierung</value></data>
+  <data name="Size_OpenVideo" xml:space="preserve"><value>Öffnen Sie ein Video, um die Ausgabegröße anzuzeigen</value></data>
+  <data name="Summary_Begin" xml:space="preserve"><value>Legen Sie zum Starten ein Video im Bereich „Quelle“ ab</value></data>
+  <data name="Summary" xml:space="preserve"><value>Ausgabe: {0} · {1} · Qualität {2}/5</value></data>
+  <data name="Summary_NoModel" xml:space="preserve"><value>{0} · kein AI-Modell</value></data>
+  <data name="Zoom_Fit" xml:space="preserve"><value>Einpassen</value></data>
+  <data name="Lang_System" xml:space="preserve"><value>Windows-Standard</value></data>
+  <data name="Lang_RestartBusy" xml:space="preserve"><value>Schließen Sie die Hochskalierung ab, oder brechen Sie sie ab, bevor Sie neu starten.</value></data>
+  <data name="OutputFolder_None" xml:space="preserve"><value>Kein Ordner ausgewählt</value></data>
+  <data name="Model_None" xml:space="preserve"><value>Keins (Lanczos, ohne AI)</value></data>
+  <data name="Model_External" xml:space="preserve"><value>{0} (nicht in der Bibliothek)</value></data>
+  <data name="Models_Folder" xml:space="preserve"><value>Bibliotheksordner: {0}</value></data>
+  <data name="Models_InUse" xml:space="preserve"><value>{0} (wird verwendet)</value></data>
+  <data name="Models_Details" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="Models_RemoveTip" xml:space="preserve"><value>In den Papierkorb verschieben</value></data>
+  <data name="Models_Removed" xml:space="preserve"><value>{0} wurde in den Papierkorb verschoben.</value></data>
+  <data name="Models_RemoveFailed" xml:space="preserve"><value>{0} konnte nicht entfernt werden.</value></data>
+  <data name="Models_Imported" xml:space="preserve"><value>{0} wurde importiert. Die Datei wurde in die Bibliothek verschoben.</value></data>
+  <data name="Models_Exists" xml:space="preserve"><value>In der Bibliothek ist bereits ein Modell namens {0} vorhanden.</value></data>
+  <data name="Models_ImportFailed" xml:space="preserve"><value>{0} konnte nicht importiert werden. {1}</value></data>
+  <data name="Status_Loading" xml:space="preserve"><value>Modell wird geladen…</value></data>
+  <data name="Status_Cancelling" xml:space="preserve"><value>Wird abgebrochen…</value></data>
+  <data name="Status_Cancelled" xml:space="preserve"><value>Abgebrochen.</value></data>
+  <data name="Status_Upscaling" xml:space="preserve"><value>Wird hochskaliert…</value></data>
+  <data name="Status_UpscalingPreview" xml:space="preserve"><value>Vorschau wird hochskaliert…</value></data>
+  <data name="Status_Finished" xml:space="preserve"><value>Abgeschlossen in {0}.</value></data>
+  <data name="Status_Failed" xml:space="preserve"><value>Fehler (Exitcode {0}).</value></data>
+  <data name="JobInfo" xml:space="preserve"><value>{0}×{1} → AI {2}×{3} → Datei {4}×{5} · {6} fps · {7} · {8}</value></data>
+  <data name="Audio_Kept" xml:space="preserve"><value>Audio beibehalten</value></data>
+  <data name="Audio_None" xml:space="preserve"><value>kein Audio</value></data>
+  <data name="Estimate_Left" xml:space="preserve"><value>Noch ca. {0} · fertig gegen {1}</value></data>
+  <data name="Estimate_Whole" xml:space="preserve"><value>Das gesamte Video würde bei dieser Geschwindigkeit etwa {0} dauern.</value></data>
+  <data name="Progress_FramesEta" xml:space="preserve"><value>Frame {0} von {1} · {2} fps · {3} vergangen · {4} verbleibend</value></data>
+  <data name="Progress_Frames" xml:space="preserve"><value>Frame {0} von {1} · {2} fps · {3} vergangen</value></data>
+  <data name="Progress_FramesOnly" xml:space="preserve"><value>Frame {0} · {1} fps · {2} vergangen</value></data>
+  <data name="Result_PreviewReady" xml:space="preserve"><value>Vorschau bereit</value></data>
+  <data name="Result_Complete" xml:space="preserve"><value>Hochskalierung abgeschlossen</value></data>
+  <data name="AppearanceNavText.Text" xml:space="preserve"><value>Darstellung</value></data>
+  <data name="OutputNavText.Text" xml:space="preserve"><value>Ausgabe</value></data>
+  <data name="ModelsNavText.Text" xml:space="preserve"><value>Modelle</value></data>
+  <data name="SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Zurück (Esc)</value></data>
+  <data name="Section_Appearance" xml:space="preserve"><value>Darstellung</value></data>
+  <data name="Section_Output" xml:space="preserve"><value>Ausgabe</value></data>
+  <data name="Section_Models" xml:space="preserve"><value>Modelle</value></data>
+  <data name="BatchTab.Text" xml:space="preserve"><value>Stapelverarbeitung</value></data>
+  <data name="BatchAddText.Text" xml:space="preserve"><value>Videos hinzufügen…</value></data>
+  <data name="BatchAddCurrentButton.Content" xml:space="preserve"><value>Aktuelles Video hinzufügen</value></data>
+  <data name="BatchClearButton.Content" xml:space="preserve"><value>Liste leeren</value></data>
+  <data name="BatchStartText.Text" xml:space="preserve"><value>Alle hochskalieren</value></data>
+  <data name="BatchEmptyText.Text" xml:space="preserve"><value>Legen Sie Videos oder einen Ordner hier ab, oder verwenden Sie „Videos hinzufügen“. Die Videos werden nacheinander mit den aktuellen Hochskalierungseinstellungen hochskaliert.</value></data>
+  <data name="Unsaved_Save" xml:space="preserve"><value>Speichern</value></data>
+  <data name="Unsaved_DontSave" xml:space="preserve"><value>Nicht speichern</value></data>
+  <data name="Unsaved_Cancel" xml:space="preserve"><value>Abbrechen</value></data>
+  <data name="Err_BatchEmpty_Title" xml:space="preserve"><value>Fügen Sie der Stapelverarbeitung zuerst Videos hinzu</value></data>
+  <data name="Err_BatchEmpty" xml:space="preserve"><value>Legen Sie Videos auf der Registerkarte „Stapelverarbeitung“ ab, oder verwenden Sie „Videos hinzufügen“.</value></data>
+  <data name="Batch_Waiting" xml:space="preserve"><value>Wartet</value></data>
+  <data name="Batch_Running" xml:space="preserve"><value>Wird hochskaliert… {0} %</value></data>
+  <data name="Batch_Done" xml:space="preserve"><value>Abgeschlossen in {0}</value></data>
+  <data name="Batch_Failed" xml:space="preserve"><value>Fehler (Exitcode {0})</value></data>
+  <data name="Batch_Cancelled" xml:space="preserve"><value>Abgebrochen</value></data>
+  <data name="Batch_NotFound" xml:space="preserve"><value>Datei nicht gefunden</value></data>
+  <data name="Batch_SavedAs" xml:space="preserve"><value>Gespeichert als {0}</value></data>
+  <data name="Batch_RemoveTip" xml:space="preserve"><value>Aus der Liste entfernen</value></data>
+  <data name="Batch_Summary" xml:space="preserve"><value>{0} Videos · {1} abgeschlossen</value></data>
+  <data name="Batch_Item" xml:space="preserve"><value>Video {0} von {1}: {2}</value></data>
+  <data name="Batch_Result" xml:space="preserve"><value>{0} von {1} Videos hochskaliert.</value></data>
+  <data name="Batch_Complete_Title" xml:space="preserve"><value>Stapelverarbeitung abgeschlossen</value></data>
+  <data name="Batch_Partial_Title" xml:space="preserve"><value>Einige Videos wurden nicht hochskaliert</value></data>
+  <data name="Status_BatchCancelled" xml:space="preserve"><value>Stapelverarbeitung abgebrochen. Noch nicht hochskalierte Videos bleiben in der Liste.</value></data>
+  <data name="Placeholder_BatchOther" xml:space="preserve"><value>{0} wird hochskaliert. Livevorschauen werden nur für das im Studio geöffnete Video angezeigt.</value></data>
+  <data name="Drag_AddToBatch" xml:space="preserve"><value>Zur Stapelverarbeitung hinzufügen</value></data>
+  <data name="Log_BatchNotFound" xml:space="preserve"><value>{0} übersprungen: Datei nicht gefunden.</value></data>
+  <data name="SaveConfigAsButton.Label" xml:space="preserve"><value>Speichern unter</value></data>
+  <data name="SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Aktuelle Hochskalierungseinstellungen in einer neuen Datei speichern (Ctrl+Shift+S)</value></data>
+  <data name="Config_Untitled" xml:space="preserve"><value>Nicht gespeicherte Konfiguration</value></data>
+  <data name="Unsaved_Title" xml:space="preserve"><value>Möchten Sie die Änderungen an {0} speichern?</value></data>
+  <data name="Unsaved_TitleNew" xml:space="preserve"><value>Möchten Sie Ihre Hochskalierungseinstellungen als Konfiguration speichern?</value></data>
+  <data name="Unsaved_Message" xml:space="preserve"><value>Änderungen an den Hochskalierungseinstellungen gehen verloren, wenn sie nicht gespeichert werden.</value></data>
+  <data name="FormatCombo.Header" xml:space="preserve"><value>Format</value></data>
+  <data name="FormatCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>MKV behält außerdem die Untertitelspuren und Schriftarten der Quelle bei</value></data>
+</root>

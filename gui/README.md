@@ -55,7 +55,7 @@ MSIX install and no separate Windows App Runtime installer.
   engine **Log** is a collapsible section here (it opens by itself when a run fails).
 - **Settings** (gear button, Esc to go back):
   - **Appearance**: theme (Windows setting, light, dark) and language (Windows default, English,
-    Ελληνικά; applies after a restart, offered right there).
+    Ελληνικά, Deutsch, Français, 简体中文, Türkçe, 日本語; applies after a restart, offered right there).
   - **Output**: default output folder: next to the source video, or a folder you choose.
   - **Models**: the model library in `%LOCALAPPDATA%\AiUpscaler\Models`. **Import** *moves* an
     `.onnx` file (and any external weights file next to it, e.g. `model.data`) into the library;
@@ -66,8 +66,10 @@ MSIX install and no separate Windows App Runtime installer.
 ## Languages
 
 UI text lives in `Strings\<language>\Resources.resw` (MRT Core), with `x:Uid` in XAML and
-`Strings::Get`/`Format` in code. Both languages are generated from one table:
-edit `Strings\strings.tsv` (key, English, Greek), then run `Strings\make-resw.ps1`. To add a
+`Strings::Get`/`Format` in code. All languages are generated from one table: edit
+`Strings\strings.tsv` (key, then English, Greek, German, French, Simplified Chinese, Turkish,
+Japanese), then run `Strings\make-resw.ps1`, which also checks that every translation keeps the
+`{0}`-style placeholders. To add a
 language, add a column for it in the table and generator, add `PRIResource` for the new
 `.resw` in the project, and list it in `Strings::Available()`.
 

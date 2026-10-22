@@ -23,7 +23,7 @@
         <!-- Title bar -->
         <Grid x:Name="AppTitleBar" Height="48" Background="Transparent">
             <StackPanel Orientation="Horizontal" Spacing="12" Margin="16,0,0,0" VerticalAlignment="Center">
-                <FontIcon Glyph="&#xE714;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                <Image x:Name="AppIconImage" Width="18" Height="18" VerticalAlignment="Center" />
                 <TextBlock x:Uid="AppTitleText" Text="AI Upscaler Studio" Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" />
                 <TextBlock x:Name="ConfigTitleText" Style="{StaticResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" VerticalAlignment="Center" />
             </StackPanel>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>  <data name="AppTitleText.Text" xml:space="preserve"><value>AI Upscaler Studio</value></data>
+  <data name="PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Ayarları önce kısa bir klipte deneyin; önizlemeler *_preview.mp4 olarak kaydedilir</value></data>
+  <data name="PreviewWhole.Content" xml:space="preserve"><value>Videonun tamamı</value></data>
+  <data name="Preview10.Content" xml:space="preserve"><value>Önizleme: ilk 10 sn</value></data>
+  <data name="Preview30.Content" xml:space="preserve"><value>Önizleme: ilk 30 sn</value></data>
+  <data name="Preview60.Content" xml:space="preserve"><value>Önizleme: ilk 60 sn</value></data>
+  <data name="CancelButton.Content" xml:space="preserve"><value>İptal</value></data>
+  <data name="StartButtonText.Text" xml:space="preserve"><value>Yükselt</value></data>
+  <data name="AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Ayarlar</value></data>
+  <data name="SourceHeader.Text" xml:space="preserve"><value>Kaynak</value></data>
+  <data name="OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Başka bir video aç (Ctrl+O)</value></data>
+  <data name="DropZoneTitle.Text" xml:space="preserve"><value>Videoyu buraya bırakın</value></data>
+  <data name="DropZoneOr.Text" xml:space="preserve"><value>veya</value></data>
+  <data name="DropZoneBrowse.Content" xml:space="preserve"><value>Gözat…</value></data>
+  <data name="UpscaledHeader.Text" xml:space="preserve"><value>Yükseltilmiş</value></data>
+  <data name="AutoPreviewCheck.Content" xml:space="preserve"><value>AI önizlemeleri oluştur</value></data>
+  <data name="AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Zaman çizelgesini hareket ettirmeyi bıraktıktan 3 saniye sonra seçili kareyi yükseltir. Ctrl+P hemen önizleme yapar.</value></data>
+  <data name="ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Kareyi sığdırma ile %100 piksel (1:1) arasında geçiş yap</value></data>
+  <data name="UpscaleSettingsTab.Text" xml:space="preserve"><value>Yükseltme ayarları</value></data>
+  <data name="ProgressTab.Text" xml:space="preserve"><value>İlerleme</value></data>
+  <data name="ModelCombo.Header" xml:space="preserve"><value>AI modeli</value></data>
+  <data name="ManageModelsButton.Content" xml:space="preserve"><value>Yönet…</value></data>
+  <data name="OutputBox.Header" xml:space="preserve"><value>Çıkış videosu</value></data>
+  <data name="OutputBox.PlaceholderText" xml:space="preserve"><value>Yükseltilmiş videonun kaydedileceği yer</value></data>
+  <data name="OutputButton.Content" xml:space="preserve"><value>Gözat…</value></data>
+  <data name="DeviceCombo.Header" xml:space="preserve"><value>AI cihazı</value></data>
+  <data name="DeviceAuto.Content" xml:space="preserve"><value>Otomatik (kullanılabilir en iyisi)</value></data>
+  <data name="DeviceDirectML.Content" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="DeviceCuda.Content" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="DeviceCpu.Content" xml:space="preserve"><value>CPU</value></data>
+  <data name="HeightCombo.Header" xml:space="preserve"><value>Çıkış boyutu</value></data>
+  <data name="SizeModel.Content" xml:space="preserve"><value>Model ölçeği (ör. ×4)</value></data>
+  <data name="FitCombo.Header" xml:space="preserve"><value>Görüntü şekli</value></data>
+  <data name="FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>4:3 (veya başka) bir görüntünün 16:9 kareyi nasıl dolduracağı</value></data>
+  <data name="FitPad.Content" xml:space="preserve"><value>Siyah şeritler (şekli koru)</value></data>
+  <data name="FitCrop.Content" xml:space="preserve"><value>Doldurmak için kırp</value></data>
+  <data name="FitStretch.Content" xml:space="preserve"><value>Doldurmak için uzat</value></data>
+  <data name="CodecCombo.Header" xml:space="preserve"><value>Video kodlayıcı</value></data>
+  <data name="QualitySlider.Header" xml:space="preserve"><value>Kalite</value></data>
+  <data name="TileBox.Header" xml:space="preserve"><value>Döşeme boyutu (0 = otomatik)</value></data>
+  <data name="AudioToggle.Header" xml:space="preserve"><value>Ses</value></data>
+  <data name="AudioToggle.OnContent" xml:space="preserve"><value>Sesi dahil et</value></data>
+  <data name="AudioToggle.OffContent" xml:space="preserve"><value>Ses yok</value></data>
+  <data name="AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Sesi iyileştir (ana parça AAC olarak yeniden kodlanır)</value></data>
+  <data name="AudioDialogueItem.Text" xml:space="preserve"><value>Daha net diyalog</value></data>
+  <data name="AudioLoudnessItem.Text" xml:space="preserve"><value>Ses düzeyini dengele</value></data>
+  <data name="AudioDenoiseItem.Text" xml:space="preserve"><value>Gürültü ve cızırtıyı kaldır</value></data>
+  <data name="AudioUpmixItem.Text" xml:space="preserve"><value>Stereoyu 5.1&apos;e dönüştür</value></data>
+  <data name="Audio_Original" xml:space="preserve"><value>Özgün ses</value></data>
+  <data name="Audio_ImprovedSummary" xml:space="preserve"><value>İyileştirildi: {0}</value></data>
+  <data name="Audio_ShortDialogue" xml:space="preserve"><value>diyalog</value></data>
+  <data name="Audio_ShortLoudness" xml:space="preserve"><value>ses düzeyi</value></data>
+  <data name="Audio_ShortDenoise" xml:space="preserve"><value>gürültü</value></data>
+  <data name="Audio_ShortUpmix" xml:space="preserve"><value>5.1</value></data>
+  <data name="Audio_ImprovedInfo" xml:space="preserve"><value>ses iyileştirildi</value></data>
+  <data name="OutputFileLabel.Text" xml:space="preserve"><value>Çıkış dosyası</value></data>
+  <data name="OpenOutputButton.Content" xml:space="preserve"><value>Aç</value></data>
+  <data name="LogExpander.Header" xml:space="preserve"><value>Günlük</value></data>
+  <data name="CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Günlüğü kopyala</value></data>
+  <data name="LoadConfigButton.Label" xml:space="preserve"><value>Yapılandırmayı yükle</value></data>
+  <data name="LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Daha önce kaydedilmiş yükseltme ayarlarını yükle</value></data>
+  <data name="SaveConfigButton.Label" xml:space="preserve"><value>Yapılandırmayı kaydet</value></data>
+  <data name="SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Geçerli yükseltme ayarlarını bir dosyaya kaydet (Ctrl+S)</value></data>
+  <data name="Picker_Config" xml:space="preserve"><value>AI Upscaler yapılandırması</value></data>
+  <data name="Picker_ConfigName" xml:space="preserve"><value>yükseltme ayarları</value></data>
+  <data name="Config_Saved" xml:space="preserve"><value>Yapılandırma kaydedildi</value></data>
+  <data name="Config_SaveFailed" xml:space="preserve"><value>Yapılandırma kaydedilemedi</value></data>
+  <data name="Config_Loaded" xml:space="preserve"><value>Yapılandırma yüklendi</value></data>
+  <data name="Config_LoadFailed" xml:space="preserve"><value>Yapılandırma yüklenemedi</value></data>
+  <data name="Config_NotConfig" xml:space="preserve"><value>{0} bir AI Upscaler yapılandırma dosyası değil.</value></data>
+  <data name="Config_ModelMissing" xml:space="preserve"><value>{0} modeli bu bilgisayarda olmadığından geçerli model korundu. Modeli Ayarlar → Modeller bölümünden içeri aktarın, ardından yapılandırmayı yeniden yükleyin.</value></data>
+  <data name="ThemeTitle.Text" xml:space="preserve"><value>Tema</value></data>
+  <data name="ThemeDescription.Text" xml:space="preserve"><value>Açık veya koyu temayı seçin ya da Windows ayarını kullanın.</value></data>
+  <data name="ThemeSystem.Content" xml:space="preserve"><value>Windows ayarını kullan</value></data>
+  <data name="ThemeLight.Content" xml:space="preserve"><value>Açık</value></data>
+  <data name="ThemeDark.Content" xml:space="preserve"><value>Koyu</value></data>
+  <data name="LanguageTitle.Text" xml:space="preserve"><value>Dil</value></data>
+  <data name="LanguageDescription.Text" xml:space="preserve"><value>Uygulama metinlerinin dili.</value></data>
+  <data name="LanguageRestartBar.Message" xml:space="preserve"><value>Yeni dili kullanmak için uygulamayı yeniden başlatın.</value></data>
+  <data name="RestartButton.Content" xml:space="preserve"><value>Şimdi yeniden başlat</value></data>
+  <data name="OutputFolderTitle.Text" xml:space="preserve"><value>Varsayılan çıkış klasörü</value></data>
+  <data name="OutputFolderDescription.Text" xml:space="preserve"><value>Başka bir dosya seçmediğiniz sürece yükseltilmiş videoların kaydedileceği yer.</value></data>
+  <data name="OutputNextToSourceRadio.Content" xml:space="preserve"><value>Kaynak videoyla aynı klasör</value></data>
+  <data name="OutputFolderRadio.Content" xml:space="preserve"><value>Bu klasör:</value></data>
+  <data name="ChooseOutputFolderButton.Content" xml:space="preserve"><value>Seç…</value></data>
+  <data name="ModelsDescription.Text" xml:space="preserve"><value>Kitaplıktaki AI modelleri (.onnx), yükseltme ayarlarındaki AI modeli listesinde görünür. İçeri aktarma, dosyayı ve yanındaki ağırlık dosyalarını kitaplık klasörüne taşır.</value></data>
+  <data name="ImportModelText.Text" xml:space="preserve"><value>Model içeri aktar…</value></data>
+  <data name="OpenModelsFolderText.Text" xml:space="preserve"><value>Klasörü aç</value></data>
+  <data name="ModelsEmptyText.Text" xml:space="preserve"><value>Henüz model yok. Başlamak için bir .onnx modeli içeri aktarın.</value></data>
+  <data name="Status_Ready" xml:space="preserve"><value>Hazır.</value></data>
+  <data name="Placeholder_Open" xml:space="preserve"><value>Bir video açın. Seçili karenin AI sonucu burada görünür.</value></data>
+  <data name="Placeholder_PickFrame" xml:space="preserve"><value>Film şeridinden veya zaman çizelgesinden bir kare seçin. Karenin AI önizlemesi burada görünür.</value></data>
+  <data name="Placeholder_Upscaling" xml:space="preserve"><value>Bu kare yükseltiliyor…</value></data>
+  <data name="Placeholder_Coming" xml:space="preserve"><value>{0} konumundaki karenin AI önizlemesi, bu karede durduğunuzda görünür.</value></data>
+  <data name="Placeholder_Off" xml:space="preserve"><value>AI önizlemeleri kapalı. {0} konumundaki kareyi yükseltmek için Ctrl+P tuşlarına basın.</value></data>
+  <data name="Placeholder_PreviewFailed" xml:space="preserve"><value>Önizleme başarısız oldu. İlerleme sekmesindeki günlüğe bakın.</value></data>
+  <data name="Placeholder_Live" xml:space="preserve"><value>Yükseltilmiş videonun canlı önizlemeleri birkaç saniyede bir burada görünür.</value></data>
+  <data name="Dur_Days" xml:space="preserve"><value>{0} g {1} sa</value></data>
+  <data name="Dur_Hours" xml:space="preserve"><value>{0} sa {1} dk</value></data>
+  <data name="Dur_Minutes" xml:space="preserve"><value>{0} dk {1} sn</value></data>
+  <data name="Dur_Seconds" xml:space="preserve"><value>{0} sn</value></data>
+  <data name="Time_Today" xml:space="preserve"><value>bugün {0}</value></data>
+  <data name="Size_MB" xml:space="preserve"><value>{0} MB</value></data>
+  <data name="Err_EngineMissing_Title" xml:space="preserve"><value>Altyapı bulunamadı</value></data>
+  <data name="Err_EngineMissing" xml:space="preserve"><value>ai-upscaler.exe, uygulamanın yanında (engine klasöründe) bulunamadı.</value></data>
+  <data name="Err_FfmpegMissing_Title" xml:space="preserve"><value>FFmpeg bulunamadı</value></data>
+  <data name="Err_FfmpegMissing" xml:space="preserve"><value>Şu komutla yükleyin: winget install Gyan.FFmpeg</value></data>
+  <data name="Err_FileNotFound_Title" xml:space="preserve"><value>Dosya bulunamadı</value></data>
+  <data name="Err_ModelMissing_Title" xml:space="preserve"><value>Model bulunamadı</value></data>
+  <data name="Err_ModelMissing" xml:space="preserve"><value>Seçili model dosyası yok.</value></data>
+  <data name="Err_EngineStart" xml:space="preserve"><value>Altyapı başlatılamadı</value></data>
+  <data name="Err_ReadVideo_Title" xml:space="preserve"><value>Video okunamadı</value></data>
+  <data name="Err_SeeLog" xml:space="preserve"><value>Ayrıntılar için İlerleme sekmesindeki günlüğe bakın.</value></data>
+  <data name="Err_NoVideo_Title" xml:space="preserve"><value>Önce bir video açın</value></data>
+  <data name="Err_NoVideo" xml:space="preserve"><value>Kaynak bölmesine bir video bırakın veya bölmedeki Gözat düğmesini kullanın.</value></data>
+  <data name="Err_UpscaleFailed_Title" xml:space="preserve"><value>Yükseltme başarısız oldu</value></data>
+  <data name="Source_Reading" xml:space="preserve"><value>Okunuyor…</value></data>
+  <data name="Source_Unreadable" xml:space="preserve"><value>Bu dosya okunamadı</value></data>
+  <data name="Source_Info" xml:space="preserve"><value>{0}×{1} · {2} · {3} fps · {4}</value></data>
+  <data name="Source_WithAudio" xml:space="preserve"><value>{0} · ses</value></data>
+  <data name="Picker_Mp4" xml:space="preserve"><value>MP4 videosu</value></data>
+  <data name="Picker_Mkv" xml:space="preserve"><value>Matroska videosu</value></data>
+  <data name="Picker_Mov" xml:space="preserve"><value>QuickTime videosu</value></data>
+  <data name="Picker_DefaultName" xml:space="preserve"><value>yükseltilmiş</value></data>
+  <data name="Quality_1" xml:space="preserve"><value>En küçük dosya</value></data>
+  <data name="Quality_2" xml:space="preserve"><value>Küçük dosya</value></data>
+  <data name="Quality_3" xml:space="preserve"><value>Dengeli</value></data>
+  <data name="Quality_4" xml:space="preserve"><value>Yüksek kalite</value></data>
+  <data name="Quality_5" xml:space="preserve"><value>En iyi kalite (en büyük dosya)</value></data>
+  <data name="Quality_Format" xml:space="preserve"><value>{0}/5 · {1}</value></data>
+  <data name="Drag_OpenAsSource" xml:space="preserve"><value>Kaynak olarak aç</value></data>
+  <data name="Auto_Off" xml:space="preserve"><value>Kapalı · Ctrl+P geçerli karenin önizlemesini oluşturur</value></data>
+  <data name="Auto_Countdown" xml:space="preserve"><value>AI önizlemesi 3 sn içinde…</value></data>
+  <data name="Auto_Working" xml:space="preserve"><value>Kare yükseltiliyor: {0}…</value></data>
+  <data name="Auto_Live" xml:space="preserve"><value>Yükseltme sırasında canlı önizlemeler</value></data>
+  <data name="OutputInfo" xml:space="preserve"><value>AI ×{0} → dosya {1} · kare konumu {2}</value></data>
+  <data name="Log_ImageFailed" xml:space="preserve"><value>Önizleme görüntüsü yüklenemedi: {0}: {1}</value></data>
+  <data name="Log_ThumbsFailed" xml:space="preserve"><value>Küçük resim işi başlatılamadı: {0}</value></data>
+  <data name="Film_GoTo" xml:space="preserve"><value>Şuraya git: {0}</value></data>
+  <data name="Hw_Checking" xml:space="preserve"><value>Bu bilgisayarın GPU&apos;su denetleniyor…</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>{0} – kullanılamıyor</value></data>
+  <data name="Device_AutoCuda" xml:space="preserve"><value>Otomatik (CUDA GPU)</value></data>
+  <data name="Device_AutoDml" xml:space="preserve"><value>Otomatik (DirectML GPU)</value></data>
+  <data name="Device_AutoCpu" xml:space="preserve"><value>Otomatik (yalnızca CPU)</value></data>
+  <data name="Device_DirectML" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="Device_NoDml" xml:space="preserve"><value>Bu bilgisayarda DirectX 12 GPU bulunamadı.</value></data>
+  <data name="Device_Cuda" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="Device_NoCuda" xml:space="preserve"><value>NVIDIA GPU ve CUDA desteğiyle derlenmiş bir altyapı gerektirir.</value></data>
+  <data name="Device_CudaNotBuilt" xml:space="preserve"><value>Bu derlemede CUDA desteği yok. build.ps1 -Cuda ile derleyin veya NVIDIA GPU&apos;larda da çalışan DirectML&apos;i kullanın.</value></data>
+  <data name="Device_CudaRuntime" xml:space="preserve"><value>CUDA başlatılamadı. Bir NVIDIA sürücüsü, CUDA 13 çalışma zamanını ve CUDA 13 için cuDNN 9&apos;u yükleyin; bin klasörlerinin PATH&apos;te olduğundan emin olun. Ayrıntılar: {0}</value></data>
+  <data name="Codec_Gpu" xml:space="preserve"><value>{0} – GPU ({1})</value></data>
+  <data name="Codec_GpuPlain" xml:space="preserve"><value>{0} – GPU</value></data>
+  <data name="Codec_NoGpu" xml:space="preserve"><value>Bu bilgisayarın GPU&apos;su şunu kodlayamıyor: {0}.</value></data>
+  <data name="Codec_NotInFfmpeg" xml:space="preserve"><value>Bu FFmpeg derlemesine dahil değil.</value></data>
+  <data name="Hw_Summary" xml:space="preserve"><value>AI: {0} · {1}</value></data>
+  <data name="Hw_AiCuda" xml:space="preserve"><value>CUDA GPU</value></data>
+  <data name="Hw_AiDml" xml:space="preserve"><value>DirectML GPU</value></data>
+  <data name="Hw_AiCpu" xml:space="preserve"><value>Yalnızca CPU</value></data>
+  <data name="Hw_NoGpuEncode" xml:space="preserve"><value>GPU ile video kodlama yok</value></data>
+  <data name="Hw_GpuEncodes" xml:space="preserve"><value>{0} GPU kodlaması: {1}</value></data>
+  <data name="Size_Fills" xml:space="preserve"><value>{0} (kareyi doldurur)</value></data>
+  <data name="Size_Crop" xml:space="preserve"><value>{0} ({1} görüntü, kenarlar kırpılır)</value></data>
+  <data name="Size_Stretch" xml:space="preserve"><value>{0} ({1} görüntü 16:9&apos;a uzatılır)</value></data>
+  <data name="Size_PadSides" xml:space="preserve"><value>{0} ({1} görüntü, yanlarda siyah şeritler)</value></data>
+  <data name="Size_PadTopBottom" xml:space="preserve"><value>{0} ({1} görüntü, üstte ve altta siyah şeritler)</value></data>
+  <data name="Size_Model" xml:space="preserve"><value>{0} (model ×{1})</value></data>
+  <data name="Size_ModelUnknown" xml:space="preserve"><value>Model ölçeği: ilk AI önizlemesinden sonra belli olur</value></data>
+  <data name="Size_ModelShort" xml:space="preserve"><value>model ölçeği</value></data>
+  <data name="Size_OpenVideo" xml:space="preserve"><value>Çıkış boyutunu görmek için bir video açın</value></data>
+  <data name="Summary_Begin" xml:space="preserve"><value>Başlamak için Kaynak bölmesine bir video bırakın</value></data>
+  <data name="Summary" xml:space="preserve"><value>Çıkış: {0} · {1} · kalite {2}/5</value></data>
+  <data name="Summary_NoModel" xml:space="preserve"><value>{0} · AI modeli yok</value></data>
+  <data name="Zoom_Fit" xml:space="preserve"><value>Sığdır</value></data>
+  <data name="Lang_System" xml:space="preserve"><value>Windows varsayılanı</value></data>
+  <data name="Lang_RestartBusy" xml:space="preserve"><value>Yeniden başlatmadan önce yükseltmeyi tamamlayın veya iptal edin.</value></data>
+  <data name="OutputFolder_None" xml:space="preserve"><value>Klasör seçilmedi</value></data>
+  <data name="Model_None" xml:space="preserve"><value>Yok (Lanczos, AI yok)</value></data>
+  <data name="Model_External" xml:space="preserve"><value>{0} (kitaplıkta değil)</value></data>
+  <data name="Models_Folder" xml:space="preserve"><value>Kitaplık klasörü: {0}</value></data>
+  <data name="Models_InUse" xml:space="preserve"><value>{0} (kullanımda)</value></data>
+  <data name="Models_Details" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="Models_RemoveTip" xml:space="preserve"><value>Geri Dönüşüm Kutusu&apos;na taşı</value></data>
+  <data name="Models_Removed" xml:space="preserve"><value>Geri Dönüşüm Kutusu&apos;na taşındı: {0}.</value></data>
+  <data name="Models_RemoveFailed" xml:space="preserve"><value>Kaldırılamadı: {0}.</value></data>
+  <data name="Models_Imported" xml:space="preserve"><value>İçeri aktarıldı: {0}. Dosya kitaplığa taşındı.</value></data>
+  <data name="Models_Exists" xml:space="preserve"><value>{0} adlı bir model kitaplıkta zaten var.</value></data>
+  <data name="Models_ImportFailed" xml:space="preserve"><value>İçeri aktarılamadı: {0}. {1}</value></data>
+  <data name="Status_Loading" xml:space="preserve"><value>Model yükleniyor…</value></data>
+  <data name="Status_Cancelling" xml:space="preserve"><value>İptal ediliyor…</value></data>
+  <data name="Status_Cancelled" xml:space="preserve"><value>İptal edildi.</value></data>
+  <data name="Status_Upscaling" xml:space="preserve"><value>Yükseltiliyor…</value></data>
+  <data name="Status_UpscalingPreview" xml:space="preserve"><value>Önizleme yükseltiliyor…</value></data>
+  <data name="Status_Finished" xml:space="preserve"><value>{0} içinde tamamlandı.</value></data>
+  <data name="Status_Failed" xml:space="preserve"><value>Başarısız oldu (çıkış kodu {0}).</value></data>
+  <data name="JobInfo" xml:space="preserve"><value>{0}×{1} → AI {2}×{3} → dosya {4}×{5} · {6} fps · {7} · {8}</value></data>
+  <data name="Audio_Kept" xml:space="preserve"><value>ses korundu</value></data>
+  <data name="Audio_None" xml:space="preserve"><value>ses yok</value></data>
+  <data name="Estimate_Left" xml:space="preserve"><value>Yaklaşık {0} kaldı · tahmini bitiş {1}</value></data>
+  <data name="Estimate_Whole" xml:space="preserve"><value>Bu hızla videonun tamamı yaklaşık {0} sürer.</value></data>
+  <data name="Progress_FramesEta" xml:space="preserve"><value>Kare {0}/{1} · {2} fps · {3} geçti · {4} kaldı</value></data>
+  <data name="Progress_Frames" xml:space="preserve"><value>Kare {0}/{1} · {2} fps · {3} geçti</value></data>
+  <data name="Progress_FramesOnly" xml:space="preserve"><value>Kare {0} · {1} fps · {2} geçti</value></data>
+  <data name="Result_PreviewReady" xml:space="preserve"><value>Önizleme hazır</value></data>
+  <data name="Result_Complete" xml:space="preserve"><value>Yükseltme tamamlandı</value></data>
+  <data name="AppearanceNavText.Text" xml:space="preserve"><value>Görünüm</value></data>
+  <data name="OutputNavText.Text" xml:space="preserve"><value>Çıkış</value></data>
+  <data name="ModelsNavText.Text" xml:space="preserve"><value>Modeller</value></data>
+  <data name="SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Geri (Esc)</value></data>
+  <data name="Section_Appearance" xml:space="preserve"><value>Görünüm</value></data>
+  <data name="Section_Output" xml:space="preserve"><value>Çıkış</value></data>
+  <data name="Section_Models" xml:space="preserve"><value>Modeller</value></data>
+  <data name="BatchTab.Text" xml:space="preserve"><value>Toplu işlem</value></data>
+  <data name="BatchAddText.Text" xml:space="preserve"><value>Video ekle…</value></data>
+  <data name="BatchAddCurrentButton.Content" xml:space="preserve"><value>Geçerli videoyu ekle</value></data>
+  <data name="BatchClearButton.Content" xml:space="preserve"><value>Listeyi temizle</value></data>
+  <data name="BatchStartText.Text" xml:space="preserve"><value>Tümünü yükselt</value></data>
+  <data name="BatchEmptyText.Text" xml:space="preserve"><value>Videoları veya bir klasörü buraya bırakın ya da Video ekle&apos;yi kullanın. Her video, geçerli yükseltme ayarlarıyla sırayla yükseltilir.</value></data>
+  <data name="Unsaved_Save" xml:space="preserve"><value>Kaydet</value></data>
+  <data name="Unsaved_DontSave" xml:space="preserve"><value>Kaydetme</value></data>
+  <data name="Unsaved_Cancel" xml:space="preserve"><value>İptal</value></data>
+  <data name="Err_BatchEmpty_Title" xml:space="preserve"><value>Önce toplu işleme video ekleyin</value></data>
+  <data name="Err_BatchEmpty" xml:space="preserve"><value>Toplu işlem sekmesine video bırakın veya Video ekle&apos;yi kullanın.</value></data>
+  <data name="Batch_Waiting" xml:space="preserve"><value>Bekliyor</value></data>
+  <data name="Batch_Running" xml:space="preserve"><value>Yükseltiliyor… %{0}</value></data>
+  <data name="Batch_Done" xml:space="preserve"><value>{0} içinde tamamlandı</value></data>
+  <data name="Batch_Failed" xml:space="preserve"><value>Başarısız oldu (çıkış kodu {0})</value></data>
+  <data name="Batch_Cancelled" xml:space="preserve"><value>İptal edildi</value></data>
+  <data name="Batch_NotFound" xml:space="preserve"><value>Dosya bulunamadı</value></data>
+  <data name="Batch_SavedAs" xml:space="preserve"><value>Farklı kaydedildi: {0}</value></data>
+  <data name="Batch_RemoveTip" xml:space="preserve"><value>Listeden kaldır</value></data>
+  <data name="Batch_Summary" xml:space="preserve"><value>{0} video · {1} tamamlandı</value></data>
+  <data name="Batch_Item" xml:space="preserve"><value>Video {0}/{1}: {2}</value></data>
+  <data name="Batch_Result" xml:space="preserve"><value>{0}/{1} video yükseltildi.</value></data>
+  <data name="Batch_Complete_Title" xml:space="preserve"><value>Toplu işlem tamamlandı</value></data>
+  <data name="Batch_Partial_Title" xml:space="preserve"><value>Bazı videolar yükseltilmedi</value></data>
+  <data name="Status_BatchCancelled" xml:space="preserve"><value>Toplu işlem iptal edildi. Henüz yükseltilmemiş videolar listede kalır.</value></data>
+  <data name="Placeholder_BatchOther" xml:space="preserve"><value>Yükseltiliyor: {0}. Canlı önizlemeler yalnızca stüdyoda açık olan video için görünür.</value></data>
+  <data name="Drag_AddToBatch" xml:space="preserve"><value>Toplu işleme ekle</value></data>
+  <data name="Log_BatchNotFound" xml:space="preserve"><value>Atlandı: {0} (dosya bulunamadı).</value></data>
+  <data name="SaveConfigAsButton.Label" xml:space="preserve"><value>Farklı kaydet</value></data>
+  <data name="SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Geçerli yükseltme ayarlarını yeni bir dosyaya kaydet (Ctrl+Shift+S)</value></data>
+  <data name="Config_Untitled" xml:space="preserve"><value>Kaydedilmemiş yapılandırma</value></data>
+  <data name="Unsaved_Title" xml:space="preserve"><value>{0} dosyasındaki değişiklikleri kaydetmek istiyor musunuz?</value></data>
+  <data name="Unsaved_TitleNew" xml:space="preserve"><value>Yükseltme ayarlarınızı bir yapılandırma olarak kaydetmek istiyor musunuz?</value></data>
+  <data name="Unsaved_Message" xml:space="preserve"><value>Kaydedilmezse yükseltme ayarlarındaki değişiklikler kaybolur.</value></data>
+  <data name="FormatCombo.Header" xml:space="preserve"><value>Biçim</value></data>
+  <data name="FormatCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>MKV ayrıca kaynağın altyazı parçalarını ve yazı tiplerini korur</value></data>
+</root>

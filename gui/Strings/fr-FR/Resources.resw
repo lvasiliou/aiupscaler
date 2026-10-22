@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>  <data name="AppTitleText.Text" xml:space="preserve"><value>AI Upscaler Studio</value></data>
+  <data name="PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Essayez d&apos;abord les paramètres sur un court extrait ; les aperçus sont enregistrés sous *_preview.mp4</value></data>
+  <data name="PreviewWhole.Content" xml:space="preserve"><value>Vidéo entière</value></data>
+  <data name="Preview10.Content" xml:space="preserve"><value>Aperçu : 10 premières s</value></data>
+  <data name="Preview30.Content" xml:space="preserve"><value>Aperçu : 30 premières s</value></data>
+  <data name="Preview60.Content" xml:space="preserve"><value>Aperçu : 60 premières s</value></data>
+  <data name="CancelButton.Content" xml:space="preserve"><value>Annuler</value></data>
+  <data name="StartButtonText.Text" xml:space="preserve"><value>Agrandir</value></data>
+  <data name="AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Paramètres</value></data>
+  <data name="SourceHeader.Text" xml:space="preserve"><value>Source</value></data>
+  <data name="OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Ouvrir une autre vidéo (Ctrl+O)</value></data>
+  <data name="DropZoneTitle.Text" xml:space="preserve"><value>Déposez une vidéo ici</value></data>
+  <data name="DropZoneOr.Text" xml:space="preserve"><value>ou</value></data>
+  <data name="DropZoneBrowse.Content" xml:space="preserve"><value>Parcourir…</value></data>
+  <data name="UpscaledHeader.Text" xml:space="preserve"><value>Agrandie</value></data>
+  <data name="AutoPreviewCheck.Content" xml:space="preserve"><value>Générer des aperçus IA</value></data>
+  <data name="AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Agrandit l&apos;image sélectionnée 3 secondes après l&apos;arrêt du déplacement sur la chronologie. Ctrl+P affiche l&apos;aperçu immédiatement.</value></data>
+  <data name="ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Basculer entre l&apos;ajustement de l&apos;image et les pixels à 100 % (1:1)</value></data>
+  <data name="UpscaleSettingsTab.Text" xml:space="preserve"><value>Paramètres d&apos;agrandissement</value></data>
+  <data name="ProgressTab.Text" xml:space="preserve"><value>Progression</value></data>
+  <data name="ModelCombo.Header" xml:space="preserve"><value>Modèle IA</value></data>
+  <data name="ManageModelsButton.Content" xml:space="preserve"><value>Gérer…</value></data>
+  <data name="OutputBox.Header" xml:space="preserve"><value>Vidéo de sortie</value></data>
+  <data name="OutputBox.PlaceholderText" xml:space="preserve"><value>Emplacement d&apos;enregistrement de la vidéo agrandie</value></data>
+  <data name="OutputButton.Content" xml:space="preserve"><value>Parcourir…</value></data>
+  <data name="DeviceCombo.Header" xml:space="preserve"><value>Appareil IA</value></data>
+  <data name="DeviceAuto.Content" xml:space="preserve"><value>Automatique (meilleur disponible)</value></data>
+  <data name="DeviceDirectML.Content" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="DeviceCuda.Content" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="DeviceCpu.Content" xml:space="preserve"><value>CPU</value></data>
+  <data name="HeightCombo.Header" xml:space="preserve"><value>Taille de sortie</value></data>
+  <data name="SizeModel.Content" xml:space="preserve"><value>Échelle du modèle (p. ex. ×4)</value></data>
+  <data name="FitCombo.Header" xml:space="preserve"><value>Format de l&apos;image</value></data>
+  <data name="FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Manière dont une image 4:3 (ou autre) remplit un cadre 16:9</value></data>
+  <data name="FitPad.Content" xml:space="preserve"><value>Bandes noires (conserver le format)</value></data>
+  <data name="FitCrop.Content" xml:space="preserve"><value>Rogner pour remplir</value></data>
+  <data name="FitStretch.Content" xml:space="preserve"><value>Étirer pour remplir</value></data>
+  <data name="CodecCombo.Header" xml:space="preserve"><value>Encodeur vidéo</value></data>
+  <data name="QualitySlider.Header" xml:space="preserve"><value>Qualité</value></data>
+  <data name="TileBox.Header" xml:space="preserve"><value>Taille des tuiles (0 = auto)</value></data>
+  <data name="AudioToggle.Header" xml:space="preserve"><value>Audio</value></data>
+  <data name="AudioToggle.OnContent" xml:space="preserve"><value>Inclure l&apos;audio</value></data>
+  <data name="AudioToggle.OffContent" xml:space="preserve"><value>Sans audio</value></data>
+  <data name="AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Améliorer l&apos;audio (la piste principale est réencodée en AAC)</value></data>
+  <data name="AudioDialogueItem.Text" xml:space="preserve"><value>Dialogues plus clairs</value></data>
+  <data name="AudioLoudnessItem.Text" xml:space="preserve"><value>Égaliser le volume</value></data>
+  <data name="AudioDenoiseItem.Text" xml:space="preserve"><value>Supprimer le bruit et le souffle</value></data>
+  <data name="AudioUpmixItem.Text" xml:space="preserve"><value>Convertir la stéréo en 5.1</value></data>
+  <data name="Audio_Original" xml:space="preserve"><value>Audio d&apos;origine</value></data>
+  <data name="Audio_ImprovedSummary" xml:space="preserve"><value>Amélioré : {0}</value></data>
+  <data name="Audio_ShortDialogue" xml:space="preserve"><value>dialogues</value></data>
+  <data name="Audio_ShortLoudness" xml:space="preserve"><value>volume</value></data>
+  <data name="Audio_ShortDenoise" xml:space="preserve"><value>bruit</value></data>
+  <data name="Audio_ShortUpmix" xml:space="preserve"><value>5.1</value></data>
+  <data name="Audio_ImprovedInfo" xml:space="preserve"><value>audio amélioré</value></data>
+  <data name="OutputFileLabel.Text" xml:space="preserve"><value>Fichier de sortie</value></data>
+  <data name="OpenOutputButton.Content" xml:space="preserve"><value>Ouvrir</value></data>
+  <data name="LogExpander.Header" xml:space="preserve"><value>Journal</value></data>
+  <data name="CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Copier le journal</value></data>
+  <data name="LoadConfigButton.Label" xml:space="preserve"><value>Charger la configuration</value></data>
+  <data name="LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Charger des paramètres d&apos;agrandissement enregistrés précédemment</value></data>
+  <data name="SaveConfigButton.Label" xml:space="preserve"><value>Enregistrer la configuration</value></data>
+  <data name="SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Enregistrer les paramètres d&apos;agrandissement actuels dans un fichier (Ctrl+S)</value></data>
+  <data name="Picker_Config" xml:space="preserve"><value>Configuration AI Upscaler</value></data>
+  <data name="Picker_ConfigName" xml:space="preserve"><value>paramètres d&apos;agrandissement</value></data>
+  <data name="Config_Saved" xml:space="preserve"><value>Configuration enregistrée</value></data>
+  <data name="Config_SaveFailed" xml:space="preserve"><value>Impossible d&apos;enregistrer la configuration</value></data>
+  <data name="Config_Loaded" xml:space="preserve"><value>Configuration chargée</value></data>
+  <data name="Config_LoadFailed" xml:space="preserve"><value>Impossible de charger la configuration</value></data>
+  <data name="Config_NotConfig" xml:space="preserve"><value>{0} n&apos;est pas un fichier de configuration AI Upscaler.</value></data>
+  <data name="Config_ModelMissing" xml:space="preserve"><value>Le modèle {0} n&apos;est pas présent sur ce PC ; le modèle actuel a donc été conservé. Importez-le dans Paramètres → Modèles, puis chargez de nouveau la configuration.</value></data>
+  <data name="ThemeTitle.Text" xml:space="preserve"><value>Thème</value></data>
+  <data name="ThemeDescription.Text" xml:space="preserve"><value>Choisissez clair ou sombre, ou suivez Windows.</value></data>
+  <data name="ThemeSystem.Content" xml:space="preserve"><value>Utiliser le paramètre Windows</value></data>
+  <data name="ThemeLight.Content" xml:space="preserve"><value>Clair</value></data>
+  <data name="ThemeDark.Content" xml:space="preserve"><value>Sombre</value></data>
+  <data name="LanguageTitle.Text" xml:space="preserve"><value>Langue</value></data>
+  <data name="LanguageDescription.Text" xml:space="preserve"><value>Langue du texte de l&apos;application.</value></data>
+  <data name="LanguageRestartBar.Message" xml:space="preserve"><value>Redémarrez l&apos;application pour utiliser la nouvelle langue.</value></data>
+  <data name="RestartButton.Content" xml:space="preserve"><value>Redémarrer maintenant</value></data>
+  <data name="OutputFolderTitle.Text" xml:space="preserve"><value>Dossier de sortie par défaut</value></data>
+  <data name="OutputFolderDescription.Text" xml:space="preserve"><value>Emplacement d&apos;enregistrement des vidéos agrandies, sauf si vous choisissez un autre fichier.</value></data>
+  <data name="OutputNextToSourceRadio.Content" xml:space="preserve"><value>Même dossier que la vidéo source</value></data>
+  <data name="OutputFolderRadio.Content" xml:space="preserve"><value>Ce dossier :</value></data>
+  <data name="ChooseOutputFolderButton.Content" xml:space="preserve"><value>Choisir…</value></data>
+  <data name="ModelsDescription.Text" xml:space="preserve"><value>Les modèles IA (.onnx) de la bibliothèque apparaissent dans la liste Modèle IA des paramètres d&apos;agrandissement. L&apos;importation déplace le fichier, ainsi que tout fichier de poids situé à côté, dans le dossier de la bibliothèque.</value></data>
+  <data name="ImportModelText.Text" xml:space="preserve"><value>Importer un modèle…</value></data>
+  <data name="OpenModelsFolderText.Text" xml:space="preserve"><value>Ouvrir le dossier</value></data>
+  <data name="ModelsEmptyText.Text" xml:space="preserve"><value>Aucun modèle pour l&apos;instant. Importez un modèle .onnx pour commencer.</value></data>
+  <data name="Status_Ready" xml:space="preserve"><value>Prêt.</value></data>
+  <data name="Placeholder_Open" xml:space="preserve"><value>Ouvrez une vidéo. Le résultat IA de l&apos;image sélectionnée apparaît ici.</value></data>
+  <data name="Placeholder_PickFrame" xml:space="preserve"><value>Choisissez une image sur la pellicule ou la chronologie. Son aperçu IA apparaît ici.</value></data>
+  <data name="Placeholder_Upscaling" xml:space="preserve"><value>Agrandissement de cette image…</value></data>
+  <data name="Placeholder_Coming" xml:space="preserve"><value>L&apos;aperçu IA de {0} apparaît lorsque vous vous arrêtez sur cette image.</value></data>
+  <data name="Placeholder_Off" xml:space="preserve"><value>Les aperçus IA sont désactivés. Appuyez sur Ctrl+P pour agrandir l&apos;image à {0}.</value></data>
+  <data name="Placeholder_PreviewFailed" xml:space="preserve"><value>L&apos;aperçu a échoué. Consultez le journal dans l&apos;onglet Progression.</value></data>
+  <data name="Placeholder_Live" xml:space="preserve"><value>Des aperçus en direct de la vidéo agrandie apparaissent ici toutes les quelques secondes.</value></data>
+  <data name="Dur_Days" xml:space="preserve"><value>{0} j {1} h</value></data>
+  <data name="Dur_Hours" xml:space="preserve"><value>{0} h {1} min</value></data>
+  <data name="Dur_Minutes" xml:space="preserve"><value>{0} min {1} s</value></data>
+  <data name="Dur_Seconds" xml:space="preserve"><value>{0} s</value></data>
+  <data name="Time_Today" xml:space="preserve"><value>aujourd&apos;hui à {0}</value></data>
+  <data name="Size_MB" xml:space="preserve"><value>{0} Mo</value></data>
+  <data name="Err_EngineMissing_Title" xml:space="preserve"><value>Moteur introuvable</value></data>
+  <data name="Err_EngineMissing" xml:space="preserve"><value>ai-upscaler.exe est introuvable à côté de l&apos;application (dossier engine).</value></data>
+  <data name="Err_FfmpegMissing_Title" xml:space="preserve"><value>FFmpeg introuvable</value></data>
+  <data name="Err_FfmpegMissing" xml:space="preserve"><value>Installez-le avec : winget install Gyan.FFmpeg</value></data>
+  <data name="Err_FileNotFound_Title" xml:space="preserve"><value>Fichier introuvable</value></data>
+  <data name="Err_ModelMissing_Title" xml:space="preserve"><value>Modèle introuvable</value></data>
+  <data name="Err_ModelMissing" xml:space="preserve"><value>Le fichier du modèle sélectionné n&apos;existe pas.</value></data>
+  <data name="Err_EngineStart" xml:space="preserve"><value>Impossible de démarrer le moteur</value></data>
+  <data name="Err_ReadVideo_Title" xml:space="preserve"><value>Impossible de lire la vidéo</value></data>
+  <data name="Err_SeeLog" xml:space="preserve"><value>Pour plus de détails, consultez le journal dans l&apos;onglet Progression.</value></data>
+  <data name="Err_NoVideo_Title" xml:space="preserve"><value>Ouvrez d&apos;abord une vidéo</value></data>
+  <data name="Err_NoVideo" xml:space="preserve"><value>Déposez une vidéo dans le volet Source ou utilisez son bouton Parcourir.</value></data>
+  <data name="Err_UpscaleFailed_Title" xml:space="preserve"><value>Échec de l&apos;agrandissement</value></data>
+  <data name="Source_Reading" xml:space="preserve"><value>Lecture…</value></data>
+  <data name="Source_Unreadable" xml:space="preserve"><value>Impossible de lire ce fichier</value></data>
+  <data name="Source_Info" xml:space="preserve"><value>{0}×{1} · {2} · {3} fps · {4}</value></data>
+  <data name="Source_WithAudio" xml:space="preserve"><value>{0} · audio</value></data>
+  <data name="Picker_Mp4" xml:space="preserve"><value>Vidéo MP4</value></data>
+  <data name="Picker_Mkv" xml:space="preserve"><value>Vidéo Matroska</value></data>
+  <data name="Picker_Mov" xml:space="preserve"><value>Vidéo QuickTime</value></data>
+  <data name="Picker_DefaultName" xml:space="preserve"><value>agrandie</value></data>
+  <data name="Quality_1" xml:space="preserve"><value>Fichier le plus petit</value></data>
+  <data name="Quality_2" xml:space="preserve"><value>Petit fichier</value></data>
+  <data name="Quality_3" xml:space="preserve"><value>Équilibrée</value></data>
+  <data name="Quality_4" xml:space="preserve"><value>Haute qualité</value></data>
+  <data name="Quality_5" xml:space="preserve"><value>Meilleure qualité (fichier le plus volumineux)</value></data>
+  <data name="Quality_Format" xml:space="preserve"><value>{0} sur 5 · {1}</value></data>
+  <data name="Drag_OpenAsSource" xml:space="preserve"><value>Ouvrir comme source</value></data>
+  <data name="Auto_Off" xml:space="preserve"><value>Désactivé · Ctrl+P affiche l&apos;aperçu de l&apos;image actuelle</value></data>
+  <data name="Auto_Countdown" xml:space="preserve"><value>Aperçu IA dans 3 s…</value></data>
+  <data name="Auto_Working" xml:space="preserve"><value>Agrandissement de l&apos;image à {0}…</value></data>
+  <data name="Auto_Live" xml:space="preserve"><value>Aperçus en direct pendant l&apos;agrandissement</value></data>
+  <data name="OutputInfo" xml:space="preserve"><value>IA ×{0} → fichier {1} · image à {2}</value></data>
+  <data name="Log_ImageFailed" xml:space="preserve"><value>Impossible de charger l&apos;image d&apos;aperçu {0} : {1}</value></data>
+  <data name="Log_ThumbsFailed" xml:space="preserve"><value>Impossible de démarrer la tâche de miniatures : {0}</value></data>
+  <data name="Film_GoTo" xml:space="preserve"><value>Atteindre {0}</value></data>
+  <data name="Hw_Checking" xml:space="preserve"><value>Vérification du GPU de ce PC…</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>{0} – non disponible</value></data>
+  <data name="Device_AutoCuda" xml:space="preserve"><value>Automatique (GPU CUDA)</value></data>
+  <data name="Device_AutoDml" xml:space="preserve"><value>Automatique (GPU DirectML)</value></data>
+  <data name="Device_AutoCpu" xml:space="preserve"><value>Automatique (CPU uniquement)</value></data>
+  <data name="Device_DirectML" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="Device_NoDml" xml:space="preserve"><value>Aucun GPU DirectX 12 n&apos;a été trouvé sur ce PC.</value></data>
+  <data name="Device_Cuda" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="Device_NoCuda" xml:space="preserve"><value>Nécessite un GPU NVIDIA et un moteur compilé avec la prise en charge de CUDA.</value></data>
+  <data name="Device_CudaNotBuilt" xml:space="preserve"><value>Cette version ne prend pas en charge CUDA. Compilez-la avec build.ps1 -Cuda, ou utilisez DirectML, qui fonctionne aussi sur les GPU NVIDIA.</value></data>
+  <data name="Device_CudaRuntime" xml:space="preserve"><value>Impossible de démarrer CUDA. Installez un pilote NVIDIA, le runtime CUDA 13 et cuDNN 9 pour CUDA 13, avec leurs dossiers bin dans le PATH. Détails : {0}</value></data>
+  <data name="Codec_Gpu" xml:space="preserve"><value>{0} – GPU ({1})</value></data>
+  <data name="Codec_GpuPlain" xml:space="preserve"><value>{0} – GPU</value></data>
+  <data name="Codec_NoGpu" xml:space="preserve"><value>Le GPU de ce PC ne peut pas encoder en {0}.</value></data>
+  <data name="Codec_NotInFfmpeg" xml:space="preserve"><value>Non inclus dans cette version de FFmpeg.</value></data>
+  <data name="Hw_Summary" xml:space="preserve"><value>IA sur {0} · {1}</value></data>
+  <data name="Hw_AiCuda" xml:space="preserve"><value>GPU CUDA</value></data>
+  <data name="Hw_AiDml" xml:space="preserve"><value>GPU DirectML</value></data>
+  <data name="Hw_AiCpu" xml:space="preserve"><value>CPU uniquement</value></data>
+  <data name="Hw_NoGpuEncode" xml:space="preserve"><value>pas d&apos;encodage vidéo par GPU</value></data>
+  <data name="Hw_GpuEncodes" xml:space="preserve"><value>Le GPU {0} encode en {1}</value></data>
+  <data name="Size_Fills" xml:space="preserve"><value>{0} (remplit le cadre)</value></data>
+  <data name="Size_Crop" xml:space="preserve"><value>{0} (image {1}, bords rognés)</value></data>
+  <data name="Size_Stretch" xml:space="preserve"><value>{0} (image {1} étirée en 16:9)</value></data>
+  <data name="Size_PadSides" xml:space="preserve"><value>{0} (image {1}, bandes noires latérales)</value></data>
+  <data name="Size_PadTopBottom" xml:space="preserve"><value>{0} (image {1}, bandes noires en haut et en bas)</value></data>
+  <data name="Size_Model" xml:space="preserve"><value>{0} (modèle ×{1})</value></data>
+  <data name="Size_ModelUnknown" xml:space="preserve"><value>Échelle du modèle : connue après le premier aperçu IA</value></data>
+  <data name="Size_ModelShort" xml:space="preserve"><value>échelle du modèle</value></data>
+  <data name="Size_OpenVideo" xml:space="preserve"><value>Ouvrez une vidéo pour voir la taille de sortie</value></data>
+  <data name="Summary_Begin" xml:space="preserve"><value>Déposez une vidéo dans le volet Source pour commencer</value></data>
+  <data name="Summary" xml:space="preserve"><value>Sortie : {0} · {1} · qualité {2}/5</value></data>
+  <data name="Summary_NoModel" xml:space="preserve"><value>{0} · aucun modèle IA</value></data>
+  <data name="Zoom_Fit" xml:space="preserve"><value>Ajuster</value></data>
+  <data name="Lang_System" xml:space="preserve"><value>Langue par défaut de Windows</value></data>
+  <data name="Lang_RestartBusy" xml:space="preserve"><value>Terminez ou annulez l&apos;agrandissement avant de redémarrer.</value></data>
+  <data name="OutputFolder_None" xml:space="preserve"><value>Aucun dossier choisi</value></data>
+  <data name="Model_None" xml:space="preserve"><value>Aucun (Lanczos, sans IA)</value></data>
+  <data name="Model_External" xml:space="preserve"><value>{0} (hors bibliothèque)</value></data>
+  <data name="Models_Folder" xml:space="preserve"><value>Dossier de la bibliothèque : {0}</value></data>
+  <data name="Models_InUse" xml:space="preserve"><value>{0} (en cours d&apos;utilisation)</value></data>
+  <data name="Models_Details" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="Models_RemoveTip" xml:space="preserve"><value>Déplacer vers la Corbeille</value></data>
+  <data name="Models_Removed" xml:space="preserve"><value>{0} a été déplacé vers la Corbeille.</value></data>
+  <data name="Models_RemoveFailed" xml:space="preserve"><value>Impossible de supprimer {0}.</value></data>
+  <data name="Models_Imported" xml:space="preserve"><value>{0} a été importé. Le fichier a été déplacé dans la bibliothèque.</value></data>
+  <data name="Models_Exists" xml:space="preserve"><value>Un modèle nommé {0} se trouve déjà dans la bibliothèque.</value></data>
+  <data name="Models_ImportFailed" xml:space="preserve"><value>Impossible d&apos;importer {0}. {1}</value></data>
+  <data name="Status_Loading" xml:space="preserve"><value>Chargement du modèle…</value></data>
+  <data name="Status_Cancelling" xml:space="preserve"><value>Annulation…</value></data>
+  <data name="Status_Cancelled" xml:space="preserve"><value>Annulé.</value></data>
+  <data name="Status_Upscaling" xml:space="preserve"><value>Agrandissement…</value></data>
+  <data name="Status_UpscalingPreview" xml:space="preserve"><value>Agrandissement de l&apos;aperçu…</value></data>
+  <data name="Status_Finished" xml:space="preserve"><value>Terminé en {0}.</value></data>
+  <data name="Status_Failed" xml:space="preserve"><value>Échec (code de sortie {0}).</value></data>
+  <data name="JobInfo" xml:space="preserve"><value>{0}×{1} → IA {2}×{3} → fichier {4}×{5} · {6} fps · {7} · {8}</value></data>
+  <data name="Audio_Kept" xml:space="preserve"><value>audio conservé</value></data>
+  <data name="Audio_None" xml:space="preserve"><value>sans audio</value></data>
+  <data name="Estimate_Left" xml:space="preserve"><value>Environ {0} restant · fin vers {1}</value></data>
+  <data name="Estimate_Whole" xml:space="preserve"><value>La vidéo entière prendrait environ {0} à cette vitesse.</value></data>
+  <data name="Progress_FramesEta" xml:space="preserve"><value>Image {0} sur {1} · {2} fps · {3} écoulé · {4} restant</value></data>
+  <data name="Progress_Frames" xml:space="preserve"><value>Image {0} sur {1} · {2} fps · {3} écoulé</value></data>
+  <data name="Progress_FramesOnly" xml:space="preserve"><value>Image {0} · {1} fps · {2} écoulé</value></data>
+  <data name="Result_PreviewReady" xml:space="preserve"><value>Aperçu prêt</value></data>
+  <data name="Result_Complete" xml:space="preserve"><value>Agrandissement terminé</value></data>
+  <data name="AppearanceNavText.Text" xml:space="preserve"><value>Apparence</value></data>
+  <data name="OutputNavText.Text" xml:space="preserve"><value>Sortie</value></data>
+  <data name="ModelsNavText.Text" xml:space="preserve"><value>Modèles</value></data>
+  <data name="SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Retour (Esc)</value></data>
+  <data name="Section_Appearance" xml:space="preserve"><value>Apparence</value></data>
+  <data name="Section_Output" xml:space="preserve"><value>Sortie</value></data>
+  <data name="Section_Models" xml:space="preserve"><value>Modèles</value></data>
+  <data name="BatchTab.Text" xml:space="preserve"><value>Lot</value></data>
+  <data name="BatchAddText.Text" xml:space="preserve"><value>Ajouter des vidéos…</value></data>
+  <data name="BatchAddCurrentButton.Content" xml:space="preserve"><value>Ajouter la vidéo actuelle</value></data>
+  <data name="BatchClearButton.Content" xml:space="preserve"><value>Effacer la liste</value></data>
+  <data name="BatchStartText.Text" xml:space="preserve"><value>Tout agrandir</value></data>
+  <data name="BatchEmptyText.Text" xml:space="preserve"><value>Déposez des vidéos ou un dossier ici, ou utilisez Ajouter des vidéos. Chaque vidéo est agrandie avec les paramètres d&apos;agrandissement actuels, l&apos;une après l&apos;autre.</value></data>
+  <data name="Unsaved_Save" xml:space="preserve"><value>Enregistrer</value></data>
+  <data name="Unsaved_DontSave" xml:space="preserve"><value>Ne pas enregistrer</value></data>
+  <data name="Unsaved_Cancel" xml:space="preserve"><value>Annuler</value></data>
+  <data name="Err_BatchEmpty_Title" xml:space="preserve"><value>Ajoutez d&apos;abord des vidéos au lot</value></data>
+  <data name="Err_BatchEmpty" xml:space="preserve"><value>Déposez des vidéos dans l&apos;onglet Lot ou utilisez Ajouter des vidéos.</value></data>
+  <data name="Batch_Waiting" xml:space="preserve"><value>En attente</value></data>
+  <data name="Batch_Running" xml:space="preserve"><value>Agrandissement… {0} %</value></data>
+  <data name="Batch_Done" xml:space="preserve"><value>Terminé en {0}</value></data>
+  <data name="Batch_Failed" xml:space="preserve"><value>Échec (code de sortie {0})</value></data>
+  <data name="Batch_Cancelled" xml:space="preserve"><value>Annulé</value></data>
+  <data name="Batch_NotFound" xml:space="preserve"><value>Fichier introuvable</value></data>
+  <data name="Batch_SavedAs" xml:space="preserve"><value>Enregistré sous {0}</value></data>
+  <data name="Batch_RemoveTip" xml:space="preserve"><value>Supprimer de la liste</value></data>
+  <data name="Batch_Summary" xml:space="preserve"><value>{0} vidéos · {1} terminées</value></data>
+  <data name="Batch_Item" xml:space="preserve"><value>Vidéo {0} sur {1} : {2}</value></data>
+  <data name="Batch_Result" xml:space="preserve"><value>{0} vidéos agrandies sur {1}.</value></data>
+  <data name="Batch_Complete_Title" xml:space="preserve"><value>Lot terminé</value></data>
+  <data name="Batch_Partial_Title" xml:space="preserve"><value>Certaines vidéos n&apos;ont pas été agrandies</value></data>
+  <data name="Status_BatchCancelled" xml:space="preserve"><value>Lot annulé. Les vidéos pas encore agrandies restent dans la liste.</value></data>
+  <data name="Placeholder_BatchOther" xml:space="preserve"><value>Agrandissement de {0}. Les aperçus en direct n&apos;apparaissent que pour la vidéo ouverte dans le studio.</value></data>
+  <data name="Drag_AddToBatch" xml:space="preserve"><value>Ajouter au lot</value></data>
+  <data name="Log_BatchNotFound" xml:space="preserve"><value>{0} ignoré : fichier introuvable.</value></data>
+  <data name="SaveConfigAsButton.Label" xml:space="preserve"><value>Enregistrer sous</value></data>
+  <data name="SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Enregistrer les paramètres d&apos;agrandissement actuels dans un nouveau fichier (Ctrl+Shift+S)</value></data>
+  <data name="Config_Untitled" xml:space="preserve"><value>Configuration non enregistrée</value></data>
+  <data name="Unsaved_Title" xml:space="preserve"><value>Voulez-vous enregistrer les modifications apportées à {0} ?</value></data>
+  <data name="Unsaved_TitleNew" xml:space="preserve"><value>Voulez-vous enregistrer vos paramètres d&apos;agrandissement en tant que configuration ?</value></data>
+  <data name="Unsaved_Message" xml:space="preserve"><value>Les modifications des paramètres d&apos;agrandissement seront perdues si elles ne sont pas enregistrées.</value></data>
+  <data name="FormatCombo.Header" xml:space="preserve"><value>Format</value></data>
+  <data name="FormatCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>MKV conserve aussi les pistes de sous-titres et les polices de la source</value></data>
+</root>

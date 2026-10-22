@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>  <data name="AppTitleText.Text" xml:space="preserve"><value>AI Upscaler Studio</value></data>
+  <data name="PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>先在短片段上试用设置；预览保存为 *_preview.mp4</value></data>
+  <data name="PreviewWhole.Content" xml:space="preserve"><value>整个视频</value></data>
+  <data name="Preview10.Content" xml:space="preserve"><value>预览：前 10 秒</value></data>
+  <data name="Preview30.Content" xml:space="preserve"><value>预览：前 30 秒</value></data>
+  <data name="Preview60.Content" xml:space="preserve"><value>预览：前 60 秒</value></data>
+  <data name="CancelButton.Content" xml:space="preserve"><value>取消</value></data>
+  <data name="StartButtonText.Text" xml:space="preserve"><value>放大</value></data>
+  <data name="AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>设置</value></data>
+  <data name="SourceHeader.Text" xml:space="preserve"><value>源</value></data>
+  <data name="OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>打开其他视频 (Ctrl+O)</value></data>
+  <data name="DropZoneTitle.Text" xml:space="preserve"><value>将视频拖放到此处</value></data>
+  <data name="DropZoneOr.Text" xml:space="preserve"><value>或</value></data>
+  <data name="DropZoneBrowse.Content" xml:space="preserve"><value>浏览…</value></data>
+  <data name="UpscaledHeader.Text" xml:space="preserve"><value>已放大</value></data>
+  <data name="AutoPreviewCheck.Content" xml:space="preserve"><value>生成 AI 预览</value></data>
+  <data name="AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>停止移动时间线 3 秒后放大所选帧。按 Ctrl+P 可立即预览。</value></data>
+  <data name="ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>在适应帧和 100% 像素 (1:1) 之间切换</value></data>
+  <data name="UpscaleSettingsTab.Text" xml:space="preserve"><value>放大设置</value></data>
+  <data name="ProgressTab.Text" xml:space="preserve"><value>进度</value></data>
+  <data name="ModelCombo.Header" xml:space="preserve"><value>AI 模型</value></data>
+  <data name="ManageModelsButton.Content" xml:space="preserve"><value>管理…</value></data>
+  <data name="OutputBox.Header" xml:space="preserve"><value>输出视频</value></data>
+  <data name="OutputBox.PlaceholderText" xml:space="preserve"><value>放大后视频的保存位置</value></data>
+  <data name="OutputButton.Content" xml:space="preserve"><value>浏览…</value></data>
+  <data name="DeviceCombo.Header" xml:space="preserve"><value>AI 设备</value></data>
+  <data name="DeviceAuto.Content" xml:space="preserve"><value>自动（最佳可用）</value></data>
+  <data name="DeviceDirectML.Content" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="DeviceCuda.Content" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="DeviceCpu.Content" xml:space="preserve"><value>CPU</value></data>
+  <data name="HeightCombo.Header" xml:space="preserve"><value>输出大小</value></data>
+  <data name="SizeModel.Content" xml:space="preserve"><value>模型倍率（例如 ×4）</value></data>
+  <data name="FitCombo.Header" xml:space="preserve"><value>画面形状</value></data>
+  <data name="FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>4:3（或其他比例）画面如何填充 16:9 帧</value></data>
+  <data name="FitPad.Content" xml:space="preserve"><value>黑边（保持形状）</value></data>
+  <data name="FitCrop.Content" xml:space="preserve"><value>裁剪以填充</value></data>
+  <data name="FitStretch.Content" xml:space="preserve"><value>拉伸以填充</value></data>
+  <data name="CodecCombo.Header" xml:space="preserve"><value>视频编码器</value></data>
+  <data name="QualitySlider.Header" xml:space="preserve"><value>质量</value></data>
+  <data name="TileBox.Header" xml:space="preserve"><value>图块大小（0 = 自动）</value></data>
+  <data name="AudioToggle.Header" xml:space="preserve"><value>音频</value></data>
+  <data name="AudioToggle.OnContent" xml:space="preserve"><value>包含音频</value></data>
+  <data name="AudioToggle.OffContent" xml:space="preserve"><value>无音频</value></data>
+  <data name="AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>改善音频（主音轨将重新编码为 AAC）</value></data>
+  <data name="AudioDialogueItem.Text" xml:space="preserve"><value>对白更清晰</value></data>
+  <data name="AudioLoudnessItem.Text" xml:space="preserve"><value>均衡音量</value></data>
+  <data name="AudioDenoiseItem.Text" xml:space="preserve"><value>去除噪音和嘶声</value></data>
+  <data name="AudioUpmixItem.Text" xml:space="preserve"><value>将立体声上混为 5.1</value></data>
+  <data name="Audio_Original" xml:space="preserve"><value>原始音频</value></data>
+  <data name="Audio_ImprovedSummary" xml:space="preserve"><value>已改善：{0}</value></data>
+  <data name="Audio_ShortDialogue" xml:space="preserve"><value>对白</value></data>
+  <data name="Audio_ShortLoudness" xml:space="preserve"><value>音量</value></data>
+  <data name="Audio_ShortDenoise" xml:space="preserve"><value>噪音</value></data>
+  <data name="Audio_ShortUpmix" xml:space="preserve"><value>5.1</value></data>
+  <data name="Audio_ImprovedInfo" xml:space="preserve"><value>音频已改善</value></data>
+  <data name="OutputFileLabel.Text" xml:space="preserve"><value>输出文件</value></data>
+  <data name="OpenOutputButton.Content" xml:space="preserve"><value>打开</value></data>
+  <data name="LogExpander.Header" xml:space="preserve"><value>日志</value></data>
+  <data name="CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>复制日志</value></data>
+  <data name="LoadConfigButton.Label" xml:space="preserve"><value>加载配置</value></data>
+  <data name="LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>加载之前保存的放大设置</value></data>
+  <data name="SaveConfigButton.Label" xml:space="preserve"><value>保存配置</value></data>
+  <data name="SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>将当前放大设置保存到文件 (Ctrl+S)</value></data>
+  <data name="Picker_Config" xml:space="preserve"><value>AI Upscaler 配置</value></data>
+  <data name="Picker_ConfigName" xml:space="preserve"><value>放大设置</value></data>
+  <data name="Config_Saved" xml:space="preserve"><value>配置已保存</value></data>
+  <data name="Config_SaveFailed" xml:space="preserve"><value>无法保存配置</value></data>
+  <data name="Config_Loaded" xml:space="preserve"><value>配置已加载</value></data>
+  <data name="Config_LoadFailed" xml:space="preserve"><value>无法加载配置</value></data>
+  <data name="Config_NotConfig" xml:space="preserve"><value>{0} 不是 AI Upscaler 配置文件。</value></data>
+  <data name="Config_ModelMissing" xml:space="preserve"><value>此电脑上没有模型 {0}，因此保留了当前模型。请在“设置 → 模型”中导入该模型，然后重新加载配置。</value></data>
+  <data name="ThemeTitle.Text" xml:space="preserve"><value>主题</value></data>
+  <data name="ThemeDescription.Text" xml:space="preserve"><value>选择浅色或深色，或跟随 Windows。</value></data>
+  <data name="ThemeSystem.Content" xml:space="preserve"><value>使用 Windows 设置</value></data>
+  <data name="ThemeLight.Content" xml:space="preserve"><value>浅色</value></data>
+  <data name="ThemeDark.Content" xml:space="preserve"><value>深色</value></data>
+  <data name="LanguageTitle.Text" xml:space="preserve"><value>语言</value></data>
+  <data name="LanguageDescription.Text" xml:space="preserve"><value>应用文本的语言。</value></data>
+  <data name="LanguageRestartBar.Message" xml:space="preserve"><value>重启应用以使用新语言。</value></data>
+  <data name="RestartButton.Content" xml:space="preserve"><value>立即重启</value></data>
+  <data name="OutputFolderTitle.Text" xml:space="preserve"><value>默认输出文件夹</value></data>
+  <data name="OutputFolderDescription.Text" xml:space="preserve"><value>除非选择其他文件，否则放大后的视频将保存在此处。</value></data>
+  <data name="OutputNextToSourceRadio.Content" xml:space="preserve"><value>与源视频相同的文件夹</value></data>
+  <data name="OutputFolderRadio.Content" xml:space="preserve"><value>此文件夹：</value></data>
+  <data name="ChooseOutputFolderButton.Content" xml:space="preserve"><value>选择…</value></data>
+  <data name="ModelsDescription.Text" xml:space="preserve"><value>库中的 AI 模型 (.onnx) 会显示在放大设置的 AI 模型列表中。导入会将文件及其旁边的任何权重文件移动到库文件夹中。</value></data>
+  <data name="ImportModelText.Text" xml:space="preserve"><value>导入模型…</value></data>
+  <data name="OpenModelsFolderText.Text" xml:space="preserve"><value>打开文件夹</value></data>
+  <data name="ModelsEmptyText.Text" xml:space="preserve"><value>尚无模型。导入 .onnx 模型以开始使用。</value></data>
+  <data name="Status_Ready" xml:space="preserve"><value>就绪。</value></data>
+  <data name="Placeholder_Open" xml:space="preserve"><value>打开视频。所选帧的 AI 结果将显示在此处。</value></data>
+  <data name="Placeholder_PickFrame" xml:space="preserve"><value>在胶片条或时间线上选取一帧。其 AI 预览将显示在此处。</value></data>
+  <data name="Placeholder_Upscaling" xml:space="preserve"><value>正在放大此帧…</value></data>
+  <data name="Placeholder_Coming" xml:space="preserve"><value>停在此帧上时，将显示 {0} 的 AI 预览。</value></data>
+  <data name="Placeholder_Off" xml:space="preserve"><value>AI 预览已关闭。按 Ctrl+P 放大位于 {0} 的帧。</value></data>
+  <data name="Placeholder_PreviewFailed" xml:space="preserve"><value>预览失败。请查看“进度”选项卡中的日志。</value></data>
+  <data name="Placeholder_Live" xml:space="preserve"><value>放大后视频的实时预览每隔几秒显示在此处。</value></data>
+  <data name="Dur_Days" xml:space="preserve"><value>{0} 天 {1} 小时</value></data>
+  <data name="Dur_Hours" xml:space="preserve"><value>{0} 小时 {1} 分钟</value></data>
+  <data name="Dur_Minutes" xml:space="preserve"><value>{0} 分钟 {1} 秒</value></data>
+  <data name="Dur_Seconds" xml:space="preserve"><value>{0} 秒</value></data>
+  <data name="Time_Today" xml:space="preserve"><value>今天 {0}</value></data>
+  <data name="Size_MB" xml:space="preserve"><value>{0} MB</value></data>
+  <data name="Err_EngineMissing_Title" xml:space="preserve"><value>缺少引擎</value></data>
+  <data name="Err_EngineMissing" xml:space="preserve"><value>在应用旁边（engine 文件夹）找不到 ai-upscaler.exe。</value></data>
+  <data name="Err_FfmpegMissing_Title" xml:space="preserve"><value>找不到 FFmpeg</value></data>
+  <data name="Err_FfmpegMissing" xml:space="preserve"><value>使用以下命令安装：winget install Gyan.FFmpeg</value></data>
+  <data name="Err_FileNotFound_Title" xml:space="preserve"><value>找不到文件</value></data>
+  <data name="Err_ModelMissing_Title" xml:space="preserve"><value>找不到模型</value></data>
+  <data name="Err_ModelMissing" xml:space="preserve"><value>所选模型文件不存在。</value></data>
+  <data name="Err_EngineStart" xml:space="preserve"><value>无法启动引擎</value></data>
+  <data name="Err_ReadVideo_Title" xml:space="preserve"><value>无法读取视频</value></data>
+  <data name="Err_SeeLog" xml:space="preserve"><value>有关详细信息，请查看“进度”选项卡中的日志。</value></data>
+  <data name="Err_NoVideo_Title" xml:space="preserve"><value>请先打开视频</value></data>
+  <data name="Err_NoVideo" xml:space="preserve"><value>将视频拖放到“源”窗格，或使用其“浏览”按钮。</value></data>
+  <data name="Err_UpscaleFailed_Title" xml:space="preserve"><value>放大失败</value></data>
+  <data name="Source_Reading" xml:space="preserve"><value>正在读取…</value></data>
+  <data name="Source_Unreadable" xml:space="preserve"><value>无法读取此文件</value></data>
+  <data name="Source_Info" xml:space="preserve"><value>{0}×{1} · {2} · {3} fps · {4}</value></data>
+  <data name="Source_WithAudio" xml:space="preserve"><value>{0} · 音频</value></data>
+  <data name="Picker_Mp4" xml:space="preserve"><value>MP4 视频</value></data>
+  <data name="Picker_Mkv" xml:space="preserve"><value>Matroska 视频</value></data>
+  <data name="Picker_Mov" xml:space="preserve"><value>QuickTime 视频</value></data>
+  <data name="Picker_DefaultName" xml:space="preserve"><value>已放大</value></data>
+  <data name="Quality_1" xml:space="preserve"><value>最小文件</value></data>
+  <data name="Quality_2" xml:space="preserve"><value>小文件</value></data>
+  <data name="Quality_3" xml:space="preserve"><value>平衡</value></data>
+  <data name="Quality_4" xml:space="preserve"><value>高质量</value></data>
+  <data name="Quality_5" xml:space="preserve"><value>最佳质量（最大文件）</value></data>
+  <data name="Quality_Format" xml:space="preserve"><value>{0}/5 · {1}</value></data>
+  <data name="Drag_OpenAsSource" xml:space="preserve"><value>作为源打开</value></data>
+  <data name="Auto_Off" xml:space="preserve"><value>关闭 · 按 Ctrl+P 预览当前帧</value></data>
+  <data name="Auto_Countdown" xml:space="preserve"><value>3 秒后进行 AI 预览…</value></data>
+  <data name="Auto_Working" xml:space="preserve"><value>正在放大位于 {0} 的帧…</value></data>
+  <data name="Auto_Live" xml:space="preserve"><value>放大期间实时预览</value></data>
+  <data name="OutputInfo" xml:space="preserve"><value>AI ×{0} → 文件 {1} · 帧位于 {2}</value></data>
+  <data name="Log_ImageFailed" xml:space="preserve"><value>无法加载预览图像 {0}：{1}</value></data>
+  <data name="Log_ThumbsFailed" xml:space="preserve"><value>无法启动缩略图作业：{0}</value></data>
+  <data name="Film_GoTo" xml:space="preserve"><value>转到 {0}</value></data>
+  <data name="Hw_Checking" xml:space="preserve"><value>正在检查此电脑的 GPU…</value></data>
+  <data name="NotAvailable" xml:space="preserve"><value>{0} – 不可用</value></data>
+  <data name="Device_AutoCuda" xml:space="preserve"><value>自动（CUDA GPU）</value></data>
+  <data name="Device_AutoDml" xml:space="preserve"><value>自动（DirectML GPU）</value></data>
+  <data name="Device_AutoCpu" xml:space="preserve"><value>自动（仅 CPU）</value></data>
+  <data name="Device_DirectML" xml:space="preserve"><value>GPU – DirectML</value></data>
+  <data name="Device_NoDml" xml:space="preserve"><value>在此电脑上找不到 DirectX 12 GPU。</value></data>
+  <data name="Device_Cuda" xml:space="preserve"><value>GPU – CUDA (NVIDIA)</value></data>
+  <data name="Device_NoCuda" xml:space="preserve"><value>需要 NVIDIA GPU 和支持 CUDA 的引擎版本。</value></data>
+  <data name="Device_CudaNotBuilt" xml:space="preserve"><value>此版本不支持 CUDA。请使用 build.ps1 -Cuda 生成，或使用 DirectML（它同样可在 NVIDIA GPU 上运行）。</value></data>
+  <data name="Device_CudaRuntime" xml:space="preserve"><value>CUDA 无法启动。请安装 NVIDIA 驱动程序、CUDA 13 运行时和适用于 CUDA 13 的 cuDNN 9，并将它们的 bin 文件夹添加到 PATH。详细信息：{0}</value></data>
+  <data name="Codec_Gpu" xml:space="preserve"><value>{0} – GPU ({1})</value></data>
+  <data name="Codec_GpuPlain" xml:space="preserve"><value>{0} – GPU</value></data>
+  <data name="Codec_NoGpu" xml:space="preserve"><value>此电脑的 GPU 无法编码 {0}。</value></data>
+  <data name="Codec_NotInFfmpeg" xml:space="preserve"><value>此 FFmpeg 版本中未包含。</value></data>
+  <data name="Hw_Summary" xml:space="preserve"><value>AI 运行于 {0} · {1}</value></data>
+  <data name="Hw_AiCuda" xml:space="preserve"><value>CUDA GPU</value></data>
+  <data name="Hw_AiDml" xml:space="preserve"><value>DirectML GPU</value></data>
+  <data name="Hw_AiCpu" xml:space="preserve"><value>仅 CPU</value></data>
+  <data name="Hw_NoGpuEncode" xml:space="preserve"><value>无 GPU 视频编码</value></data>
+  <data name="Hw_GpuEncodes" xml:space="preserve"><value>{0} GPU 可编码 {1}</value></data>
+  <data name="Size_Fills" xml:space="preserve"><value>{0}（填满帧）</value></data>
+  <data name="Size_Crop" xml:space="preserve"><value>{0}（{1} 画面，裁剪边缘）</value></data>
+  <data name="Size_Stretch" xml:space="preserve"><value>{0}（{1} 画面拉伸为 16:9）</value></data>
+  <data name="Size_PadSides" xml:space="preserve"><value>{0}（{1} 画面，左右黑边）</value></data>
+  <data name="Size_PadTopBottom" xml:space="preserve"><value>{0}（{1} 画面，上下黑边）</value></data>
+  <data name="Size_Model" xml:space="preserve"><value>{0}（模型 ×{1}）</value></data>
+  <data name="Size_ModelUnknown" xml:space="preserve"><value>模型倍率：首次 AI 预览后可知</value></data>
+  <data name="Size_ModelShort" xml:space="preserve"><value>模型倍率</value></data>
+  <data name="Size_OpenVideo" xml:space="preserve"><value>打开视频以查看输出大小</value></data>
+  <data name="Summary_Begin" xml:space="preserve"><value>将视频拖放到“源”窗格以开始</value></data>
+  <data name="Summary" xml:space="preserve"><value>输出：{0} · {1} · 质量 {2}/5</value></data>
+  <data name="Summary_NoModel" xml:space="preserve"><value>{0} · 无 AI 模型</value></data>
+  <data name="Zoom_Fit" xml:space="preserve"><value>适应</value></data>
+  <data name="Lang_System" xml:space="preserve"><value>Windows 默认值</value></data>
+  <data name="Lang_RestartBusy" xml:space="preserve"><value>请先完成或取消放大，然后再重启。</value></data>
+  <data name="OutputFolder_None" xml:space="preserve"><value>未选择文件夹</value></data>
+  <data name="Model_None" xml:space="preserve"><value>无（Lanczos，无 AI）</value></data>
+  <data name="Model_External" xml:space="preserve"><value>{0}（不在库中）</value></data>
+  <data name="Models_Folder" xml:space="preserve"><value>库文件夹：{0}</value></data>
+  <data name="Models_InUse" xml:space="preserve"><value>{0}（使用中）</value></data>
+  <data name="Models_Details" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="Models_RemoveTip" xml:space="preserve"><value>移到回收站</value></data>
+  <data name="Models_Removed" xml:space="preserve"><value>已将 {0} 移到回收站。</value></data>
+  <data name="Models_RemoveFailed" xml:space="preserve"><value>无法删除 {0}。</value></data>
+  <data name="Models_Imported" xml:space="preserve"><value>已导入 {0}。该文件已移动到库中。</value></data>
+  <data name="Models_Exists" xml:space="preserve"><value>库中已有名为 {0} 的模型。</value></data>
+  <data name="Models_ImportFailed" xml:space="preserve"><value>无法导入 {0}。{1}</value></data>
+  <data name="Status_Loading" xml:space="preserve"><value>正在加载模型…</value></data>
+  <data name="Status_Cancelling" xml:space="preserve"><value>正在取消…</value></data>
+  <data name="Status_Cancelled" xml:space="preserve"><value>已取消。</value></data>
+  <data name="Status_Upscaling" xml:space="preserve"><value>正在放大…</value></data>
+  <data name="Status_UpscalingPreview" xml:space="preserve"><value>正在放大预览…</value></data>
+  <data name="Status_Finished" xml:space="preserve"><value>已完成，用时 {0}。</value></data>
+  <data name="Status_Failed" xml:space="preserve"><value>失败（退出代码 {0}）。</value></data>
+  <data name="JobInfo" xml:space="preserve"><value>{0}×{1} → AI {2}×{3} → 文件 {4}×{5} · {6} fps · {7} · {8}</value></data>
+  <data name="Audio_Kept" xml:space="preserve"><value>保留音频</value></data>
+  <data name="Audio_None" xml:space="preserve"><value>无音频</value></data>
+  <data name="Estimate_Left" xml:space="preserve"><value>剩余约 {0} · 预计完成时间 {1}</value></data>
+  <data name="Estimate_Whole" xml:space="preserve"><value>按此速度，整个视频大约需要 {0}。</value></data>
+  <data name="Progress_FramesEta" xml:space="preserve"><value>第 {0} 帧，共 {1} 帧 · {2} fps · 已用 {3} · 剩余 {4}</value></data>
+  <data name="Progress_Frames" xml:space="preserve"><value>第 {0} 帧，共 {1} 帧 · {2} fps · 已用 {3}</value></data>
+  <data name="Progress_FramesOnly" xml:space="preserve"><value>第 {0} 帧 · {1} fps · 已用 {2}</value></data>
+  <data name="Result_PreviewReady" xml:space="preserve"><value>预览已就绪</value></data>
+  <data name="Result_Complete" xml:space="preserve"><value>放大完成</value></data>
+  <data name="AppearanceNavText.Text" xml:space="preserve"><value>外观</value></data>
+  <data name="OutputNavText.Text" xml:space="preserve"><value>输出</value></data>
+  <data name="ModelsNavText.Text" xml:space="preserve"><value>模型</value></data>
+  <data name="SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>返回 (Esc)</value></data>
+  <data name="Section_Appearance" xml:space="preserve"><value>外观</value></data>
+  <data name="Section_Output" xml:space="preserve"><value>输出</value></data>
+  <data name="Section_Models" xml:space="preserve"><value>模型</value></data>
+  <data name="BatchTab.Text" xml:space="preserve"><value>批处理</value></data>
+  <data name="BatchAddText.Text" xml:space="preserve"><value>添加视频…</value></data>
+  <data name="BatchAddCurrentButton.Content" xml:space="preserve"><value>添加当前视频</value></data>
+  <data name="BatchClearButton.Content" xml:space="preserve"><value>清除列表</value></data>
+  <data name="BatchStartText.Text" xml:space="preserve"><value>全部放大</value></data>
+  <data name="BatchEmptyText.Text" xml:space="preserve"><value>将视频或文件夹拖放到此处，或使用“添加视频”。每个视频将依次使用当前放大设置进行放大。</value></data>
+  <data name="Unsaved_Save" xml:space="preserve"><value>保存</value></data>
+  <data name="Unsaved_DontSave" xml:space="preserve"><value>不保存</value></data>
+  <data name="Unsaved_Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="Err_BatchEmpty_Title" xml:space="preserve"><value>请先将视频添加到批处理</value></data>
+  <data name="Err_BatchEmpty" xml:space="preserve"><value>将视频拖放到“批处理”选项卡，或使用“添加视频”。</value></data>
+  <data name="Batch_Waiting" xml:space="preserve"><value>等待中</value></data>
+  <data name="Batch_Running" xml:space="preserve"><value>正在放大… {0}%</value></data>
+  <data name="Batch_Done" xml:space="preserve"><value>已完成，用时 {0}</value></data>
+  <data name="Batch_Failed" xml:space="preserve"><value>失败（退出代码 {0}）</value></data>
+  <data name="Batch_Cancelled" xml:space="preserve"><value>已取消</value></data>
+  <data name="Batch_NotFound" xml:space="preserve"><value>找不到文件</value></data>
+  <data name="Batch_SavedAs" xml:space="preserve"><value>已另存为 {0}</value></data>
+  <data name="Batch_RemoveTip" xml:space="preserve"><value>从列表中删除</value></data>
+  <data name="Batch_Summary" xml:space="preserve"><value>{0} 个视频 · 已完成 {1} 个</value></data>
+  <data name="Batch_Item" xml:space="preserve"><value>第 {0} 个视频，共 {1} 个：{2}</value></data>
+  <data name="Batch_Result" xml:space="preserve"><value>已放大 {0}/{1} 个视频。</value></data>
+  <data name="Batch_Complete_Title" xml:space="preserve"><value>批处理完成</value></data>
+  <data name="Batch_Partial_Title" xml:space="preserve"><value>部分视频未放大</value></data>
+  <data name="Status_BatchCancelled" xml:space="preserve"><value>批处理已取消。尚未放大的视频仍保留在列表中。</value></data>
+  <data name="Placeholder_BatchOther" xml:space="preserve"><value>正在放大 {0}。仅对工作室中打开的视频显示实时预览。</value></data>
+  <data name="Drag_AddToBatch" xml:space="preserve"><value>添加到批处理</value></data>
+  <data name="Log_BatchNotFound" xml:space="preserve"><value>已跳过 {0}：找不到文件。</value></data>
+  <data name="SaveConfigAsButton.Label" xml:space="preserve"><value>另存为</value></data>
+  <data name="SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>将当前放大设置保存到新文件 (Ctrl+Shift+S)</value></data>
+  <data name="Config_Untitled" xml:space="preserve"><value>未保存的配置</value></data>
+  <data name="Unsaved_Title" xml:space="preserve"><value>是否要保存对 {0} 的更改？</value></data>
+  <data name="Unsaved_TitleNew" xml:space="preserve"><value>是否要将放大设置保存为配置？</value></data>
+  <data name="Unsaved_Message" xml:space="preserve"><value>如果不保存，对放大设置所做的更改将会丢失。</value></data>
+  <data name="FormatCombo.Header" xml:space="preserve"><value>格式</value></data>
+  <data name="FormatCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>MKV 还会保留源中的字幕轨道和字体</value></data>
+</root>

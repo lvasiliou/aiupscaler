@@ -1,6 +1,6 @@
 param([string]$Table = (Join-Path $PSScriptRoot "strings.tsv"), [string]$StringsDir = $PSScriptRoot)
-# Generates <lang>\Resources.resw from strings.tsv (key<TAB>English<TAB>Greek).
-# To change or translate text: edit strings.tsv, then run .\make-resw.ps1
+# Generates <lang>\Resources.resw from strings.tsv: key, then one column per language in the
+# order of $languages below. To change or translate text: edit strings.tsv, then run .\make-resw.ps1
 $ErrorActionPreference = 'Stop'
 $header = @'
 <?xml version="1.0" encoding="utf-8"?>
@@ -10,14 +10,21 @@ $header = @'
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
 '@
+$languages = 'en-US', 'el-GR', 'de-DE', 'fr-FR', 'zh-CN', 'tr-TR', 'ja-JP'
 $rows = Get-Content -LiteralPath $Table -Encoding UTF8 | Where-Object { $_.Trim() -ne '' } | ForEach-Object { , ($_ -split "`t") }
 $seen = @{}
 foreach ($row in $rows) {
-    if ($row.Count -ne 3) { throw "Bad row (needs 3 columns): $($row -join ' | ')" }
+    if ($row.Count -ne $languages.Count + 1) { throw "Bad row (needs $($languages.Count + 1) columns): $($row -join ' | ')" }
+    # Code fills {0}, {1}...: every translation must keep the English placeholders.
+    $placeholders = [regex]::Matches($row[1], '\{\d+\}') | ForEach-Object Value | Sort-Object -Unique
+    for ($col = 2; $col -lt $row.Count; $col++) {
+        $found = [regex]::Matches($row[$col], '\{\d+\}') | ForEach-Object Value | Sort-Object -Unique
+        if ((@($placeholders) -join ',') -ne (@($found) -join ',')) { throw "Placeholders differ in $($languages[$col - 1]) for $($row[0])" }
+    }
     if ($seen.ContainsKey($row[0])) { throw "Duplicate key: $($row[0])" }
     $seen[$row[0]] = $true
 }
-foreach ($lang in @(@{ Tag = 'en-US'; Col = 1 }, @{ Tag = 'el-GR'; Col = 2 })) {
+foreach ($lang in (0..($languages.Count - 1) | ForEach-Object { @{ Tag = $languages[$_]; Col = $_ + 1 } })) {
     $sb = [System.Text.StringBuilder]::new($header)
     foreach ($row in $rows) {
         $name = [System.Security.SecurityElement]::Escape($row[0])

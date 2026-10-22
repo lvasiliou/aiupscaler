@@ -27,7 +27,7 @@ Source video ──ffmpeg decode──▶ ONNX model on GPU ──ffmpeg encode�
   unsaved changes asks to save them.
 - **Model library**: import `.onnx` models once, then pick them by name.
 - **Hardware-aware**: options this PC can't run are greyed out with the reason.
-- English and Greek UI, light and dark themes.
+- English, Greek, German, French, Simplified Chinese, Turkish and Japanese UI; light and dark themes.
 
 ## Requirements
 

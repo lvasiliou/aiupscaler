@@ -1,247 +1,247 @@
-AppTitleText.Text	AI Upscaler Studio	AI Upscaler Studio
-PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Try settings on a short clip first; previews are saved as *_preview.mp4	Δοκιμάστε τις ρυθμίσεις σε σύντομο απόσπασμα πρώτα· οι δοκιμές αποθηκεύονται ως *_preview.mp4
-PreviewWhole.Content	Whole video	Ολόκληρο το βίντεο
-Preview10.Content	Preview: first 10 s	Δοκιμή: πρώτα 10 δευτ.
-Preview30.Content	Preview: first 30 s	Δοκιμή: πρώτα 30 δευτ.
-Preview60.Content	Preview: first 60 s	Δοκιμή: πρώτα 60 δευτ.
-CancelButton.Content	Cancel	Ακύρωση
-StartButtonText.Text	Upscale	Αναβάθμιση
-AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Settings	Ρυθμίσεις
-SourceHeader.Text	Source	Πηγή
-OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Open a different video (Ctrl+O)	Άνοιγμα άλλου βίντεο (Ctrl+O)
-DropZoneTitle.Text	Drop a video here	Αφήστε ένα βίντεο εδώ
-DropZoneOr.Text	or	ή
-DropZoneBrowse.Content	Browse…	Αναζήτηση…
-UpscaledHeader.Text	Upscaled	Αναβαθμισμένο
-AutoPreviewCheck.Content	Generate AI previews	Δημιουργία προεπισκοπήσεων AI
-AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Upscale the selected frame 3 seconds after you stop moving the timeline. Ctrl+P previews right away.	Αναβαθμίζει το επιλεγμένο καρέ 3 δευτερόλεπτα αφού σταματήσετε να μετακινείτε τη γραμμή χρόνου. Το Ctrl+P κάνει προεπισκόπηση αμέσως.
-ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Switch between fitting the frame and 100% pixels (1:1)	Εναλλαγή μεταξύ προσαρμογής καρέ και πραγματικού μεγέθους (1:1)
-UpscaleSettingsTab.Text	Upscale settings	Ρυθμίσεις αναβάθμισης
-ProgressTab.Text	Progress	Πρόοδος
-ModelCombo.Header	AI model	Μοντέλο AI
-ManageModelsButton.Content	Manage…	Διαχείριση…
-OutputBox.Header	Output video	Βίντεο εξόδου
-OutputBox.PlaceholderText	Where to save the upscaled video	Πού θα αποθηκευτεί το αναβαθμισμένο βίντεο
-OutputButton.Content	Browse…	Αναζήτηση…
-DeviceCombo.Header	AI device	Συσκευή AI
-DeviceAuto.Content	Automatic (best available)	Αυτόματα (η καλύτερη διαθέσιμη)
-DeviceDirectML.Content	GPU – DirectML	GPU – DirectML
-DeviceCuda.Content	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)
-DeviceCpu.Content	CPU	CPU
-HeightCombo.Header	Output size	Μέγεθος εξόδου
-SizeModel.Content	Model scale (e.g. ×4)	Κλίμακα μοντέλου (π.χ. ×4)
-FitCombo.Header	Picture shape	Σχήμα εικόνας
-FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	How a 4:3 (or other) picture fills a 16:9 frame	Πώς μια εικόνα 4:3 (ή άλλη) γεμίζει ένα καρέ 16:9
-FitPad.Content	Black bars (keep shape)	Μαύρες λωρίδες (διατήρηση σχήματος)
-FitCrop.Content	Crop to fill	Περικοπή για γέμισμα
-FitStretch.Content	Stretch to fill	Τέντωμα για γέμισμα
-CodecCombo.Header	Video encoder	Κωδικοποιητής βίντεο
-QualitySlider.Header	Quality	Ποιότητα
-TileBox.Header	Tile size (0 = auto)	Μέγεθος πλακιδίου (0 = αυτόματα)
-AudioToggle.Header	Audio	Ήχος
-AudioToggle.OnContent	Include audio	Με ήχο
-AudioToggle.OffContent	No audio	Χωρίς ήχο
-AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Improve the audio (the main track is re-encoded as AAC)	Βελτίωση του ήχου (το κύριο κομμάτι επανακωδικοποιείται σε AAC)
-AudioDialogueItem.Text	Clearer dialogue	Καθαρότεροι διάλογοι
-AudioLoudnessItem.Text	Even out volume	Εξισορρόπηση έντασης
-AudioDenoiseItem.Text	Remove noise and hiss	Αφαίρεση θορύβου και συριγμού
-AudioUpmixItem.Text	Upmix stereo to 5.1	Μετατροπή στερεοφωνικού σε 5.1
-Audio_Original	Original audio	Αρχικός ήχος
-Audio_ImprovedSummary	Improved: {0}	Βελτιωμένος: {0}
-Audio_ShortDialogue	dialogue	διάλογοι
-Audio_ShortLoudness	volume	ένταση
-Audio_ShortDenoise	noise	θόρυβος
-Audio_ShortUpmix	5.1	5.1
-Audio_ImprovedInfo	audio improved	βελτιωμένος ήχος
-OutputFileLabel.Text	Output file	Αρχείο εξόδου
-OpenOutputButton.Content	Open	Άνοιγμα
-LogExpander.Header	Log	Αρχείο καταγραφής
-CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Copy log	Αντιγραφή αρχείου καταγραφής
-LoadConfigButton.Label	Load configuration	Φόρτωση ρυθμίσεων
-LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Load upscale settings saved earlier	Φόρτωση ρυθμίσεων αναβάθμισης που αποθηκεύτηκαν νωρίτερα
-SaveConfigButton.Label	Save configuration	Αποθήκευση ρυθμίσεων
-SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Save the current upscale settings to a file (Ctrl+S)	Αποθήκευση των τρεχουσών ρυθμίσεων αναβάθμισης σε αρχείο (Ctrl+S)
-Picker_Config	AI Upscaler configuration	Ρυθμίσεις AI Upscaler
-Picker_ConfigName	upscale settings	ρυθμίσεις αναβάθμισης
-Config_Saved	Configuration saved	Οι ρυθμίσεις αποθηκεύτηκαν
-Config_SaveFailed	Couldn't save the configuration	Δεν ήταν δυνατή η αποθήκευση των ρυθμίσεων
-Config_Loaded	Configuration loaded	Οι ρυθμίσεις φορτώθηκαν
-Config_LoadFailed	Couldn't load the configuration	Δεν ήταν δυνατή η φόρτωση των ρυθμίσεων
-Config_NotConfig	{0} isn't an AI Upscaler configuration file.	Το {0} δεν είναι αρχείο ρυθμίσεων του AI Upscaler.
-Config_ModelMissing	The model {0} isn't on this PC, so the current model was kept. Import it in Settings → Models, then load the configuration again.	Το μοντέλο {0} δεν υπάρχει σε αυτόν τον υπολογιστή, οπότε διατηρήθηκε το τρέχον. Εισαγάγετέ το από Ρυθμίσεις → Μοντέλα και φορτώστε ξανά τις ρυθμίσεις.
-ThemeTitle.Text	Theme	Θέμα
-ThemeDescription.Text	Choose light or dark, or follow Windows.	Επιλέξτε φωτεινό ή σκοτεινό, ή ακολουθήστε τα Windows.
-ThemeSystem.Content	Use Windows setting	Ρύθμιση των Windows
-ThemeLight.Content	Light	Φωτεινό
-ThemeDark.Content	Dark	Σκοτεινό
-LanguageTitle.Text	Language	Γλώσσα
-LanguageDescription.Text	The language of the app's text.	Η γλώσσα των κειμένων της εφαρμογής.
-LanguageRestartBar.Message	Restart the app to use the new language.	Επανεκκινήστε την εφαρμογή για να χρησιμοποιηθεί η νέα γλώσσα.
-RestartButton.Content	Restart now	Επανεκκίνηση τώρα
-OutputFolderTitle.Text	Default output folder	Προεπιλεγμένος φάκελος εξόδου
-OutputFolderDescription.Text	Where upscaled videos are saved unless you choose another file.	Πού αποθηκεύονται τα αναβαθμισμένα βίντεο, εκτός αν επιλέξετε άλλο αρχείο.
-OutputNextToSourceRadio.Content	Same folder as the source video	Ίδιος φάκελος με το βίντεο πηγής
-OutputFolderRadio.Content	This folder:	Αυτός ο φάκελος:
-ChooseOutputFolderButton.Content	Choose…	Επιλογή…
-ModelsDescription.Text	AI models (.onnx) in the library appear in the AI model list of the upscale settings. Importing moves the file, and any weights file next to it, into the library folder.	Τα μοντέλα AI (.onnx) της βιβλιοθήκης εμφανίζονται στη λίστα μοντέλων των ρυθμίσεων αναβάθμισης. Η εισαγωγή μετακινεί το αρχείο, και όποιο αρχείο βαρών βρίσκεται δίπλα του, στον φάκελο της βιβλιοθήκης.
-ImportModelText.Text	Import model…	Εισαγωγή μοντέλου…
-OpenModelsFolderText.Text	Open folder	Άνοιγμα φακέλου
-ModelsEmptyText.Text	No models yet. Import an .onnx model to get started.	Δεν υπάρχουν ακόμα μοντέλα. Εισαγάγετε ένα μοντέλο .onnx για να ξεκινήσετε.
-Status_Ready	Ready.	Έτοιμο.
-Placeholder_Open	Open a video. The AI result of the selected frame appears here.	Ανοίξτε ένα βίντεο. Το αποτέλεσμα AI του επιλεγμένου καρέ εμφανίζεται εδώ.
-Placeholder_PickFrame	Pick a frame on the film strip or timeline. Its AI preview appears here.	Επιλέξτε ένα καρέ στο φιλμ ή στη γραμμή χρόνου. Η προεπισκόπηση AI του εμφανίζεται εδώ.
-Placeholder_Upscaling	Upscaling this frame…	Αναβάθμιση αυτού του καρέ…
-Placeholder_Coming	The AI preview of {0} appears when you stop on this frame.	Η προεπισκόπηση AI του {0} εμφανίζεται όταν σταθείτε σε αυτό το καρέ.
-Placeholder_Off	AI previews are off. Press Ctrl+P to upscale the frame at {0}.	Οι προεπισκοπήσεις AI είναι απενεργοποιημένες. Πατήστε Ctrl+P για να αναβαθμίσετε το καρέ στο {0}.
-Placeholder_PreviewFailed	The preview failed. See the log in the Progress tab.	Η προεπισκόπηση απέτυχε. Δείτε το αρχείο καταγραφής στην καρτέλα Πρόοδος.
-Placeholder_Live	Live previews of the upscaled video appear here every few seconds.	Ζωντανές προεπισκοπήσεις του αναβαθμισμένου βίντεο εμφανίζονται εδώ κάθε λίγα δευτερόλεπτα.
-Dur_Days	{0} d {1} h	{0} ημ. {1} ώρ.
-Dur_Hours	{0} h {1} min	{0} ώρ. {1} λεπ.
-Dur_Minutes	{0} min {1} s	{0} λεπ. {1} δευτ.
-Dur_Seconds	{0} s	{0} δευτ.
-Time_Today	today {0}	σήμερα {0}
-Size_MB	{0} MB	{0} MB
-Err_EngineMissing_Title	Engine missing	Λείπει η μηχανή
-Err_EngineMissing	ai-upscaler.exe was not found next to the app (engine folder).	Το ai-upscaler.exe δεν βρέθηκε δίπλα στην εφαρμογή (φάκελος engine).
-Err_FfmpegMissing_Title	FFmpeg not found	Δεν βρέθηκε το FFmpeg
-Err_FfmpegMissing	Install it with: winget install Gyan.FFmpeg	Εγκαταστήστε το με: winget install Gyan.FFmpeg
-Err_FileNotFound_Title	File not found	Το αρχείο δεν βρέθηκε
-Err_ModelMissing_Title	Model not found	Το μοντέλο δεν βρέθηκε
-Err_ModelMissing	The selected model file doesn't exist.	Το επιλεγμένο αρχείο μοντέλου δεν υπάρχει.
-Err_EngineStart	Couldn't start the engine	Δεν ήταν δυνατή η εκκίνηση της μηχανής
-Err_ReadVideo_Title	Couldn't read the video	Δεν ήταν δυνατή η ανάγνωση του βίντεο
-Err_SeeLog	See the log in the Progress tab for details.	Δείτε το αρχείο καταγραφής στην καρτέλα Πρόοδος για λεπτομέρειες.
-Err_NoVideo_Title	Open a video first	Ανοίξτε πρώτα ένα βίντεο
-Err_NoVideo	Drop a video on the Source pane, or use its Browse button.	Αφήστε ένα βίντεο στο πλαίσιο Πηγή ή χρησιμοποιήστε το κουμπί Αναζήτηση.
-Err_UpscaleFailed_Title	Upscale failed	Η αναβάθμιση απέτυχε
-Source_Reading	Reading…	Ανάγνωση…
-Source_Unreadable	Couldn't read this file	Δεν ήταν δυνατή η ανάγνωση αυτού του αρχείου
-Source_Info	{0}×{1} · {2} · {3} fps · {4}	{0}×{1} · {2} · {3} fps · {4}
-Source_WithAudio	{0} · audio	{0} · ήχος
-Picker_Mp4	MP4 video	Βίντεο MP4
-Picker_Mkv	Matroska video	Βίντεο Matroska
-Picker_Mov	QuickTime video	Βίντεο QuickTime
-Picker_DefaultName	upscaled	αναβαθμισμένο
-Quality_1	Smallest file	Μικρότερο αρχείο
-Quality_2	Small file	Μικρό αρχείο
-Quality_3	Balanced	Ισορροπημένο
-Quality_4	High quality	Υψηλή ποιότητα
-Quality_5	Best quality (largest file)	Βέλτιστη ποιότητα (μεγαλύτερο αρχείο)
-Quality_Format	{0} of 5 · {1}	{0} από 5 · {1}
-Drag_OpenAsSource	Open as source	Άνοιγμα ως πηγή
-Auto_Off	Off · Ctrl+P previews the current frame	Ανενεργό · Ctrl+P για προεπισκόπηση του καρέ
-Auto_Countdown	AI preview in 3 s…	Προεπισκόπηση AI σε 3 δευτ.…
-Auto_Working	Upscaling frame at {0}…	Αναβάθμιση καρέ στο {0}…
-Auto_Live	Live previews while upscaling	Ζωντανές προεπισκοπήσεις κατά την αναβάθμιση
-OutputInfo	AI ×{0} → file {1} · frame at {2}	AI ×{0} → αρχείο {1} · καρέ στο {2}
-Log_ImageFailed	Couldn't load preview image {0}: {1}	Δεν ήταν δυνατή η φόρτωση της εικόνας {0}: {1}
-Log_ThumbsFailed	Couldn't start the thumbnail job: {0}	Δεν ήταν δυνατή η δημιουργία μικρογραφιών: {0}
-Film_GoTo	Go to {0}	Μετάβαση στο {0}
-Hw_Checking	Checking this PC's GPU…	Έλεγχος της GPU του υπολογιστή…
-NotAvailable	{0} – not available	{0} – μη διαθέσιμο
-Device_AutoCuda	Automatic (CUDA GPU)	Αυτόματα (GPU CUDA)
-Device_AutoDml	Automatic (DirectML GPU)	Αυτόματα (GPU DirectML)
-Device_AutoCpu	Automatic (CPU only)	Αυτόματα (μόνο CPU)
-Device_DirectML	GPU – DirectML	GPU – DirectML
-Device_NoDml	No DirectX 12 GPU was found on this PC.	Δεν βρέθηκε GPU DirectX 12 σε αυτόν τον υπολογιστή.
-Device_Cuda	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)
-Device_NoCuda	Needs an NVIDIA GPU and an engine built with CUDA support.	Απαιτεί GPU NVIDIA και μηχανή με υποστήριξη CUDA.
-Device_CudaNotBuilt	This build has no CUDA support. Build it with build.ps1 -Cuda, or use DirectML, which also runs on NVIDIA GPUs.	Αυτή η έκδοση δεν υποστηρίζει CUDA. Δημιουργήστε την με build.ps1 -Cuda ή χρησιμοποιήστε DirectML, που λειτουργεί και σε GPU NVIDIA.
-Device_CudaRuntime	CUDA could not start. Install an NVIDIA driver, the CUDA 13 runtime and cuDNN 9 for CUDA 13, with their bin folders on PATH. Details: {0}	Το CUDA δεν μπόρεσε να ξεκινήσει. Εγκαταστήστε οδηγό NVIDIA, το CUDA 13 και το cuDNN 9 για CUDA 13, με τους φακέλους bin τους στο PATH. Λεπτομέρειες: {0}
-Codec_Gpu	{0} – GPU ({1})	{0} – GPU ({1})
-Codec_GpuPlain	{0} – GPU	{0} – GPU
-Codec_NoGpu	This PC's GPU can't encode {0}.	Η GPU αυτού του υπολογιστή δεν μπορεί να κωδικοποιήσει {0}.
-Codec_NotInFfmpeg	Not included in this FFmpeg build.	Δεν περιλαμβάνεται σε αυτή την έκδοση του FFmpeg.
-Hw_Summary	AI on {0} · {1}	AI σε {0} · {1}
-Hw_AiCuda	CUDA GPU	GPU CUDA
-Hw_AiDml	DirectML GPU	GPU DirectML
-Hw_AiCpu	CPU only	μόνο CPU
-Hw_NoGpuEncode	no GPU video encoding	χωρίς κωδικοποίηση βίντεο στη GPU
-Hw_GpuEncodes	{0} GPU encodes {1}	η GPU {0} κωδικοποιεί {1}
-Size_Fills	{0} (fills the frame)	{0} (γεμίζει το καρέ)
-Size_Crop	{0} ({1} picture, edges cropped)	{0} (εικόνα {1}, περικομμένες άκρες)
-Size_Stretch	{0} ({1} picture stretched to 16:9)	{0} (εικόνα {1} τεντωμένη σε 16:9)
-Size_PadSides	{0} ({1} picture, black side bars)	{0} (εικόνα {1}, μαύρες πλαϊνές λωρίδες)
-Size_PadTopBottom	{0} ({1} picture, black bars above and below)	{0} (εικόνα {1}, μαύρες λωρίδες πάνω και κάτω)
-Size_Model	{0} (model ×{1})	{0} (μοντέλο ×{1})
-Size_ModelUnknown	Model scale: known after the first AI preview	Κλίμακα μοντέλου: γνωστή μετά την πρώτη προεπισκόπηση AI
-Size_ModelShort	model scale	κλίμακα μοντέλου
-Size_OpenVideo	Open a video to see the output size	Ανοίξτε ένα βίντεο για να δείτε το μέγεθος εξόδου
-Summary_Begin	Drop a video on the Source pane to begin	Αφήστε ένα βίντεο στο πλαίσιο Πηγή για να ξεκινήσετε
-Summary	Output: {0} · {1} · quality {2}/5	Έξοδος: {0} · {1} · ποιότητα {2}/5
-Summary_NoModel	{0} · no AI model	{0} · χωρίς μοντέλο AI
-Zoom_Fit	Fit	Προσαρμογή
-Lang_System	Windows default	Προεπιλογή Windows
-Lang_RestartBusy	Finish or cancel the upscale before restarting.	Ολοκληρώστε ή ακυρώστε την αναβάθμιση πριν την επανεκκίνηση.
-OutputFolder_None	No folder chosen	Δεν έχει επιλεγεί φάκελος
-Model_None	None (Lanczos, no AI)	Κανένα (Lanczos, χωρίς AI)
-Model_External	{0} (not in library)	{0} (εκτός βιβλιοθήκης)
-Models_Folder	Library folder: {0}	Φάκελος βιβλιοθήκης: {0}
-Models_InUse	{0} (in use)	{0} (σε χρήση)
-Models_Details	{0} · {1}	{0} · {1}
-Models_RemoveTip	Move to Recycle Bin	Μετακίνηση στον Κάδο Ανακύκλωσης
-Models_Removed	Moved {0} to the Recycle Bin.	Το {0} μετακινήθηκε στον Κάδο Ανακύκλωσης.
-Models_RemoveFailed	Couldn't remove {0}.	Δεν ήταν δυνατή η κατάργηση του {0}.
-Models_Imported	Imported {0}. The file was moved into the library.	Έγινε εισαγωγή του {0}. Το αρχείο μετακινήθηκε στη βιβλιοθήκη.
-Models_Exists	A model named {0} is already in the library.	Υπάρχει ήδη μοντέλο με το όνομα {0} στη βιβλιοθήκη.
-Models_ImportFailed	Couldn't import {0}. {1}	Δεν ήταν δυνατή η εισαγωγή του {0}. {1}
-Status_Loading	Loading model…	Φόρτωση μοντέλου…
-Status_Cancelling	Cancelling…	Ακύρωση…
-Status_Cancelled	Cancelled.	Ακυρώθηκε.
-Status_Upscaling	Upscaling…	Αναβάθμιση…
-Status_UpscalingPreview	Upscaling preview…	Αναβάθμιση δοκιμής…
-Status_Finished	Finished in {0}.	Ολοκληρώθηκε σε {0}.
-Status_Failed	Failed (exit code {0}).	Απέτυχε (κωδικός εξόδου {0}).
-JobInfo	{0}×{1} → AI {2}×{3} → file {4}×{5} · {6} fps · {7} · {8}	{0}×{1} → AI {2}×{3} → αρχείο {4}×{5} · {6} fps · {7} · {8}
-Audio_Kept	audio kept	με ήχο
-Audio_None	no audio	χωρίς ήχο
-Estimate_Left	About {0} left · done around {1}	Απομένουν περίπου {0} · τέλος γύρω στις {1}
-Estimate_Whole	The whole video would take about {0} at this speed.	Ολόκληρο το βίντεο θα χρειαζόταν περίπου {0} με αυτή την ταχύτητα.
-Progress_FramesEta	Frame {0} of {1} · {2} fps · {3} elapsed · {4} left	Καρέ {0} από {1} · {2} fps · {3} πέρασαν · απομένουν {4}
-Progress_Frames	Frame {0} of {1} · {2} fps · {3} elapsed	Καρέ {0} από {1} · {2} fps · {3} πέρασαν
-Progress_FramesOnly	Frame {0} · {1} fps · {2} elapsed	Καρέ {0} · {1} fps · {2} πέρασαν
-Result_PreviewReady	Preview ready	Η δοκιμή είναι έτοιμη
-Result_Complete	Upscale complete	Η αναβάθμιση ολοκληρώθηκε
-AppearanceNavText.Text	Appearance	Εμφάνιση
-OutputNavText.Text	Output	Έξοδος
-ModelsNavText.Text	Models	Μοντέλα
-SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Back (Esc)	Πίσω (Esc)
-Section_Appearance	Appearance	Εμφάνιση
-Section_Output	Output	Έξοδος
-Section_Models	Models	Μοντέλα
-BatchTab.Text	Batch	Μαζική επεξεργασία
-BatchAddText.Text	Add videos…	Προσθήκη βίντεο…
-BatchAddCurrentButton.Content	Add current video	Προσθήκη τρέχοντος βίντεο
-BatchClearButton.Content	Clear list	Εκκαθάριση λίστας
-BatchStartText.Text	Upscale all	Αναβάθμιση όλων
-BatchEmptyText.Text	Drop videos or a folder here, or use Add videos. Each one is upscaled with the current upscale settings, one after another.	Αφήστε εδώ βίντεο ή φάκελο ή χρησιμοποιήστε την Προσθήκη βίντεο. Κάθε βίντεο αναβαθμίζεται με τις τρέχουσες ρυθμίσεις αναβάθμισης, το ένα μετά το άλλο.
-Unsaved_Save	Save	Αποθήκευση
-Unsaved_DontSave	Don't save	Χωρίς αποθήκευση
-Unsaved_Cancel	Cancel	Ακύρωση
-Err_BatchEmpty_Title	Add videos to the batch first	Προσθέστε πρώτα βίντεο στη μαζική επεξεργασία
-Err_BatchEmpty	Drop videos on the Batch tab, or use Add videos.	Αφήστε βίντεο στην καρτέλα Μαζική επεξεργασία ή χρησιμοποιήστε την Προσθήκη βίντεο.
-Batch_Waiting	Waiting	Σε αναμονή
-Batch_Running	Upscaling… {0}%	Αναβάθμιση… {0}%
-Batch_Done	Done in {0}	Ολοκληρώθηκε σε {0}
-Batch_Failed	Failed (exit code {0})	Απέτυχε (κωδικός εξόδου {0})
-Batch_Cancelled	Cancelled	Ακυρώθηκε
-Batch_NotFound	File not found	Το αρχείο δεν βρέθηκε
-Batch_SavedAs	Saved as {0}	Αποθηκεύτηκε ως {0}
-Batch_RemoveTip	Remove from the list	Αφαίρεση από τη λίστα
-Batch_Summary	{0} videos · {1} done	{0} βίντεο · {1} ολοκληρώθηκαν
-Batch_Item	Video {0} of {1}: {2}	Βίντεο {0} από {1}: {2}
-Batch_Result	{0} of {1} videos upscaled.	Αναβαθμίστηκαν {0} από {1} βίντεο.
-Batch_Complete_Title	Batch complete	Η μαζική επεξεργασία ολοκληρώθηκε
-Batch_Partial_Title	Some videos weren't upscaled	Ορισμένα βίντεο δεν αναβαθμίστηκαν
-Status_BatchCancelled	Batch cancelled. Videos not yet upscaled stay in the list.	Η μαζική επεξεργασία ακυρώθηκε. Τα βίντεο που δεν αναβαθμίστηκαν παραμένουν στη λίστα.
-Placeholder_BatchOther	Upscaling {0}. Live previews appear only for the video open in the studio.	Αναβάθμιση του {0}. Ζωντανές προεπισκοπήσεις εμφανίζονται μόνο για το βίντεο που είναι ανοιχτό στο στούντιο.
-Drag_AddToBatch	Add to batch	Προσθήκη στη μαζική επεξεργασία
-Log_BatchNotFound	Skipped {0}: file not found.	Παραλείφθηκε το {0}: το αρχείο δεν βρέθηκε.
-SaveConfigAsButton.Label	Save as	Αποθήκευση ως
-SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Save the current upscale settings to a new file (Ctrl+Shift+S)	Αποθήκευση των τρεχουσών ρυθμίσεων αναβάθμισης σε νέο αρχείο (Ctrl+Shift+S)
-Config_Untitled	Unsaved configuration	Μη αποθηκευμένες ρυθμίσεις
-Unsaved_Title	Do you want to save changes to {0}?	Θέλετε να αποθηκεύσετε τις αλλαγές στο {0};
-Unsaved_TitleNew	Do you want to save your upscale settings as a configuration?	Θέλετε να αποθηκεύσετε τις ρυθμίσεις αναβάθμισης σε αρχείο ρυθμίσεων;
-Unsaved_Message	Changes to the upscale settings are lost if they aren't saved.	Οι αλλαγές στις ρυθμίσεις αναβάθμισης θα χαθούν αν δεν αποθηκευτούν.
-FormatCombo.Header	Format	Μορφή
-FormatCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	MKV also keeps the source's subtitle tracks and fonts	Το MKV διατηρεί επίσης τους υπότιτλους και τις γραμματοσειρές της πηγής
+AppTitleText.Text	AI Upscaler Studio	AI Upscaler Studio	AI Upscaler Studio	AI Upscaler Studio	AI Upscaler Studio	AI Upscaler Studio	AI Upscaler Studio
+PreviewCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Try settings on a short clip first; previews are saved as *_preview.mp4	Δοκιμάστε τις ρυθμίσεις σε σύντομο απόσπασμα πρώτα· οι δοκιμές αποθηκεύονται ως *_preview.mp4	Testen Sie die Einstellungen zuerst an einem kurzen Clip. Vorschauen werden als *_preview.mp4 gespeichert.	Essayez d'abord les paramètres sur un court extrait ; les aperçus sont enregistrés sous *_preview.mp4	先在短片段上试用设置；预览保存为 *_preview.mp4	Ayarları önce kısa bir klipte deneyin; önizlemeler *_preview.mp4 olarak kaydedilir	まず短いクリップで設定を試してください。プレビューは *_preview.mp4 として保存されます
+PreviewWhole.Content	Whole video	Ολόκληρο το βίντεο	Gesamtes Video	Vidéo entière	整个视频	Videonun tamamı	動画全体
+Preview10.Content	Preview: first 10 s	Δοκιμή: πρώτα 10 δευτ.	Vorschau: erste 10 Sek.	Aperçu : 10 premières s	预览：前 10 秒	Önizleme: ilk 10 sn	プレビュー：最初の 10 秒
+Preview30.Content	Preview: first 30 s	Δοκιμή: πρώτα 30 δευτ.	Vorschau: erste 30 Sek.	Aperçu : 30 premières s	预览：前 30 秒	Önizleme: ilk 30 sn	プレビュー：最初の 30 秒
+Preview60.Content	Preview: first 60 s	Δοκιμή: πρώτα 60 δευτ.	Vorschau: erste 60 Sek.	Aperçu : 60 premières s	预览：前 60 秒	Önizleme: ilk 60 sn	プレビュー：最初の 60 秒
+CancelButton.Content	Cancel	Ακύρωση	Abbrechen	Annuler	取消	İptal	キャンセル
+StartButtonText.Text	Upscale	Αναβάθμιση	Hochskalieren	Agrandir	放大	Yükselt	アップスケール
+AppSettingsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Settings	Ρυθμίσεις	Einstellungen	Paramètres	设置	Ayarlar	設定
+SourceHeader.Text	Source	Πηγή	Quelle	Source	源	Kaynak	ソース
+OpenSourceButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Open a different video (Ctrl+O)	Άνοιγμα άλλου βίντεο (Ctrl+O)	Anderes Video öffnen (Ctrl+O)	Ouvrir une autre vidéo (Ctrl+O)	打开其他视频 (Ctrl+O)	Başka bir video aç (Ctrl+O)	別の動画を開く（Ctrl+O）
+DropZoneTitle.Text	Drop a video here	Αφήστε ένα βίντεο εδώ	Video hier ablegen	Déposez une vidéo ici	将视频拖放到此处	Videoyu buraya bırakın	ここに動画をドロップ
+DropZoneOr.Text	or	ή	oder	ou	或	veya	または
+DropZoneBrowse.Content	Browse…	Αναζήτηση…	Durchsuchen…	Parcourir…	浏览…	Gözat…	参照…
+UpscaledHeader.Text	Upscaled	Αναβαθμισμένο	Hochskaliert	Agrandie	已放大	Yükseltilmiş	アップスケール後
+AutoPreviewCheck.Content	Generate AI previews	Δημιουργία προεπισκοπήσεων AI	AI-Vorschauen erstellen	Générer des aperçus IA	生成 AI 预览	AI önizlemeleri oluştur	AI プレビューを生成する
+AutoPreviewCheck.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Upscale the selected frame 3 seconds after you stop moving the timeline. Ctrl+P previews right away.	Αναβαθμίζει το επιλεγμένο καρέ 3 δευτερόλεπτα αφού σταματήσετε να μετακινείτε τη γραμμή χρόνου. Το Ctrl+P κάνει προεπισκόπηση αμέσως.	Der ausgewählte Frame wird 3 Sekunden, nachdem Sie die Zeitachse nicht mehr bewegen, hochskaliert. Mit Ctrl+P wird sofort eine Vorschau erstellt.	Agrandit l'image sélectionnée 3 secondes après l'arrêt du déplacement sur la chronologie. Ctrl+P affiche l'aperçu immédiatement.	停止移动时间线 3 秒后放大所选帧。按 Ctrl+P 可立即预览。	Zaman çizelgesini hareket ettirmeyi bıraktıktan 3 saniye sonra seçili kareyi yükseltir. Ctrl+P hemen önizleme yapar.	タイムラインの移動を止めてから 3 秒後に、選択したフレームをアップスケールします。Ctrl+P を押すとすぐにプレビューします。
+ZoomToggle.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Switch between fitting the frame and 100% pixels (1:1)	Εναλλαγή μεταξύ προσαρμογής καρέ και πραγματικού μεγέθους (1:1)	Zwischen Einpassen des Frames und 100 % Pixeln (1:1) wechseln	Basculer entre l'ajustement de l'image et les pixels à 100 % (1:1)	在适应帧和 100% 像素 (1:1) 之间切换	Kareyi sığdırma ile %100 piksel (1:1) arasında geçiş yap	フレームに合わせる表示と 100% ピクセル（1:1）表示を切り替えます
+UpscaleSettingsTab.Text	Upscale settings	Ρυθμίσεις αναβάθμισης	Hochskalierungseinstellungen	Paramètres d'agrandissement	放大设置	Yükseltme ayarları	アップスケール設定
+ProgressTab.Text	Progress	Πρόοδος	Fortschritt	Progression	进度	İlerleme	進行状況
+ModelCombo.Header	AI model	Μοντέλο AI	AI-Modell	Modèle IA	AI 模型	AI modeli	AI モデル
+ManageModelsButton.Content	Manage…	Διαχείριση…	Verwalten…	Gérer…	管理…	Yönet…	管理…
+OutputBox.Header	Output video	Βίντεο εξόδου	Ausgabevideo	Vidéo de sortie	输出视频	Çıkış videosu	出力動画
+OutputBox.PlaceholderText	Where to save the upscaled video	Πού θα αποθηκευτεί το αναβαθμισμένο βίντεο	Speicherort für das hochskalierte Video	Emplacement d'enregistrement de la vidéo agrandie	放大后视频的保存位置	Yükseltilmiş videonun kaydedileceği yer	アップスケールした動画の保存先
+OutputButton.Content	Browse…	Αναζήτηση…	Durchsuchen…	Parcourir…	浏览…	Gözat…	参照…
+DeviceCombo.Header	AI device	Συσκευή AI	AI-Gerät	Appareil IA	AI 设备	AI cihazı	AI デバイス
+DeviceAuto.Content	Automatic (best available)	Αυτόματα (η καλύτερη διαθέσιμη)	Automatisch (bestes verfügbares Gerät)	Automatique (meilleur disponible)	自动（最佳可用）	Otomatik (kullanılabilir en iyisi)	自動（利用可能な最適なデバイス）
+DeviceDirectML.Content	GPU – DirectML	GPU – DirectML	GPU – DirectML	GPU – DirectML	GPU – DirectML	GPU – DirectML	GPU – DirectML
+DeviceCuda.Content	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA（NVIDIA）
+DeviceCpu.Content	CPU	CPU	CPU	CPU	CPU	CPU	CPU
+HeightCombo.Header	Output size	Μέγεθος εξόδου	Ausgabegröße	Taille de sortie	输出大小	Çıkış boyutu	出力サイズ
+SizeModel.Content	Model scale (e.g. ×4)	Κλίμακα μοντέλου (π.χ. ×4)	Modellskalierung (z. B. ×4)	Échelle du modèle (p. ex. ×4)	模型倍率（例如 ×4）	Model ölçeği (ör. ×4)	モデルの倍率（例：×4）
+FitCombo.Header	Picture shape	Σχήμα εικόνας	Bildform	Format de l'image	画面形状	Görüntü şekli	画像の形状
+FitCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	How a 4:3 (or other) picture fills a 16:9 frame	Πώς μια εικόνα 4:3 (ή άλλη) γεμίζει ένα καρέ 16:9	Wie ein Bild im Format 4:3 (oder einem anderen Format) einen 16:9-Frame ausfüllt	Manière dont une image 4:3 (ou autre) remplit un cadre 16:9	4:3（或其他比例）画面如何填充 16:9 帧	4:3 (veya başka) bir görüntünün 16:9 kareyi nasıl dolduracağı	4:3（またはその他）の画像を 16:9 のフレームに収める方法
+FitPad.Content	Black bars (keep shape)	Μαύρες λωρίδες (διατήρηση σχήματος)	Schwarze Balken (Form beibehalten)	Bandes noires (conserver le format)	黑边（保持形状）	Siyah şeritler (şekli koru)	黒帯（形状を維持）
+FitCrop.Content	Crop to fill	Περικοπή για γέμισμα	Zuschneiden und ausfüllen	Rogner pour remplir	裁剪以填充	Doldurmak için kırp	トリミングして全体に表示
+FitStretch.Content	Stretch to fill	Τέντωμα για γέμισμα	Strecken und ausfüllen	Étirer pour remplir	拉伸以填充	Doldurmak için uzat	引き伸ばして全体に表示
+CodecCombo.Header	Video encoder	Κωδικοποιητής βίντεο	Videoencoder	Encodeur vidéo	视频编码器	Video kodlayıcı	ビデオ エンコーダー
+QualitySlider.Header	Quality	Ποιότητα	Qualität	Qualité	质量	Kalite	品質
+TileBox.Header	Tile size (0 = auto)	Μέγεθος πλακιδίου (0 = αυτόματα)	Kachelgröße (0 = automatisch)	Taille des tuiles (0 = auto)	图块大小（0 = 自动）	Döşeme boyutu (0 = otomatik)	タイル サイズ（0 = 自動）
+AudioToggle.Header	Audio	Ήχος	Audio	Audio	音频	Ses	オーディオ
+AudioToggle.OnContent	Include audio	Με ήχο	Mit Audio	Inclure l'audio	包含音频	Sesi dahil et	オーディオを含める
+AudioToggle.OffContent	No audio	Χωρίς ήχο	Ohne Audio	Sans audio	无音频	Ses yok	オーディオなし
+AudioImproveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Improve the audio (the main track is re-encoded as AAC)	Βελτίωση του ήχου (το κύριο κομμάτι επανακωδικοποιείται σε AAC)	Audio verbessern (die Hauptspur wird als AAC neu codiert)	Améliorer l'audio (la piste principale est réencodée en AAC)	改善音频（主音轨将重新编码为 AAC）	Sesi iyileştir (ana parça AAC olarak yeniden kodlanır)	オーディオを改善します（メイン トラックは AAC で再エンコードされます）
+AudioDialogueItem.Text	Clearer dialogue	Καθαρότεροι διάλογοι	Klarere Dialoge	Dialogues plus clairs	对白更清晰	Daha net diyalog	会話を聞き取りやすくする
+AudioLoudnessItem.Text	Even out volume	Εξισορρόπηση έντασης	Lautstärke ausgleichen	Égaliser le volume	均衡音量	Ses düzeyini dengele	音量を均一にする
+AudioDenoiseItem.Text	Remove noise and hiss	Αφαίρεση θορύβου και συριγμού	Rauschen und Zischen entfernen	Supprimer le bruit et le souffle	去除噪音和嘶声	Gürültü ve cızırtıyı kaldır	ノイズとヒスノイズを除去する
+AudioUpmixItem.Text	Upmix stereo to 5.1	Μετατροπή στερεοφωνικού σε 5.1	Stereo auf 5.1 hochmischen	Convertir la stéréo en 5.1	将立体声上混为 5.1	Stereoyu 5.1'e dönüştür	ステレオを 5.1 にアップミックスする
+Audio_Original	Original audio	Αρχικός ήχος	Originalaudio	Audio d'origine	原始音频	Özgün ses	元のオーディオ
+Audio_ImprovedSummary	Improved: {0}	Βελτιωμένος: {0}	Verbessert: {0}	Amélioré : {0}	已改善：{0}	İyileştirildi: {0}	改善済み：{0}
+Audio_ShortDialogue	dialogue	διάλογοι	Dialoge	dialogues	对白	diyalog	会話
+Audio_ShortLoudness	volume	ένταση	Lautstärke	volume	音量	ses düzeyi	音量
+Audio_ShortDenoise	noise	θόρυβος	Rauschen	bruit	噪音	gürültü	ノイズ
+Audio_ShortUpmix	5.1	5.1	5.1	5.1	5.1	5.1	5.1
+Audio_ImprovedInfo	audio improved	βελτιωμένος ήχος	Audio verbessert	audio amélioré	音频已改善	ses iyileştirildi	オーディオ改善済み
+OutputFileLabel.Text	Output file	Αρχείο εξόδου	Ausgabedatei	Fichier de sortie	输出文件	Çıkış dosyası	出力ファイル
+OpenOutputButton.Content	Open	Άνοιγμα	Öffnen	Ouvrir	打开	Aç	開く
+LogExpander.Header	Log	Αρχείο καταγραφής	Protokoll	Journal	日志	Günlük	ログ
+CopyLogButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Copy log	Αντιγραφή αρχείου καταγραφής	Protokoll kopieren	Copier le journal	复制日志	Günlüğü kopyala	ログをコピー
+LoadConfigButton.Label	Load configuration	Φόρτωση ρυθμίσεων	Konfiguration laden	Charger la configuration	加载配置	Yapılandırmayı yükle	構成の読み込み
+LoadConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Load upscale settings saved earlier	Φόρτωση ρυθμίσεων αναβάθμισης που αποθηκεύτηκαν νωρίτερα	Zuvor gespeicherte Hochskalierungseinstellungen laden	Charger des paramètres d'agrandissement enregistrés précédemment	加载之前保存的放大设置	Daha önce kaydedilmiş yükseltme ayarlarını yükle	以前に保存したアップスケール設定を読み込みます
+SaveConfigButton.Label	Save configuration	Αποθήκευση ρυθμίσεων	Konfiguration speichern	Enregistrer la configuration	保存配置	Yapılandırmayı kaydet	構成の保存
+SaveConfigButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Save the current upscale settings to a file (Ctrl+S)	Αποθήκευση των τρεχουσών ρυθμίσεων αναβάθμισης σε αρχείο (Ctrl+S)	Aktuelle Hochskalierungseinstellungen in einer Datei speichern (Ctrl+S)	Enregistrer les paramètres d'agrandissement actuels dans un fichier (Ctrl+S)	将当前放大设置保存到文件 (Ctrl+S)	Geçerli yükseltme ayarlarını bir dosyaya kaydet (Ctrl+S)	現在のアップスケール設定をファイルに保存します（Ctrl+S）
+Picker_Config	AI Upscaler configuration	Ρυθμίσεις AI Upscaler	AI Upscaler-Konfiguration	Configuration AI Upscaler	AI Upscaler 配置	AI Upscaler yapılandırması	AI Upscaler 構成
+Picker_ConfigName	upscale settings	ρυθμίσεις αναβάθμισης	Hochskalierungseinstellungen	paramètres d'agrandissement	放大设置	yükseltme ayarları	アップスケール設定
+Config_Saved	Configuration saved	Οι ρυθμίσεις αποθηκεύτηκαν	Konfiguration gespeichert	Configuration enregistrée	配置已保存	Yapılandırma kaydedildi	構成を保存しました
+Config_SaveFailed	Couldn't save the configuration	Δεν ήταν δυνατή η αποθήκευση των ρυθμίσεων	Die Konfiguration konnte nicht gespeichert werden	Impossible d'enregistrer la configuration	无法保存配置	Yapılandırma kaydedilemedi	構成を保存できませんでした
+Config_Loaded	Configuration loaded	Οι ρυθμίσεις φορτώθηκαν	Konfiguration geladen	Configuration chargée	配置已加载	Yapılandırma yüklendi	構成を読み込みました
+Config_LoadFailed	Couldn't load the configuration	Δεν ήταν δυνατή η φόρτωση των ρυθμίσεων	Die Konfiguration konnte nicht geladen werden	Impossible de charger la configuration	无法加载配置	Yapılandırma yüklenemedi	構成を読み込めませんでした
+Config_NotConfig	{0} isn't an AI Upscaler configuration file.	Το {0} δεν είναι αρχείο ρυθμίσεων του AI Upscaler.	{0} ist keine AI Upscaler-Konfigurationsdatei.	{0} n'est pas un fichier de configuration AI Upscaler.	{0} 不是 AI Upscaler 配置文件。	{0} bir AI Upscaler yapılandırma dosyası değil.	{0} は AI Upscaler の構成ファイルではありません。
+Config_ModelMissing	The model {0} isn't on this PC, so the current model was kept. Import it in Settings → Models, then load the configuration again.	Το μοντέλο {0} δεν υπάρχει σε αυτόν τον υπολογιστή, οπότε διατηρήθηκε το τρέχον. Εισαγάγετέ το από Ρυθμίσεις → Μοντέλα και φορτώστε ξανά τις ρυθμίσεις.	Das Modell {0} ist auf diesem PC nicht vorhanden, daher wurde das aktuelle Modell beibehalten. Importieren Sie es unter „Einstellungen → Modelle“, und laden Sie die Konfiguration dann erneut.	Le modèle {0} n'est pas présent sur ce PC ; le modèle actuel a donc été conservé. Importez-le dans Paramètres → Modèles, puis chargez de nouveau la configuration.	此电脑上没有模型 {0}，因此保留了当前模型。请在“设置 → 模型”中导入该模型，然后重新加载配置。	{0} modeli bu bilgisayarda olmadığından geçerli model korundu. Modeli Ayarlar → Modeller bölümünden içeri aktarın, ardından yapılandırmayı yeniden yükleyin.	モデル {0} がこの PC にないため、現在のモデルを維持しました。[設定] → [モデル] でモデルをインポートしてから、構成をもう一度読み込んでください。
+ThemeTitle.Text	Theme	Θέμα	Design	Thème	主题	Tema	テーマ
+ThemeDescription.Text	Choose light or dark, or follow Windows.	Επιλέξτε φωτεινό ή σκοτεινό, ή ακολουθήστε τα Windows.	Wählen Sie „Hell“ oder „Dunkel“, oder verwenden Sie die Windows-Einstellung.	Choisissez clair ou sombre, ou suivez Windows.	选择浅色或深色，或跟随 Windows。	Açık veya koyu temayı seçin ya da Windows ayarını kullanın.	ライトまたはダークを選択するか、Windows の設定に従います。
+ThemeSystem.Content	Use Windows setting	Ρύθμιση των Windows	Windows-Einstellung verwenden	Utiliser le paramètre Windows	使用 Windows 设置	Windows ayarını kullan	Windows の設定を使用する
+ThemeLight.Content	Light	Φωτεινό	Hell	Clair	浅色	Açık	ライト
+ThemeDark.Content	Dark	Σκοτεινό	Dunkel	Sombre	深色	Koyu	ダーク
+LanguageTitle.Text	Language	Γλώσσα	Sprache	Langue	语言	Dil	言語
+LanguageDescription.Text	The language of the app's text.	Η γλώσσα των κειμένων της εφαρμογής.	Die Sprache der App-Texte.	Langue du texte de l'application.	应用文本的语言。	Uygulama metinlerinin dili.	アプリのテキストの言語です。
+LanguageRestartBar.Message	Restart the app to use the new language.	Επανεκκινήστε την εφαρμογή για να χρησιμοποιηθεί η νέα γλώσσα.	Starten Sie die App neu, um die neue Sprache zu verwenden.	Redémarrez l'application pour utiliser la nouvelle langue.	重启应用以使用新语言。	Yeni dili kullanmak için uygulamayı yeniden başlatın.	新しい言語を使用するには、アプリを再起動してください。
+RestartButton.Content	Restart now	Επανεκκίνηση τώρα	Jetzt neu starten	Redémarrer maintenant	立即重启	Şimdi yeniden başlat	今すぐ再起動
+OutputFolderTitle.Text	Default output folder	Προεπιλεγμένος φάκελος εξόδου	Standardausgabeordner	Dossier de sortie par défaut	默认输出文件夹	Varsayılan çıkış klasörü	既定の出力フォルダー
+OutputFolderDescription.Text	Where upscaled videos are saved unless you choose another file.	Πού αποθηκεύονται τα αναβαθμισμένα βίντεο, εκτός αν επιλέξετε άλλο αρχείο.	Hier werden hochskalierte Videos gespeichert, sofern Sie keine andere Datei auswählen.	Emplacement d'enregistrement des vidéos agrandies, sauf si vous choisissez un autre fichier.	除非选择其他文件，否则放大后的视频将保存在此处。	Başka bir dosya seçmediğiniz sürece yükseltilmiş videoların kaydedileceği yer.	別のファイルを選択しない限り、アップスケールした動画はここに保存されます。
+OutputNextToSourceRadio.Content	Same folder as the source video	Ίδιος φάκελος με το βίντεο πηγής	Gleicher Ordner wie das Quellvideo	Même dossier que la vidéo source	与源视频相同的文件夹	Kaynak videoyla aynı klasör	ソース動画と同じフォルダー
+OutputFolderRadio.Content	This folder:	Αυτός ο φάκελος:	Dieser Ordner:	Ce dossier :	此文件夹：	Bu klasör:	次のフォルダー:
+ChooseOutputFolderButton.Content	Choose…	Επιλογή…	Auswählen…	Choisir…	选择…	Seç…	選択…
+ModelsDescription.Text	AI models (.onnx) in the library appear in the AI model list of the upscale settings. Importing moves the file, and any weights file next to it, into the library folder.	Τα μοντέλα AI (.onnx) της βιβλιοθήκης εμφανίζονται στη λίστα μοντέλων των ρυθμίσεων αναβάθμισης. Η εισαγωγή μετακινεί το αρχείο, και όποιο αρχείο βαρών βρίσκεται δίπλα του, στον φάκελο της βιβλιοθήκης.	AI-Modelle (.onnx) in der Bibliothek werden in der AI-Modellliste der Hochskalierungseinstellungen angezeigt. Beim Importieren werden die Datei und eine ggf. daneben liegende Gewichtungsdatei in den Bibliotheksordner verschoben.	Les modèles IA (.onnx) de la bibliothèque apparaissent dans la liste Modèle IA des paramètres d'agrandissement. L'importation déplace le fichier, ainsi que tout fichier de poids situé à côté, dans le dossier de la bibliothèque.	库中的 AI 模型 (.onnx) 会显示在放大设置的 AI 模型列表中。导入会将文件及其旁边的任何权重文件移动到库文件夹中。	Kitaplıktaki AI modelleri (.onnx), yükseltme ayarlarındaki AI modeli listesinde görünür. İçeri aktarma, dosyayı ve yanındaki ağırlık dosyalarını kitaplık klasörüne taşır.	ライブラリ内の AI モデル（.onnx）は、アップスケール設定の AI モデル一覧に表示されます。インポートすると、ファイルとその横にある重みファイルがライブラリ フォルダーに移動されます。
+ImportModelText.Text	Import model…	Εισαγωγή μοντέλου…	Modell importieren…	Importer un modèle…	导入模型…	Model içeri aktar…	モデルのインポート…
+OpenModelsFolderText.Text	Open folder	Άνοιγμα φακέλου	Ordner öffnen	Ouvrir le dossier	打开文件夹	Klasörü aç	フォルダーを開く
+ModelsEmptyText.Text	No models yet. Import an .onnx model to get started.	Δεν υπάρχουν ακόμα μοντέλα. Εισαγάγετε ένα μοντέλο .onnx για να ξεκινήσετε.	Noch keine Modelle vorhanden. Importieren Sie ein .onnx-Modell, um zu beginnen.	Aucun modèle pour l'instant. Importez un modèle .onnx pour commencer.	尚无模型。导入 .onnx 模型以开始使用。	Henüz model yok. Başlamak için bir .onnx modeli içeri aktarın.	モデルはまだありません。.onnx モデルをインポートして開始してください。
+Status_Ready	Ready.	Έτοιμο.	Bereit.	Prêt.	就绪。	Hazır.	準備完了。
+Placeholder_Open	Open a video. The AI result of the selected frame appears here.	Ανοίξτε ένα βίντεο. Το αποτέλεσμα AI του επιλεγμένου καρέ εμφανίζεται εδώ.	Öffnen Sie ein Video. Das AI-Ergebnis des ausgewählten Frames wird hier angezeigt.	Ouvrez une vidéo. Le résultat IA de l'image sélectionnée apparaît ici.	打开视频。所选帧的 AI 结果将显示在此处。	Bir video açın. Seçili karenin AI sonucu burada görünür.	動画を開いてください。選択したフレームの AI 結果がここに表示されます。
+Placeholder_PickFrame	Pick a frame on the film strip or timeline. Its AI preview appears here.	Επιλέξτε ένα καρέ στο φιλμ ή στη γραμμή χρόνου. Η προεπισκόπηση AI του εμφανίζεται εδώ.	Wählen Sie einen Frame im Filmstreifen oder auf der Zeitachse aus. Die zugehörige AI-Vorschau wird hier angezeigt.	Choisissez une image sur la pellicule ou la chronologie. Son aperçu IA apparaît ici.	在胶片条或时间线上选取一帧。其 AI 预览将显示在此处。	Film şeridinden veya zaman çizelgesinden bir kare seçin. Karenin AI önizlemesi burada görünür.	フィルム ストリップまたはタイムラインでフレームを選択してください。その AI プレビューがここに表示されます。
+Placeholder_Upscaling	Upscaling this frame…	Αναβάθμιση αυτού του καρέ…	Dieser Frame wird hochskaliert…	Agrandissement de cette image…	正在放大此帧…	Bu kare yükseltiliyor…	このフレームをアップスケールしています…
+Placeholder_Coming	The AI preview of {0} appears when you stop on this frame.	Η προεπισκόπηση AI του {0} εμφανίζεται όταν σταθείτε σε αυτό το καρέ.	Die AI-Vorschau von {0} wird angezeigt, wenn Sie bei diesem Frame anhalten.	L'aperçu IA de {0} apparaît lorsque vous vous arrêtez sur cette image.	停在此帧上时，将显示 {0} 的 AI 预览。	{0} konumundaki karenin AI önizlemesi, bu karede durduğunuzda görünür.	このフレームで止まると、{0} の AI プレビューが表示されます。
+Placeholder_Off	AI previews are off. Press Ctrl+P to upscale the frame at {0}.	Οι προεπισκοπήσεις AI είναι απενεργοποιημένες. Πατήστε Ctrl+P για να αναβαθμίσετε το καρέ στο {0}.	AI-Vorschauen sind deaktiviert. Drücken Sie Ctrl+P, um den Frame bei {0} hochzuskalieren.	Les aperçus IA sont désactivés. Appuyez sur Ctrl+P pour agrandir l'image à {0}.	AI 预览已关闭。按 Ctrl+P 放大位于 {0} 的帧。	AI önizlemeleri kapalı. {0} konumundaki kareyi yükseltmek için Ctrl+P tuşlarına basın.	AI プレビューはオフです。{0} のフレームをアップスケールするには Ctrl+P を押してください。
+Placeholder_PreviewFailed	The preview failed. See the log in the Progress tab.	Η προεπισκόπηση απέτυχε. Δείτε το αρχείο καταγραφής στην καρτέλα Πρόοδος.	Fehler bei der Vorschau. Details finden Sie im Protokoll auf der Registerkarte „Fortschritt“.	L'aperçu a échoué. Consultez le journal dans l'onglet Progression.	预览失败。请查看“进度”选项卡中的日志。	Önizleme başarısız oldu. İlerleme sekmesindeki günlüğe bakın.	プレビューに失敗しました。[進行状況] タブのログを確認してください。
+Placeholder_Live	Live previews of the upscaled video appear here every few seconds.	Ζωντανές προεπισκοπήσεις του αναβαθμισμένου βίντεο εμφανίζονται εδώ κάθε λίγα δευτερόλεπτα.	Livevorschauen des hochskalierten Videos werden hier alle paar Sekunden angezeigt.	Des aperçus en direct de la vidéo agrandie apparaissent ici toutes les quelques secondes.	放大后视频的实时预览每隔几秒显示在此处。	Yükseltilmiş videonun canlı önizlemeleri birkaç saniyede bir burada görünür.	アップスケール中の動画のライブ プレビューが、数秒ごとにここに表示されます。
+Dur_Days	{0} d {1} h	{0} ημ. {1} ώρ.	{0} Tg. {1} Std.	{0} j {1} h	{0} 天 {1} 小时	{0} g {1} sa	{0} 日 {1} 時間
+Dur_Hours	{0} h {1} min	{0} ώρ. {1} λεπ.	{0} Std. {1} Min.	{0} h {1} min	{0} 小时 {1} 分钟	{0} sa {1} dk	{0} 時間 {1} 分
+Dur_Minutes	{0} min {1} s	{0} λεπ. {1} δευτ.	{0} Min. {1} Sek.	{0} min {1} s	{0} 分钟 {1} 秒	{0} dk {1} sn	{0} 分 {1} 秒
+Dur_Seconds	{0} s	{0} δευτ.	{0} Sek.	{0} s	{0} 秒	{0} sn	{0} 秒
+Time_Today	today {0}	σήμερα {0}	heute {0}	aujourd'hui à {0}	今天 {0}	bugün {0}	今日 {0}
+Size_MB	{0} MB	{0} MB	{0} MB	{0} Mo	{0} MB	{0} MB	{0} MB
+Err_EngineMissing_Title	Engine missing	Λείπει η μηχανή	Engine fehlt	Moteur introuvable	缺少引擎	Altyapı bulunamadı	エンジンが見つかりません
+Err_EngineMissing	ai-upscaler.exe was not found next to the app (engine folder).	Το ai-upscaler.exe δεν βρέθηκε δίπλα στην εφαρμογή (φάκελος engine).	ai-upscaler.exe wurde nicht neben der App gefunden (Ordner „engine“).	ai-upscaler.exe est introuvable à côté de l'application (dossier engine).	在应用旁边（engine 文件夹）找不到 ai-upscaler.exe。	ai-upscaler.exe, uygulamanın yanında (engine klasöründe) bulunamadı.	アプリの横（engine フォルダー）に ai-upscaler.exe が見つかりませんでした。
+Err_FfmpegMissing_Title	FFmpeg not found	Δεν βρέθηκε το FFmpeg	FFmpeg nicht gefunden	FFmpeg introuvable	找不到 FFmpeg	FFmpeg bulunamadı	FFmpeg が見つかりません
+Err_FfmpegMissing	Install it with: winget install Gyan.FFmpeg	Εγκαταστήστε το με: winget install Gyan.FFmpeg	Installieren Sie es mit: winget install Gyan.FFmpeg	Installez-le avec : winget install Gyan.FFmpeg	使用以下命令安装：winget install Gyan.FFmpeg	Şu komutla yükleyin: winget install Gyan.FFmpeg	次のコマンドでインストールしてください：winget install Gyan.FFmpeg
+Err_FileNotFound_Title	File not found	Το αρχείο δεν βρέθηκε	Datei nicht gefunden	Fichier introuvable	找不到文件	Dosya bulunamadı	ファイルが見つかりません
+Err_ModelMissing_Title	Model not found	Το μοντέλο δεν βρέθηκε	Modell nicht gefunden	Modèle introuvable	找不到模型	Model bulunamadı	モデルが見つかりません
+Err_ModelMissing	The selected model file doesn't exist.	Το επιλεγμένο αρχείο μοντέλου δεν υπάρχει.	Die ausgewählte Modelldatei ist nicht vorhanden.	Le fichier du modèle sélectionné n'existe pas.	所选模型文件不存在。	Seçili model dosyası yok.	選択したモデル ファイルが存在しません。
+Err_EngineStart	Couldn't start the engine	Δεν ήταν δυνατή η εκκίνηση της μηχανής	Die Engine konnte nicht gestartet werden	Impossible de démarrer le moteur	无法启动引擎	Altyapı başlatılamadı	エンジンを起動できませんでした
+Err_ReadVideo_Title	Couldn't read the video	Δεν ήταν δυνατή η ανάγνωση του βίντεο	Das Video konnte nicht gelesen werden	Impossible de lire la vidéo	无法读取视频	Video okunamadı	動画を読み取れませんでした
+Err_SeeLog	See the log in the Progress tab for details.	Δείτε το αρχείο καταγραφής στην καρτέλα Πρόοδος για λεπτομέρειες.	Details finden Sie im Protokoll auf der Registerkarte „Fortschritt“.	Pour plus de détails, consultez le journal dans l'onglet Progression.	有关详细信息，请查看“进度”选项卡中的日志。	Ayrıntılar için İlerleme sekmesindeki günlüğe bakın.	詳細については、[進行状況] タブのログを確認してください。
+Err_NoVideo_Title	Open a video first	Ανοίξτε πρώτα ένα βίντεο	Öffnen Sie zuerst ein Video	Ouvrez d'abord une vidéo	请先打开视频	Önce bir video açın	最初に動画を開いてください
+Err_NoVideo	Drop a video on the Source pane, or use its Browse button.	Αφήστε ένα βίντεο στο πλαίσιο Πηγή ή χρησιμοποιήστε το κουμπί Αναζήτηση.	Legen Sie ein Video im Bereich „Quelle“ ab, oder verwenden Sie die dortige Schaltfläche „Durchsuchen“.	Déposez une vidéo dans le volet Source ou utilisez son bouton Parcourir.	将视频拖放到“源”窗格，或使用其“浏览”按钮。	Kaynak bölmesine bir video bırakın veya bölmedeki Gözat düğmesini kullanın.	[ソース] ウィンドウに動画をドロップするか、[参照] ボタンを使用してください。
+Err_UpscaleFailed_Title	Upscale failed	Η αναβάθμιση απέτυχε	Fehler beim Hochskalieren	Échec de l'agrandissement	放大失败	Yükseltme başarısız oldu	アップスケールに失敗しました
+Source_Reading	Reading…	Ανάγνωση…	Wird gelesen…	Lecture…	正在读取…	Okunuyor…	読み取り中…
+Source_Unreadable	Couldn't read this file	Δεν ήταν δυνατή η ανάγνωση αυτού του αρχείου	Diese Datei konnte nicht gelesen werden	Impossible de lire ce fichier	无法读取此文件	Bu dosya okunamadı	このファイルを読み取れませんでした
+Source_Info	{0}×{1} · {2} · {3} fps · {4}	{0}×{1} · {2} · {3} fps · {4}	{0}×{1} · {2} · {3} fps · {4}	{0}×{1} · {2} · {3} fps · {4}	{0}×{1} · {2} · {3} fps · {4}	{0}×{1} · {2} · {3} fps · {4}	{0}×{1} · {2} · {3} fps · {4}
+Source_WithAudio	{0} · audio	{0} · ήχος	{0} · Audio	{0} · audio	{0} · 音频	{0} · ses	{0} · オーディオ
+Picker_Mp4	MP4 video	Βίντεο MP4	MP4-Video	Vidéo MP4	MP4 视频	MP4 videosu	MP4 ビデオ
+Picker_Mkv	Matroska video	Βίντεο Matroska	Matroska-Video	Vidéo Matroska	Matroska 视频	Matroska videosu	Matroska ビデオ
+Picker_Mov	QuickTime video	Βίντεο QuickTime	QuickTime-Video	Vidéo QuickTime	QuickTime 视频	QuickTime videosu	QuickTime ビデオ
+Picker_DefaultName	upscaled	αναβαθμισμένο	hochskaliert	agrandie	已放大	yükseltilmiş	upscaled
+Quality_1	Smallest file	Μικρότερο αρχείο	Kleinste Datei	Fichier le plus petit	最小文件	En küçük dosya	最小ファイル
+Quality_2	Small file	Μικρό αρχείο	Kleine Datei	Petit fichier	小文件	Küçük dosya	小さいファイル
+Quality_3	Balanced	Ισορροπημένο	Ausgewogen	Équilibrée	平衡	Dengeli	バランス
+Quality_4	High quality	Υψηλή ποιότητα	Hohe Qualität	Haute qualité	高质量	Yüksek kalite	高品質
+Quality_5	Best quality (largest file)	Βέλτιστη ποιότητα (μεγαλύτερο αρχείο)	Beste Qualität (größte Datei)	Meilleure qualité (fichier le plus volumineux)	最佳质量（最大文件）	En iyi kalite (en büyük dosya)	最高品質（最大ファイル）
+Quality_Format	{0} of 5 · {1}	{0} από 5 · {1}	{0} von 5 · {1}	{0} sur 5 · {1}	{0}/5 · {1}	{0}/5 · {1}	{0}/5 · {1}
+Drag_OpenAsSource	Open as source	Άνοιγμα ως πηγή	Als Quelle öffnen	Ouvrir comme source	作为源打开	Kaynak olarak aç	ソースとして開く
+Auto_Off	Off · Ctrl+P previews the current frame	Ανενεργό · Ctrl+P για προεπισκόπηση του καρέ	Aus · Ctrl+P zeigt eine Vorschau des aktuellen Frames	Désactivé · Ctrl+P affiche l'aperçu de l'image actuelle	关闭 · 按 Ctrl+P 预览当前帧	Kapalı · Ctrl+P geçerli karenin önizlemesini oluşturur	オフ · Ctrl+P で現在のフレームをプレビュー
+Auto_Countdown	AI preview in 3 s…	Προεπισκόπηση AI σε 3 δευτ.…	AI-Vorschau in 3 Sekunden…	Aperçu IA dans 3 s…	3 秒后进行 AI 预览…	AI önizlemesi 3 sn içinde…	3 秒後に AI プレビュー…
+Auto_Working	Upscaling frame at {0}…	Αναβάθμιση καρέ στο {0}…	Frame bei {0} wird hochskaliert…	Agrandissement de l'image à {0}…	正在放大位于 {0} 的帧…	Kare yükseltiliyor: {0}…	{0} のフレームをアップスケールしています…
+Auto_Live	Live previews while upscaling	Ζωντανές προεπισκοπήσεις κατά την αναβάθμιση	Livevorschauen während der Hochskalierung	Aperçus en direct pendant l'agrandissement	放大期间实时预览	Yükseltme sırasında canlı önizlemeler	アップスケール中のライブ プレビュー
+OutputInfo	AI ×{0} → file {1} · frame at {2}	AI ×{0} → αρχείο {1} · καρέ στο {2}	AI ×{0} → Datei {1} · Frame bei {2}	IA ×{0} → fichier {1} · image à {2}	AI ×{0} → 文件 {1} · 帧位于 {2}	AI ×{0} → dosya {1} · kare konumu {2}	AI ×{0} → ファイル {1} · {2} のフレーム
+Log_ImageFailed	Couldn't load preview image {0}: {1}	Δεν ήταν δυνατή η φόρτωση της εικόνας {0}: {1}	Vorschaubild {0} konnte nicht geladen werden: {1}	Impossible de charger l'image d'aperçu {0} : {1}	无法加载预览图像 {0}：{1}	Önizleme görüntüsü yüklenemedi: {0}: {1}	プレビュー画像 {0} を読み込めませんでした：{1}
+Log_ThumbsFailed	Couldn't start the thumbnail job: {0}	Δεν ήταν δυνατή η δημιουργία μικρογραφιών: {0}	Der Auftrag für Miniaturansichten konnte nicht gestartet werden: {0}	Impossible de démarrer la tâche de miniatures : {0}	无法启动缩略图作业：{0}	Küçük resim işi başlatılamadı: {0}	サムネイル ジョブを開始できませんでした：{0}
+Film_GoTo	Go to {0}	Μετάβαση στο {0}	Gehe zu {0}	Atteindre {0}	转到 {0}	Şuraya git: {0}	{0} に移動
+Hw_Checking	Checking this PC's GPU…	Έλεγχος της GPU του υπολογιστή…	GPU dieses PCs wird überprüft…	Vérification du GPU de ce PC…	正在检查此电脑的 GPU…	Bu bilgisayarın GPU'su denetleniyor…	この PC の GPU を確認しています…
+NotAvailable	{0} – not available	{0} – μη διαθέσιμο	{0} – nicht verfügbar	{0} – non disponible	{0} – 不可用	{0} – kullanılamıyor	{0} – 利用不可
+Device_AutoCuda	Automatic (CUDA GPU)	Αυτόματα (GPU CUDA)	Automatisch (CUDA-GPU)	Automatique (GPU CUDA)	自动（CUDA GPU）	Otomatik (CUDA GPU)	自動（CUDA GPU）
+Device_AutoDml	Automatic (DirectML GPU)	Αυτόματα (GPU DirectML)	Automatisch (DirectML-GPU)	Automatique (GPU DirectML)	自动（DirectML GPU）	Otomatik (DirectML GPU)	自動（DirectML GPU）
+Device_AutoCpu	Automatic (CPU only)	Αυτόματα (μόνο CPU)	Automatisch (nur CPU)	Automatique (CPU uniquement)	自动（仅 CPU）	Otomatik (yalnızca CPU)	自動（CPU のみ）
+Device_DirectML	GPU – DirectML	GPU – DirectML	GPU – DirectML	GPU – DirectML	GPU – DirectML	GPU – DirectML	GPU – DirectML
+Device_NoDml	No DirectX 12 GPU was found on this PC.	Δεν βρέθηκε GPU DirectX 12 σε αυτόν τον υπολογιστή.	Auf diesem PC wurde keine DirectX 12-GPU gefunden.	Aucun GPU DirectX 12 n'a été trouvé sur ce PC.	在此电脑上找不到 DirectX 12 GPU。	Bu bilgisayarda DirectX 12 GPU bulunamadı.	この PC に DirectX 12 GPU が見つかりませんでした。
+Device_Cuda	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA (NVIDIA)	GPU – CUDA（NVIDIA）
+Device_NoCuda	Needs an NVIDIA GPU and an engine built with CUDA support.	Απαιτεί GPU NVIDIA και μηχανή με υποστήριξη CUDA.	Erfordert eine NVIDIA-GPU und eine mit CUDA-Unterstützung erstellte Engine.	Nécessite un GPU NVIDIA et un moteur compilé avec la prise en charge de CUDA.	需要 NVIDIA GPU 和支持 CUDA 的引擎版本。	NVIDIA GPU ve CUDA desteğiyle derlenmiş bir altyapı gerektirir.	NVIDIA GPU と、CUDA サポート付きでビルドされたエンジンが必要です。
+Device_CudaNotBuilt	This build has no CUDA support. Build it with build.ps1 -Cuda, or use DirectML, which also runs on NVIDIA GPUs.	Αυτή η έκδοση δεν υποστηρίζει CUDA. Δημιουργήστε την με build.ps1 -Cuda ή χρησιμοποιήστε DirectML, που λειτουργεί και σε GPU NVIDIA.	Dieser Build bietet keine CUDA-Unterstützung. Erstellen Sie ihn mit build.ps1 -Cuda, oder verwenden Sie DirectML, das auch auf NVIDIA-GPUs ausgeführt wird.	Cette version ne prend pas en charge CUDA. Compilez-la avec build.ps1 -Cuda, ou utilisez DirectML, qui fonctionne aussi sur les GPU NVIDIA.	此版本不支持 CUDA。请使用 build.ps1 -Cuda 生成，或使用 DirectML（它同样可在 NVIDIA GPU 上运行）。	Bu derlemede CUDA desteği yok. build.ps1 -Cuda ile derleyin veya NVIDIA GPU'larda da çalışan DirectML'i kullanın.	このビルドには CUDA サポートがありません。build.ps1 -Cuda でビルドするか、NVIDIA GPU でも動作する DirectML を使用してください。
+Device_CudaRuntime	CUDA could not start. Install an NVIDIA driver, the CUDA 13 runtime and cuDNN 9 for CUDA 13, with their bin folders on PATH. Details: {0}	Το CUDA δεν μπόρεσε να ξεκινήσει. Εγκαταστήστε οδηγό NVIDIA, το CUDA 13 και το cuDNN 9 για CUDA 13, με τους φακέλους bin τους στο PATH. Λεπτομέρειες: {0}	CUDA konnte nicht gestartet werden. Installieren Sie einen NVIDIA-Treiber, die CUDA 13-Runtime und cuDNN 9 für CUDA 13, und fügen Sie deren bin-Ordner zu PATH hinzu. Details: {0}	Impossible de démarrer CUDA. Installez un pilote NVIDIA, le runtime CUDA 13 et cuDNN 9 pour CUDA 13, avec leurs dossiers bin dans le PATH. Détails : {0}	CUDA 无法启动。请安装 NVIDIA 驱动程序、CUDA 13 运行时和适用于 CUDA 13 的 cuDNN 9，并将它们的 bin 文件夹添加到 PATH。详细信息：{0}	CUDA başlatılamadı. Bir NVIDIA sürücüsü, CUDA 13 çalışma zamanını ve CUDA 13 için cuDNN 9'u yükleyin; bin klasörlerinin PATH'te olduğundan emin olun. Ayrıntılar: {0}	CUDA を開始できませんでした。NVIDIA ドライバー、CUDA 13 ランタイム、CUDA 13 用 cuDNN 9 をインストールし、それぞれの bin フォルダーを PATH に追加してください。詳細：{0}
+Codec_Gpu	{0} – GPU ({1})	{0} – GPU ({1})	{0} – GPU ({1})	{0} – GPU ({1})	{0} – GPU ({1})	{0} – GPU ({1})	{0} – GPU（{1}）
+Codec_GpuPlain	{0} – GPU	{0} – GPU	{0} – GPU	{0} – GPU	{0} – GPU	{0} – GPU	{0} – GPU
+Codec_NoGpu	This PC's GPU can't encode {0}.	Η GPU αυτού του υπολογιστή δεν μπορεί να κωδικοποιήσει {0}.	Die GPU dieses PCs kann {0} nicht codieren.	Le GPU de ce PC ne peut pas encoder en {0}.	此电脑的 GPU 无法编码 {0}。	Bu bilgisayarın GPU'su şunu kodlayamıyor: {0}.	この PC の GPU は {0} をエンコードできません。
+Codec_NotInFfmpeg	Not included in this FFmpeg build.	Δεν περιλαμβάνεται σε αυτή την έκδοση του FFmpeg.	Nicht in diesem FFmpeg-Build enthalten.	Non inclus dans cette version de FFmpeg.	此 FFmpeg 版本中未包含。	Bu FFmpeg derlemesine dahil değil.	この FFmpeg ビルドには含まれていません。
+Hw_Summary	AI on {0} · {1}	AI σε {0} · {1}	AI auf {0} · {1}	IA sur {0} · {1}	AI 运行于 {0} · {1}	AI: {0} · {1}	AI：{0} · {1}
+Hw_AiCuda	CUDA GPU	GPU CUDA	CUDA-GPU	GPU CUDA	CUDA GPU	CUDA GPU	CUDA GPU
+Hw_AiDml	DirectML GPU	GPU DirectML	DirectML-GPU	GPU DirectML	DirectML GPU	DirectML GPU	DirectML GPU
+Hw_AiCpu	CPU only	μόνο CPU	nur CPU	CPU uniquement	仅 CPU	Yalnızca CPU	CPU のみ
+Hw_NoGpuEncode	no GPU video encoding	χωρίς κωδικοποίηση βίντεο στη GPU	keine Videocodierung per GPU	pas d'encodage vidéo par GPU	无 GPU 视频编码	GPU ile video kodlama yok	GPU ビデオ エンコードなし
+Hw_GpuEncodes	{0} GPU encodes {1}	η GPU {0} κωδικοποιεί {1}	{0}-GPU codiert {1}	Le GPU {0} encode en {1}	{0} GPU 可编码 {1}	{0} GPU kodlaması: {1}	{0} GPU で {1} をエンコード
+Size_Fills	{0} (fills the frame)	{0} (γεμίζει το καρέ)	{0} (füllt den Frame aus)	{0} (remplit le cadre)	{0}（填满帧）	{0} (kareyi doldurur)	{0}（フレーム全体に表示）
+Size_Crop	{0} ({1} picture, edges cropped)	{0} (εικόνα {1}, περικομμένες άκρες)	{0} ({1}-Bild, Ränder abgeschnitten)	{0} (image {1}, bords rognés)	{0}（{1} 画面，裁剪边缘）	{0} ({1} görüntü, kenarlar kırpılır)	{0}（{1} の画像、端をトリミング）
+Size_Stretch	{0} ({1} picture stretched to 16:9)	{0} (εικόνα {1} τεντωμένη σε 16:9)	{0} ({1}-Bild auf 16:9 gestreckt)	{0} (image {1} étirée en 16:9)	{0}（{1} 画面拉伸为 16:9）	{0} ({1} görüntü 16:9'a uzatılır)	{0}（{1} の画像を 16:9 に引き伸ばし）
+Size_PadSides	{0} ({1} picture, black side bars)	{0} (εικόνα {1}, μαύρες πλαϊνές λωρίδες)	{0} ({1}-Bild, schwarze Balken seitlich)	{0} (image {1}, bandes noires latérales)	{0}（{1} 画面，左右黑边）	{0} ({1} görüntü, yanlarda siyah şeritler)	{0}（{1} の画像、左右に黒帯）
+Size_PadTopBottom	{0} ({1} picture, black bars above and below)	{0} (εικόνα {1}, μαύρες λωρίδες πάνω και κάτω)	{0} ({1}-Bild, schwarze Balken oben und unten)	{0} (image {1}, bandes noires en haut et en bas)	{0}（{1} 画面，上下黑边）	{0} ({1} görüntü, üstte ve altta siyah şeritler)	{0}（{1} の画像、上下に黒帯）
+Size_Model	{0} (model ×{1})	{0} (μοντέλο ×{1})	{0} (Modell ×{1})	{0} (modèle ×{1})	{0}（模型 ×{1}）	{0} (model ×{1})	{0}（モデル ×{1}）
+Size_ModelUnknown	Model scale: known after the first AI preview	Κλίμακα μοντέλου: γνωστή μετά την πρώτη προεπισκόπηση AI	Modellskalierung: nach der ersten AI-Vorschau bekannt	Échelle du modèle : connue après le premier aperçu IA	模型倍率：首次 AI 预览后可知	Model ölçeği: ilk AI önizlemesinden sonra belli olur	モデルの倍率：最初の AI プレビュー後に判明します
+Size_ModelShort	model scale	κλίμακα μοντέλου	Modellskalierung	échelle du modèle	模型倍率	model ölçeği	モデルの倍率
+Size_OpenVideo	Open a video to see the output size	Ανοίξτε ένα βίντεο για να δείτε το μέγεθος εξόδου	Öffnen Sie ein Video, um die Ausgabegröße anzuzeigen	Ouvrez une vidéo pour voir la taille de sortie	打开视频以查看输出大小	Çıkış boyutunu görmek için bir video açın	出力サイズを確認するには動画を開いてください
+Summary_Begin	Drop a video on the Source pane to begin	Αφήστε ένα βίντεο στο πλαίσιο Πηγή για να ξεκινήσετε	Legen Sie zum Starten ein Video im Bereich „Quelle“ ab	Déposez une vidéo dans le volet Source pour commencer	将视频拖放到“源”窗格以开始	Başlamak için Kaynak bölmesine bir video bırakın	開始するには [ソース] ウィンドウに動画をドロップしてください
+Summary	Output: {0} · {1} · quality {2}/5	Έξοδος: {0} · {1} · ποιότητα {2}/5	Ausgabe: {0} · {1} · Qualität {2}/5	Sortie : {0} · {1} · qualité {2}/5	输出：{0} · {1} · 质量 {2}/5	Çıkış: {0} · {1} · kalite {2}/5	出力：{0} · {1} · 品質 {2}/5
+Summary_NoModel	{0} · no AI model	{0} · χωρίς μοντέλο AI	{0} · kein AI-Modell	{0} · aucun modèle IA	{0} · 无 AI 模型	{0} · AI modeli yok	{0} · AI モデルなし
+Zoom_Fit	Fit	Προσαρμογή	Einpassen	Ajuster	适应	Sığdır	全体表示
+Lang_System	Windows default	Προεπιλογή Windows	Windows-Standard	Langue par défaut de Windows	Windows 默认值	Windows varsayılanı	Windows の既定
+Lang_RestartBusy	Finish or cancel the upscale before restarting.	Ολοκληρώστε ή ακυρώστε την αναβάθμιση πριν την επανεκκίνηση.	Schließen Sie die Hochskalierung ab, oder brechen Sie sie ab, bevor Sie neu starten.	Terminez ou annulez l'agrandissement avant de redémarrer.	请先完成或取消放大，然后再重启。	Yeniden başlatmadan önce yükseltmeyi tamamlayın veya iptal edin.	再起動する前に、アップスケールを完了するかキャンセルしてください。
+OutputFolder_None	No folder chosen	Δεν έχει επιλεγεί φάκελος	Kein Ordner ausgewählt	Aucun dossier choisi	未选择文件夹	Klasör seçilmedi	フォルダーが選択されていません
+Model_None	None (Lanczos, no AI)	Κανένα (Lanczos, χωρίς AI)	Keins (Lanczos, ohne AI)	Aucun (Lanczos, sans IA)	无（Lanczos，无 AI）	Yok (Lanczos, AI yok)	なし（Lanczos、AI なし）
+Model_External	{0} (not in library)	{0} (εκτός βιβλιοθήκης)	{0} (nicht in der Bibliothek)	{0} (hors bibliothèque)	{0}（不在库中）	{0} (kitaplıkta değil)	{0}（ライブラリ外）
+Models_Folder	Library folder: {0}	Φάκελος βιβλιοθήκης: {0}	Bibliotheksordner: {0}	Dossier de la bibliothèque : {0}	库文件夹：{0}	Kitaplık klasörü: {0}	ライブラリ フォルダー：{0}
+Models_InUse	{0} (in use)	{0} (σε χρήση)	{0} (wird verwendet)	{0} (en cours d'utilisation)	{0}（使用中）	{0} (kullanımda)	{0}（使用中）
+Models_Details	{0} · {1}	{0} · {1}	{0} · {1}	{0} · {1}	{0} · {1}	{0} · {1}	{0} · {1}
+Models_RemoveTip	Move to Recycle Bin	Μετακίνηση στον Κάδο Ανακύκλωσης	In den Papierkorb verschieben	Déplacer vers la Corbeille	移到回收站	Geri Dönüşüm Kutusu'na taşı	ごみ箱に移動
+Models_Removed	Moved {0} to the Recycle Bin.	Το {0} μετακινήθηκε στον Κάδο Ανακύκλωσης.	{0} wurde in den Papierkorb verschoben.	{0} a été déplacé vers la Corbeille.	已将 {0} 移到回收站。	Geri Dönüşüm Kutusu'na taşındı: {0}.	{0} をごみ箱に移動しました。
+Models_RemoveFailed	Couldn't remove {0}.	Δεν ήταν δυνατή η κατάργηση του {0}.	{0} konnte nicht entfernt werden.	Impossible de supprimer {0}.	无法删除 {0}。	Kaldırılamadı: {0}.	{0} を削除できませんでした。
+Models_Imported	Imported {0}. The file was moved into the library.	Έγινε εισαγωγή του {0}. Το αρχείο μετακινήθηκε στη βιβλιοθήκη.	{0} wurde importiert. Die Datei wurde in die Bibliothek verschoben.	{0} a été importé. Le fichier a été déplacé dans la bibliothèque.	已导入 {0}。该文件已移动到库中。	İçeri aktarıldı: {0}. Dosya kitaplığa taşındı.	{0} をインポートしました。ファイルはライブラリに移動されました。
+Models_Exists	A model named {0} is already in the library.	Υπάρχει ήδη μοντέλο με το όνομα {0} στη βιβλιοθήκη.	In der Bibliothek ist bereits ein Modell namens {0} vorhanden.	Un modèle nommé {0} se trouve déjà dans la bibliothèque.	库中已有名为 {0} 的模型。	{0} adlı bir model kitaplıkta zaten var.	{0} という名前のモデルは既にライブラリにあります。
+Models_ImportFailed	Couldn't import {0}. {1}	Δεν ήταν δυνατή η εισαγωγή του {0}. {1}	{0} konnte nicht importiert werden. {1}	Impossible d'importer {0}. {1}	无法导入 {0}。{1}	İçeri aktarılamadı: {0}. {1}	{0} をインポートできませんでした。{1}
+Status_Loading	Loading model…	Φόρτωση μοντέλου…	Modell wird geladen…	Chargement du modèle…	正在加载模型…	Model yükleniyor…	モデルを読み込んでいます…
+Status_Cancelling	Cancelling…	Ακύρωση…	Wird abgebrochen…	Annulation…	正在取消…	İptal ediliyor…	キャンセルしています…
+Status_Cancelled	Cancelled.	Ακυρώθηκε.	Abgebrochen.	Annulé.	已取消。	İptal edildi.	キャンセルしました。
+Status_Upscaling	Upscaling…	Αναβάθμιση…	Wird hochskaliert…	Agrandissement…	正在放大…	Yükseltiliyor…	アップスケールしています…
+Status_UpscalingPreview	Upscaling preview…	Αναβάθμιση δοκιμής…	Vorschau wird hochskaliert…	Agrandissement de l'aperçu…	正在放大预览…	Önizleme yükseltiliyor…	プレビューをアップスケールしています…
+Status_Finished	Finished in {0}.	Ολοκληρώθηκε σε {0}.	Abgeschlossen in {0}.	Terminé en {0}.	已完成，用时 {0}。	{0} içinde tamamlandı.	{0} で完了しました。
+Status_Failed	Failed (exit code {0}).	Απέτυχε (κωδικός εξόδου {0}).	Fehler (Exitcode {0}).	Échec (code de sortie {0}).	失败（退出代码 {0}）。	Başarısız oldu (çıkış kodu {0}).	失敗しました（終了コード {0}）。
+JobInfo	{0}×{1} → AI {2}×{3} → file {4}×{5} · {6} fps · {7} · {8}	{0}×{1} → AI {2}×{3} → αρχείο {4}×{5} · {6} fps · {7} · {8}	{0}×{1} → AI {2}×{3} → Datei {4}×{5} · {6} fps · {7} · {8}	{0}×{1} → IA {2}×{3} → fichier {4}×{5} · {6} fps · {7} · {8}	{0}×{1} → AI {2}×{3} → 文件 {4}×{5} · {6} fps · {7} · {8}	{0}×{1} → AI {2}×{3} → dosya {4}×{5} · {6} fps · {7} · {8}	{0}×{1} → AI {2}×{3} → ファイル {4}×{5} · {6} fps · {7} · {8}
+Audio_Kept	audio kept	με ήχο	Audio beibehalten	audio conservé	保留音频	ses korundu	オーディオを維持
+Audio_None	no audio	χωρίς ήχο	kein Audio	sans audio	无音频	ses yok	オーディオなし
+Estimate_Left	About {0} left · done around {1}	Απομένουν περίπου {0} · τέλος γύρω στις {1}	Noch ca. {0} · fertig gegen {1}	Environ {0} restant · fin vers {1}	剩余约 {0} · 预计完成时间 {1}	Yaklaşık {0} kaldı · tahmini bitiş {1}	残り約 {0} · {1} ごろ完了
+Estimate_Whole	The whole video would take about {0} at this speed.	Ολόκληρο το βίντεο θα χρειαζόταν περίπου {0} με αυτή την ταχύτητα.	Das gesamte Video würde bei dieser Geschwindigkeit etwa {0} dauern.	La vidéo entière prendrait environ {0} à cette vitesse.	按此速度，整个视频大约需要 {0}。	Bu hızla videonun tamamı yaklaşık {0} sürer.	この速度では、動画全体に約 {0} かかります。
+Progress_FramesEta	Frame {0} of {1} · {2} fps · {3} elapsed · {4} left	Καρέ {0} από {1} · {2} fps · {3} πέρασαν · απομένουν {4}	Frame {0} von {1} · {2} fps · {3} vergangen · {4} verbleibend	Image {0} sur {1} · {2} fps · {3} écoulé · {4} restant	第 {0} 帧，共 {1} 帧 · {2} fps · 已用 {3} · 剩余 {4}	Kare {0}/{1} · {2} fps · {3} geçti · {4} kaldı	フレーム {0}/{1} · {2} fps · 経過 {3} · 残り {4}
+Progress_Frames	Frame {0} of {1} · {2} fps · {3} elapsed	Καρέ {0} από {1} · {2} fps · {3} πέρασαν	Frame {0} von {1} · {2} fps · {3} vergangen	Image {0} sur {1} · {2} fps · {3} écoulé	第 {0} 帧，共 {1} 帧 · {2} fps · 已用 {3}	Kare {0}/{1} · {2} fps · {3} geçti	フレーム {0}/{1} · {2} fps · 経過 {3}
+Progress_FramesOnly	Frame {0} · {1} fps · {2} elapsed	Καρέ {0} · {1} fps · {2} πέρασαν	Frame {0} · {1} fps · {2} vergangen	Image {0} · {1} fps · {2} écoulé	第 {0} 帧 · {1} fps · 已用 {2}	Kare {0} · {1} fps · {2} geçti	フレーム {0} · {1} fps · 経過 {2}
+Result_PreviewReady	Preview ready	Η δοκιμή είναι έτοιμη	Vorschau bereit	Aperçu prêt	预览已就绪	Önizleme hazır	プレビューの準備ができました
+Result_Complete	Upscale complete	Η αναβάθμιση ολοκληρώθηκε	Hochskalierung abgeschlossen	Agrandissement terminé	放大完成	Yükseltme tamamlandı	アップスケールが完了しました
+AppearanceNavText.Text	Appearance	Εμφάνιση	Darstellung	Apparence	外观	Görünüm	外観
+OutputNavText.Text	Output	Έξοδος	Ausgabe	Sortie	输出	Çıkış	出力
+ModelsNavText.Text	Models	Μοντέλα	Modelle	Modèles	模型	Modeller	モデル
+SettingsBackButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Back (Esc)	Πίσω (Esc)	Zurück (Esc)	Retour (Esc)	返回 (Esc)	Geri (Esc)	戻る（Esc）
+Section_Appearance	Appearance	Εμφάνιση	Darstellung	Apparence	外观	Görünüm	外観
+Section_Output	Output	Έξοδος	Ausgabe	Sortie	输出	Çıkış	出力
+Section_Models	Models	Μοντέλα	Modelle	Modèles	模型	Modeller	モデル
+BatchTab.Text	Batch	Μαζική επεξεργασία	Stapelverarbeitung	Lot	批处理	Toplu işlem	バッチ
+BatchAddText.Text	Add videos…	Προσθήκη βίντεο…	Videos hinzufügen…	Ajouter des vidéos…	添加视频…	Video ekle…	動画の追加…
+BatchAddCurrentButton.Content	Add current video	Προσθήκη τρέχοντος βίντεο	Aktuelles Video hinzufügen	Ajouter la vidéo actuelle	添加当前视频	Geçerli videoyu ekle	現在の動画を追加
+BatchClearButton.Content	Clear list	Εκκαθάριση λίστας	Liste leeren	Effacer la liste	清除列表	Listeyi temizle	一覧をクリア
+BatchStartText.Text	Upscale all	Αναβάθμιση όλων	Alle hochskalieren	Tout agrandir	全部放大	Tümünü yükselt	すべてアップスケール
+BatchEmptyText.Text	Drop videos or a folder here, or use Add videos. Each one is upscaled with the current upscale settings, one after another.	Αφήστε εδώ βίντεο ή φάκελο ή χρησιμοποιήστε την Προσθήκη βίντεο. Κάθε βίντεο αναβαθμίζεται με τις τρέχουσες ρυθμίσεις αναβάθμισης, το ένα μετά το άλλο.	Legen Sie Videos oder einen Ordner hier ab, oder verwenden Sie „Videos hinzufügen“. Die Videos werden nacheinander mit den aktuellen Hochskalierungseinstellungen hochskaliert.	Déposez des vidéos ou un dossier ici, ou utilisez Ajouter des vidéos. Chaque vidéo est agrandie avec les paramètres d'agrandissement actuels, l'une après l'autre.	将视频或文件夹拖放到此处，或使用“添加视频”。每个视频将依次使用当前放大设置进行放大。	Videoları veya bir klasörü buraya bırakın ya da Video ekle'yi kullanın. Her video, geçerli yükseltme ayarlarıyla sırayla yükseltilir.	ここに動画またはフォルダーをドロップするか、[動画の追加] を使用してください。各動画は現在のアップスケール設定で 1 つずつ順番にアップスケールされます。
+Unsaved_Save	Save	Αποθήκευση	Speichern	Enregistrer	保存	Kaydet	保存
+Unsaved_DontSave	Don't save	Χωρίς αποθήκευση	Nicht speichern	Ne pas enregistrer	不保存	Kaydetme	保存しない
+Unsaved_Cancel	Cancel	Ακύρωση	Abbrechen	Annuler	取消	İptal	キャンセル
+Err_BatchEmpty_Title	Add videos to the batch first	Προσθέστε πρώτα βίντεο στη μαζική επεξεργασία	Fügen Sie der Stapelverarbeitung zuerst Videos hinzu	Ajoutez d'abord des vidéos au lot	请先将视频添加到批处理	Önce toplu işleme video ekleyin	最初にバッチに動画を追加してください
+Err_BatchEmpty	Drop videos on the Batch tab, or use Add videos.	Αφήστε βίντεο στην καρτέλα Μαζική επεξεργασία ή χρησιμοποιήστε την Προσθήκη βίντεο.	Legen Sie Videos auf der Registerkarte „Stapelverarbeitung“ ab, oder verwenden Sie „Videos hinzufügen“.	Déposez des vidéos dans l'onglet Lot ou utilisez Ajouter des vidéos.	将视频拖放到“批处理”选项卡，或使用“添加视频”。	Toplu işlem sekmesine video bırakın veya Video ekle'yi kullanın.	[バッチ] タブに動画をドロップするか、[動画の追加] を使用してください。
+Batch_Waiting	Waiting	Σε αναμονή	Wartet	En attente	等待中	Bekliyor	待機中
+Batch_Running	Upscaling… {0}%	Αναβάθμιση… {0}%	Wird hochskaliert… {0} %	Agrandissement… {0} %	正在放大… {0}%	Yükseltiliyor… %{0}	アップスケール中… {0}%
+Batch_Done	Done in {0}	Ολοκληρώθηκε σε {0}	Abgeschlossen in {0}	Terminé en {0}	已完成，用时 {0}	{0} içinde tamamlandı	{0} で完了
+Batch_Failed	Failed (exit code {0})	Απέτυχε (κωδικός εξόδου {0})	Fehler (Exitcode {0})	Échec (code de sortie {0})	失败（退出代码 {0}）	Başarısız oldu (çıkış kodu {0})	失敗（終了コード {0}）
+Batch_Cancelled	Cancelled	Ακυρώθηκε	Abgebrochen	Annulé	已取消	İptal edildi	キャンセル済み
+Batch_NotFound	File not found	Το αρχείο δεν βρέθηκε	Datei nicht gefunden	Fichier introuvable	找不到文件	Dosya bulunamadı	ファイルが見つかりません
+Batch_SavedAs	Saved as {0}	Αποθηκεύτηκε ως {0}	Gespeichert als {0}	Enregistré sous {0}	已另存为 {0}	Farklı kaydedildi: {0}	{0} として保存
+Batch_RemoveTip	Remove from the list	Αφαίρεση από τη λίστα	Aus der Liste entfernen	Supprimer de la liste	从列表中删除	Listeden kaldır	一覧から削除
+Batch_Summary	{0} videos · {1} done	{0} βίντεο · {1} ολοκληρώθηκαν	{0} Videos · {1} abgeschlossen	{0} vidéos · {1} terminées	{0} 个视频 · 已完成 {1} 个	{0} video · {1} tamamlandı	動画 {0} 本 · {1} 本完了
+Batch_Item	Video {0} of {1}: {2}	Βίντεο {0} από {1}: {2}	Video {0} von {1}: {2}	Vidéo {0} sur {1} : {2}	第 {0} 个视频，共 {1} 个：{2}	Video {0}/{1}: {2}	動画 {0}/{1}：{2}
+Batch_Result	{0} of {1} videos upscaled.	Αναβαθμίστηκαν {0} από {1} βίντεο.	{0} von {1} Videos hochskaliert.	{0} vidéos agrandies sur {1}.	已放大 {0}/{1} 个视频。	{0}/{1} video yükseltildi.	{1} 本中 {0} 本の動画をアップスケールしました。
+Batch_Complete_Title	Batch complete	Η μαζική επεξεργασία ολοκληρώθηκε	Stapelverarbeitung abgeschlossen	Lot terminé	批处理完成	Toplu işlem tamamlandı	バッチが完了しました
+Batch_Partial_Title	Some videos weren't upscaled	Ορισμένα βίντεο δεν αναβαθμίστηκαν	Einige Videos wurden nicht hochskaliert	Certaines vidéos n'ont pas été agrandies	部分视频未放大	Bazı videolar yükseltilmedi	一部の動画はアップスケールされませんでした
+Status_BatchCancelled	Batch cancelled. Videos not yet upscaled stay in the list.	Η μαζική επεξεργασία ακυρώθηκε. Τα βίντεο που δεν αναβαθμίστηκαν παραμένουν στη λίστα.	Stapelverarbeitung abgebrochen. Noch nicht hochskalierte Videos bleiben in der Liste.	Lot annulé. Les vidéos pas encore agrandies restent dans la liste.	批处理已取消。尚未放大的视频仍保留在列表中。	Toplu işlem iptal edildi. Henüz yükseltilmemiş videolar listede kalır.	バッチをキャンセルしました。まだアップスケールされていない動画は一覧に残ります。
+Placeholder_BatchOther	Upscaling {0}. Live previews appear only for the video open in the studio.	Αναβάθμιση του {0}. Ζωντανές προεπισκοπήσεις εμφανίζονται μόνο για το βίντεο που είναι ανοιχτό στο στούντιο.	{0} wird hochskaliert. Livevorschauen werden nur für das im Studio geöffnete Video angezeigt.	Agrandissement de {0}. Les aperçus en direct n'apparaissent que pour la vidéo ouverte dans le studio.	正在放大 {0}。仅对工作室中打开的视频显示实时预览。	Yükseltiliyor: {0}. Canlı önizlemeler yalnızca stüdyoda açık olan video için görünür.	{0} をアップスケールしています。ライブ プレビューは、スタジオで開いている動画に対してのみ表示されます。
+Drag_AddToBatch	Add to batch	Προσθήκη στη μαζική επεξεργασία	Zur Stapelverarbeitung hinzufügen	Ajouter au lot	添加到批处理	Toplu işleme ekle	バッチに追加
+Log_BatchNotFound	Skipped {0}: file not found.	Παραλείφθηκε το {0}: το αρχείο δεν βρέθηκε.	{0} übersprungen: Datei nicht gefunden.	{0} ignoré : fichier introuvable.	已跳过 {0}：找不到文件。	Atlandı: {0} (dosya bulunamadı).	{0} をスキップしました：ファイルが見つかりません。
+SaveConfigAsButton.Label	Save as	Αποθήκευση ως	Speichern unter	Enregistrer sous	另存为	Farklı kaydet	名前を付けて保存
+SaveConfigAsButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	Save the current upscale settings to a new file (Ctrl+Shift+S)	Αποθήκευση των τρεχουσών ρυθμίσεων αναβάθμισης σε νέο αρχείο (Ctrl+Shift+S)	Aktuelle Hochskalierungseinstellungen in einer neuen Datei speichern (Ctrl+Shift+S)	Enregistrer les paramètres d'agrandissement actuels dans un nouveau fichier (Ctrl+Shift+S)	将当前放大设置保存到新文件 (Ctrl+Shift+S)	Geçerli yükseltme ayarlarını yeni bir dosyaya kaydet (Ctrl+Shift+S)	現在のアップスケール設定を新しいファイルに保存します（Ctrl+Shift+S）
+Config_Untitled	Unsaved configuration	Μη αποθηκευμένες ρυθμίσεις	Nicht gespeicherte Konfiguration	Configuration non enregistrée	未保存的配置	Kaydedilmemiş yapılandırma	未保存の構成
+Unsaved_Title	Do you want to save changes to {0}?	Θέλετε να αποθηκεύσετε τις αλλαγές στο {0};	Möchten Sie die Änderungen an {0} speichern?	Voulez-vous enregistrer les modifications apportées à {0} ?	是否要保存对 {0} 的更改？	{0} dosyasındaki değişiklikleri kaydetmek istiyor musunuz?	{0} への変更を保存しますか？
+Unsaved_TitleNew	Do you want to save your upscale settings as a configuration?	Θέλετε να αποθηκεύσετε τις ρυθμίσεις αναβάθμισης σε αρχείο ρυθμίσεων;	Möchten Sie Ihre Hochskalierungseinstellungen als Konfiguration speichern?	Voulez-vous enregistrer vos paramètres d'agrandissement en tant que configuration ?	是否要将放大设置保存为配置？	Yükseltme ayarlarınızı bir yapılandırma olarak kaydetmek istiyor musunuz?	アップスケール設定を構成として保存しますか？
+Unsaved_Message	Changes to the upscale settings are lost if they aren't saved.	Οι αλλαγές στις ρυθμίσεις αναβάθμισης θα χαθούν αν δεν αποθηκευτούν.	Änderungen an den Hochskalierungseinstellungen gehen verloren, wenn sie nicht gespeichert werden.	Les modifications des paramètres d'agrandissement seront perdues si elles ne sont pas enregistrées.	如果不保存，对放大设置所做的更改将会丢失。	Kaydedilmezse yükseltme ayarlarındaki değişiklikler kaybolur.	保存しないと、アップスケール設定への変更は失われます。
+FormatCombo.Header	Format	Μορφή	Format	Format	格式	Biçim	形式
+FormatCombo.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip	MKV also keeps the source's subtitle tracks and fonts	Το MKV διατηρεί επίσης τους υπότιτλους και τις γραμματοσειρές της πηγής	MKV behält außerdem die Untertitelspuren und Schriftarten der Quelle bei	MKV conserve aussi les pistes de sous-titres et les polices de la source	MKV 还会保留源中的字幕轨道和字体	MKV ayrıca kaynağın altyazı parçalarını ve yazı tiplerini korur	MKV では、ソースの字幕トラックとフォントも保持されます
