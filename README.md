@@ -59,6 +59,18 @@ to install:
 Builds go to a short path outside `%TEMP%` on purpose: the C++ toolchain breaks on paths
 over 260 characters. Pass `-BuildRoot <folder>` to use another short folder.
 
+### Installer
+
+```powershell
+.\build.ps1 -Installer
+```
+
+Also builds `%LOCALAPPDATA%\AiUpscalerBuild\installer\AiUpscaler.msi` with the
+[WiX Toolset](https://wixtoolset.org) (downloaded from NuGet by `dotnet build`; needs the
+.NET SDK). It installs the app for all users into Program Files with a Start menu shortcut,
+and a newer MSI upgrades an installed version in place. The version comes from
+`upscaler\Cargo.toml`.
+
 ### NVIDIA CUDA
 
 Every build includes both DirectML (any DX12 GPU) and the NVIDIA CUDA backend, which is often
@@ -124,7 +136,9 @@ converted to ONNX with [chaiNNer](https://chainner.app).
 | --- | --- |
 | [`upscaler/`](upscaler/) | Rust engine: decode → ONNX Runtime → encode, previews, capabilities |
 | [`gui/`](gui/) | WinUI 3 studio app (C++/WinRT, Windows App SDK 2.x, unpackaged) |
-| [`build.ps1`](build.ps1) | One-step build of both, bundled together |
+| [`build.ps1`](build.ps1) | One-step build of both, bundled together (`-Installer` adds the MSI) |
+| [`installer/`](installer/) | WiX MSI package: Program Files install, Start menu shortcut |
+| [`tools/make-icon/`](tools/make-icon/) | Draws the app icon (`gui\Assets\AppIcon.ico`) |
 
 ## Third-party software
 

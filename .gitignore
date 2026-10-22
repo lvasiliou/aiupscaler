@@ -20,3 +20,5 @@ models/
 # Tools
 tools/*/bin/
 tools/*/obj/
+installer/bin/
+installer/obj/

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- AI Upscaler installer: the whole app folder (app, Windows App SDK runtime, engine with
+     ONNX Runtime) into Program Files, a Start menu shortcut, and in-place upgrades. -->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package
+      Name="AI Upscaler"
+      Manufacturer="Lambros Vasiliou"
+      Version="$(ProductVersion)"
+      UpgradeCode="8D19C803-E77F-48F6-90B3-D825A022B43A"
+      Scope="perMachine"
+      Compressed="yes">
+
+    <!-- A newer installer replaces the old version; never the other way round. -->
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <Icon Id="AppIcon.ico" SourceFile="..\gui\Assets\AppIcon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon.ico" />
+    <Property Id="ARPURLINFOABOUT" Value="https://github.com/lvasiliou/aiupscaler" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="AI Upscaler" />
+    </StandardDirectory>
+
+    <!-- Everything the app build produced, except debugging and linker leftovers. -->
+    <Files Directory="INSTALLFOLDER" Include="$(AppDir)**">
+      <Exclude Files="$(AppDir)**\*.pdb" />
+      <Exclude Files="$(AppDir)**\*.lib" />
+      <Exclude Files="$(AppDir)**\*.exp" />
+    </Files>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Component Id="StartMenuShortcut">
+        <!-- Not advertised, so it takes the icon compiled into AiUpscaler.exe. -->
+        <Shortcut
+            Id="AppShortcut"
+            Name="AI Upscaler"
+            Description="Upscale videos with AI"
+            Target="[INSTALLFOLDER]AiUpscaler.exe"
+            WorkingDirectory="INSTALLFOLDER" />
+        <!-- Windows Installer tracks shortcuts by a per-user value, even in a per-machine install. -->
+        <RegistryValue Root="HKCU" Key="Software\AI Upscaler" Name="StartMenuShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <!-- Welcome, licence, install folder, progress, finish. -->
+    <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+  </Package>
+</Wix>

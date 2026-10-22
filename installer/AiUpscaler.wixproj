@@ -1,0 +1,19 @@
+<Project Sdk="WixToolset.Sdk/5.0.2">
+  <!-- MSI installer for the built app. build.ps1 -Installer builds it after the app, passing
+       AppDir (the app's bin folder) and ProductVersion. WiX comes from NuGet; nothing to install. -->
+  <PropertyGroup>
+    <OutputName>AiUpscaler</OutputName>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <InstallerPlatform>x64</InstallerPlatform>
+    <AppDir Condition="'$(AppDir)' == ''">$(LOCALAPPDATA)\AiUpscalerBuild\gui\bin\</AppDir>
+    <ProductVersion Condition="'$(ProductVersion)' == ''">0.1.0</ProductVersion>
+    <DefineConstants>AppDir=$(AppDir);ProductVersion=$(ProductVersion)</DefineConstants>
+    <!-- ICE03: Windows App SDK DLLs list many languages in their version resources, longer than
+         the File table's Language column; it only matters for version comparisons. ICE91: the
+         Start menu shortcut's folder resolves per machine at install time. -->
+    <SuppressIces>ICE03;ICE91</SuppressIces>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.2" />
+  </ItemGroup>
+</Project>

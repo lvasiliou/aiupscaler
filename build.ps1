@@ -8,7 +8,9 @@ param(
     # Not under %TEMP%: MSBuild's incremental C++ builds misbehave there (MSB8029).
     [string]$BuildRoot = (Join-Path $env:LOCALAPPDATA 'AiUpscalerBuild'),
     [ValidateSet('Release', 'Debug')]
-    [string]$Configuration = 'Release'
+    [string]$Configuration = 'Release',
+    # Also build the MSI installer (<BuildRoot>\installer\AiUpscaler.msi). WiX comes from NuGet.
+    [switch]$Installer
 )
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
@@ -57,3 +59,15 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Write-Host "`nDone: $guiRoot\bin\AiUpscaler.exe" -ForegroundColor Green
+
+if ($Installer)
+{
+    # The installer's version follows the engine's (upscaler\Cargo.toml).
+    $version = (Select-String -Path (Join-Path $root 'upscaler\Cargo.toml') -Pattern '^version\s*=\s*"([^"]+)"' | Select-Object -First 1).Matches[0].Groups[1].Value
+    Write-Host "== Building MSI installer $version" -ForegroundColor Cyan
+    $installerOut = Join-Path $BuildRoot 'installer'
+    dotnet build (Join-Path $root 'installer\AiUpscaler.wixproj') -c Release -nologo -v:minimal -o $installerOut `
+        "-p:AppDir=$guiRoot\bin\" "-p:ProductVersion=$version" "-p:BaseIntermediateOutputPath=$BuildRoot\installer-obj\"
+    if ($LASTEXITCODE -ne 0) { throw 'Installer build failed' }
+    Write-Host "Done: $installerOut\AiUpscaler.msi" -ForegroundColor Green
+}
