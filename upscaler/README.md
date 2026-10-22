@@ -22,8 +22,8 @@ ONNX Runtime itself is downloaded by the `ort` crate at build time.
 ## Build
 
 ```bash
-cargo build --release                  # CPU + DirectML GPU (on Windows)
-cargo build --release --features cuda  # also NVIDIA CUDA (needs CUDA 13.x + cuDNN 9 on PATH)
+cargo build --release                         # CPU, DirectML (Windows) and NVIDIA CUDA
+cargo build --release --no-default-features   # without CUDA
 ```
 
 If the Windows linker fails with `LNK1104` the path is too long; set a short

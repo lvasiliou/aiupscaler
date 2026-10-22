@@ -31,7 +31,7 @@ pub enum Device {
     Cpu,
     /// DirectX 12 GPU via DirectML (Windows; AMD, Intel or NVIDIA).
     Directml,
-    /// NVIDIA GPU via CUDA. Requires `--features cuda` and the CUDA/cuDNN runtime.
+    /// NVIDIA GPU via CUDA (built in by default). Needs the CUDA/cuDNN runtime installed.
     Cuda,
 }
 
@@ -142,7 +142,7 @@ fn build_session(environment: &Environment, model: &Path, device: Device, thread
         #[cfg(not(windows))]
         Device::Directml => bail!("DirectML is only available on Windows"),
         #[cfg(not(feature = "cuda"))]
-        Device::Cuda => bail!("this build has no CUDA support; rebuild with `--features cuda`"),
+        Device::Cuda => bail!("this build has no CUDA support; build it with the default `cuda` feature"),
         Device::Auto => unreachable!("resolved by the caller"),
     };
     builder.commit_from_file(model).map_err(ort_err)

@@ -22,8 +22,10 @@ serde_json = "1.0.154"
 ort = { version = "2.0.0-rc.14", features = ["directml"] }
 
 [features]
-default = []
-# NVIDIA CUDA backend for ONNX Runtime (needs the CUDA + cuDNN runtime installed).
+default = ["cuda"]
+# NVIDIA CUDA backend for ONNX Runtime, built in by default. It is only loaded when used, so
+# the same build runs everywhere: without an NVIDIA GPU and the CUDA + cuDNN runtime, CUDA
+# just reports as unavailable. `--no-default-features` builds without it.
 cuda = ["ort/cuda"]
 
 [profile.release]

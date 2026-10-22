@@ -1,6 +1,6 @@
 # Builds the Rust engine and the C++ WinUI 3 app, then bundles them together.
-# Output: <BuildRoot>\gui\bin\AiUpscaler.exe (with the engine in engine\);
-# with -Cuda: <BuildRoot>\gui-cuda\bin\AiUpscaler.exe.
+# Output: <BuildRoot>\gui\bin\AiUpscaler.exe (with the engine in engine\). The engine always
+# includes DirectML and NVIDIA CUDA; CUDA is used only on PCs that have the CUDA runtime.
 #
 # Build output goes to a short path because MIDL and the MSVC linker are not
 # long-path aware; deep project folders otherwise fail with LNK1104 / MIDL5157.
@@ -8,35 +8,22 @@ param(
     # Not under %TEMP%: MSBuild's incremental C++ builds misbehave there (MSB8029).
     [string]$BuildRoot = (Join-Path $env:LOCALAPPDATA 'AiUpscalerBuild'),
     [ValidateSet('Release', 'Debug')]
-    [string]$Configuration = 'Release',
-    # Also include the NVIDIA CUDA backend. The PC running the app then needs the CUDA 13.x
-    # runtime and cuDNN 9 (for CUDA 13) installed and on PATH. Built into separate folders
-    # (engine-cuda, gui-cuda) so the default build stays small.
-    [switch]$Cuda
+    [string]$Configuration = 'Release'
 )
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
 
-$flavor = if ($Cuda) { '-cuda' } else { '' }
-$cargoTarget = Join-Path $BuildRoot "engine$flavor"
-$guiRoot = Join-Path $BuildRoot "gui$flavor"
+$cargoTarget = Join-Path $BuildRoot 'engine'
+$guiRoot = Join-Path $BuildRoot 'gui'
 $packages = Join-Path $BuildRoot 'packages'
 
-Write-Host "== Building Rust engine$(if ($Cuda) { ' (with CUDA)' })" -ForegroundColor Cyan
+Write-Host '== Building Rust engine' -ForegroundColor Cyan
 Push-Location (Join-Path $root 'upscaler')
 try
 {
+    # upscaler\.cargo\config.toml picks the ONNX Runtime build with CUDA and DirectML.
     $env:CARGO_TARGET_DIR = $cargoTarget
-    if ($Cuda)
-    {
-        # Prebuilt ONNX Runtime for Windows ships CUDA 13 only.
-        $env:ORT_CUDA_VERSION = '13'
-        cargo build --release --features cuda
-    }
-    else
-    {
-        cargo build --release
-    }
+    cargo build --release
     if ($LASTEXITCODE -ne 0) { throw 'cargo build failed' }
 }
 finally
